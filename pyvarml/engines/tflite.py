@@ -3,9 +3,12 @@
 
 import numpy as np
 
-from tflite_runtime.interpreter import Interpreter
+try:
+    from tflite_runtime.interpreter import Interpreter
+except ImportError:
+    sys.exit("No TensorFlow Lite Runtime module found!")
 
-#from pyvarml.utils.timer import Timer
+from pyvarml.utils.timer import Timer
 
 class TFLiteInterpreter:
     def __init__(self, model_file_path=None):
@@ -13,6 +16,7 @@ class TFLiteInterpreter:
         self.input_details = None
         self.output_details = None
         self.result = None
+        self.inference_time = None
 
         if model_file_path is None:
             sys.exit("No model file specified!")
@@ -48,7 +52,10 @@ class TFLiteInterpreter:
         return np.argmax(self.result)
 
     def run_inference(self):
-        self.interpreter.invoke()
+        timer = Timer()
+        with timer.timeit():
+            self.interpreter.invoke()
+        self.inference_time = timer.time
 
 def run_inference(model_file_path, input_image):
     interpreter = Interpreter(model_path=model_file_path)
