@@ -6,8 +6,6 @@ from contextlib import contextmanager
 from datetime import timedelta
 from time import monotonic
 
-import numpy as np
-
 class Timer:
     def __init__(self):
         self.time = 0
