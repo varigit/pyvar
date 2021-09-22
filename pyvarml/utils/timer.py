@@ -1,6 +1,14 @@
 # Copyright 2021 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
+"""
+:platform: Unix/Yocto
+:synopsis: Python Class to calculate time.
+
+.. moduleauthor:: Diego Dorta <diego.d@variscite.com>
+    .. note:: 10/15/2021 [diego.d] First Version Released
+"""
+
 import collections
 from contextlib import contextmanager
 from datetime import timedelta
@@ -12,6 +20,9 @@ class Timer:
 
     @contextmanager
     def timeit(self):
+        """
+        The time is storage in the **time** attribute.
+        """
         begin = monotonic()
         try:
             yield
@@ -20,4 +31,7 @@ class Timer:
             self.convert(end - begin)
 
     def convert(self, elapsed):
+        """
+        Convert time from monotonic to seconds.
+        """
         self.time = str(timedelta(seconds=elapsed))
