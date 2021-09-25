@@ -1,6 +1,14 @@
 # Copyright 2021 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
+"""
+:platform: Unix/Host
+:synopsis: Python functions to train MNIST dataset (digits/fashion).
+
+.. moduleauthor:: Diego Dorta <diego.d@variscite.com>
+    .. note:: 10/15/2021 [diego.d] First Version Released
+"""
+
 import numpy as np
 
 import tensorflow as tf
@@ -8,6 +16,12 @@ assert float(tf.__version__[:3]) >= 2.4
 from tensorflow import keras
 
 def train_mnist_digit():
+    """
+    Function to train MNIST dataset for handwritten digits from Keras.
+
+    Returns:
+        Tuple: (tflite_model, test_loss, test_acc)
+    """
     mnist = keras.datasets.mnist
     (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
 
@@ -33,6 +47,12 @@ def train_mnist_digit():
     return tflite_model, test_loss, test_acc
 
 def train_mnist_fashion():
+    """
+    Function to train MNIST dataset for fashion from Keras.
+
+    Returns:
+        Tuple: (tflite_model, test_loss, test_acc)
+    """
     fashion_mnist = keras.datasets.fashion_mnist
     (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
 
