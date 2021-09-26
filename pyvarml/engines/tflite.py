@@ -3,11 +3,13 @@
 
 """
 :platform: Unix/Yocto
-:synopsis: Python Class to handle TensorFlow Lite inference engine.
+:synopsis: Python Engines Classes
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
     .. note:: 10/15/2021 [diego.d] First Version Released
 """
+
+import sys
 
 import numpy as np
 
@@ -20,9 +22,14 @@ from pyvarml.utils.timer import Timer
 
 class TFLiteInterpreter:
     """
-    **Constructor**
+    Python Class to handle TensorFlow Lite inference engine.
 
-    Specify the TensorFlow Lite model, otherwise it fails.
+    :ivar interpreter: variable to storage the TensorFlow Lite interpreter;
+    :ivar input_details: variable to storage the input details from model;
+    :ivar output_details: variable to storage the output details from inference;
+    :ivar result: variable to storage the results from inference;
+    :ivar inference_time: variable to storage the inference time;
+    :ivar model_file_path: variable to storage the model file path.
     """
     def __init__(self, model_file_path=None):
         self.interpreter = None
@@ -30,11 +37,8 @@ class TFLiteInterpreter:
         self.output_details = None
         self.result = None
         self.inference_time = None
-
-        if model_file_path is None:
-            sys.exit("No model file specified!")
-        else:
-            self.model_file_path = model_file_path
+        self.model_file_path = model_file_path
+        self.start()
 
     def start(self):
         """
@@ -94,6 +98,26 @@ class TFLiteInterpreter:
         if squeeze:
             return np.squeeze(self.interpreter.get_tensor(self.output_details[index]['index']))
         return self.interpreter.get_tensor(self.output_details[index]['index'])
+
+    # merge two methods
+    def get_classification_result(self, k=3):
+        """
+        Get the result after running the classification inference.
+
+        Args:
+            k (int): number of top results.
+
+        Returns:
+            None. The result is storage in the result variable.
+        """
+        output_details = self.interpreter.get_output_details()[0]
+        output = np.squeeze(self.interpreter.get_tensor(output_details['index']))
+
+        top_k = output.argsort()[-k:][::-1]
+        self.result = []
+        for i in top_k:
+            score = float(output[i] / 255.0)
+            self.result.append((i, score))
 
     def get_mnist_result(self):
         """
