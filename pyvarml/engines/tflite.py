@@ -119,6 +119,17 @@ class TFLiteInterpreter:
             score = float(output[i] / 255.0)
             self.result.append((i, score))
 
+    def get_detection_result(self):
+        positions = self.get_result(0, squeeze=True)
+        classes = self.get_result(1, squeeze=True)
+        scores = self.get_result(2, squeeze=True)
+
+        self.result = []
+        for idx, score in enumerate(scores):
+            if score > 0.5:
+                self.result.append({'pos': positions[idx], '_id': classes[idx]})
+
+
     def get_mnist_result(self):
         """
         Get the MNIST result.
