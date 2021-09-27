@@ -21,7 +21,7 @@ Image Classification
         model_file_path = ftp.model[0]
         label_file_path = ftp.label[0]
 
-    labels = Label(label_file_path)
+    labels = Label(label_file_path, "classification")
 
     engine = TFLiteInterpreter(model_file_path)
 
@@ -33,6 +33,7 @@ Image Classification
     engine.get_classification_result()
 
     output_image = my_image.put_info(
+                            "classification",
                             my_image.image_original,
                             engine.result,
                             labels.list,
