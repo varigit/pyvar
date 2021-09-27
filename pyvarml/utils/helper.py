@@ -9,6 +9,10 @@
     .. note:: 10/15/2021 [diego.d] First Version Released
 """
 
+import colorsys
+import random
+import re
+
 import cv2
 import numpy as np
 
@@ -23,8 +27,9 @@ class Label:
     :ivar labels_file: variable to storage the labels file path;
     :ivar list: variable to storage the read labels;
     """
-    def __init__(self, labels_file_path):
+    def __init__(self, labels_file_path, category=None):
         self.labels_file = labels_file_path
+        self.category = category
         self.list = []
         self.read_labels()
 
@@ -32,9 +37,15 @@ class Label:
         """
         Method to read the labels file and save it as a list.
         """
-        with open(self.labels_file, 'r') as f:
-            self.list = [line.strip() for line in f.readlines()]
-            f.close()
+        if self.category is "classification":
+            with open(self.labels_file, 'r') as f:
+                self.list = [line.strip() for line in f.readlines()]
+                f.close()
+        elif self.category is "detection":
+            p = re.compile(r'\s*(\d+)(.+)')
+            with open(self.labels_file, 'r', encoding='utf-8') as f:
+                lines = (p.match(line).groups() for line in f.readlines())
+                self.list =  {int(num): text.strip() for num, text in lines}
 
 class Images:
     """
@@ -129,7 +140,17 @@ class Images:
                             dtype=np.float32) / 255.0,
                             0) if expand_dims else image
 
-    def put_info(self, image=None, top_result=None, labels=None,
+    def generate_colors(self, labels):
+        hsv_tuples = [(x / len(labels), 1., 1.) for x in range(len(labels))]
+        colors = list(map(lambda x: colorsys.hsv_to_rgb(*x), hsv_tuples))
+        colors = list(map(lambda x: (int(x[0] * 255), int(x[1] * 255),
+                                     int(x[2] * 255)), colors))
+        random.seed(10101)
+        random.shuffle(colors)
+        random.seed(None)
+        return colors
+
+    def put_info(self, category=None, image=None, top_result=None, labels=None,
                        inference_time=None, model_name=None, source_file=None):
         """
         Include information on image/frame: inference time, scores, model name,
@@ -147,25 +168,64 @@ class Images:
             The imagen (numpy array) with the overlayed information.
         """
         if self.scores_info:
-            for idx, (i, score) in enumerate (top_result):
-                label_position = (3, 35 * idx + 60)
+            if category is "classification":
+                for idx, (i, score) in enumerate (top_result):
+                    label_position = (3, 35 * idx + 60)
+                    inference_position = (3, 20)
+                    cv2.putText(
+                        image,
+                        f"{labels[i]} - {score:0.4f}",
+                        label_position,
+                        FONT['hershey'],
+                        FONT['size'],
+                        FONT['color']['black'],
+                        FONT['thickness'] + 2)
+                    cv2.putText(
+                        image,
+                        f"{labels[i]} - {score:0.4f}",
+                        label_position,
+                        FONT['hershey'],
+                        FONT['size'],
+                        FONT['color']['blue'],
+                        FONT['thickness'])
+            elif category is "detection":
+                colors = self.generate_colors(labels)
                 inference_position = (3, 20)
-                cv2.putText(
-                    image,
-                    f"{labels[i]} - {score:0.4f}",
-                    label_position,
-                    FONT['hershey'],
-                    FONT['size'],
-                    FONT['color']['black'],
-                    FONT['thickness'] + 2)
-                cv2.putText(
-                    image,
-                    f"{labels[i]} - {score:0.4f}",
-                    label_position,
-                    FONT['hershey'],
-                    FONT['size'],
-                    FONT['color']['blue'],
-                    FONT['thickness'])
+                image_height, image_width, _ = image.shape
+                for obj in top_result:
+                    pos = obj['pos']
+                    _id = obj['_id']
+
+                    x1 = int(pos[1] * image_width)
+                    x2 = int(pos[3] * image_width)
+                    y1 = int(pos[0] * image_height)
+                    y2 = int(pos[2] * image_height)
+
+                    top = max(0, np.floor(y1 + 0.5).astype('int32'))
+                    left = max(0, np.floor(x1 + 0.5).astype('int32'))
+                    bottom = min(image_height, np.floor(y2 + 0.5).astype('int32'))
+                    right = min(image_width, np.floor(x2 + 0.5).astype('int32'))
+
+                    label_size = cv2.getTextSize(
+                                     labels[_id], FONT['hershey'],
+                                     FONT['size'], FONT['thickness'])[0]
+
+                    label_rect_left = int(left - 3)
+                    label_rect_top = int(top - 3)
+                    label_rect_right = int(left + 3 + label_size[0])
+                    label_rect_bottom = int(top - 5 - label_size[1])
+
+                    cv2.rectangle(
+                        image, (left, top), (right, bottom),
+                        colors[int(_id) % len(colors)], 6)
+                    cv2.rectangle(
+                        image, (label_rect_left, label_rect_top),
+                        (label_rect_right, label_rect_bottom),
+                        colors[int(_id) % len(colors)], -1)
+                    cv2.putText(
+                        image, labels[_id], (left, int(top - 4)),
+                        FONT['hershey'], FONT['size'],
+                        FONT['color']['black'], FONT['thickness'])
 
         if self.inference_time_info:
             cv2.putText(
