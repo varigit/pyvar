@@ -18,13 +18,14 @@ import numpy as np
 
 from PIL import Image
 
-from pyvarml.utils.config import FONT, INF_TIME_MSG
+from pyvarml.utils.config import FONT, INF_TIME_MSG, FPS_MSG
 
 class Overlay:
     def __init__(self):
         self.inference_time_info = True
         self.scores_info = True
         self.extra_info = True
+        self.framerate_info = False
 
     def generate_colors(self, labels):
         hsv_tuples = [(x / len(labels), 1., 1.) for x in range(len(labels))]
@@ -37,8 +38,9 @@ class Overlay:
         return colors
 
 
-    def put_info(self, category=None, image=None, top_result=None, labels=None,
-                       inference_time=None, model_name=None, source_file=None):
+    def info(self, category=None, image=None, top_result=None,
+                   labels=None, inference_time=None, model_name=None,
+                   source_file=None, fps=None):
         """
         Include information on image/frame: inference time, scores, model name,
         and source file.
@@ -50,6 +52,7 @@ class Overlay:
             inference_time (str): inference time from TFLiteInterpreter class.
             model_name (str): the model name.
             source_file (str): the source file name.
+            fps (float): fpsit from Framerate class.
 
         Returns:
             The imagen (numpy array) with the overlayed information.
@@ -140,4 +143,16 @@ class Overlay:
             cv2.putText(
                 image, f"model: {model_name}", (3, y_offset), FONT['hershey'],
                 0.5, FONT['color']['white'], 1, cv2.LINE_AA)
+
+        if self.framerate_info:
+            fps_msg = f"{FPS_MSG}: {int(fps)}"
+            x_offset = image.shape[1] - (cv2.getTextSize(
+                                             fps_msg, FONT['hershey'],
+                                             0.8, 2)[0][0] + 10)
+            cv2.putText(
+                image, fps_msg, (x_offset, 25), FONT['hershey'], 0.8,
+                FONT['color']['black'], 2, cv2.LINE_AA)
+            cv2.putText(
+                image, fps_msg, (x_offset, 25), FONT['hershey'], 0.8,
+                FONT['color']['white'], 1, cv2.LINE_AA)
         return image
