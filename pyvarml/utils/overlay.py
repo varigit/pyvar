@@ -20,6 +20,9 @@ from PIL import Image
 
 from pyvarml.utils.config import FONT, INF_TIME_MSG, FPS_MSG
 
+CLASSIFICATION = "classification"
+DETECTION = "detection"
+
 class Overlay:
     def __init__(self):
         self.inference_time_info = True
@@ -27,11 +30,18 @@ class Overlay:
         self.extra_info = True
         self.framerate_info = False
 
-    def generate_colors(self, labels):
+    @staticmethod
+    def generate_colors(labels):
         hsv_tuples = [(x / len(labels), 1., 1.) for x in range(len(labels))]
-        colors = list(map(lambda x: colorsys.hsv_to_rgb(*x), hsv_tuples))
-        colors = list(map(lambda x: (int(x[0] * 255), int(x[1] * 255),
-                                     int(x[2] * 255)), colors))
+        colors = list(
+                     map(
+                         lambda x: colorsys.hsv_to_rgb(*x), hsv_tuples))
+        colors = list(
+                     map(
+                         lambda x:
+                            (int(x[0] * 255),
+                             int(x[1] * 255),
+                             int(x[2] * 255)), colors))
         random.seed(10101)
         random.shuffle(colors)
         random.seed(None)
@@ -58,7 +68,7 @@ class Overlay:
             The imagen (numpy array) with the overlayed information.
         """
         if self.scores_info:
-            if category is "classification":
+            if category is CLASSIFICATION:
                 for idx, (i, score) in enumerate (top_result):
                     label_position = (3, 35 * idx + 60)
                     inference_position = (3, 20)
@@ -78,7 +88,7 @@ class Overlay:
                         FONT['size'],
                         FONT['color']['blue'],
                         FONT['thickness'])
-            elif category is "detection":
+            elif category is DETECTION:
                 colors = self.generate_colors(labels)
                 inference_position = (3, 20)
                 image_height, image_width, _ = image.shape
