@@ -16,8 +16,12 @@ import shutil
 import sys
 
 from pyvarml.config import CACHEDIR
-from pyvarml.config import FTP_HOST, FTP_USER, FTP_PASS
-from pyvarml.config import TFLITE, TXT, ZIP
+from pyvarml.utils.config import FTP_HOST, FTP_USER, FTP_PASS
+from pyvarml.utils.config import DEFAULT_PACKAGES
+from pyvarml.utils.config import TFLITE, TXT, ZIP
+
+CLASSIFICATION = "classification"
+DETECTION = "detection"
 
 class FTP:
     """
@@ -43,7 +47,8 @@ class FTP:
         except ftplib.all_errors as error:
             sys.exit(error)
             
-    def retrieve_package(self, package_dir, package_filename):
+    def retrieve_package(self, package_dir=None, package_filename=None,
+                               category=None):
         """
         Retrieve package from the FTP server.
         
@@ -55,6 +60,14 @@ class FTP:
             if **success**, return **True**
             if **not**, return **False**  
         """
+        if category is not None:
+            if category is CLASSIFICATION:
+                package_dir = DEFAULT_PACKAGES[CLASSIFICATION][0]
+                package_filename = DEFAULT_PACKAGES[CLASSIFICATION][1]
+            elif category is DETECTION:
+                package_dir = DEFAULT_PACKAGES[DETECTION][0]
+                package_filename = DEFAULT_PACKAGES[DETECTION][1]
+
         package_file = os.path.join(self.cachedir, package_filename)
         try:
             self.ftp.cwd(package_dir)
@@ -90,5 +103,7 @@ class FTP:
         """
         Get the model and label names from the downloaded package.        
         """
-        self.model = glob.glob(os.path.join(package_name_path, TFLITE))
-        self.label = glob.glob(os.path.join(package_name_path, TXT))
+        model_list = glob.glob(os.path.join(package_name_path, TFLITE))
+        self.model = model_list[0]
+        label_list = glob.glob(os.path.join(package_name_path, TXT))
+        self.label = label_list[0]
