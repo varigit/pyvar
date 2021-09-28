@@ -9,25 +9,21 @@ Retrieve from Variscite FTP
 
 1. To retrieve a specific ML model from Variscite's FTP server, see the example:
 
-.. code-block:: python
+.. literalinclude:: examples/utils/variscite_ftp.py
+   :language: python
+   :linenos:
+   :caption: **Source code**: `variscite_ftp.py`_
+   :name: Retrieve from Variscite FTP
+   :emphasize-lines: 5
 
-    from pyvarml.utils.retriever import FTP
-
-    foo = FTP()
-
-    package_dir = "pyvarml/classification/"
-    package_filename = "mobilenet_v1_1.0_224_quant.zip"
-
-    if foo.retrieve_package(package_dir, package_filename):
-        print(f"Model: {foo.model}")
-        print(f"Label: {foo.label}")
+.. _variscite_ftp.py: include_link_to_git
 
 2. The output is similar to the one below:
 
 .. code-block:: console
 
-    Model: ['/home/venus/.cache/pyvarml/mobilenet_v1_1.0_224_quant/mobilenet_v1_1.0_224_quant.tflite']
-    Label: ['/home/venus/.cache/pyvarml/mobilenet_v1_1.0_224_quant/labels_mobilenet_quant_v1_224.txt']
+    Model: ~/.cache/pyvarml/mobilenet_v1_1.0_224_quant/mobilenet_v1_1.0_224_quant.tflite
+    Label: ~/.cache/pyvarml/mobilenet_v1_1.0_224_quant/labels_mobilenet_quant_v1_224.txt
 
 .. NOTE::
     Check the available model packages file at the `FTP`_  from Variscite.
@@ -39,13 +35,13 @@ Retrieve from Other FTP
 
 1. To retrieve other model packages files from other FTP, see the example:
 
-.. code-block:: python
+.. literalinclude:: examples/utils/other_ftp.py
+   :language: python
+   :linenos:
+   :caption: **Source code**: `other_ftp.py`_
+   :name: Retrieve from Other FTP
 
-    from pyvarml.utils.retriever import FTP
-
-    foo = FTP(host="ftp_host_link", user="ftp_user", passwd="ftp_passwd")
-    
-    ...
+.. _other_ftp.py: include_link_to_git
 
 .. IMPORTANT::
     The current version only supports packages in (.zip) format.
@@ -55,15 +51,13 @@ Calculate Time
 
 1. To calculate the time, see the example:
 
-.. code-block:: python
+.. literalinclude:: examples/utils/calculate_time.py
+   :language: python
+   :linenos:
+   :caption: **Source code**: `calculate_time.py`_
+   :name: Calculate Time
 
-    from pyvarml.utils.timer import Timer
-    
-    foo = Timer()
-    with foo.timeit():
-        ...
-    
-    print(f"Time: {foo.time}")
+.. _calculate_time.py: include_link_to_git
 
 2. The output is similar to the one below:
 
@@ -76,15 +70,14 @@ Convert Image
 
 1. To convert an image to gray scale, see the example:
 
-.. code-block:: python
+.. literalinclude:: examples/utils/convert_grayscale.py
+   :language: python
+   :linenos:
+   :caption: **Source code**: `convert_grayscale.py`_
+   :name: Convert Image
+   :emphasize-lines: 3
 
-    from pyvarml.utils.helper import Images
-
-    foo = Images("dogs.jpg")
-
-    foo.convert_rgb_to_gray_scale(100, 100, False)
-
-    print(f"Shape: {foo.converted.shape}")
+.. _convert_grayscale.py: include_link_to_git
 
 2. The output is similar to the one below:
 
@@ -98,8 +91,8 @@ Convert Image
 | |dogs|                | |dogs-converted|      |
 +-----------------------+-----------------------+
 
-.. |dogs| image:: images/dogs.jpg
+.. |dogs| image:: examples/utils/media/dogs.jpg
    :width: 60%
    
-.. |dogs-converted| image:: images/dogs-converted.jpg
+.. |dogs-converted| image:: examples/utils/media/dogs-converted.jpg
    :width: 30%
