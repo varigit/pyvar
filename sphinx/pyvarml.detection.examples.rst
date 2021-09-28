@@ -28,10 +28,10 @@ Image Detection Example
 | |street|               | |street_detected|      |
 +------------------------+------------------------+
 
-.. |street| image:: images/street.png
+.. |street| image:: examples/detection/media/street.png
    :width: 100%
 
-.. |street_detected| image:: images/street_detected.png
+.. |street_detected| image:: examples/detection/media/street_detected.png
    :width: 100%
 
 Video Detection
