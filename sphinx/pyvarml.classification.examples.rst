@@ -28,10 +28,10 @@ Image Classification Example
 | |car|                  | |dogs-converted|       |
 +------------------------+------------------------+
 
-.. |car| image:: images/car.jpg
+.. |car| image:: examples/classification/media/car.jpg
    :width: 100%
    
-.. |dogs-converted| image:: images/car_classified.jpg
+.. |dogs-converted| image:: examples/classification/media/car_classified.jpg
    :width: 100%
 
 
