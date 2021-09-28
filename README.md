@@ -32,9 +32,9 @@ $ firefox _build/html/index.html
 
 To learn how to build the package, please refer to the API documentation.
 
-### Development Status: Planning
+### Development Status
 
-**0.0.1**
+**0.0.1**: Planning
 - Python API for Machine Learning.
   
 ### Copyright and License
