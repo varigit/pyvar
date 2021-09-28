@@ -1,14 +1,29 @@
 pyvarml.utils
 =============
 
-pyvarml.utils.helper
+pyvarml.utils.images
 --------------------
 
-.. automodule:: pyvarml.utils.helper
+.. automodule:: pyvarml.utils.images
    :members:
    :undoc-members:
    :inherited-members:
 
+pyvarml.utils.label
+-------------------
+
+.. automodule:: pyvarml.utils.label
+   :members:
+   :undoc-members:
+   :inherited-members:
+
+pyvarml.utils.overlay
+---------------------
+
+.. automodule:: pyvarml.utils.overlay
+   :members:
+   :undoc-members:
+   :inherited-members:
 
 pyvarml.utils.framerate
 -----------------------
