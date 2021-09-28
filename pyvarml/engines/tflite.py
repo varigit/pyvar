@@ -82,24 +82,25 @@ class TFLiteInterpreter:
         """
         self.interpreter.set_tensor(self.input_details[0]['index'], image)
 
-    # merge two methods below
     def get_result(self, index, squeeze=False):
         """
         Get the result after running the inference.
 
         Args:
             index: index of the result
-            squeeze: if the result is squeeze or not.
+            squeeze: if the result is squeezed or not.
 
         Returns:
-            if **squeeze**, return **squeeze**
+            if **squeeze**, return **squeezed**
             if **not**, return **not squeeze**
         """
         if squeeze:
-            return np.squeeze(self.interpreter.get_tensor(self.output_details[index]['index']))
-        return self.interpreter.get_tensor(self.output_details[index]['index'])
+            return np.squeeze(
+                      self.interpreter.get_tensor(
+                                       self.output_details[index]['index']))
+        return self.interpreter.get_tensor(
+                                self.output_details[index]['index'])
 
-    # merge two methods
     def get_classification_result(self, k=3):
         """
         Get the result after running the classification inference.
@@ -108,7 +109,7 @@ class TFLiteInterpreter:
             k (int): number of top results.
 
         Returns:
-            None. The result is storage in the result variable.
+            None. The result is storage in the result attribute.
         """
         output_details = self.interpreter.get_output_details()[0]
         output = np.squeeze(self.interpreter.get_tensor(output_details['index']))
@@ -119,16 +120,24 @@ class TFLiteInterpreter:
             score = float(output[i] / 255.0)
             self.result.append((i, score))
 
-    def get_detection_result(self):
+    def get_detection_result(self, confidence=0.5):
+        """
+        Get the result after running the detection inference.
+        
+        Args:
+            confidence (float): score confidence, 0.5 is the default one.
+
+        Returns:
+            None. The result is storage in the result attribute.
+        """
         positions = self.get_result(0, squeeze=True)
         classes = self.get_result(1, squeeze=True)
         scores = self.get_result(2, squeeze=True)
 
         self.result = []
         for idx, score in enumerate(scores):
-            if score > 0.5:
+            if score > confidence:
                 self.result.append({'pos': positions[idx], '_id': classes[idx]})
-
 
     def get_mnist_result(self):
         """
@@ -137,32 +146,18 @@ class TFLiteInterpreter:
         Returns:
             The digits result.
         """
-        self.result = self.interpreter.tensor(self.interpreter.get_output_details()[0]["index"])()[0]
+        self.result = self.interpreter.tensor(
+                         self.interpreter.get_output_details()[0]["index"])()[0]
         return np.argmax(self.result)
 
     def run_inference(self):
         """
         Run the inference on the image/frame set in the set_image() method.
+        
+        Returns:
+            None. The inference time is storage in the inference_time attribute.
         """
         timer = Timer()
         with timer.timeit():
             self.interpreter.invoke()
         self.inference_time = timer.time
-
-def run_inference(model_file_path, input_image):
-    """
-    Run the inference quickly.
-
-    Args:
-        model_file_path: path to the TensorFlow Lite.
-        input_image: path to the image/frame to the inferenced.
-
-    Returns:
-        The result of the inference.
-    """
-    interpreter = Interpreter(model_path=model_file_path)
-    interpreter.allocate_tensors()
-    interpreter.set_tensor(interpreter.get_input_details()[0]["index"], input_image)
-    interpreter.invoke()
-    result = interpreter.tensor(interpreter.get_output_details()[0]["index"])()[0]
-    return result
