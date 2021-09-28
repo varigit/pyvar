@@ -16,3 +16,20 @@ FONT = {'hershey': cv2.FONT_HERSHEY_SIMPLEX,
                   'red': (0, 0, 255),
                   'white': (255, 255, 255)},
         'thickness': 2}
+
+
+# FTP Credentials
+FTP_HOST = "ftp.variscite.com"
+FTP_USER = "customerv"
+FTP_PASS = "Variscite1"
+
+# Extensions
+TFLITE = "*.tflite"
+TXT = "*.txt"
+ZIP = ".zip"
+
+# Default Packages from FTP
+DEFAULT_PACKAGES = {'classification': ["pyvarml/classification/",
+                                       "mobilenet_v1_1.0_224_quant.zip"],
+                    'detection': ["pyvarml/detection/",
+                                  "ssd_mobilenet_v1_1_default_1.zip"]}
