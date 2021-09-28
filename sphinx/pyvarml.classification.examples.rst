@@ -25,13 +25,13 @@ Image Classification Example
 +------------------------+------------------------+
 | **Example**            | **Example Classified** |
 +========================+========================+
-| |car|                  | |dogs-converted|       |
+| |car|                  | |car-converted|        |
 +------------------------+------------------------+
 
 .. |car| image:: examples/classification/media/car.jpg
    :width: 100%
    
-.. |dogs-converted| image:: examples/classification/media/car_classified.jpg
+.. |car-converted| image:: examples/classification/media/car_classified.jpg
    :width: 100%
 
 
