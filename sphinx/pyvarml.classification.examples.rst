@@ -1,47 +1,26 @@
 Classification Examples
 =======================
 
-Image Classification
---------------------
+.. NOTE::
+    The classification examples use a starter quantized model from `TensorFlow Lite`_.
+
+.. _TensorFlow Lite: https://www.tensorflow.org/lite/guide/hosted_models
+
+Image Classification Example
+----------------------------
 
 1. To create a simple image classification, see the example:
 
-.. code-block:: python
+.. literalinclude:: examples/classification/image_classification.py
+   :language: python
+   :linenos:
+   :caption: **Source code**: `image_classification.py`_
+   :name: Image Classification Example
+   :emphasize-lines: 18
 
-    from pyvarml.engines.tflite import TFLiteInterpreter
-    from pyvarml.utils.helper import Label, Images
-    from pyvarml.utils.retriever import FTP
-    from pyvarml.utils.timer import Timer
+.. _image_classification.py: include_link_to_git
 
-    ftp = FTP()
-    package_dir = "pyvarml/classification/"
-    package_filename = "mobilenet_v1_1.0_224_quant.zip"
-
-    if ftp.retrieve_package(package_dir, package_filename):
-        model_file_path = ftp.model[0]
-        label_file_path = ftp.label[0]
-
-    labels = Label(label_file_path, "classification")
-
-    engine = TFLiteInterpreter(model_file_path)
-
-    my_image = Images("car.jpg")
-    my_image.resize(engine_input_details=engine.input_details)
-
-    engine.set_image(my_image.resized)
-    engine.run_inference()
-    engine.get_classification_result()
-
-    output_image = my_image.put_info(
-                            "classification",
-                            my_image.image_original,
-                            engine.result,
-                            labels.list,
-                            engine.inference_time,
-                            model_file_path,
-                            my_image.image)
-
-    my_image.show("Classification Example", output_image)
+2. See the result:
 
 +------------------------+------------------------+
 | **Example**            | **Example Classified** |
@@ -56,11 +35,36 @@ Image Classification
    :width: 100%
 
 
-Video Classification
---------------------
+Video Classification Example
+----------------------------
+
+1. To create a simple video classification, see the example:
+
+.. literalinclude:: examples/classification/video_classification.py
+   :language: python
+   :linenos:
+   :caption: **Source code**: `video_classification.py`_
+   :name: Video Classification Example
+   :emphasize-lines: 19
+
+.. _video_classification.py: include_link_to_git
 
 
-Real Time Classification
-------------------------
+Real Time Classification Example
+--------------------------------
+
+1. To create a simple real time classification, see the example:
+
+.. literalinclude:: examples/classification/realtime_classification.py
+   :language: python
+   :linenos:
+   :caption: **Source code**: `realtime_classification.py`_
+   :name: Real Time Classification Example
+   :emphasize-lines: 20
+
+.. _realtime_classification.py: include_link_to_git
+
+User Interface Example
+----------------------
 
 
