@@ -30,8 +30,40 @@ System on Modules
 Installation
 ------------
 
+Build the Package
+~~~~~~~~~~~~~~~~~
+
+1. Clone the pyvarml repository:
+
+.. code-block:: console
+
+    $ git clone https://github.com/varijig/pyvarml
+
+2. Build the pyvarml package:
+
+.. code-block:: console
+
+    $ cd pyvarml/
+    $ python3 setup.py sdist
+    
+3. Copy the package to the SoM:
+
+.. code-block:: console
+
+    $ scp dist/<package> root@<IP_ADDRESS>:/home/root
+    
+4. On the SoM, install the package:
+
+.. code-block:: console
+
+    # pip3 install <package>
+
+
 Quick Installation using Pypi
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. NOTE::
+    Not uploaded yet.
 
 1. Use pip3 tool to install the package located at Pypi repository:
 
@@ -42,3 +74,6 @@ Quick Installation using Pypi
 
 Yocto Package Build
 -------------------
+
+.. NOTE::
+    Not done yet.
