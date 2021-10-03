@@ -52,7 +52,17 @@ class Video:
         """
         self.video_capture.release()
         cv2.destroyAllWindows()        
-    
+
+    def save(self, name=None, image=None):
+        """
+        Method to save image.
+
+        Args:
+            name (str): name of the output image;
+            image (numpy array): set the image to be saved.
+        """
+        cv2.imwrite(name, image)
+
     def loop(self):
         """
         Check if video is opened.
