@@ -1,14 +1,6 @@
 pyvarml.utils
 =============
 
-pyvarml.utils.images
---------------------
-
-.. automodule:: pyvarml.utils.images
-   :members:
-   :undoc-members:
-   :inherited-members:
-
 pyvarml.utils.label
 -------------------
 

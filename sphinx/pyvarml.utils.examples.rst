@@ -16,7 +16,7 @@ Retrieve from Variscite FTP
    :name: Retrieve from Variscite FTP
    :emphasize-lines: 5
 
-.. _variscite_ftp.py: include_link_to_git
+.. _variscite_ftp.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/utils/variscite_ftp.py
 
 2. The output is similar to the one below:
 
@@ -41,7 +41,7 @@ Retrieve from Other FTP
    :caption: **Source code**: `other_ftp.py`_
    :name: Retrieve from Other FTP
 
-.. _other_ftp.py: include_link_to_git
+.. _other_ftp.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/utils/other_ftp.py
 
 .. IMPORTANT::
     The current version only supports packages in (.zip) format.
@@ -57,42 +57,10 @@ Calculate Time
    :caption: **Source code**: `calculate_time.py`_
    :name: Calculate Time
 
-.. _calculate_time.py: include_link_to_git
+.. _calculate_time.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/utils/calculate_time.py
 
 2. The output is similar to the one below:
 
 .. code-block:: console
  
     Time: 0:00:03.000196
-
-Convert Image
-~~~~~~~~~~~~~
-
-1. To convert an image to gray scale, see the example:
-
-.. literalinclude:: examples/utils/convert_grayscale.py
-   :language: python
-   :linenos:
-   :caption: **Source code**: `convert_grayscale.py`_
-   :name: Convert Image
-   :emphasize-lines: 3
-
-.. _convert_grayscale.py: include_link_to_git
-
-2. The output is similar to the one below:
-
-.. code-block:: console
-
-    Shape: (100, 100)
-
-+-----------------------+-----------------------+
-| **Original**          | **Converted**         |
-+=======================+=======================+
-| |dogs|                | |dogs-converted|      |
-+-----------------------+-----------------------+
-
-.. |dogs| image:: examples/utils/media/dogs.jpg
-   :width: 60%
-   
-.. |dogs-converted| image:: examples/utils/media/dogs-converted.jpg
-   :width: 30%

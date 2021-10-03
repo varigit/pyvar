@@ -18,7 +18,7 @@ Image Classification Example
    :name: Image Classification Example
    :emphasize-lines: 18
 
-.. _image_classification.py: include_link_to_git
+.. _image_classification.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/classification/image_classification.py
 
 2. See the result:
 
@@ -47,8 +47,21 @@ Video Classification Example
    :name: Video Classification Example
    :emphasize-lines: 19
 
-.. _video_classification.py: include_link_to_git
+.. _video_classification.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/classification/video_classification.py
 
+2. See the result:
+
++------------------------+------------------------+
+| **Example**            | **Example Classified** |
++========================+========================+
+| |street|               | |street-classified|    |
++------------------------+------------------------+
+
+.. |street| image:: examples/classification/media/street_video.gif
+   :width: 100%
+
+.. |street-classified| image:: examples/classification/media/street_classified_video.gif
+   :width: 100%
 
 Real Time Classification Example
 --------------------------------
@@ -62,7 +75,7 @@ Real Time Classification Example
    :name: Real Time Classification Example
    :emphasize-lines: 20
 
-.. _realtime_classification.py: include_link_to_git
+.. _realtime_classification.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/classification/realtime_classification.py
 
 User Interface Example
 ----------------------

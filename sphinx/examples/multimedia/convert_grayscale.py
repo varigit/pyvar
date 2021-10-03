@@ -1,4 +1,4 @@
-from pyvarml.utils.images import Images
+from pyvarml.multimedia.images import Images
 
 foo = Images("path/to/image") # Change here
 

@@ -18,6 +18,7 @@ Contents
    pyvarml.dataset.rst
    pyvarml.utils.rst
    pyvarml.engines.examples.rst
+   pyvarml.multimedia.examples.rst
    pyvarml.dataset.examples.rst
    pyvarml.utils.examples.rst
    pyvarml.classification.examples.rst
