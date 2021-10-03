@@ -157,6 +157,7 @@ class TFLiteInterpreter:
         Returns:
             None. The inference time is storage in the inference_time attribute.
         """
+        self.interpreter.invoke()
         timer = Timer()
         with timer.timeit():
             self.interpreter.invoke()
