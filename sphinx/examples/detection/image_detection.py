@@ -1,5 +1,5 @@
 from pyvarml.engines.tflite import TFLiteInterpreter
-from pyvarml.utils.images import Images
+from pyvarml.multimedia.images import Images
 from pyvarml.utils.label import Label
 from pyvarml.utils.overlay import Overlay
 from pyvarml.utils.retriever import FTP
