@@ -27,7 +27,7 @@ while video.loop:
 
     engine.set_input(video.frame_resized)
     engine.run_inference()
-    engine.get_classification_result()
+    engine.get_result("classification")
 
     output_frame = draw.info(
                         "classification", video.frame_original,

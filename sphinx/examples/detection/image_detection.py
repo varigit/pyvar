@@ -20,7 +20,7 @@ image_test.resize(engine_input_details=engine.input_details)
 
 engine.set_input(image_test.resized)
 engine.run_inference()
-engine.get_detection_result()
+engine.get_result("detection")
 
 draw = Overlay()
 

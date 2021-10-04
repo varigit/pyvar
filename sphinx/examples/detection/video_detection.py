@@ -27,7 +27,7 @@ while video.loop:
 
     engine.set_input(video.frame_resized)
     engine.run_inference()
-    engine.get_detection_result()
+    engine.get_result("detection")
 
     output_frame = draw.info(
                         "detection", video.frame_original,
