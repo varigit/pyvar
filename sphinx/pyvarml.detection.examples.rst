@@ -44,7 +44,7 @@ Video Detection
    :linenos:
    :caption: **Source code**: `video_detection.py`_
    :name: Video Detection Example
-   :emphasize-lines: 19
+   :emphasize-lines: 18
 
 .. _video_detection.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/detection/video_detection.py
 
@@ -72,7 +72,7 @@ Real Time Detection
    :linenos:
    :caption: **Source code**: `realtime_detection.py`_
    :name: Real Time Detection Example
-   :emphasize-lines: 20
+   :emphasize-lines: 19
 
 .. _realtime_detection.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/detection/realtime_detection.py
 
