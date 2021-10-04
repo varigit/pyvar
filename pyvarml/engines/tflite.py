@@ -20,6 +20,9 @@ except ImportError:
 
 from pyvarml.utils.timer import Timer
 
+CLASSIFICATION = "classification"
+DETECTION = "detection"
+
 class TFLiteInterpreter:
     """
     Python Class to handle TensorFlow Lite inference engine.
@@ -29,7 +32,9 @@ class TFLiteInterpreter:
     :ivar output_details: storages the output details from inference;
     :ivar result: storages the results from inference;
     :ivar inference_time: storages the inference time;
-    :ivar model_file_path: storages the model file path.
+    :ivar model_file_path: storages the model file path;
+    :ivar k: number of top results;
+    :ivar confidence: confidence score, default is 0.5.
     """
     def __init__(self, model_file_path=None):
         self.model_file_path = model_file_path
@@ -39,6 +44,20 @@ class TFLiteInterpreter:
         self.output_details = self.interpreter.get_output_details()
         self.result = None
         self.inference_time = None
+        self.k = 3
+        self.confidence = 0.5
+
+    def set_k(self, k):
+        """
+        Set the k results attribute.
+        """
+        self.k = k
+
+    def set_confidence(self, confidence):
+        """
+        Set the confidence results attribute.
+        """
+        self.confidence = confidence
 
     def get_dtype(self):
         """
@@ -96,47 +115,39 @@ class TFLiteInterpreter:
         return self.interpreter.get_tensor(
                                 self.output_details[index]['index'])
 
-    def get_classification_result(self, k=3):
+    def get_result(self, category=None):
         """
-        Get the result after running the classification inference.
+        Get the result from the output details.
 
         Args:
-            k (int): number of top results.
+            category (str): type of machine learning model.
 
         Returns:
-            True if success. The result is storage in the result attribute.
+            if **success**, return **True**
+            if **not**, return **False**
         """
-        output_details = self.interpreter.get_output_details()[0]
-        output = np.squeeze(self.interpreter.get_tensor(output_details['index']))
-
-        top_k = output.argsort()[-k:][::-1]
-        self.result = []
-        for i in top_k:
-            score = float(output[i] / 255.0)
-            self.result.append((i, score))
-        return True
-
-    def get_detection_result(self, confidence=0.5):
-        """
-        Get the result after running the detection inference.
-        
-        Args:
-            confidence (float): score confidence, 0.5 is the default one.
-
-        Returns:
-            True if success. The result is storage in the result attribute.
-        """
-        positions = self.get_output(0, squeeze=True)
-        classes = self.get_output(1, squeeze=True)
-        scores = self.get_output(2, squeeze=True)
-
-        self.result = []
-        for idx, score in enumerate(scores):
-            if score > confidence:
-                self.result.append(
-                            {'pos': positions[idx],
-                             '_id': classes[idx]})
-        return True
+        if category is not None:
+            if category is CLASSIFICATION:
+                output = self.get_output(0, squeeze=True)
+                top_k = output.argsort()[-self.k:][::-1]
+                self.result = []
+                for i in top_k:
+                    score = float(output[i] / 255.0)
+                    self.result.append((i, score))
+                return True
+            elif category is DETECTION:
+                positions = self.get_output(0, squeeze=True)
+                classes = self.get_output(1, squeeze=True)
+                scores = self.get_output(2, squeeze=True)
+                self.result = []
+                for idx, score in enumerate(scores):
+                    if score > self.confidence:
+                        self.result.append(
+                                    {'pos': positions[idx],
+                                     '_id': classes[idx]})
+                return True
+        else:
+            return False
 
     def get_mnist_result(self):
         """
