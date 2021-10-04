@@ -53,8 +53,9 @@ class FTP:
         Retrieve package from the FTP server.
         
         Args:
-            package_dir (str): package directory
-            package_filename (str): model package file name 
+            package_dir (str): package directory;
+            package_filename (str): model package file name;
+            category (str): type of machine learning model.
         
         Returns:
             if **success**, return **True**
