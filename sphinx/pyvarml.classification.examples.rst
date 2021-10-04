@@ -45,7 +45,7 @@ Video Classification Example
    :linenos:
    :caption: **Source code**: `video_classification.py`_
    :name: Video Classification Example
-   :emphasize-lines: 19
+   :emphasize-lines: 18
 
 .. _video_classification.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/classification/video_classification.py
 
@@ -73,7 +73,7 @@ Real Time Classification Example
    :linenos:
    :caption: **Source code**: `realtime_classification.py`_
    :name: Real Time Classification Example
-   :emphasize-lines: 20
+   :emphasize-lines: 19
 
 .. _realtime_classification.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/classification/realtime_classification.py
 
