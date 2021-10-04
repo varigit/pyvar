@@ -25,7 +25,7 @@ while video.loop:
     frame = video.get_frame()
     video.resize_frame(frame)
 
-    engine.set_image(video.frame_resized)
+    engine.set_input(video.frame_resized)
     engine.run_inference()
     engine.get_detection_result()
 

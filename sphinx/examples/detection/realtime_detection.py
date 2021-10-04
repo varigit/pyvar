@@ -30,7 +30,7 @@ while camera.loop:
         frame = camera.get_frame()
         camera.resize_frame(frame)
 
-        engine.set_image(camera.frame_resized)
+        engine.set_input(camera.frame_resized)
         engine.run_inference()
         engine.get_detection_result()
 

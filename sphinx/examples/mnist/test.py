@@ -1,5 +1,5 @@
 from pyvarml.engines.tflite import TFLiteInterpreter
-from pyvarml.utils.images import Images
+from pyvarml.multimedia.images import Images
 
 image_test = Images("path/to/image") # Change here
 image_test.convert_rgb_to_gray_scale(28, 28, True)
@@ -7,7 +7,7 @@ image_test.convert_rgb_to_gray_scale(28, 28, True)
 foo = TFLiteInterpreter("path/to/model") # Change here
 
 foo.start()
-foo.set_image(image_test.converted)
+foo.set_input(image_test.converted)
 foo.run_inference()
 
 predict_digit = foo.get_mnist_result()

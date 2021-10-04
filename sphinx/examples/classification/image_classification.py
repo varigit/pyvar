@@ -18,7 +18,7 @@ engine = TFLiteInterpreter(model_file_path)
 image_test = Images("path/to/image") # Change here
 image_test.resize(engine_input_details=engine.input_details)
 
-engine.set_image(image_test.resized)
+engine.set_input(image_test.resized)
 engine.run_inference()
 engine.get_classification_result()
 
