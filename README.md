@@ -24,4 +24,4 @@ the terms of the BSD 3-Clause License.
 See [LICENSE](https://github.com/varijig/pyvarml/blob/master/LICENSE)
 for details.
 
-[sphinx_readme]: https://github.com/varijig/pyvarml/sphinx/README.md
+[sphinx_readme]: https://github.com/varjig/pyvarml/blob/master/sphinx/README.md
