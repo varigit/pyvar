@@ -22,16 +22,24 @@ Host Machine
 System on Modules
 ~~~~~~~~~~~~~~~~~
 
-1. Build the latest Yocto Release available from source code:
-
-* `Variscite Wiki <https://variwiki.com/index.php?title=Yocto_Build_Release&release=RELEASE_HARDKNOTT_V1.1_DART-MX8M-PLUS>`_.
+* Build the latest Yocto Release available from source code `Variscite Wiki <https://variwiki.com/index.php?title=Yocto_Build_Release&release=RELEASE_HARDKNOTT_V1.1_DART-MX8M-PLUS>`_.
 
 
-Installation
-------------
+Package Installation
+--------------------
 
-Build the Package
-~~~~~~~~~~~~~~~~~
+Quick Installation via Pypi
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+On the SoM, use pip3 tool to install the package located at Pypi repository:
+
+.. code-block:: console
+
+    $ pip3 install pyvarml
+
+
+Build the Package Manually
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Clone the pyvarml repository:
 
@@ -58,22 +66,8 @@ Build the Package
 
     # pip3 install <package>
 
-
-Quick Installation using Pypi
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. NOTE::
-    Not uploaded yet.
-
-1. Use pip3 tool to install the package located at Pypi repository:
-
-.. code-block:: console
-
-    $ pip3 install pyvarml
-
-
-Yocto Package Build
--------------------
+Build the Package on Yocto
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. NOTE::
-    Not done yet.
+    Coming soon.
