@@ -59,5 +59,3 @@ Releases
    pyvarml.keyphrasedetector.examples.rst
    pyvarml.license.rst
    pyvarml.contribute.rst
-
-
