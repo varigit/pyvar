@@ -65,7 +65,7 @@ Video Detection
 Real Time Detection
 -------------------
 
-1. To create a simple real time classification, see the example:
+1. To create a simple real time detection, see the example:
 
 .. literalinclude:: examples/detection/realtime_detection.py
    :language: python
@@ -78,3 +78,13 @@ Real Time Detection
 
 User Interface
 --------------
+
+1. To create a simple user interface detection, see the example:
+
+.. literalinclude:: examples/detection/ui_detection.py
+   :language: python
+   :linenos:
+   :caption: **Source code**: `ui_detection.py`_
+   :name: User Interface Detection Example
+
+.. _ui_detection.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/detection/ui_detection.py
