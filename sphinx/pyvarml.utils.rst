@@ -34,6 +34,14 @@ pyvarml.utils.retriever
    :undoc-members:
    :inherited-members:
 
+pyvarml.utils.pascal
+--------------------
+
+.. automodule:: pyvarml.utils.pascal
+   :members:
+   :undoc-members:
+   :inherited-members:
+
 pyvarml.utils.timer
 -------------------
 
