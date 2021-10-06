@@ -22,6 +22,7 @@ from pyvarml.utils.config import TFLITE, TXT, ZIP
 
 CLASSIFICATION = "classification"
 DETECTION = "detection"
+SEGMENTATION = "segmentation"
 
 class FTP:
     """
@@ -68,6 +69,9 @@ class FTP:
             elif category is DETECTION:
                 package_dir = DEFAULT_PACKAGES[DETECTION][0]
                 package_filename = DEFAULT_PACKAGES[DETECTION][1]
+            elif category is SEGMENTATION:
+                package_dir = DEFAULT_PACKAGES[SEGMENTATION][0]
+                package_filename = DEFAULT_PACKAGES[SEGMENTATION][1]
 
         package_file = os.path.join(self.cachedir, package_filename)
         try:
