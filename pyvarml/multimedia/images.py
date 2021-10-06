@@ -29,6 +29,9 @@ class Images:
         self.image = image_file
         self.converted = None
         self.resized = None
+        self.resized_no_dims = None
+        self.model_height = None
+        self.model_width = None
 
     def show(self, title=None, image=None):
         """
@@ -42,7 +45,7 @@ class Images:
         cv2.waitKey()
         cv2.destroyAllWindows()
 
-    def save(self, name=None, image=None):
+    def save(self, name=None, image=None): # need to check this
         """
         Method to save image.
 
@@ -72,11 +75,12 @@ class Images:
             None. The gray scale image is storage in the **converted** attribute.
         """
         if engine_input_details is not None:
-            _, height, width, _ = engine_input_details[0]['shape']
+            _, self.model_height, self.model_width, _ = engine_input_details[0]['shape']
         with Image.open(self.image) as im:
             image = np.array(im)
             image = image[:, :, ::-1].copy()
-            self.resized = im.resize((width, height))
+            self.resized = im.resize((self.model_width, self.model_height))
+            self.resized_no_dims = self.resized
             self.resized = np.expand_dims(
                               self.resized,
                               axis = 0) if expand_dims else self.resized

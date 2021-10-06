@@ -67,11 +67,11 @@ class Overlay:
         Returns:
             The imagen (numpy array) with the overlayed information.
         """
+        inference_position = (3, 20)
         if self.scores_info:
             if category is CLASSIFICATION:
                 for idx, (i, score) in enumerate (top_result):
                     label_position = (3, 35 * idx + 60)
-                    inference_position = (3, 20)
                     cv2.putText(
                         image,
                         f"{labels[i]} - {score:0.4f}",
@@ -90,7 +90,6 @@ class Overlay:
                         FONT['thickness'])
             elif category is DETECTION:
                 colors = self.generate_colors(labels)
-                inference_position = (3, 20)
                 image_height, image_width, _ = image.shape
                 for obj in top_result:
                     pos = obj['pos']

@@ -11,7 +11,9 @@
 
 import sys
 
+import cv2
 import numpy as np
+from PIL import Image
 
 try:
     from tflite_runtime.interpreter import Interpreter
@@ -19,6 +21,7 @@ except ImportError:
     sys.exit("No TensorFlow Lite Runtime module found!")
 
 from pyvarml.utils.timer import Timer
+from pyvarml.utils.pascal import label_to_color_image
 
 CLASSIFICATION = "classification"
 DETECTION = "detection"
@@ -46,6 +49,7 @@ class TFLiteInterpreter:
         self.inference_time = None
         self.k = 3
         self.confidence = 0.5
+        self.output_image = None
 
     def set_k(self, k):
         """
@@ -114,6 +118,17 @@ class TFLiteInterpreter:
                                        self.output_details[index]['index']))
         return self.interpreter.get_tensor(
                                 self.output_details[index]['index'])
+
+    def get_segmentation_result(self, image): # need to check this
+        output_details = self.interpreter.get_output_details()[0]
+        result =  self.interpreter.tensor(output_details['index'])()[0].astype(np.uint8)
+
+        result = result[:self.get_height(), :self.get_width()]
+        mask_img = label_to_color_image(result).astype(np.uint8)
+        mask_img = Image.fromarray(mask_img)
+
+        self.output_image = Image.blend(image, mask_img, alpha=0.5)
+        self.output_image = cv2.cvtColor(np.array(self.output_image), cv2.COLOR_RGB2BGR)
 
     def get_result(self, category=None):
         """
