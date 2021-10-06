@@ -21,9 +21,9 @@ class Images:
     :ivar image: variable to storage the original image;
     :ivar converted: variable to storage the converted image;
     :ivar resized: variable to storage the resized image;
-    :ivar inference_time_info: enables inference time overlay;
-    :ivar scores_info: enables scores overlay;
-    :ivar extra_info: enables extra info overlay.
+    :ivar resized_no_dims: attribute with no expand dimensions;
+    :ivar model_height: model height size;
+    :ivar model_width: model width size.
     """
     def __init__(self, image_file=None):
         self.image = image_file
@@ -45,7 +45,7 @@ class Images:
         cv2.waitKey()
         cv2.destroyAllWindows()
 
-    def save(self, name=None, image=None): # need to check this
+    def save(self, name=None, image=None):
         """
         Method to save image.
 
@@ -107,6 +107,3 @@ class Images:
                             image,
                             dtype=np.float32) / 255.0,
                             0) if expand_dims else image
-
-
-
