@@ -9,7 +9,7 @@ Semantic Segmentation Examples
 Image Semantic Segmentation Example
 -----------------------------------
 
-1. To create a simple image detection, see the example:
+1. To create a simple image semantic segmentation, see the example:
 
 .. literalinclude:: examples/segmentation/image_segmentation.py
    :language: python

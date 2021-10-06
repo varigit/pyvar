@@ -21,7 +21,7 @@ draw = Overlay()
 draw.scores_info = False
 
 output_image = draw.info(
-                    "classification", engine.output_image,
+                    None, engine.output_image,
                     None, None, engine.inference_time,
                     model_file_path, image_test.image)
 
