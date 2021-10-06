@@ -120,6 +120,15 @@ class TFLiteInterpreter:
                                 self.output_details[index]['index'])
 
     def get_segmentation_result(self, image): # need to check this
+        """
+        Get the result after running the inference on semantic segmentation.
+
+        Args:
+            image: resized image with no expand dimensions;
+
+        Returns:
+            None. Storages the output image in the attribute.
+        """
         output_details = self.interpreter.get_output_details()[0]
         result =  self.interpreter.tensor(output_details['index'])()[0].astype(np.uint8)
 
