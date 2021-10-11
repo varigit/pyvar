@@ -9,7 +9,6 @@
     .. note:: 10/15/2021 [diego.d] First Version Released
 """
 
-import collections
 from contextlib import contextmanager
 from datetime import timedelta
 from time import monotonic
