@@ -43,7 +43,7 @@ class Video:
                     "decodebin ! queue leaky=downstream max-size-buffers=1 ! " \
                     "queue ! imxvideoconvert_g2d ! " \
                     "videoconvert ! appsink"
-        self.video_capture =  cv2.VideoCapture(pipeline)
+        self.video_capture = cv2.VideoCapture(pipeline)
         return True
     
     def destroy(self):
