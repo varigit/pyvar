@@ -9,8 +9,6 @@
     .. note:: 10/15/2021 [diego.d] First Version Released
 """
 
-import numpy as np
-
 import tensorflow as tf
 assert float(tf.__version__[:3]) >= 2.4
 from tensorflow import keras
