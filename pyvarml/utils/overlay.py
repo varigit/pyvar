@@ -11,12 +11,9 @@
 
 import colorsys
 import random
-import re
 
 import cv2
 import numpy as np
-
-from PIL import Image
 
 from pyvarml.utils.config import FONT, INF_TIME_MSG, FPS_MSG
 
