@@ -55,14 +55,11 @@ class Images:
         """
         cv2.imwrite(name, image)
 
-    def resize(self, width=None, height=None,
-                     engine_input_details=None, expand_dims=True):
+    def resize(self, engine_input_details=None, expand_dims=True):
         """
         Method to resize images using Pillow.
 
         Args:
-            width (int): set the new image width to be resized;
-            height (int): set the new image height to be resized;
             engine_input_details (list): model input details from TensorFlow.
             expand_dims (bool): expand dimensions.
 
