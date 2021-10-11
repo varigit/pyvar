@@ -44,7 +44,7 @@ class RealTime:
                    "framerate=30/1 ! queue leaky=downstream " \
                    "max-size-buffers=1 ! videoconvert ! " \
                    "appsink"
-        self.camera_capture =  cv2.VideoCapture(pipeline)
+        self.camera_capture = cv2.VideoCapture(pipeline)
         return True
     
     def destroy(self):
