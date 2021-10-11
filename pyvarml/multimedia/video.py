@@ -104,7 +104,7 @@ class Video:
             _, self.height, self.width, _ = engine_input_details[0]['shape']
     
     
-    def resize_frame(self, frame, width=None, height=None):
+    def resize_frame(self, frame, width=None, height=None, expand_dims=False):
         """
         Resize the frame.
 
@@ -124,4 +124,5 @@ class Video:
         self.frame_original = frame
         
         self.frame_resized = cv2.resize(frame, (self.width, self.height))
-        self.frame_resized = np.expand_dims(self.frame_resized, axis = 0)
+        if expand_dims:
+            self.frame_resized = np.expand_dims(self.frame_resized, axis = 0)
