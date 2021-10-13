@@ -95,7 +95,7 @@ class RealTime:
             _, self.height, self.width, _ = engine_input_details[0]['shape']
     
     
-    def resize_frame(self, frame, width=None, height=None, expand_dims=False):
+    def resize_frame(self, frame, width=None, height=None, expand_dims=True):
         """
         Resize the frame.
 
