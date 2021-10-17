@@ -11,14 +11,14 @@ Image Detection Example
 
 1. To create a simple image detection, see the example:
 
-.. literalinclude:: examples/detection/image_detection.py
+.. literalinclude:: ../examples/detection/image_detection.py
    :language: python
    :linenos:
    :caption: **Source code**: `image_detection.py`_
    :name: Image Detection Example
    :emphasize-lines: 18
 
-.. _image_detection.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/detection/image_detection.py
+.. _image_detection.py: https://github.com/varjig/pyvarml/blob/master/examples/detection/image_detection.py
 
 2. See the result:
 
@@ -39,14 +39,14 @@ Video Detection
 
 1. To create a simple video detection, see the example:
 
-.. literalinclude:: examples/detection/video_detection.py
+.. literalinclude:: ../examples/detection/video_detection.py
    :language: python
    :linenos:
    :caption: **Source code**: `video_detection.py`_
    :name: Video Detection Example
    :emphasize-lines: 18
 
-.. _video_detection.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/detection/video_detection.py
+.. _video_detection.py: https://github.com/varjig/pyvarml/blob/master/examples/detection/video_detection.py
 
 2. See the result:
 
@@ -67,24 +67,24 @@ Real Time Detection
 
 1. To create a simple real time detection, see the example:
 
-.. literalinclude:: examples/detection/realtime_detection.py
+.. literalinclude:: ./examples/detection/realtime_detection.py
    :language: python
    :linenos:
    :caption: **Source code**: `realtime_detection.py`_
    :name: Real Time Detection Example
    :emphasize-lines: 19
 
-.. _realtime_detection.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/detection/realtime_detection.py
+.. _realtime_detection.py: https://github.com/varjig/pyvarml/blob/master/examples/detection/realtime_detection.py
 
 User Interface
 --------------
 
 1. To create a simple user interface detection, see the example:
 
-.. literalinclude:: examples/detection/ui_detection.py
+.. literalinclude:: ../examples/detection/ui_detection.py
    :language: python
    :linenos:
    :caption: **Source code**: `ui_detection.py`_
    :name: User Interface Detection Example
 
-.. _ui_detection.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/detection/ui_detection.py
+.. _ui_detection.py: https://github.com/varjig/pyvarml/blob/master/examples/detection/ui_detection.py

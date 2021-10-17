@@ -9,14 +9,14 @@ Retrieve from Variscite FTP
 
 1. To retrieve a specific ML model from Variscite's FTP server, see the example:
 
-.. literalinclude:: examples/utils/variscite_ftp.py
+.. literalinclude:: ../examples/utils/variscite_ftp.py
    :language: python
    :linenos:
    :caption: **Source code**: `variscite_ftp.py`_
    :name: Retrieve from Variscite FTP
    :emphasize-lines: 5
 
-.. _variscite_ftp.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/utils/variscite_ftp.py
+.. _variscite_ftp.py: https://github.com/varjig/pyvarml/blob/master/examples/utils/variscite_ftp.py
 
 2. The output is similar to the one below:
 
@@ -35,13 +35,13 @@ Retrieve from Other FTP
 
 1. To retrieve other model packages files from other FTP, see the example:
 
-.. literalinclude:: examples/utils/other_ftp.py
+.. literalinclude:: ../examples/utils/other_ftp.py
    :language: python
    :linenos:
    :caption: **Source code**: `other_ftp.py`_
    :name: Retrieve from Other FTP
 
-.. _other_ftp.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/utils/other_ftp.py
+.. _other_ftp.py: https://github.com/varjig/pyvarml/blob/master/examples/utils/other_ftp.py
 
 .. IMPORTANT::
     The current version only supports packages in (.zip) format.
@@ -51,13 +51,13 @@ Calculate Time
 
 1. To calculate the time, see the example:
 
-.. literalinclude:: examples/utils/calculate_time.py
+.. literalinclude:: ../examples/utils/calculate_time.py
    :language: python
    :linenos:
    :caption: **Source code**: `calculate_time.py`_
    :name: Calculate Time
 
-.. _calculate_time.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/utils/calculate_time.py
+.. _calculate_time.py: https://github.com/varjig/pyvarml/blob/master/examples/utils/calculate_time.py
 
 2. The output is similar to the one below:
 

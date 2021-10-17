@@ -9,13 +9,13 @@ Training MNIST Handwritten Digits
 
 1. To train a simple MNIST to recognize handwritten digits, see the example:
 
-.. literalinclude:: examples/mnist/train.py
+.. literalinclude:: ../examples/mnist/train.py
    :language: python
    :linenos:
    :caption: **Source code**: `train.py`_
    :name: Training MNIST Example
 
-.. _train.py: include_link_to_git
+.. _train.py: https://github.com/varjig/pyvarml/blob/master/examples/mnist/train.py
 
 2. The output is similar to the one below:
 
@@ -29,14 +29,14 @@ Testing MNIST Handwritten Digits
 
 1. To test the above model, see the example:
 
-.. literalinclude:: examples/mnist/test.py
+.. literalinclude:: ../examples/mnist/test.py
    :language: python
    :linenos:
    :caption: **Source code**: `test.py`_
    :name: Testing MNIST Example
    :emphasize-lines: 4, 7
 
-.. _test.py: include_link_to_git
+.. _test.py: https://github.com/varjig/pyvarml/blob/master/examples/mnist/test.py
 
 2. The output is similar to the one below:
 

@@ -11,14 +11,14 @@ Image Classification Example
 
 1. To create a simple image classification, see the example:
 
-.. literalinclude:: examples/classification/image_classification.py
+.. literalinclude:: ../examples/classification/image_classification.py
    :language: python
    :linenos:
    :caption: **Source code**: `image_classification.py`_
    :name: Image Classification Example
    :emphasize-lines: 18
 
-.. _image_classification.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/classification/image_classification.py
+.. _image_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/image_classification.py
 
 2. See the result:
 
@@ -40,14 +40,14 @@ Video Classification Example
 
 1. To create a simple video classification, see the example:
 
-.. literalinclude:: examples/classification/video_classification.py
+.. literalinclude:: ../examples/classification/video_classification.py
    :language: python
    :linenos:
    :caption: **Source code**: `video_classification.py`_
    :name: Video Classification Example
    :emphasize-lines: 18
 
-.. _video_classification.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/classification/video_classification.py
+.. _video_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/video_classification.py
 
 2. See the result:
 
@@ -68,14 +68,14 @@ Real Time Classification Example
 
 1. To create a simple real time classification, see the example:
 
-.. literalinclude:: examples/classification/realtime_classification.py
+.. literalinclude:: ../examples/classification/realtime_classification.py
    :language: python
    :linenos:
    :caption: **Source code**: `realtime_classification.py`_
    :name: Real Time Classification Example
    :emphasize-lines: 19
 
-.. _realtime_classification.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/classification/realtime_classification.py
+.. _realtime_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/realtime_classification.py
 
 User Interface Example
 ----------------------

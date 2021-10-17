@@ -9,14 +9,14 @@ Convert Image
 
 1. To convert an image to gray scale, see the example:
 
-.. literalinclude:: examples/multimedia/convert_grayscale.py
+.. literalinclude:: ../examples/multimedia/convert_grayscale.py
    :language: python
    :linenos:
    :caption: **Source code**: `convert_grayscale.py`_
    :name: Convert Image
    :emphasize-lines: 3
 
-.. _convert_grayscale.py: https://github.com/varjig/pyvarml/blob/master/sphinx/examples/multimedia/convert_grayscale.py
+.. _convert_grayscale.py: https://github.com/varjig/pyvarml/blob/master/examples/multimedia/convert_grayscale.py
 
 2. The output is similar to the one below:
 
