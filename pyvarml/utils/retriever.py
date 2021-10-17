@@ -18,7 +18,7 @@ import sys
 from pyvarml.config import CACHEDIR
 from pyvarml.utils.config import FTP_HOST, FTP_USER, FTP_PASS
 from pyvarml.utils.config import DEFAULT_PACKAGES
-from pyvarml.utils.config import TFLITE, TXT, ZIP
+from pyvarml.utils.config import TFLITE, TXT, ZIP, JPG, PNG, MP4
 
 CLASSIFICATION = "classification"
 DETECTION = "detection"
@@ -39,6 +39,8 @@ class FTP:
         self.retrieved_package = None
         self.model = None
         self.label = None
+        self.image = None
+        self.video = None
         try:
             self.ftp = ftplib.FTP(self.host, self.user, self.passwd)
             try:
@@ -104,7 +106,7 @@ class FTP:
         """
         self.ftp.quit()
 
-    def get_package_names(self, package_name_path):
+    def get_package_names(self, package_name_path, category):
         """
         Get the model and label names from the downloaded package.        
         """
@@ -112,3 +114,11 @@ class FTP:
         self.model = model_list[0]
         label_list = glob.glob(os.path.join(package_name_path, TXT))
         self.label = label_list[0]
+        if category is CLASSIFICATION:
+            image_list = glob.glob(os.path.join(package_name_path, JPG))
+            self.image = image_list[0]
+        if category is DETECTION:
+            image_list = glob.glob(os.path.join(package_name_path, PNG))
+            self.image = image_list[0]
+        video_list = glob.glob(os.path.join(package_name_path, MP4))
+        self.video = video_list[0]

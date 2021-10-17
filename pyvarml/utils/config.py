@@ -27,6 +27,9 @@ FTP_PASS = "Variscite1"
 TFLITE = "*.tflite"
 TXT = "*.txt"
 ZIP = ".zip"
+JPG = "*.jpg"
+PNG = "*.png"
+MP4 = "*.mp4"
 
 # Default Packages from FTP
 DEFAULT_PACKAGES = {'classification': ["pyvarml/classification/",
