@@ -13,6 +13,7 @@ ftp = FTP()
 if ftp.retrieve_package(category="classification"):
     model_file_path = ftp.model
     label_file_path = ftp.label
+    image_file_path = ftp.image
 
 labels = Label(label_file_path)
 labels.read_labels("classification")
@@ -22,7 +23,7 @@ engine = TFLiteInterpreter(model_file_path)
 resizer = Resizer()
 resizer.set_sizes(engine_input_details=engine.input_details)
 
-image = Multimedia("media/car.jpg")
+image = Multimedia(image_file_path)
 resizer.resize_image(image.video_src)
 
 engine.set_input(resizer.image_resized)
