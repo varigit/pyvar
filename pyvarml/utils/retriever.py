@@ -93,7 +93,7 @@ class FTP:
             package_name_path = self.retrieved_package[:-4]
             try:
                 shutil.unpack_archive(self.retrieved_package, self.cachedir)
-                self.get_package_names(package_name_path)
+                self.get_package_names(package_name_path, category)
                 os.remove(self.retrieved_package)
             except:
                 return False
