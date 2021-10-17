@@ -1,8 +1,13 @@
+# Copyright 2021 Variscite LTD
+# SPDX-License-Identifier: BSD-3-Clause
+
 from pyvarml.engines.tflite import TFLiteInterpreter
-from pyvarml.multimedia.video import Video
+from pyvarml.multimedia.helper import Multimedia
+from pyvarml.utils.framerate import Framerate
 from pyvarml.utils.label import Label
 from pyvarml.utils.overlay import Overlay
 from pyvarml.utils.retriever import FTP
+from pyvarml.utils.resizer import Resizer
 
 ftp = FTP()
 
@@ -15,25 +20,30 @@ labels.read_labels("detection")
 
 engine = TFLiteInterpreter(model_file_path)
 
-video = Video("path/to/video") # Change here
-video.start()
-video.set_sizes(engine_input_details=engine.input_details)
+resizer = Resizer()
+resizer.set_sizes(engine_input_details=engine.input_details)
+
+video = Multimedia("media/video.mp4")
+video.set_v4l2_config()
 
 draw = Overlay()
 
 while video.loop:
     frame = video.get_frame()
-    video.resize_frame(frame)
+    resizer.resize_frame(frame)
 
-    engine.set_input(video.frame_resized)
+    engine.set_input(resizer.frame_resized)
     engine.run_inference()
     engine.get_result("detection")
 
-    output_frame = draw.info(
-                        "detection", video.frame_original,
-                        engine.result, labels.list, engine.inference_time,
-                        model_file_path, video.video)
+    output_frame = draw.info(category="detection",
+                             image=resizer.frame,
+                             top_result=engine.result,
+                             labels=labels.list,
+                             inference_time=engine.inference_time,
+                             model_name=model_file_path,
+                             source_file=video.video_src)
 
-    video.show_frame("Video Detection", output_frame)
+    video.show("Video Detection", output_frame)
 
 video.destroy()
