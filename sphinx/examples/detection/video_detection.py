@@ -14,6 +14,7 @@ ftp = FTP()
 if ftp.retrieve_package(category="detection"):
     model_file_path = ftp.model
     label_file_path = ftp.label
+    video_file_path = ftp.video
 
 labels = Label(label_file_path)
 labels.read_labels("detection")
@@ -23,7 +24,7 @@ engine = TFLiteInterpreter(model_file_path)
 resizer = Resizer()
 resizer.set_sizes(engine_input_details=engine.input_details)
 
-video = Multimedia("media/video.mp4")
+video = Multimedia(video_file_path)
 video.set_v4l2_config()
 
 draw = Overlay()
