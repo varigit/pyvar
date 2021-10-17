@@ -1,32 +1,33 @@
 Classification Examples
 =======================
 
-.. NOTE::
-    The classification examples use a starter quantized model from `TensorFlow Lite`_.
+The classification examples use a quantized starter model from `TensorFlow Lite`_.
 
 .. _TensorFlow Lite: https://www.tensorflow.org/lite/guide/hosted_models
 
 Image Classification Example
 ----------------------------
 
-1. To create a simple image classification, see the example:
+Run the Image Classification Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. literalinclude:: ../examples/classification/image_classification.py
-   :language: python
-   :linenos:
-   :caption: **Source code**: `image_classification.py`_
-   :name: Image Classification Example
-   :emphasize-lines: 18
+1. Retrieve the example, and execute it on the SoM:
 
-.. _image_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/image_classification.py
+.. code-block:: bash
 
-2. See the result:
+    curl -LJO https://github.com/varjig/pyvarml/raw/master/examples/classification/image_classification.py
 
-+------------------------+------------------------+
-| **Example**            | **Example Classified** |
-+========================+========================+
-| |car|                  | |car-converted|        |
-+------------------------+------------------------+
+.. code-block:: bash
+
+    python3 image_classification.py
+
+2. The output should be similar as the one below:
+
++------------------------------+------------------------------+
+| **Image Example**            | **Image Example Classified** |
++==============================+==============================+
+| |car|                        | |car-converted|              |
++------------------------------+------------------------------+
 
 .. |car| image:: examples/classification/media/car.jpg
    :width: 100%
@@ -34,28 +35,38 @@ Image Classification Example
 .. |car-converted| image:: examples/classification/media/car_classified.jpg
    :width: 100%
 
+.. literalinclude:: ../examples/classification/image_classification.py
+   :language: python
+   :linenos:
+   :caption: **Image Classification Example Source Code**: `image_classification.py`_
+   :name: Image Classification Example
+
+.. _image_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/image_classification.py
+
+|
+|
+|
 
 Video Classification Example
 ----------------------------
 
-1. To create a simple video classification, see the example:
+1. Retrieve the example, and execute it on the SoM:
 
-.. literalinclude:: ../examples/classification/video_classification.py
-   :language: python
-   :linenos:
-   :caption: **Source code**: `video_classification.py`_
-   :name: Video Classification Example
-   :emphasize-lines: 18
+.. code-block:: bash
 
-.. _video_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/video_classification.py
+    curl -LJO https://github.com/varjig/pyvarml/raw/master/examples/classification/video_classification.py
 
-2. See the result:
+.. code-block:: bash
 
-+------------------------+------------------------+
-| **Example**            | **Example Classified** |
-+========================+========================+
-| |street|               | |street-classified|    |
-+------------------------+------------------------+
+    python3 video_classification.py
+
+2. The output should be similar as the one below:
+
++------------------------------+------------------------------+
+| **Video Example**            | **Video Example Classified** |
++==============================+==============================+
+| |street|                     | |street-classified|          |
++------------------------------+------------------------------+
 
 .. |street| image:: examples/classification/media/street_video.gif
    :width: 100%
@@ -63,21 +74,35 @@ Video Classification Example
 .. |street-classified| image:: examples/classification/media/street_classified_video.gif
    :width: 100%
 
+.. literalinclude:: ../examples/classification/video_classification.py
+   :language: python
+   :linenos:
+   :caption: **Video Classification Example Source code**: `video_classification.py`_
+   :name: Video Classification Example
+
+.. _video_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/video_classification.py
+
+|
+|
+|
+
 Real Time Classification Example
 --------------------------------
 
-1. To create a simple real time classification, see the example:
+1. Retrieve the example, and execute it on the SoM:
+
+.. code-block:: bash
+
+    curl -LJO https://github.com/varjig/pyvarml/raw/master/examples/classification/realtime_classification.py
+
+.. code-block:: bash
+
+    python3 realtime_classification.py
 
 .. literalinclude:: ../examples/classification/realtime_classification.py
    :language: python
    :linenos:
-   :caption: **Source code**: `realtime_classification.py`_
+   :caption: **Real Time Classification Example Source code**: `realtime_classification.py`_
    :name: Real Time Classification Example
-   :emphasize-lines: 19
 
 .. _realtime_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/realtime_classification.py
-
-User Interface Example
-----------------------
-
-
