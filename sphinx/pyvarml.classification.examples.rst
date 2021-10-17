@@ -50,6 +50,9 @@ Run the Image Classification Example
 Video Classification Example
 ----------------------------
 
+Run the Video Classification Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 1. Retrieve the example, and execute it on the SoM:
 
 .. code-block:: bash
@@ -88,6 +91,9 @@ Video Classification Example
 
 Real Time Classification Example
 --------------------------------
+
+Run the Real Time Classification Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Retrieve the example, and execute it on the SoM:
 
