@@ -5,8 +5,8 @@ The classification examples use a quantized starter model from `TensorFlow Lite`
 
 .. _TensorFlow Lite: https://www.tensorflow.org/lite/guide/hosted_models
 
-Image Classification Example
-----------------------------
+Image Classification
+--------------------
 
 Run the Image Classification Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,8 +47,8 @@ Run the Image Classification Example
 |
 |
 
-Video Classification Example
-----------------------------
+Video Classification
+--------------------
 
 Run the Video Classification Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -89,8 +89,8 @@ Run the Video Classification Example
 |
 |
 
-Real Time Classification Example
---------------------------------
+Real Time Classification
+------------------------
 
 Run the Real Time Classification Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -111,4 +111,4 @@ Run the Real Time Classification Example
    :caption: **Real Time Classification Example Source code**: `realtime_classification.py`_
    :name: Real Time Classification Example
 
-.. _realtime_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/realtime_classification.py
+.. _realtime_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/realtime_classification.py---
