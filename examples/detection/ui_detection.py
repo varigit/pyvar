@@ -7,8 +7,6 @@ gi.require_versions({'GdkPixbuf': "2.0", 'Gtk': "3.0"})
 from gi.repository.GdkPixbuf import Colorspace, Pixbuf
 from gi.repository import GLib, Gtk
 
-from config import *
-
 from pyvarml.engines.tflite import TFLiteInterpreter
 from pyvarml.multimedia.helper import Multimedia
 from pyvarml.utils.framerate import Framerate
@@ -16,6 +14,21 @@ from pyvarml.utils.label import Label
 from pyvarml.utils.overlay import Overlay
 from pyvarml.utils.retriever import FTP
 from pyvarml.utils.resizer import Resizer
+
+SSD_LABELS_LIST = [
+    "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train",
+    "truck", "boat", "traffic light", "fire hydrant", "stop sign",
+    "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow",
+    "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella", "handbag",
+    "tie", "suitcase", "frisbee", "skis", "snowboard", "sports ball", "kite",
+    "baseball bat", "baseball glove", "skateboard", "surfboard",
+    "tennis racket", "bottle", "wine glass", "cup", "fork", "knife", "spoon",
+    "bowl", "banana", "apple", "sandwich", "orange", "broccoli", "carrot",
+    "hot dog", "pizza", "donut", "cake", "chair", "couch", "potted plant",
+    "bed", "dining table", "toilet", "tv", "laptop", "mouse", "remote",
+    "keyboard", "cell phone", "microwave", "oven", "toaster", "sink",
+    "refrigerator", "book", "clock", "vase", "scissors", "teddy bear",
+    "hair drier", "toothbrush"]
 
 class ObjectSelection(Gtk.Frame):
     def __init__(self, parent, exclude_list):
@@ -47,7 +60,8 @@ class ObjectSelection(Gtk.Frame):
             horizontal_box =  Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
             switch_button = Gtk.Switch()
             switch_button.set_active(False)
-            switch_button.connect('notify::active', self.on_object_switch_activated, label)
+            switch_button.connect('notify::active',
+                                  self.on_object_switch_activated, label)
             label_name = Gtk.Label.new(label)
             horizontal_box.pack_start(label_name, True, True, 100)
             horizontal_box.pack_start(switch_button, False, True, 100)
@@ -142,7 +156,9 @@ class RealTimeDetection(Gtk.Frame):
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
         height, width = image.shape[:2]
         arr = np.ndarray.tobytes(image)
-        self.pixbuf = Pixbuf.new_from_data(arr, Colorspace.RGB, False, 8, width, height, width*3, None, None)
+        self.pixbuf = Pixbuf.new_from_data(
+                             arr, Colorspace.RGB, False, 8,
+                             width, height, width*3, None, None)
         self.displayed_image.set_from_pixbuf(self.pixbuf)
         self.pixbuf = None
 
@@ -195,8 +211,10 @@ class RealTimeDetection(Gtk.Frame):
                                          source_file=camera.dev.name,
                                          fps=None)
 
-            GLib.idle_add(self.inference_value_label.set_text, (f"{self.engine.inference_time}"))
-            GLib.idle_add(self.fps_value_label.set_text, (f"{int(framerate.fps)}"))
+            GLib.idle_add(self.inference_value_label.set_text,
+                          (f"{self.engine.inference_time}"))
+            GLib.idle_add(self.fps_value_label.set_text,
+                          (f"{int(framerate.fps)}"))
             GLib.idle_add(self.set_displayed_image, (output_frame))
 
 class UserInterfaceDetectionExample(Gtk.Window):
