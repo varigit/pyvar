@@ -112,20 +112,3 @@ Run the Real Time Detection Example
    :name: Real Time Detection Example
 
 .. _realtime_detection.py: https://github.com/varjig/pyvarml/blob/master/examples/detection/realtime_detection.py
-
-|
-|
-|
-
-User Interface
---------------
-
-1. To create a simple user interface detection, see the example:
-
-.. literalinclude:: ../examples/detection/ui_detection.py
-   :language: python
-   :linenos:
-   :caption: **Source code**: `ui_detection.py`_
-   :name: User Interface Detection Example
-
-.. _ui_detection.py: https://github.com/varjig/pyvarml/blob/master/examples/detection/ui_detection.py
