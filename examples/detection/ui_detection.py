@@ -10,11 +10,12 @@ from gi.repository import GLib, Gtk
 from config import *
 
 from pyvarml.engines.tflite import TFLiteInterpreter
-from pyvarml.multimedia.realtime import RealTime
+from pyvarml.multimedia.helper import Multimedia
 from pyvarml.utils.framerate import Framerate
 from pyvarml.utils.label import Label
 from pyvarml.utils.overlay import Overlay
 from pyvarml.utils.retriever import FTP
+from pyvarml.utils.resizer import Resizer
 
 class ObjectSelection(Gtk.Frame):
     def __init__(self, parent, exclude_list):
@@ -154,9 +155,11 @@ class RealTimeDetection(Gtk.Frame):
         self.engine = TFLiteInterpreter(self.model_file_path)
 
     def image_detection(self):
-        camera = RealTime("/dev/video1") # Change here
-        camera.start()
-        camera.set_sizes(engine_input_details=self.engine.input_details)     
+        resizer = Resizer()
+        resizer.set_sizes(engine_input_details=self.engine.input_details)
+
+        camera = Multimedia("/dev/video1", resolution="vga")
+        camera.set_v4l2_config()
         
         framerate = Framerate()
 
@@ -169,9 +172,9 @@ class RealTimeDetection(Gtk.Frame):
         while camera.loop:
             with framerate.fpsit():
                 frame = camera.get_frame()
-                camera.resize_frame(frame)
+                resizer.resize_frame(frame)
 
-                self.engine.set_input(camera.frame_resized)
+                self.engine.set_input(resizer.frame_resized)
                 self.engine.run_inference()
 
                 positions = self.engine.get_output(0, squeeze=True)
@@ -183,10 +186,14 @@ class RealTimeDetection(Gtk.Frame):
                     if score > 0.5 and (self.labels[classes[idx]] not in self.exclude_list):
                         result.append({'pos': positions[idx], '_id': classes[idx]})
                 
-                output_frame = draw.info(
-                                    "detection", camera.frame_original,
-                                    result, self.labels, None,
-                                    None, camera.camera, None)                
+                output_frame = draw.info(category="detection",
+                                         image=resizer.frame,
+                                         top_result=result,
+                                         labels=self.labels,
+                                         inference_time=None,
+                                         model_name=None,
+                                         source_file=camera.dev.name,
+                                         fps=None)
 
             GLib.idle_add(self.inference_value_label.set_text, (f"{self.engine.inference_time}"))
             GLib.idle_add(self.fps_value_label.set_text, (f"{int(framerate.fps)}"))
