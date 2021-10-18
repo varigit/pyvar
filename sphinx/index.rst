@@ -53,10 +53,12 @@ Releases
    pyvarml.utils.examples.rst
    pyvarml.classification.examples.rst
    pyvarml.detection.examples.rst
+   pyvarml.ui.examples.rst
+   pyvarml.license.rst
+   pyvarml.contribute.rst
+   
+..
    pyvarml.tracking.examples.rst
    pyvarml.poseestimation.examples.rst
    pyvarml.semanticsegmentation.examples.rst
    pyvarml.keyphrasedetector.examples.rst
-   pyvarml.ui.examples.rst
-   pyvarml.license.rst
-   pyvarml.contribute.rst
