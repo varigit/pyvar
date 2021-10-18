@@ -1,3 +1,6 @@
+# Copyright 2021 Variscite LTD
+# SPDX-License-Identifier: BSD-3-Clause
+
 import threading
 import cv2
 import numpy as np
