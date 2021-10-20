@@ -168,9 +168,17 @@ class Devices:
 
     @staticmethod
     def get_std_caps(dev_caps):
-        full_hd_caps = None
+        full_hd_caps = Caps()
+        full_hd_caps.name = "video/x-raw"
+        full_hd_caps.width = 1920
+        full_hd_caps.height = 1080
+        full_hd_caps.framerate = "60/1"
         hd_caps = None
-        vga_caps = None
+        vga_caps = Caps()
+        vga_caps.name = "video/x-raw"
+        vga_caps.width = 640
+        vga_caps.height = 480
+        vga_caps.framerate = "60/1"
 
         for caps in dev_caps:
             if  (caps.width == 1920) and (caps.height == 1080):
