@@ -9,14 +9,21 @@ follow the below steps to build the documentation:
 $ git clone https://github.com/varjig/pyvarml.git
 ```
 
-2. Build the API in the HTML format:
+2. Install the required packages:
+
+```bash
+$ apt install python3-sphinx
+$ pip3 install sphinx_press_theme
+```
+
+3. Build the API in the HTML format:
 
 ```bash
 $ cd sphinx/
 $ make html
 ```
 
-3. Open the HTML page:
+4. Open the HTML page:
 
 ```bash
 $ firefox _build/html/index.html
