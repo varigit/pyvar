@@ -5,3 +5,6 @@ import os
 
 # Local Files
 CACHEDIR = os.path.join(os.environ['HOME'], ".cache", "pyvarml")
+
+CLASSIFICATION = "classification"
+DETECTION = "detection"
