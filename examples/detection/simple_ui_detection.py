@@ -6,14 +6,12 @@ import cv2
 import numpy as np
 
 import gi
-
 gi.require_versions({'GdkPixbuf': "2.0", 'Gtk': "3.0"})
 from gi.repository.GdkPixbuf import Colorspace, Pixbuf
 from gi.repository import GLib, Gtk
 
 from pyvarml.engines.tflite import TFLiteInterpreter
 from pyvarml.multimedia.helper import Multimedia
-from pyvarml.utils.framerate import Framerate
 from pyvarml.utils.label import Label
 from pyvarml.utils.overlay import Overlay
 from pyvarml.utils.retriever import FTP
@@ -21,7 +19,6 @@ from pyvarml.utils.resizer import Resizer
 
 SSD_LABELS_LIST = ["person", "cat", "dog", "cup", "chair", "tv",
                    "laptop", "mouse", "cell phone", "book", "clock"]
-
 
 class RealTimeDetection(Gtk.Window):
     def __init__(self, detection_list):
@@ -77,7 +74,6 @@ class RealTimeDetection(Gtk.Window):
                 self.detection_list.remove(obj)
 
     def set_displayed_image(self, image):
-        #image = cv2.resize(image, (420, 340))
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
         height, width = image.shape[:2]
         arr = np.ndarray.tobytes(image)
@@ -99,10 +95,8 @@ class RealTimeDetection(Gtk.Window):
         resizer = Resizer()
         resizer.set_sizes(engine_input_details=self.engine.input_details)
 
-        camera = Multimedia("/dev/video1", resolution="vga")
+        camera = Multimedia("/dev/video0", resolution="vga")
         camera.set_v4l2_config()
-
-        framerate = Framerate()
 
         draw = Overlay()
         draw.inference_time_info = False
@@ -111,30 +105,29 @@ class RealTimeDetection(Gtk.Window):
         draw.framerate_info = False
 
         while camera.loop:
-            with framerate.fpsit():
-                frame = camera.get_frame()
-                resizer.resize_frame(frame)
+            frame = camera.get_frame()
+            resizer.resize_frame(frame)
 
-                self.engine.set_input(resizer.frame_resized)
-                self.engine.run_inference()
+            self.engine.set_input(resizer.frame_resized)
+            self.engine.run_inference()
 
-                positions = self.engine.get_output(0, squeeze=True)
-                classes = self.engine.get_output(1, squeeze=True)
-                scores = self.engine.get_output(2, squeeze=True)
+            positions = self.engine.get_output(0, squeeze=True)
+            classes = self.engine.get_output(1, squeeze=True)
+            scores = self.engine.get_output(2, squeeze=True)
 
-                result = []
-                for idx, score in enumerate(scores):
-                    if score > 0.5 and (self.labels[classes[idx]] in self.detection_list):
-                        result.append({'pos': positions[idx], '_id': classes[idx]})
+            result = []
+            for idx, score in enumerate(scores):
+                if score > 0.5 and (self.labels[classes[idx]] in self.detection_list):
+                    result.append({'pos': positions[idx], '_id': classes[idx]})
 
-                output_frame = draw.info(category="detection",
-                                         image=resizer.frame,
-                                         top_result=result,
-                                         labels=self.labels,
-                                         inference_time=None,
-                                         model_name=None,
-                                         source_file=camera.dev.name,
-                                         fps=None)
+            output_frame = draw.info(category="detection",
+                                     image=resizer.frame,
+                                     top_result=result,
+                                     labels=self.labels,
+                                     inference_time=None,
+                                     model_name=None,
+                                     source_file=camera.dev.name,
+                                     fps=None)
 
             GLib.idle_add(self.set_displayed_image, output_frame)
 
