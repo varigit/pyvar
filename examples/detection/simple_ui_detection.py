@@ -26,8 +26,7 @@ SSD_LABELS_LIST = ["person", "cat", "dog", "cup", "chair", "tv",
 class RealTimeDetection(Gtk.Window):
     def __init__(self, detection_list):
         super().__init__()
-        #self.fullscreen()
-        self.set_default_size(800,480)
+        self.fullscreen()
         self.detection_list = detection_list
         self.model_file_path = None
         self.label_file_path = None
@@ -76,7 +75,6 @@ class RealTimeDetection(Gtk.Window):
         else:
             if obj in self.detection_list:
                 self.detection_list.remove(obj)
-        print(self.detection_list)
 
     def set_displayed_image(self, image):
         #image = cv2.resize(image, (420, 340))
@@ -141,8 +139,8 @@ class RealTimeDetection(Gtk.Window):
             GLib.idle_add(self.set_displayed_image, output_frame)
 
 if __name__ == "__main__":
-    exclude_list = SSD_LABELS_LIST.copy()
-    app = RealTimeDetection(exclude_list)
+    detection_list = SSD_LABELS_LIST.copy()
+    app = RealTimeDetection(detection_list)
     app.connect('delete-event', Gtk.main_quit)
     app.show_all()
     Gtk.main()
