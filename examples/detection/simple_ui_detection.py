@@ -17,13 +17,17 @@ from pyvarml.utils.overlay import Overlay
 from pyvarml.utils.retriever import FTP
 from pyvarml.utils.resizer import Resizer
 
-SSD_LABELS_LIST = ["person", "cat", "dog", "cup", "chair", "tv",
-                   "laptop", "mouse", "cell phone", "book", "clock"]
+SSD_LABELS_LIST = ["person", "backpack", "umbrella", "handbag", "tie",
+                   "suitcase", "bottle", "wine glass", "cup", "fork", "knife",
+                   "spoon", "chair", "potted plant", "laptop", "mouse",
+                   "remote", "keyboard", "cell phone", "book", "banana",
+                   "apple", "sandwich", "orange", "clock", "vase", "scissors"]
 
 class RealTimeDetection(Gtk.Window):
     def __init__(self, detection_list):
         super().__init__()
         self.fullscreen()
+        self.set_border_width(2)
         self.detection_list = detection_list
         self.model_file_path = None
         self.label_file_path = None
@@ -79,7 +83,7 @@ class RealTimeDetection(Gtk.Window):
         arr = np.ndarray.tobytes(image)
         self.pixbuf = Pixbuf.new_from_data(
             arr, Colorspace.RGB, False, 8,
-            width, height, width * 3, None, None)
+            width - 10, height - 10, width * 3, None, None)
         self.displayed_image.set_from_pixbuf(self.pixbuf)
         self.pixbuf = None
 
