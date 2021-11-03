@@ -1,4 +1,4 @@
-from pyvarml.utils.retriever import FTP
+from pyvar.ml.utils.retriever import FTP
 
 foo = FTP()
 

@@ -1,4 +1,4 @@
-from pyvarml.utils.timer import Timer
+from pyvar.ml.utils.timer import Timer
 
 foo = Timer()
 with foo.timeit():

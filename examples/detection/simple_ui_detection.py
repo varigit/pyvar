@@ -10,12 +10,12 @@ gi.require_versions({'GdkPixbuf': "2.0", 'Gtk': "3.0"})
 from gi.repository.GdkPixbuf import Colorspace, Pixbuf
 from gi.repository import GLib, Gtk
 
-from pyvarml.engines.tflite import TFLiteInterpreter
-from pyvarml.multimedia.helper import Multimedia
-from pyvarml.utils.label import Label
-from pyvarml.utils.overlay import Overlay
-from pyvarml.utils.retriever import FTP
-from pyvarml.utils.resizer import Resizer
+from pyvar.ml.engines.tflite import TFLiteInterpreter
+from pyvar.ml.multimedia.helper import Multimedia
+from pyvar.ml.utils.label import Label
+from pyvar.ml.utils.overlay import Overlay
+from pyvar.ml.utils.retriever import FTP
+from pyvar.ml.utils.resizer import Resizer
 
 SSD_LABELS_LIST = ["person", "backpack", "umbrella", "handbag", "tie",
                    "suitcase", "bottle", "wine glass", "cup", "fork", "knife",

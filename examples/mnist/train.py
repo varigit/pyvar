@@ -1,4 +1,4 @@
-from pyvarml.dataset.mnist import train_mnist_digit
+from pyvar.ml.dataset.mnist import train_mnist_digit
 
 foo = train_mnist_digit()
 

@@ -1,4 +1,4 @@
-from pyvarml.multimedia.images import Images
+from pyvar.ml.multimedia.images import Images
 
 foo = Images("path/to/image") # Change here
 

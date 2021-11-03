@@ -1,7 +1,7 @@
-from pyvarml.engines.tflite import TFLiteInterpreter
-from pyvarml.multimedia.images import Images
-from pyvarml.utils.overlay import Overlay
-from pyvarml.utils.retriever import FTP
+from pyvar.ml.engines.tflite import TFLiteInterpreter
+from pyvar.ml.multimedia.images import Images
+from pyvar.ml.utils.overlay import Overlay
+from pyvar.ml.utils.retriever import FTP
 
 ftp = FTP()
 

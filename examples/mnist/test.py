@@ -1,5 +1,5 @@
-from pyvarml.engines.tflite import TFLiteInterpreter
-from pyvarml.multimedia.images import Images
+from pyvar.ml.engines.tflite import TFLiteInterpreter
+from pyvar.ml.multimedia.images import Images
 
 image_test = Images("path/to/image") # Change here
 image_test.convert_rgb_to_gray_scale(28, 28, True)
