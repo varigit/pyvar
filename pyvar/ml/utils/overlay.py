@@ -15,7 +15,7 @@ import random
 import cv2
 import numpy as np
 
-from pyvarml.utils.config import FONT, INF_TIME_MSG, FPS_MSG
+from pyvar.ml.utils.config import FONT, INF_TIME_MSG, FPS_MSG
 
 CLASSIFICATION = "classification"
 DETECTION = "detection"

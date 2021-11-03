@@ -20,10 +20,10 @@ try:
 except ImportError:
     sys.exit("No TensorFlow Lite Runtime module found!")
 
-from pyvarml.config import CLASSIFICATION
-from pyvarml.config import DETECTION
-from pyvarml.utils.timer import Timer
-from pyvarml.utils.pascal import label_to_color_image
+from pyvar.ml.config import CLASSIFICATION
+from pyvar.ml.config import DETECTION
+from pyvar.ml.utils.timer import Timer
+from pyvar.ml.utils.pascal import label_to_color_image
 
 class TFLiteInterpreter:
     """

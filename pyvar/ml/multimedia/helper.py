@@ -10,10 +10,10 @@ from gi.repository import Gst
 
 import cv2
 
-from pyvarml.multimedia.config import FULL_HD_RESOLUTION
-from pyvarml.multimedia.config import HD_RESOLUTION
-from pyvarml.multimedia.config import VGA_RESOLUTION
-from pyvarml.multimedia.config import LEAKY
+from pyvar.ml.multimedia.config import FULL_HD_RESOLUTION
+from pyvar.ml.multimedia.config import HD_RESOLUTION
+from pyvar.ml.multimedia.config import VGA_RESOLUTION
+from pyvar.ml.multimedia.config import LEAKY
 
 class Multimedia:
     def __init__(self, source=None, resolution=None):
