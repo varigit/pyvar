@@ -1,51 +1,51 @@
-pyvarml.utils
-=============
+pyvar.ml.utils
+==============
 
-pyvarml.utils.label
--------------------
-
-.. automodule:: pyvarml.utils.label
-   :members:
-   :undoc-members:
-   :inherited-members:
-
-pyvarml.utils.overlay
----------------------
-
-.. automodule:: pyvarml.utils.overlay
-   :members:
-   :undoc-members:
-   :inherited-members:
-
-pyvarml.utils.framerate
------------------------
-
-.. automodule:: pyvarml.utils.framerate
-   :members:
-   :undoc-members:
-   :inherited-members:
-
-
-pyvarml.utils.retriever
------------------------
-
-.. automodule:: pyvarml.utils.retriever
-   :members:
-   :undoc-members:
-   :inherited-members:
-
-pyvarml.utils.pascal
+pyvar.ml.utils.label
 --------------------
 
-.. automodule:: pyvarml.utils.pascal
+.. automodule:: pyvar.ml.utils.label
    :members:
    :undoc-members:
    :inherited-members:
 
-pyvarml.utils.timer
--------------------
+pyvar.ml.utils.overlay
+----------------------
 
-.. automodule:: pyvarml.utils.timer
+.. automodule:: pyvar.ml.utils.overlay
+   :members:
+   :undoc-members:
+   :inherited-members:
+
+pyvar.ml.utils.framerate
+------------------------
+
+.. automodule:: pyvar.ml.utils.framerate
+   :members:
+   :undoc-members:
+   :inherited-members:
+
+
+pyvar.ml.utils.retriever
+------------------------
+
+.. automodule:: pyvar.ml.utils.retriever
+   :members:
+   :undoc-members:
+   :inherited-members:
+
+pyvar.ml.utils.pascal
+---------------------
+
+.. automodule:: pyvar.ml.utils.pascal
+   :members:
+   :undoc-members:
+   :inherited-members:
+
+pyvar.ml.utils.timer
+--------------------
+
+.. automodule:: pyvar.ml.utils.timer
    :members:
    :undoc-members:
    :inherited-members:

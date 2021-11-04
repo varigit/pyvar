@@ -1,13 +1,13 @@
-pyvarml.dataset
-===============
+pyvar.ml.dataset
+================
 
 .. NOTE::
     These classes will be changed to other ones.
 
-pyvarml.dataset.mnist
----------------------
+pyvar.ml.dataset.mnist
+----------------------
 
-.. automodule:: pyvarml.dataset.mnist
+.. automodule:: pyvar.ml.dataset.mnist
    :members:
    :undoc-members:
    :inherited-members:

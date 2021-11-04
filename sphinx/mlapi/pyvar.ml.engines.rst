@@ -1,10 +1,10 @@
-pyvarml.engines
-===============
+pyvar.ml.engines
+================
 
-pyvarml.engines.tflite
-----------------------
+pyvar.ml.engines.tflite
+-----------------------
 
-.. automodule:: pyvarml.engines.tflite
+.. automodule:: pyvar.ml.engines.tflite
    :members:
    :undoc-members:
    :inherited-members:
