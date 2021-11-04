@@ -12,10 +12,10 @@ written by using the Variscite Python API for Machine Learning:
 | |classification|       | |detection|            |
 +------------------------+------------------------+
 
-.. |classification| image:: examples/classification/media/street_classified_video.gif
+.. |classification| image:: examples/ml/classification/media/street_classified_video.gif
    :width: 100%
 
-.. |detection| image:: examples/detection/media/street_detected_video.gif
+.. |detection| image:: examples/ml/detection/media/street_detected_video.gif
    :width: 100%
 
 .. toctree::
