@@ -1,73 +1,62 @@
 Getting Started
 ===============
 
-Environment Setup
------------------
-
-Host Machine
-~~~~~~~~~~~~
-
-1. Install the following packages in the GNU/Linux system:
-
-.. code-block:: console
-
-    # apt install python3 python3-pip
-
-2. Install the required Python packages:
-
-.. code-block:: console
-
-    $ pip3 install opencv-python pillow numpy tensorflow
-
-System on Modules
-~~~~~~~~~~~~~~~~~
-
-* Build the latest Yocto Release available from source code `Variscite Wiki <https://variwiki.com/index.php?title=Yocto_Build_Release&release=RELEASE_HARDKNOTT_V1.1_DART-MX8M-PLUS>`_.
-
-
-Package Installation
+Machine Learning API
 --------------------
 
-Quick Installation via Pypi
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. To use the Machine Learning API from pyvar, make sure to have one of the
+following supported SoMs:
 
-On the SoM, use pip3 tool to install the package located at Pypi repository:
++-----------------------+-----------------------+
+| `VAR-SOM-MX8M-PLUS`_  | `DART-MX8M-PLUS`_     |
++=======================+=======================+
+| |var-mplus|           | |dart-mplus|          |
++-----------------------+-----------------------+
 
-.. code-block:: console
+.. _VAR-SOM-MX8M-PLUS: https://www.variscite.com/product/system-on-module-som/cortex-a53-krait/var-som-mx8m-plus-nxp-i-mx-8m-plus/
 
-    $ pip3 install pyvarml
+.. |var-mplus| image:: images/var-som-mx8m-plus.png
+   :width: 65%
 
+.. _DART-MX8M-PLUS: https://www.variscite.com/product/system-on-module-som/cortex-a53-krait/dart-mx8m-plus-nxp-i-mx-8m-plus/
 
-Build the Package Manually
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. |dart-mplus| image:: images/dart-mx8m-plus.png
+   :width: 60%
 
-1. Clone the pyvarml repository:
+2. Follow the quick instructions below to build the latest Yocto Release:
 
-.. code-block:: console
+.. note::  
+   For more information go to the Variscite `Wiki`_ page.
 
-    $ git clone https://github.com/varijig/pyvarml
+.. _Wiki: https://variwiki.com/
 
-2. Build the pyvarml package:
-
-.. code-block:: console
-
-    $ cd pyvarml/
-    $ python3 setup.py sdist
-    
-3. Copy the package to the SoM:
-
-.. code-block:: console
-
-    $ scp dist/<package> root@<IP_ADDRESS>:/home/root
-    
-4. On the SoM, install the package:
+2.1 Download the latest revision:
 
 .. code-block:: console
 
-    # pip3 install <package>
+    $ repo init -u https://github.com/varigit/variscite-bsp-platform.git -b fsl-hardknott -m imx-5.10.35-2.0.0-var01.xml
+    $ repo sync -j$(nproc)
 
-Build the Package on Yocto
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+2.2 Build XWayland GUI demo image, and launch the bitbake:
 
-.. NOTE::
-    Coming soon.
+.. code-block:: console
+
+    $ MACHINE=imx8mp-var-dart DISTRO=fsl-imx-xwayland . var-setup-release.sh -b build_xwayland
+    $ bitbake fsl-image-qt5
+
+3. Flash the image into the SD Card, boot the board, and then install the pyvar package using pip3 via Pypi:
+
+.. code-block:: console
+
+    # pip3 install pyvar
+
+3.1 To make sure that pyvar is installed, run the following command:
+
+.. code-block:: console
+
+    root@imx8mp-var-dart:~# python3
+    Python 3.9.5 (default, May  3 2021, 15:11:33) 
+    [GCC 10.2.0] on linux
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> import pyvar
+    >>>
