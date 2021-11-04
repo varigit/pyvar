@@ -15,7 +15,7 @@ Run the Image Classification Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvarml/raw/master/examples/classification/image_classification.py
+    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/classification/image_classification.py
 
 .. code-block:: bash
 
@@ -29,19 +29,19 @@ Run the Image Classification Example
 | |car|                        | |car-converted|              |
 +------------------------------+------------------------------+
 
-.. |car| image:: examples/classification/media/car.jpg
+.. |car| image:: ../../examples/ml/classification/media/car.jpg
    :width: 100%
    
-.. |car-converted| image:: examples/classification/media/car_classified.jpg
+.. |car-converted| image:: ../../examples/ml/classification/media/car_classified.jpg
    :width: 100%
 
-.. literalinclude:: ../examples/classification/image_classification.py
+.. literalinclude:: ../../../examples/ml/classification/image_classification.py
    :language: python
    :linenos:
    :caption: **Image Classification Example Source Code**: `image_classification.py`_
    :name: Image Classification Example
 
-.. _image_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/image_classification.py
+.. _image_classification.py: https://github.com/varjig/pyvar/blob/master/examples/ml/classification/image_classification.py
 
 |
 |
@@ -57,7 +57,7 @@ Run the Video Classification Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvarml/raw/master/examples/classification/video_classification.py
+    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/classification/video_classification.py
 
 .. code-block:: bash
 
@@ -71,19 +71,19 @@ Run the Video Classification Example
 | |street|                     | |street-classified|          |
 +------------------------------+------------------------------+
 
-.. |street| image:: examples/classification/media/street_video.gif
+.. |street| image:: ../../examples/ml/classification/media/street_video.gif
    :width: 100%
 
-.. |street-classified| image:: examples/classification/media/street_classified_video.gif
+.. |street-classified| image:: ../../examples/ml/classification/media/street_classified_video.gif
    :width: 100%
 
-.. literalinclude:: ../examples/classification/video_classification.py
+.. literalinclude:: ../../../examples/ml/classification/video_classification.py
    :language: python
    :linenos:
    :caption: **Video Classification Example Source code**: `video_classification.py`_
    :name: Video Classification Example
 
-.. _video_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/video_classification.py
+.. _video_classification.py: https://github.com/varjig/pyvar/blob/master/examples/ml/classification/video_classification.py
 
 |
 |
@@ -99,16 +99,16 @@ Run the Real Time Classification Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvarml/raw/master/examples/classification/realtime_classification.py
+    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/classification/realtime_classification.py
 
 .. code-block:: bash
 
     python3 realtime_classification.py
 
-.. literalinclude:: ../examples/classification/realtime_classification.py
+.. literalinclude:: ../../../examples/ml/classification/realtime_classification.py
    :language: python
    :linenos:
    :caption: **Real Time Classification Example Source code**: `realtime_classification.py`_
    :name: Real Time Classification Example
 
-.. _realtime_classification.py: https://github.com/varjig/pyvarml/blob/master/examples/classification/realtime_classification.py---
+.. _realtime_classification.py: https://github.com/varjig/pyvar/blob/master/examples/ml/classification/realtime_classification.py---

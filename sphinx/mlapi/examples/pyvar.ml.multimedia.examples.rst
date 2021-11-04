@@ -9,14 +9,14 @@ Convert Image
 
 1. To convert an image to gray scale, see the example:
 
-.. literalinclude:: ../examples/multimedia/convert_grayscale.py
+.. literalinclude:: ../../../examples/ml/multimedia/convert_grayscale.py
    :language: python
    :linenos:
    :caption: **Source code**: `convert_grayscale.py`_
    :name: Convert Image
    :emphasize-lines: 3
 
-.. _convert_grayscale.py: https://github.com/varjig/pyvarml/blob/master/examples/multimedia/convert_grayscale.py
+.. _convert_grayscale.py: https://github.com/varjig/pyvar/blob/master/examples/ml/multimedia/convert_grayscale.py
 
 2. The output is similar to the one below:
 
@@ -30,8 +30,8 @@ Convert Image
 | |dogs|                | |dogs-converted|      |
 +-----------------------+-----------------------+
 
-.. |dogs| image:: examples/multimedia/media/dogs.jpg
+.. |dogs| image:: ../../examples/ml/multimedia/media/dogs.jpg
    :width: 100%
    
-.. |dogs-converted| image:: examples/multimedia/media/dogs-converted.jpg
+.. |dogs-converted| image:: ../../examples/ml/multimedia/media/dogs-converted.jpg
    :width: 30%

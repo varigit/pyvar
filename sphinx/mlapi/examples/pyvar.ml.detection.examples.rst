@@ -15,7 +15,7 @@ Run the Image Detection Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvarml/raw/master/examples/detection/image_detection.py
+    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/detection/image_detection.py
 
 .. code-block:: bash
 
@@ -29,19 +29,19 @@ Run the Image Detection Example
 | |street-people|                | |street-people_detected|       |
 +--------------------------------+--------------------------------+
 
-.. |street-people| image:: examples/detection/media/street.png
+.. |street-people| image:: ../../examples/ml/detection/media/street.png
    :width: 100%
 
-.. |street-people_detected| image:: examples/detection/media/street_detected.png
+.. |street-people_detected| image:: ../../examples/ml/detection/media/street_detected.png
    :width: 100%
 
-.. literalinclude:: ../examples/detection/image_detection.py
+.. literalinclude:: ../../../examples/ml/detection/image_detection.py
    :language: python
    :linenos:
    :caption: **Image Detection Example Source code**: `image_detection.py`_
    :name: Image Detection Example
 
-.. _image_detection.py: https://github.com/varjig/pyvarml/blob/master/examples/detection/image_detection.py
+.. _image_detection.py: https://github.com/varjig/pyvar/blob/master/examples/ml/detection/image_detection.py
 
 |
 |
@@ -57,7 +57,7 @@ Run the Video Detection Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvarml/raw/master/examples/detection/video_detection.py
+    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/detection/video_detection.py
 
 .. code-block:: bash
 
@@ -71,19 +71,19 @@ Run the Video Detection Example
 | |street|                     | |street_detected|            |
 +------------------------------+------------------------------+
 
-.. |street| image:: examples/detection/media/street_video.gif
+.. |street| image:: ../../examples/ml/detection/media/street_video.gif
    :width: 100%
 
-.. |street_detected| image:: examples/detection/media/street_detected_video.gif
+.. |street_detected| image:: ../../examples/ml/detection/media/street_detected_video.gif
    :width: 100%
 
-.. literalinclude:: ../examples/detection/video_detection.py
+.. literalinclude:: ../../../examples/ml/detection/video_detection.py
    :language: python
    :linenos:
    :caption: **Video Detection Example Source code**: `video_detection.py`_
    :name: Video Detection Example
 
-.. _video_detection.py: https://github.com/varjig/pyvarml/blob/master/examples/detection/video_detection.py
+.. _video_detection.py: https://github.com/varjig/pyvar/blob/master/examples/ml/detection/video_detection.py
 
 |
 |
@@ -99,16 +99,16 @@ Run the Real Time Detection Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvarml/raw/master/examples/detection/realtime_detection.py
+    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/detection/realtime_detection.py
 
 .. code-block:: bash
 
     python3 realtime_detection.py
     
-.. literalinclude:: ../examples/detection/realtime_detection.py
+.. literalinclude:: ../../../examples/ml/detection/realtime_detection.py
    :language: python
    :linenos:
    :caption: **Real Time Detection Example Source code**: `realtime_detection.py`_
    :name: Real Time Detection Example
 
-.. _realtime_detection.py: https://github.com/varjig/pyvarml/blob/master/examples/detection/realtime_detection.py
+.. _realtime_detection.py: https://github.com/varjig/pyvar/blob/master/examples/ml/detection/realtime_detection.py

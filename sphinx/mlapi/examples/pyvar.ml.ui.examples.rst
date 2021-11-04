@@ -11,7 +11,7 @@ Run the Detection User Interface Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvarml/raw/master/examples/detection/ui_detection.py
+    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/detection/ui_detection.py
 
 .. code-block:: bash
 
@@ -25,7 +25,7 @@ Run the Detection User Interface Example
 | |ui_objects|                   |
 +--------------------------------+
 
-.. |ui_objects| image:: examples/detection/media/ui_objects.png
+.. |ui_objects| image:: ../../examples/ml/detection/media/ui_objects.png
    :width: 100%
 
 +--------------------------------+
@@ -34,7 +34,7 @@ Run the Detection User Interface Example
 | |ui_options|                   |
 +--------------------------------+
 
-.. |ui_options| image:: examples/detection/media/ui_options.png
+.. |ui_options| image:: ../../examples/ml/detection/media/ui_options.png
    :width: 100%
    
 +--------------------------------+
@@ -43,13 +43,13 @@ Run the Detection User Interface Example
 | |ui_objects_detected|          |
 +--------------------------------+
 
-.. |ui_objects_detected| image:: examples/detection/media/ui_objects_detected.png
+.. |ui_objects_detected| image:: ../../examples/ml/detection/media/ui_objects_detected.png
    :width: 100%
 
-.. literalinclude:: ../examples/detection/ui_detection.py
+.. literalinclude:: ../../../examples/ml/detection/ui_detection.py
    :language: python
    :linenos:
    :caption: **User Interface Detection Example Source code**: `ui_detection.py`_
    :name: User Interface Detection Example
 
-.. _ui_detection.py: https://github.com/varjig/pyvarml/blob/master/examples/detection/ui_detection.py
+.. _ui_detection.py: https://github.com/varjig/pyvar/blob/master/examples/ml/detection/ui_detection.py
