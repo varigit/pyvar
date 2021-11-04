@@ -18,9 +18,6 @@ written by using the Variscite Python API for Machine Learning:
 .. |detection| image:: examples/detection/media/street_detected_video.gif
    :width: 100%
 
-
-
-
 .. toctree::
    :caption: Table of Contents
    :maxdepth: 2
