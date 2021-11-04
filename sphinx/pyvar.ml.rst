@@ -25,17 +25,17 @@ written by using the Variscite Python API for Machine Learning:
    :caption: Table of Contents
    :maxdepth: 2
 
-   pyvarml.engines.rst
-   pyvarml.multimedia.rst
-   pyvarml.dataset.rst
-   pyvarml.utils.rst
-   pyvarml.engines.examples.rst
-   pyvarml.multimedia.examples.rst
-   pyvarml.dataset.examples.rst
-   pyvarml.utils.examples.rst
-   pyvarml.classification.examples.rst
-   pyvarml.detection.examples.rst
-   pyvarml.ui.examples.rst
+   pyvar.ml.engines.rst
+   pyvar.ml.multimedia.rst
+   pyvar.ml.dataset.rst
+   pyvar.ml.utils.rst
+   pyvar.ml.engines.examples.rst
+   pyvar.ml.multimedia.examples.rst
+   pyvar.ml.dataset.examples.rst
+   pyvar.ml.utils.examples.rst
+   pyvar.ml.classification.examples.rst
+   pyvar.ml.detection.examples.rst
+   pyvar.ml.ui.examples.rst
   
 ..
    pyvarml.tracking.examples.rst

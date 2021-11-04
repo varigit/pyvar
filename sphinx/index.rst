@@ -14,8 +14,8 @@ written by using the Variscite Python API for Machine Learning:
    :caption: Table of Contents
    :maxdepth: 2
 
-   pyvarml.gettingstarted.rst
+   pyvar.gettingstarted.rst
    pyvar.ml.rst
    blog.rst
-   pyvarml.license.rst
-   pyvarml.contribute.rst
+   pyvar.license.rst
+   pyvar.contribute.rst
