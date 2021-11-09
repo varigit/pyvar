@@ -3,10 +3,9 @@
 
 """
 :platform: Unix/Yocto
-:synopsis: Python Engines Classes
+:synopsis: Python Engine Class
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
-    .. note:: 10/15/2021 [diego.d] First Version Released
 """
 
 import sys
@@ -27,7 +26,7 @@ from pyvar.ml.utils.pascal import label_to_color_image
 
 class TFLiteInterpreter:
     """
-    Python Class to handle TensorFlow Lite inference engine.
+    Class to handle TensorFlow Lite inference engine.
 
     :ivar interpreter: storages the TensorFlow Lite interpreter;
     :ivar input_details: storages the input details from model;
