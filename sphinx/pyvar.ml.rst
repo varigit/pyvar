@@ -25,9 +25,6 @@ written by using the Variscite Python API for Machine Learning:
    mlapi/pyvar.ml.engines.rst
    mlapi/pyvar.ml.multimedia.rst
    mlapi/pyvar.ml.utils.rst
-   mlapi/examples/pyvar.ml.engines.examples.rst
-   mlapi/examples/pyvar.ml.multimedia.examples.rst
-   mlapi/examples/pyvar.ml.utils.examples.rst
    mlapi/examples/pyvar.ml.classification.examples.rst
    mlapi/examples/pyvar.ml.detection.examples.rst
    mlapi/examples/pyvar.ml.ui.examples.rst
