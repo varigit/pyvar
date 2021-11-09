@@ -111,4 +111,4 @@ Run the Real Time Classification Example
    :caption: **Real Time Classification Example Source code**: `realtime_classification.py`_
    :name: Real Time Classification Example
 
-.. _realtime_classification.py: https://github.com/varjig/pyvar/blob/master/examples/ml/classification/realtime_classification.py---
+.. _realtime_classification.py: https://github.com/varjig/pyvar/blob/master/examples/ml/classification/realtime_classification.py
