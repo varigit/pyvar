@@ -11,6 +11,5 @@ Learning, multimedia, and more.
 
    pyvar.gettingstarted.rst
    pyvar.ml.rst
-   blog.rst
    pyvar.license.rst
    pyvar.contribute.rst
