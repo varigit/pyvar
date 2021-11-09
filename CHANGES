@@ -1,0 +1,4 @@
+1.0.0:
+    - Support inference engine from TensorFlow Lite;
+    - Support multimedia video and camera resources from Gst;
+    - Classification and Detection examples.
