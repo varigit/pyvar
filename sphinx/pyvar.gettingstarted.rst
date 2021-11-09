@@ -22,10 +22,9 @@ For Machine Learning API
 .. |dart-mplus| image:: images/dart-mx8m-plus.png
    :width: 60%
 
-2. Follow the quick instructions below to build the latest Yocto Release:
+2. Follow the quick instructions below to build the latest Yocto Release. 
 
-.. note::  
-   For more information go to the Variscite `Wiki`_ page.
+* For more information go to the Variscite `Wiki`_ page.
 
 .. _Wiki: https://variwiki.com/
 
