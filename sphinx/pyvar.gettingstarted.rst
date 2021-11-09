@@ -1,11 +1,10 @@
 Getting Started
 ===============
 
-Machine Learning API
---------------------
+For Machine Learning API
+------------------------
 
-1. To use the Machine Learning API from pyvar, make sure to have one of the
-following supported SoMs:
+1. To use the Machine Learning API make sure to have one of the following supported SoMs:
 
 +-----------------------+-----------------------+
 | `VAR-SOM-MX8M-PLUS`_  | `DART-MX8M-PLUS`_     |
@@ -30,27 +29,29 @@ following supported SoMs:
 
 .. _Wiki: https://variwiki.com/
 
-2.1 Download the latest revision:
+2.1 Retrieve the latest revision:
 
 .. code-block:: console
 
-    $ repo init -u https://github.com/varigit/variscite-bsp-platform.git -b fsl-hardknott -m imx-5.10.35-2.0.0-var01.xml
+    $ repo init -u https://github.com/varigit/variscite-bsp-platform.git \
+                -b fsl-hardknott -m imx-5.10.35-2.0.0-var01.xml
     $ repo sync -j$(nproc)
 
-2.2 Build XWayland GUI demo image, and launch the bitbake:
+2.2 Build XWayland GUI demo image, and launch the bitbake to build the image:
 
 .. code-block:: console
 
-    $ MACHINE=imx8mp-var-dart DISTRO=fsl-imx-xwayland . var-setup-release.sh -b build_xwayland
+    $ MACHINE=imx8mp-var-dart DISTRO=fsl-imx-xwayland . var-setup-release.sh \
+                              -b build_xwayland
     $ bitbake fsl-image-qt5
 
-3. Flash the image into the SD Card, boot the board, and then install the pyvar package using pip3 via Pypi:
+3. Flash the image into the SD Card; boot the board; and, then install the pyvar package using pip3 via Pypi:
 
 .. code-block:: console
 
-    # pip3 install pyvar
+    root@imx8mp-var-dart:~# pip3 install pyvar
 
-3.1 To make sure that pyvar is installed, run the following command:
+3.1 To make sure that pyvar is installed, run the following command to check:
 
 .. code-block:: console
 
