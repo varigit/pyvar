@@ -1,18 +1,13 @@
 Variscite Python API
 ====================
 
-The pyvar Python package provides a set of high-level abstraction to allow any
-user to develop their own applications regarding Machine Learning, 
-
-The Machine Learning package provides a set of high-level abstraction to allow
-any user to develop their own Machine Learning application in a simplified and
-efficiently way without writing too many lines of code. See a few examples
-written by using the Variscite Python API for Machine Learning:
-
+The **pyvar** package provided by Variscite LTD is a set of high-level
+abstractions to allow any user to develop its own applications regarding Machine
+Learning, multimedia, and more.
 
 .. toctree::
    :caption: Table of Contents
-   :maxdepth: 2
+   :maxdepth: 3
 
    pyvar.gettingstarted.rst
    pyvar.ml.rst
