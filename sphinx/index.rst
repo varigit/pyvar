@@ -1,9 +1,9 @@
-Variscite Python API
-====================
+Variscite Python Package
+========================
 
-The **pyvar** package provided by Variscite LTD is a set of high-level
-abstractions to allow any user to develop its own applications regarding Machine
-Learning, multimedia, and more.
+The Variscite Python Package as known as **pyvar** is a set of high-level
+abstractions that allows any user to develop its own applications regarding
+Machine Learning, multimedia, and more.
 
 .. toctree::
    :caption: Table of Contents
