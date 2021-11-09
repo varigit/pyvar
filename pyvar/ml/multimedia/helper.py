@@ -1,6 +1,13 @@
 # Copyright 2021 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
+"""
+:platform: Unix/Yocto
+:synopsis: Python Multimedia Classes
+
+.. moduleauthor:: Diego Dorta <diego.d@variscite.com>
+"""
+
 import os
 import sys
 
@@ -16,6 +23,14 @@ from pyvar.ml.multimedia.config import VGA_RESOLUTION
 from pyvar.ml.multimedia.config import LEAKY
 
 class Multimedia:
+    """
+    Class to handle the Multimedia resources.
+
+    :ivar video_src: storages the video source;
+    :ivar resolution: storages the video source resolution;
+    :ivar devices: storages the video devices;
+    :ivar sink: storages the video capture.
+    """
     def __init__(self, source=None, resolution=None):
         self.video_src = source
         self.resolution = resolution
@@ -28,6 +43,12 @@ class Multimedia:
             self.dev_caps = self.get_caps()
 
     def get_caps(self):
+        """
+        Get the caps from device.
+
+        Returns:
+            The valid resolution.
+        """
         if self.resolution == FULL_HD_RESOLUTION:
             return self.validate_caps(self.dev.full_hd_caps)
         elif self.resolution == VGA_RESOLUTION:
@@ -39,6 +60,12 @@ class Multimedia:
             return self.validate_caps(self.dev.hd_caps)
 
     def validate_caps(self, caps):
+        """
+        Check if the resolution is valid..
+
+        Returns:
+            The valid resolution or default one.
+        """
         if caps:
             return caps
         else:
@@ -48,6 +75,9 @@ class Multimedia:
             return self.dev.default_caps
 
     def set_v4l2_config(self):
+        """
+        Set the v4l2 configuration.
+        """
         if self.video_src and os.path.isfile(self.video_src):
             pipeline = self.v4l2_video_pipeline(self.video_src)
         else:
@@ -59,16 +89,28 @@ class Multimedia:
         self.sink = cv2.VideoCapture(pipeline)
 
     def v4l2_video_pipeline(self, filesrc):
+        """
+        Set the v4l2 configuration for video source file.
+        """
         return (f"filesrc location={filesrc} ! qtdemux name=d d.video_0 ! " \
                 f"decodebin ! queue {LEAKY} ! queue ! imxvideoconvert_g2d ! " \
                 f"videoconvert ! appsink")        
         
     def v4l2_camera_pipeline(self, width, height, device, framerate):
+        """
+        Set the v4l2 configuration for camera device.
+        """
         return (f"v4l2src device={device} ! video/x-raw,width={width}," \
                 f"height={height},framerate={framerate} ! queue {LEAKY} ! " \
                 f"videoconvert ! appsink")
 
     def get_frame(self):
+        """
+        Get the frame from video source.
+
+        Returns:
+            The frame.
+        """
         check, frame = self.sink.read()
         if check is not True:
             self.destroy()
@@ -76,28 +118,53 @@ class Multimedia:
         return frame
 
     def loop(self):
+        """
+        Check if the video source still have frames or not.
+        """
         if (not self.sink) or (not self.sink.isOpened()):
             sys.exit("Your video device could not be initialized. Exiting...")
         return self.sink.isOpened()
 
     def save(self, name=None, output_frame=None):
+        """
+        Save any frame as an output file.
+        """
         cv2.imwrite(name, output_frame)
 
     def show(self, name=None, output_frame=None):
+        """
+        Show any frame.
+        """
         cv2.imshow(name, output_frame)
         if (cv2.waitKey(1) & 0xFF) == ord('q'):
             self.destroy()
 
     def show_image(self, title=None, image=None):
+        """
+        Show any image.
+        """
         cv2.imshow(title, image)
         cv2.waitKey()
         cv2.destroyAllWindows()
 
     def destroy(self):
+        """
+        Release and destroy the video capture from video source.
+        """
         self.sink.release()
         cv2.destroyAllWindows()  
 
 class VideoDevice:
+    """
+    Class to handle the Video device features and resolutions.
+
+    :ivar name: storages the video name;
+    :ivar caps: storages the caps resolution;
+    :ivar default_caps: storages the default caps resolution;
+    :ivar full_hd_caps: storages the full hd caps resolution;
+    :ivar hd_caps: storages the hd caps resolution;
+    :ivar vga_caps: storages the vga caps resolution.
+    """
     def __init__(self):
         self.name = None
         self.caps = None
@@ -107,6 +174,15 @@ class VideoDevice:
         self.vga_caps = None
 
 class Caps:
+    """
+    Class to handle the Video device caps.
+
+    :ivar name: storages the video name;
+    :ivar format: storages the caps resolution;
+    :ivar width: storages the default caps resolution;
+    :ivar height: storages the full hd caps resolution;
+    :ivar framerate: storages the hd caps resolution.
+    """
     def __init__(self):
         self.name = None
         self.format = None
@@ -115,10 +191,18 @@ class Caps:
         self.framerate = None
 
 class Devices:
+    """
+    Class to handle the devices.
+
+    :ivar devices: storages devices from device monitor.
+    """
     def __init__(self):
         self.devices = []
 
     def get_video_devices(self):
+        """
+        Get the available devices from device monitor.
+        """
         Gst.init()
         dev_monitor = Gst.DeviceMonitor()
         dev_monitor.add_filter("Video/Source")
@@ -191,6 +275,9 @@ class Devices:
         return full_hd_caps, hd_caps, vga_caps
 
     def search_device(self, dev_name):
+        """
+        Check if the device is valid or not
+        """
         dev = None
         if dev_name.startswith("/dev/video"):
             for device in self.devices:
