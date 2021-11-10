@@ -4,6 +4,9 @@ Getting Started
 For Machine Learning API
 ------------------------
 
+Setting Up the Hardware and the BSP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 1. To use the Machine Learning API make sure to have one of the following supported SoMs:
 
 +-----------------------+-----------------------+
@@ -24,9 +27,16 @@ For Machine Learning API
 
 2. Follow the quick instructions below to build the latest Yocto Release. 
 
-* For more information go to the Variscite `Wiki`_ page.
+* For more information on how to build BSP from source code go to the Variscite `Wiki`_ page.
+* The API supports `VCAM-5640S-DUO`_ and `VCAM-AR0821N`_. To use the Basler one, please see this `tutorial`_.
 
 .. _Wiki: https://variwiki.com/
+
+.. _tutorial: https://variwiki.com/index.php?title=MX8_Basler_Camera_NXP
+
+.. _VCAM-5640S-DUO: https://www.variscite.com/product/accessories/vcam-5640s-duo/
+
+.. _VCAM-AR0821N: https://www.variscite.com/product/accessories/vcam-ar0821b-camera-board/
 
 2.1 Retrieve the latest revision:
 
@@ -44,13 +54,18 @@ For Machine Learning API
                               -b build_xwayland
     $ bitbake fsl-image-qt5
 
-3. Flash the image into the SD Card; boot the board; and, then install the pyvar package using pip3 via Pypi:
+3. Flash the image into the SD Card, boot the board, then go to next section.
+
+Quick Python Package Instalation
+--------------------------------
+
+1. Install the pyvar package using pip3 via Pypi:
 
 .. code-block:: console
 
     root@imx8mp-var-dart:~# pip3 install pyvar
 
-3.1 To make sure that pyvar is installed, run the following command to check:
+1.1 To make sure that pyvar is installed, run the following command to check:
 
 .. code-block:: console
 
