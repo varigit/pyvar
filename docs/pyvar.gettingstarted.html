@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>Getting Started</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Machine Learning API" href="pyvar.ml.html" />
+  <link rel="prev" title="Variscite Python Package" href="index.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="index.html" class="home-link">
+    
+      <img class="logo" src="_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#variscite-python-package">Table of Contents</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current">
+            
+              <a href="#" class="reference internal current">Getting Started</a>
+            
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#for-machine-learning-api" class="reference internal">For Machine Learning API</a></li>
+                
+                  <li class="toctree-l2"><a href="#quick-python-package-instalation" class="reference internal">Quick Python Package Instalation</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pyvar.ml.html" class="reference internal ">Machine Learning API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pyvar.license.html" class="reference internal ">LICENSE</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pyvar.contribute.html" class="reference internal ">Contribute</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Getting Started</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="index.html"
+       title="previous chapter">← Variscite Python Package</a>
+  </li>
+  <li class="next">
+    <a href="pyvar.ml.html"
+       title="next chapter">Machine Learning API →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<section id="for-machine-learning-api">
+<h2>For Machine Learning API<a class="headerlink" href="#for-machine-learning-api" title="Permalink to this headline">¶</a></h2>
+<section id="setting-up-the-hardware-and-the-bsp">
+<h3>Setting Up the Hardware and the BSP<a class="headerlink" href="#setting-up-the-hardware-and-the-bsp" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>To use the Machine Learning API make sure to have one of the following supported SoMs:</p></li>
+</ol>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><a class="reference external" href="https://www.variscite.com/product/system-on-module-som/cortex-a53-krait/var-som-mx8m-plus-nxp-i-mx-8m-plus/">VAR-SOM-MX8M-PLUS</a></p></th>
+<th class="head"><p><a class="reference external" href="https://www.variscite.com/product/system-on-module-som/cortex-a53-krait/dart-mx8m-plus-nxp-i-mx-8m-plus/">DART-MX8M-PLUS</a></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="_images/var-som-mx8m-plus.png"><img alt="var-mplus" src="_images/var-som-mx8m-plus.png" style="width: 65%;" /></a></p></td>
+<td><p><a class="reference internal" href="_images/dart-mx8m-plus.png"><img alt="dart-mplus" src="_images/dart-mx8m-plus.png" style="width: 60%;" /></a></p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="2">
+<li><p>Follow the quick instructions below to build the latest Yocto Release.</p></li>
+</ol>
+<ul class="simple">
+<li><p>For more information on how to build BSP from source code go to the Variscite <a class="reference external" href="https://variwiki.com/">Wiki</a> page.</p></li>
+<li><p>The API supports <a class="reference external" href="https://www.variscite.com/product/accessories/vcam-5640s-duo/">VCAM-5640S-DUO</a> and <a class="reference external" href="https://www.variscite.com/product/accessories/vcam-ar0821b-camera-board/">VCAM-AR0821N</a>. To use the Basler one, please see this <a class="reference external" href="https://variwiki.com/index.php?title=MX8_Basler_Camera_NXP">tutorial</a>.</p></li>
+</ul>
+<p>2.1 Retrieve the latest revision:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>repo init -u https://github.com/varigit/variscite-bsp-platform.git <span class="se">\</span>
+            -b fsl-hardknott -m imx-5.10.35-2.0.0-var01.xml
+<span class="gp">$ </span>repo sync -j<span class="k">$(</span>nproc<span class="k">)</span>
+</pre></div>
+</div>
+<p>2.2 Build XWayland GUI demo image, and launch the bitbake to build the image:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nv">MACHINE</span><span class="o">=</span>imx8mp-var-dart <span class="nv">DISTRO</span><span class="o">=</span>fsl-imx-xwayland . var-setup-release.sh <span class="se">\</span>
+                          -b build_xwayland
+<span class="gp">$ </span>bitbake fsl-image-qt5
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Flash the image into the SD Card, boot the board, then go to next section.</p></li>
+</ol>
+</section>
+</section>
+<section id="quick-python-package-instalation">
+<h2>Quick Python Package Instalation<a class="headerlink" href="#quick-python-package-instalation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Install the pyvar package using pip3 via Pypi:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~# </span>pip3 install pyvar
+</pre></div>
+</div>
+<p>1.1 To make sure that pyvar is installed, run the following command to check:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~# </span>python3
+<span class="go">Python 3.9.5 (default, May  3 2021, 15:11:33)</span>
+<span class="go">[GCC 10.2.0] on linux</span>
+<span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
+<span class="go">&gt;&gt;&gt; import pyvar</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="index.html"
+       title="previous chapter">← Variscite Python Package</a>
+  </li>
+  <li class="next">
+    <a href="pyvar.ml.html"
+       title="next chapter">Machine Learning API →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021 Variscite LTD.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

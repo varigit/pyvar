@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>pyvar.ml.utils</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Classification Examples" href="examples/pyvar.ml.classification.examples.html" />
+  <link rel="prev" title="pyvar.ml.multimedia" href="pyvar.ml.multimedia.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <img class="logo" src="../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#variscite-python-package">Table of Contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.ml.html" class="reference internal ">Machine Learning API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.license.html" class="reference internal ">LICENSE</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.contribute.html" class="reference internal ">Contribute</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../pyvar.ml.html">Machine Learning API</a> &raquo;</li>
+    
+    <li>pyvar.ml.utils</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="pyvar.ml.multimedia.html"
+       title="previous chapter">← pyvar.ml.multimedia</a>
+  </li>
+  <li class="next">
+    <a href="examples/pyvar.ml.classification.examples.html"
+       title="next chapter">Classification Examples →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="pyvar-ml-utils">
+<h1>pyvar.ml.utils<a class="headerlink" href="#pyvar-ml-utils" title="Permalink to this headline">¶</a></h1>
+<section id="module-pyvar.ml.utils.label">
+<span id="pyvar-ml-utils-label"></span><h2>pyvar.ml.utils.label<a class="headerlink" href="#module-pyvar.ml.utils.label" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Python Label Class</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.ml.utils.label.Label">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.label.</span></span><span class="sig-name descname"><span class="pre">Label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/label.html#Label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.label.Label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Python Class to read the labels file from Machine Learning models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>labels_file</strong> – storages the path of the labels model file.</p></li>
+<li><p><strong>list</strong> – storages the read labels from the model file.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.label.Label.read_labels">
+<span class="sig-name descname"><span class="pre">read_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/label.html#Label.read_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.label.Label.read_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to read the labels file and save the result in list attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>category</strong> (<em>str</em>) – storages the model category.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>category</strong>: choose between classification or detection.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>If <strong>success</strong> returns <strong>True</strong>, if <strong>not</strong> returns <strong>False</strong>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyvar.ml.utils.overlay">
+<span id="pyvar-ml-utils-overlay"></span><h2>pyvar.ml.utils.overlay<a class="headerlink" href="#module-pyvar.ml.utils.overlay" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Python Label Class</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.overlay.</span></span><span class="sig-name descname"><span class="pre">Overlay</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay.generate_colors">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">generate_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay.generate_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay.generate_colors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay.info">
+<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inference_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay.info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay.info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include information on image/frame: inference time, scores, model name,
+and source file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<em>numpy array</em>) – original image to overlay the information.</p></li>
+<li><p><strong>top_result</strong> (<em>list</em>) – top results from the inference.</p></li>
+<li><p><strong>labels</strong> (<em>list</em>) – list of the read labels.</p></li>
+<li><p><strong>inference_time</strong> (<em>str</em>) – inference time from TFLiteInterpreter class.</p></li>
+<li><p><strong>model_name</strong> (<em>str</em>) – the model name.</p></li>
+<li><p><strong>source_file</strong> (<em>str</em>) – the source file name.</p></li>
+<li><p><strong>fps</strong> (<em>float</em>) – fpsit from Framerate class.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The imagen (numpy array) with the overlayed information.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyvar.ml.utils.framerate">
+<span id="pyvar-ml-utils-framerate"></span><h2>pyvar.ml.utils.framerate<a class="headerlink" href="#module-pyvar.ml.utils.framerate" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Python Class to get framerate from videos and real time cameras.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.ml.utils.framerate.Framerate">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.framerate.</span></span><span class="sig-name descname"><span class="pre">Framerate</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/framerate.html#Framerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.framerate.Framerate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.framerate.Framerate.fpsit">
+<span class="sig-name descname"><span class="pre">fpsit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/framerate.html#Framerate.fpsit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.framerate.Framerate.fpsit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The framerate is storage in the <strong>fps</strong> attribute.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyvar.ml.utils.retriever">
+<span id="pyvar-ml-utils-retriever"></span><h2>pyvar.ml.utils.retriever<a class="headerlink" href="#module-pyvar.ml.utils.retriever" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Python Class to retrieve packages from FTP server.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.ml.utils.retriever.FTP">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.retriever.</span></span><span class="sig-name descname"><span class="pre">FTP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/retriever.html#FTP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.retriever.FTP" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Constructor</strong></p>
+<p>Specify the <strong>host</strong>, <strong>user</strong>, and <strong>password</strong> from the FTP. If <strong>none</strong>
+is specified, then the default is from Variscite.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.retriever.FTP.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/retriever.html#FTP.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.retriever.FTP.disconnect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a quit command to the server and close the connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.retriever.FTP.get_package_names">
+<span class="sig-name descname"><span class="pre">get_package_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package_name_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/retriever.html#FTP.get_package_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.retriever.FTP.get_package_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model and label names from the downloaded package.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.retriever.FTP.retrieve_package">
+<span class="sig-name descname"><span class="pre">retrieve_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/retriever.html#FTP.retrieve_package"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.retriever.FTP.retrieve_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve package from the FTP server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>package_dir</strong> (<em>str</em>) – package directory;</p></li>
+<li><p><strong>package_filename</strong> (<em>str</em>) – model package file name;</p></li>
+<li><p><strong>category</strong> (<em>str</em>) – type of machine learning model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if <strong>success</strong>, return <strong>True</strong>
+if <strong>not</strong>, return <strong>False</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyvar.ml.utils.pascal">
+<span id="pyvar-ml-utils-pascal"></span><h2>pyvar.ml.utils.pascal<a class="headerlink" href="#module-pyvar.ml.utils.pascal" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Python Pascal Class</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyvar.ml.utils.pascal.create_pascal_label_colormap">
+<span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.pascal.</span></span><span class="sig-name descname"><span class="pre">create_pascal_label_colormap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/pascal.html#create_pascal_label_colormap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.pascal.create_pascal_label_colormap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a label colormap used in PASCAL VOC segmentation benchmark.</p>
+<p>Returns:
+A Colormap for visualizing segmentation results.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyvar.ml.utils.pascal.label_to_color_image">
+<span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.pascal.</span></span><span class="sig-name descname"><span class="pre">label_to_color_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/pascal.html#label_to_color_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.pascal.label_to_color_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds color defined by the dataset colormap to the label.</p>
+<p>Args:
+label: A 2D array with integer type, storing the segmentation label.</p>
+<p>Returns:
+A 2D array with floating type. The element of the array is the color indexed by the corresponding element in the input label to the PASCAL color map.</p>
+<p>Raises:
+ValueError: If label is not of rank 2 or its value is larger than color map maximum entry.</p>
+</dd></dl>
+
+</section>
+<section id="module-pyvar.ml.utils.timer">
+<span id="pyvar-ml-utils-timer"></span><h2>pyvar.ml.utils.timer<a class="headerlink" href="#module-pyvar.ml.utils.timer" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Python Class to calculate time.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.ml.utils.timer.Timer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.timer.</span></span><span class="sig-name descname"><span class="pre">Timer</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/timer.html#Timer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.timer.Timer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.timer.Timer.convert">
+<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elapsed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/timer.html#Timer.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.timer.Timer.convert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert time from monotonic to seconds.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.timer.Timer.timeit">
+<span class="sig-name descname"><span class="pre">timeit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/timer.html#Timer.timeit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.timer.Timer.timeit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time is storage in the <strong>time</strong> attribute.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="pyvar.ml.multimedia.html"
+       title="previous chapter">← pyvar.ml.multimedia</a>
+  </li>
+  <li class="next">
+    <a href="examples/pyvar.ml.classification.examples.html"
+       title="next chapter">Classification Examples →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021 Variscite LTD.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

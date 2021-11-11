@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>Variscite Python Package</title>
+    
+          <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="_static/theme-vendors.js"></script> -->
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Getting Started" href="pyvar.gettingstarted.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="#" class="home-link">
+    
+      <img class="logo" src="_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#variscite-python-package">Table of Contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pyvar.gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pyvar.ml.html" class="reference internal ">Machine Learning API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pyvar.license.html" class="reference internal ">LICENSE</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pyvar.contribute.html" class="reference internal ">Contribute</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+    
+    <li>Variscite Python Package</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="next">
+    <a href="pyvar.gettingstarted.html"
+       title="next chapter">Getting Started →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="variscite-python-package">
+<h1>Variscite Python Package<a class="headerlink" href="#variscite-python-package" title="Permalink to this headline">¶</a></h1>
+<img alt="PyPI" src="https://img.shields.io/pypi/v/pyvar?style=for-the-badge" />
+<img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/pyvar?style=for-the-badge" />
+<img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/dorta/pyvar?style=for-the-badge" />
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/dorta/pyvar?style=for-the-badge" />
+<img alt="PyPI - License" src="https://img.shields.io/pypi/l/pyvar?style=for-the-badge" />
+<p>The Variscite Python Package as known as <a class="reference external" href="https://pypi.org/project/pyvar/">pyvar</a> is a set of high-level
+abstractions that allows any user to develop its own applications regarding
+Machine Learning, multimedia, and more. This page also contains posts, tutorials,
+and quick source code examples to help in your development.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyvar.gettingstarted.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyvar.gettingstarted.html#for-machine-learning-api">For Machine Learning API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyvar.gettingstarted.html#setting-up-the-hardware-and-the-bsp">Setting Up the Hardware and the BSP</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyvar.gettingstarted.html#quick-python-package-instalation">Quick Python Package Instalation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyvar.ml.html">Machine Learning API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mlapi/pyvar.ml.engines.html">pyvar.ml.engines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.engines.html#module-pyvar.ml.engines.tflite">pyvar.ml.engines.tflite</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mlapi/pyvar.ml.multimedia.html">pyvar.ml.multimedia</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.multimedia.html#module-pyvar.ml.multimedia.helper">pyvar.ml.multimedia.helper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mlapi/pyvar.ml.utils.html">pyvar.ml.utils</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.utils.html#module-pyvar.ml.utils.label">pyvar.ml.utils.label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.utils.html#module-pyvar.ml.utils.overlay">pyvar.ml.utils.overlay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.utils.html#module-pyvar.ml.utils.framerate">pyvar.ml.utils.framerate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.utils.html#module-pyvar.ml.utils.retriever">pyvar.ml.utils.retriever</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.utils.html#module-pyvar.ml.utils.pascal">pyvar.ml.utils.pascal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.utils.html#module-pyvar.ml.utils.timer">pyvar.ml.utils.timer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mlapi/examples/pyvar.ml.classification.examples.html">Classification Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/examples/pyvar.ml.classification.examples.html#image-classification">Image Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/examples/pyvar.ml.classification.examples.html#video-classification">Video Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/examples/pyvar.ml.classification.examples.html#real-time-classification">Real Time Classification</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mlapi/examples/pyvar.ml.detection.examples.html">Detection Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/examples/pyvar.ml.detection.examples.html#image-detection-example">Image Detection Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/examples/pyvar.ml.detection.examples.html#video-detection">Video Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/examples/pyvar.ml.detection.examples.html#real-time-detection">Real Time Detection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mlapi/examples/pyvar.ml.ui.examples.html">User Interface Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/examples/pyvar.ml.ui.examples.html#detection-user-interface">Detection User Interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyvar.license.html">LICENSE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyvar.license.html#bsd-3-clause-license">BSD 3-Clause License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyvar.contribute.html">Contribute</a></li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="next">
+    <a href="pyvar.gettingstarted.html"
+       title="next chapter">Getting Started →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021 Variscite LTD.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

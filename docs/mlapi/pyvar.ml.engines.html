@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>pyvar.ml.engines</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="pyvar.ml.multimedia" href="pyvar.ml.multimedia.html" />
+  <link rel="prev" title="Machine Learning API" href="../pyvar.ml.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <img class="logo" src="../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#variscite-python-package">Table of Contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.ml.html" class="reference internal ">Machine Learning API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.license.html" class="reference internal ">LICENSE</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.contribute.html" class="reference internal ">Contribute</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../pyvar.ml.html">Machine Learning API</a> &raquo;</li>
+    
+    <li>pyvar.ml.engines</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../pyvar.ml.html"
+       title="previous chapter">← Machine Learning API</a>
+  </li>
+  <li class="next">
+    <a href="pyvar.ml.multimedia.html"
+       title="next chapter">pyvar.ml.multimedia →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="pyvar-ml-engines">
+<h1>pyvar.ml.engines<a class="headerlink" href="#pyvar-ml-engines" title="Permalink to this headline">¶</a></h1>
+<section id="module-pyvar.ml.engines.tflite">
+<span id="pyvar-ml-engines-tflite"></span><h2>pyvar.ml.engines.tflite<a class="headerlink" href="#module-pyvar.ml.engines.tflite" title="Permalink to this headline">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Python Engine Class</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.engines.tflite.</span></span><span class="sig-name descname"><span class="pre">TFLiteInterpreter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to handle TensorFlow Lite inference engine.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>interpreter</strong> – storages the TensorFlow Lite interpreter;</p></li>
+<li><p><strong>input_details</strong> – storages the input details from model;</p></li>
+<li><p><strong>output_details</strong> – storages the output details from inference;</p></li>
+<li><p><strong>result</strong> – storages the results from inference;</p></li>
+<li><p><strong>inference_time</strong> – storages the inference time;</p></li>
+<li><p><strong>model_file_path</strong> – storages the model file path;</p></li>
+<li><p><strong>k</strong> – number of top results;</p></li>
+<li><p><strong>confidence</strong> – confidence score, default is 0.5.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.get_dtype">
+<span class="sig-name descname"><span class="pre">get_dtype</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.get_dtype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.get_dtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The model type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.get_height">
+<span class="sig-name descname"><span class="pre">get_height</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.get_height"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.get_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model height.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The model height.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.get_mnist_result">
+<span class="sig-name descname"><span class="pre">get_mnist_result</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.get_mnist_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.get_mnist_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the MNIST result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The digits result.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.get_output">
+<span class="sig-name descname"><span class="pre">get_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">squeeze</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.get_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.get_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the result after running the inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – index of the result</p></li>
+<li><p><strong>squeeze</strong> – if the result is squeezed or not.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if <strong>squeeze</strong>, return <strong>squeezed</strong>
+if <strong>not</strong>, return <strong>not squeeze</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.get_result">
+<span class="sig-name descname"><span class="pre">get_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.get_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the result from the output details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>category</strong> (<em>str</em>) – type of machine learning model.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if <strong>success</strong>, return <strong>True</strong>
+if <strong>not</strong>, return <strong>False</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.get_segmentation_result">
+<span class="sig-name descname"><span class="pre">get_segmentation_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.get_segmentation_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.get_segmentation_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the result after running the inference on semantic segmentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>image</strong> – resized image with no expand dimensions;</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None. Storages the output image in the attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.get_width">
+<span class="sig-name descname"><span class="pre">get_width</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.get_width"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.get_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The model witdh.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.run_inference">
+<span class="sig-name descname"><span class="pre">run_inference</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.run_inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.run_inference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run inference on the image/frame set in the set_input() method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None. The inference time is storage in the inference_time attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.set_confidence">
+<span class="sig-name descname"><span class="pre">set_confidence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confidence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.set_confidence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.set_confidence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the confidence results attribute.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.set_input">
+<span class="sig-name descname"><span class="pre">set_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.set_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.set_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the input tensor to be inferenced.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.set_k">
+<span class="sig-name descname"><span class="pre">set_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.set_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.set_k" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the k results attribute.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../pyvar.ml.html"
+       title="previous chapter">← Machine Learning API</a>
+  </li>
+  <li class="next">
+    <a href="pyvar.ml.multimedia.html"
+       title="next chapter">pyvar.ml.multimedia →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021 Variscite LTD.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>
