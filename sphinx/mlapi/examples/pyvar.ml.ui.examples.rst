@@ -11,7 +11,7 @@ Run the Detection User Interface Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/detection/ui_detection.py
+    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/detection/ui_detection.py
 
 .. code-block:: bash
 
@@ -52,4 +52,4 @@ Run the Detection User Interface Example
    :caption: **User Interface Detection Example Source code**: `ui_detection.py`_
    :name: User Interface Detection Example
 
-.. _ui_detection.py: https://github.com/varjig/pyvar/blob/master/examples/ml/detection/ui_detection.py
+.. _ui_detection.py: https://github.com/varigit/pyvar/blob/master/examples/ml/detection/ui_detection.py

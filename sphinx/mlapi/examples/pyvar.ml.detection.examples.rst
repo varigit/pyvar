@@ -15,7 +15,7 @@ Run the Image Detection Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/detection/image_detection.py
+    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/detection/image_detection.py
 
 .. code-block:: bash
 
@@ -41,7 +41,7 @@ Run the Image Detection Example
    :caption: **Image Detection Example Source code**: `image_detection.py`_
    :name: Image Detection Example
 
-.. _image_detection.py: https://github.com/varjig/pyvar/blob/master/examples/ml/detection/image_detection.py
+.. _image_detection.py: https://github.com/varigit/pyvar/blob/master/examples/ml/detection/image_detection.py
 
 |
 |
@@ -57,7 +57,7 @@ Run the Video Detection Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/detection/video_detection.py
+    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/detection/video_detection.py
 
 .. code-block:: bash
 
@@ -83,7 +83,7 @@ Run the Video Detection Example
    :caption: **Video Detection Example Source code**: `video_detection.py`_
    :name: Video Detection Example
 
-.. _video_detection.py: https://github.com/varjig/pyvar/blob/master/examples/ml/detection/video_detection.py
+.. _video_detection.py: https://github.com/varigit/pyvar/blob/master/examples/ml/detection/video_detection.py
 
 |
 |
@@ -99,7 +99,7 @@ Run the Real Time Detection Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/detection/realtime_detection.py
+    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/detection/realtime_detection.py
 
 .. code-block:: bash
 
@@ -111,4 +111,4 @@ Run the Real Time Detection Example
    :caption: **Real Time Detection Example Source code**: `realtime_detection.py`_
    :name: Real Time Detection Example
 
-.. _realtime_detection.py: https://github.com/varjig/pyvar/blob/master/examples/ml/detection/realtime_detection.py
+.. _realtime_detection.py: https://github.com/varigit/pyvar/blob/master/examples/ml/detection/realtime_detection.py

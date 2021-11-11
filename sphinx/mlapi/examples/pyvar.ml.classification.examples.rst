@@ -15,7 +15,7 @@ Run the Image Classification Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/classification/image_classification.py
+    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/classification/image_classification.py
 
 .. code-block:: bash
 
@@ -41,7 +41,7 @@ Run the Image Classification Example
    :caption: **Image Classification Example Source Code**: `image_classification.py`_
    :name: Image Classification Example
 
-.. _image_classification.py: https://github.com/varjig/pyvar/blob/master/examples/ml/classification/image_classification.py
+.. _image_classification.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/image_classification.py
 
 |
 |
@@ -57,7 +57,7 @@ Run the Video Classification Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/classification/video_classification.py
+    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/classification/video_classification.py
 
 .. code-block:: bash
 
@@ -83,7 +83,7 @@ Run the Video Classification Example
    :caption: **Video Classification Example Source code**: `video_classification.py`_
    :name: Video Classification Example
 
-.. _video_classification.py: https://github.com/varjig/pyvar/blob/master/examples/ml/classification/video_classification.py
+.. _video_classification.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/video_classification.py
 
 |
 |
@@ -99,7 +99,7 @@ Run the Real Time Classification Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varjig/pyvar/raw/master/examples/ml/classification/realtime_classification.py
+    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/classification/realtime_classification.py
 
 .. code-block:: bash
 
@@ -111,4 +111,4 @@ Run the Real Time Classification Example
    :caption: **Real Time Classification Example Source code**: `realtime_classification.py`_
    :name: Real Time Classification Example
 
-.. _realtime_classification.py: https://github.com/varjig/pyvar/blob/master/examples/ml/classification/realtime_classification.py
+.. _realtime_classification.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/realtime_classification.py
