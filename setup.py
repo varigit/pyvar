@@ -10,10 +10,10 @@ with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(name="pyvar",
       version="0.0.1",
-      description="Variscite Python API for ML Applications",
+      description="Variscite Python Package",
       long_description=long_description,
       long_description_content_type='text/markdown',
-      url = 'https://github.com/varijig/pyvar',
+      url = 'https://github.com/varigit/pyvar',
       author="Diego Dorta",
       author_email="diego.d@variscite.com",
       license="BDS-3-Clause",
