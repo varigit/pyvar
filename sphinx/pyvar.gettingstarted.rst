@@ -56,8 +56,8 @@ Setting Up the Hardware and the BSP
 
 3. Flash the image into the SD Card, boot the board, then go to next section.
 
-Quick Python Package Instalation
---------------------------------
+Quick Python Package Installation
+---------------------------------
 
 1. Install the pyvar package using pip3 via Pypi:
 
