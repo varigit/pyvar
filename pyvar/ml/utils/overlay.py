@@ -6,7 +6,6 @@
 :synopsis: Python Label Class
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
-    .. note:: 10/15/2021 [diego.d] First Version Released
 """
 
 import colorsys
@@ -21,6 +20,14 @@ CLASSIFICATION = "classification"
 DETECTION = "detection"
 
 class Overlay:
+    """
+    Python Class to overlay images and frames.
+
+    :ivar inference_time_info: shows the inference time on image/frame;
+    :ivar scores_info: shows the scores information on image/frame;
+    :ivar extra_info: shows extra info on image/frame;
+    :ivar framerate_info: shows framerate on image/frame.
+    """
     def __init__(self):
         self.inference_time_info = True
         self.scores_info = True
@@ -62,7 +69,7 @@ class Overlay:
             fps (float): fpsit from Framerate class.
 
         Returns:
-            The imagen (numpy array) with the overlayed information.
+            The image (numpy array) with the overlayed information.
         """
         inference_position = (3, 20)
         if self.scores_info:
