@@ -108,7 +108,11 @@
             
               <ul>
                 
-                  <li class="toctree-l2"><a href="#contribute" class="reference internal">Contribute</a></li>
+                  <li class="toctree-l2"><a href="#coding-convention-and-requirements" class="reference internal">Coding Convention and Requirements</a></li>
+                
+                  <li class="toctree-l2"><a href="#signing-off-commits" class="reference internal">Signing-off Commits</a></li>
+                
+                  <li class="toctree-l2"><a href="#code-reviews-pull-requests-and-patches" class="reference internal">Code Reviews, Pull Requests and Patches</a></li>
                 
               </ul>
             
@@ -144,6 +148,84 @@
             
   <section id="contribute">
 <h1>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h1>
+<p><strong>Contributions are welcome!</strong> Please see below our contributing guide for more details.</p>
+<section id="coding-convention-and-requirements">
+<h2>Coding Convention and Requirements<a class="headerlink" href="#coding-convention-and-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Write object-oriented code. This has the advantages of data hiding and modularity. It allows reusability, modularity, polymorphism, data encapsulation, and inheritance.</p>
+<ul>
+<li><p>You must write modular and non-repetitive code;</p></li>
+<li><p>You must use classes and methods in your code.</p></li>
+</ul>
+</li>
+<li><p>Write the code according to PEP 8. For more information, read the <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a> page.</p>
+<ul>
+<li><p>This package uses <em>snake_case</em> for variables, functions, methods, and modules or packages names.</p></li>
+</ul>
+</li>
+<li><p>Each feature should come with test cases that can be executed as unit tests during build.</p></li>
+<li><p>Each feature should come with small codes for executing the classes and functions.</p></li>
+<li><p>Avoid as much as you can adding dependencies that are not currently supported by Variscite BSP.</p>
+<ul>
+<li><p>You must handle this as optional feature using accert or try methods to verify if it is installed or not.</p></li>
+</ul>
+</li>
+<li><p>Before sending the pull request or patch follow the above recommendations:</p>
+<ul>
+<li><p>You must keep your code clean and neat, which means that must be readable;</p></li>
+<li><p>You must not apply general rules of git commits and common senses;</p></li>
+<li><p>You must not write a lengthy commit - only one single topic per commit;</p></li>
+<li><p>You must provide enough background information and references.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="signing-off-commits">
+<h2>Signing-off Commits<a class="headerlink" href="#signing-off-commits" title="Permalink to this headline">¶</a></h2>
+<p>Each commit is required to be <em>signed-off</em> by the corresponding author. Please
+configure your development environment with your information:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
+$ git config --global user.email <span class="s2">&quot;Your E-mail&quot;</span>
+</pre></div>
+</div>
+<p>Add sign-off for a commit with <strong>-s</strong> option. See an example below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git add &lt;file_name&gt;
+$ git commit -s // -s <span class="o">(</span>--signoff<span class="o">)</span> means automated signed-off-by statement.
+</pre></div>
+</div>
+<p>Including a “Signed-off-by:” tag in your commit means that you are making the Developer Certificate of Origin (DCO) certification for that commit.</p>
+<ul class="simple">
+<li><p>A copy of the DCO text can be found at <a class="reference external" href="https://developercertificate.org/">Developer Certificate</a>.</p></li>
+</ul>
+</section>
+<section id="code-reviews-pull-requests-and-patches">
+<h2>Code Reviews, Pull Requests and Patches<a class="headerlink" href="#code-reviews-pull-requests-and-patches" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The patches or pull requests are reviewed by the maintainers, committers and reviewers.</p></li>
+<li><p>If you are a committer or a reviewer of the specific component, you are:</p>
+<ul>
+<li><p>Obligated to review incoming related pull requests or patches;</p></li>
+<li><p>Obligated to give feedback on pull requests or patches especially on similar topics/components.</p></li>
+</ul>
+</li>
+</ul>
+<section id="merge-criteria">
+<h3>Merge Criteria<a class="headerlink" href="#merge-criteria" title="Permalink to this headline">¶</a></h3>
+<p>A pull request must be according to the following statements to be accepted:</p>
+<ul class="simple">
+<li><p>Passed all the tests executed for the any other code reviewer.</p>
+<ul>
+<li><p>This includes unit tests and integration tests;</p></li>
+<li><p>If the pull requests affects sensitive codes or may affect wide ranges of components, reviewers will wait for other reviewers to back them up;</p></li>
+<li><p>If the pull request is messy, you will need to wait indefinitely to get reviews.</p></li>
+</ul>
+</li>
+<li><p>There is no rejections from any official reviewers.</p></li>
+<li><p>There is no pending negative feed-backs (unresolved issues) from reviewers.</p></li>
+</ul>
+<p>After these above requirements, then a committer with merging privilege will be able to merge the given pull request or patch.</p>
+</section>
+</section>
 </section>
 
 
