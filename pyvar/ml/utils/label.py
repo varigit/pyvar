@@ -6,7 +6,6 @@
 :synopsis: Python Label Class
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
-    .. note:: 10/15/2021 [diego.d] First Version Released
 """
 
 import re
