@@ -157,7 +157,6 @@
 <span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION</span>
 <span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">DETECTION</span>
 <span class="kn">from</span> <span class="nn">pyvar.ml.utils.timer</span> <span class="kn">import</span> <span class="n">Timer</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.utils.pascal</span> <span class="kn">import</span> <span class="n">label_to_color_image</span>
 
 <div class="viewcode-block" id="TFLiteInterpreter"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.tflite.TFLiteInterpreter">[docs]</a><span class="k">class</span> <span class="nc">TFLiteInterpreter</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -252,26 +251,6 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">get_tensor</span><span class="p">(</span>
                                 <span class="bp">self</span><span class="o">.</span><span class="n">output_details</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="s1">&#39;index&#39;</span><span class="p">])</span></div>
 
-<div class="viewcode-block" id="TFLiteInterpreter.get_segmentation_result"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.tflite.TFLiteInterpreter.get_segmentation_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_segmentation_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span> <span class="c1"># need to check this</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get the result after running the inference on semantic segmentation.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            image: resized image with no expand dimensions;</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            None. Storages the output image in the attribute.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">output_details</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">get_output_details</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">result</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">output_details</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">])()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-
-        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[:</span><span class="bp">self</span><span class="o">.</span><span class="n">get_height</span><span class="p">(),</span> <span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">get_width</span><span class="p">()]</span>
-        <span class="n">mask_img</span> <span class="o">=</span> <span class="n">label_to_color_image</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
-        <span class="n">mask_img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">mask_img</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">output_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">blend</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask_img</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">output_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_image</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2BGR</span><span class="p">)</span></div>
-
 <div class="viewcode-block" id="TFLiteInterpreter.get_result"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.tflite.TFLiteInterpreter.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the result from the output details.</span>
@@ -305,17 +284,6 @@
                 <span class="k">return</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span></div>
-
-<div class="viewcode-block" id="TFLiteInterpreter.get_mnist_result"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.tflite.TFLiteInterpreter.get_mnist_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_mnist_result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get the MNIST result.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            The digits result.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span>
-                           <span class="bp">self</span><span class="o">.</span><span class="n">output_details</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;index&quot;</span><span class="p">])()[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="TFLiteInterpreter.run_inference"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.tflite.TFLiteInterpreter.run_inference">[docs]</a>    <span class="k">def</span> <span class="nf">run_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>

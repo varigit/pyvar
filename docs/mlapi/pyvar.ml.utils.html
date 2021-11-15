@@ -203,7 +203,18 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.overlay.</span></span><span class="sig-name descname"><span class="pre">Overlay</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py method">
+<dd><p>Python Class to overlay images and frames.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inference_time_info</strong> – shows the inference time on image/frame;</p></li>
+<li><p><strong>scores_info</strong> – shows the scores information on image/frame;</p></li>
+<li><p><strong>extra_info</strong> – shows extra info on image/frame;</p></li>
+<li><p><strong>framerate_info</strong> – shows framerate on image/frame.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay.generate_colors">
 <em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">generate_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay.generate_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay.generate_colors" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -226,7 +237,7 @@ and source file.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The imagen (numpy array) with the overlayed information.</p>
+<dd class="field-even"><p>The image (numpy array) with the overlayed information.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -303,37 +314,6 @@ if <strong>not</strong>, return <strong>False</strong></p>
 </dl>
 </dd></dl>
 
-</dd></dl>
-
-</section>
-<section id="module-pyvar.ml.utils.pascal">
-<span id="pyvar-ml-utils-pascal"></span><h2>pyvar.ml.utils.pascal<a class="headerlink" href="#module-pyvar.ml.utils.pascal" title="Permalink to this headline">¶</a></h2>
-<dl class="field-list simple">
-<dt class="field-odd">platform</dt>
-<dd class="field-odd"><p>Unix/Yocto</p>
-</dd>
-<dt class="field-even">synopsis</dt>
-<dd class="field-even"><p>Python Pascal Class</p>
-</dd>
-</dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyvar.ml.utils.pascal.create_pascal_label_colormap">
-<span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.pascal.</span></span><span class="sig-name descname"><span class="pre">create_pascal_label_colormap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/pascal.html#create_pascal_label_colormap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.pascal.create_pascal_label_colormap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a label colormap used in PASCAL VOC segmentation benchmark.</p>
-<p>Returns:
-A Colormap for visualizing segmentation results.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pyvar.ml.utils.pascal.label_to_color_image">
-<span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.pascal.</span></span><span class="sig-name descname"><span class="pre">label_to_color_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/pascal.html#label_to_color_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.pascal.label_to_color_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds color defined by the dataset colormap to the label.</p>
-<p>Args:
-label: A 2D array with integer type, storing the segmentation label.</p>
-<p>Returns:
-A 2D array with floating type. The element of the array is the color indexed by the corresponding element in the input label to the PASCAL color map.</p>
-<p>Raises:
-ValueError: If label is not of rank 2 or its value is larger than color map maximum entry.</p>
 </dd></dl>
 
 </section>

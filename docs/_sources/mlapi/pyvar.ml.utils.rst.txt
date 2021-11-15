@@ -34,14 +34,6 @@ pyvar.ml.utils.retriever
    :undoc-members:
    :inherited-members:
 
-pyvar.ml.utils.pascal
----------------------
-
-.. automodule:: pyvar.ml.utils.pascal
-   :members:
-   :undoc-members:
-   :inherited-members:
-
 pyvar.ml.utils.timer
 --------------------
 
