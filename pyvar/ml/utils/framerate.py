@@ -6,7 +6,6 @@
 :synopsis: Python Class to get framerate from videos and real time cameras.
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
-    .. note:: 10/15/2021 [diego.d] First Version Released
 """
 
 import collections
