@@ -5,6 +5,3 @@ import os
 
 # Local Files
 CACHEDIR = os.path.join(os.environ['HOME'], ".cache", "pyvar")
-
-CLASSIFICATION = "classification"
-DETECTION = "detection"
