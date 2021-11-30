@@ -15,7 +15,7 @@ import os
 import shutil
 import sys
 
-from pyvar.ml.config import CACHEDIR
+from pyvar.config import CACHEDIR
 from pyvar.ml.utils.config import FTP_HOST, FTP_USER, FTP_PASS
 from pyvar.ml.utils.config import DEFAULT_PACKAGES
 from pyvar.ml.utils.config import TFLITE, TXT, ZIP, JPG, PNG, MP4
