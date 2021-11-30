@@ -11,11 +11,11 @@ from gi.repository.GdkPixbuf import Colorspace, Pixbuf
 from gi.repository import GLib, Gtk
 
 from pyvar.ml.engines.tflite import TFLiteInterpreter
-from pyvar.ml.multimedia.helper import Multimedia
 from pyvar.ml.utils.label import Label
 from pyvar.ml.utils.overlay import Overlay
 from pyvar.ml.utils.retriever import FTP
 from pyvar.ml.utils.resizer import Resizer
+from pyvar.multimedia.helper import Multimedia
 
 SSD_LABELS_LIST = ["person", "backpack", "umbrella", "handbag", "tie",
                    "suitcase", "bottle", "wine glass", "cup", "fork", "knife",
