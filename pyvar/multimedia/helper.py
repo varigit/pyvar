@@ -17,10 +17,10 @@ from gi.repository import Gst
 
 import cv2
 
-from pyvar.ml.multimedia.config import FULL_HD_RESOLUTION
-from pyvar.ml.multimedia.config import HD_RESOLUTION
-from pyvar.ml.multimedia.config import VGA_RESOLUTION
-from pyvar.ml.multimedia.config import LEAKY
+from pyvar.multimedia.config import FULL_HD_RESOLUTION
+from pyvar.multimedia.config import HD_RESOLUTION
+from pyvar.multimedia.config import VGA_RESOLUTION
+from pyvar.multimedia.config import LEAKY
 
 class Multimedia:
     """
