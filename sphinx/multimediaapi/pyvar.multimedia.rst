@@ -1,10 +1,10 @@
-pyvar.ml.multimedia
-===================
+pyvar.multimedia
+================
 
-pyvar.ml.multimedia.helper
---------------------------
+pyvar.multimedia.helper
+-----------------------
 
-.. automodule:: pyvar.ml.multimedia.helper
+.. automodule:: pyvar.multimedia.helper
    :members:
    :undoc-members:
    :inherited-members:

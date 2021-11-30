@@ -29,5 +29,7 @@ and quick source code examples to help in your development.
 
    pyvar.gettingstarted.rst
    pyvar.ml.rst
+   pyvar.multimedia.rst
+   pyvar.ml.examples.rst
    pyvar.license.rst
    pyvar.contribute.rst
