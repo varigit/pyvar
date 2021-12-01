@@ -1,6 +1,10 @@
 LICENSE
 =======
 
+This project is licensed under the BSD-3-Clause terms, which means that it
+is free for use and you can modify as much as you want as long you retain the
+copyright notice. You can see a copy of the license below:
+
 BSD 3-Clause License
 --------------------
 

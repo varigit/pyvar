@@ -69,7 +69,7 @@
   
     <div class="sidebar-group">
       <p class="caption">
-        <span class="caption-text"><a href="#variscite-python-package">Table of Contents</a></span>
+        <span class="caption-text"><a href="#overview">Table of Contents</a></span>
       </p>
       <ul class="">
         
@@ -85,6 +85,24 @@
           <li class="toctree-l1 ">
             
               <a href="pyvar.ml.html" class="reference internal ">Machine Learning API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pyvar.multimedia.html" class="reference internal ">Multimedia API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="pyvar.quickexamples.html" class="reference internal ">Quick Examples</a>
             
 
             
@@ -141,30 +159,47 @@
 <img alt="PyPI" src="https://img.shields.io/pypi/v/pyvar?style=for-the-badge" />
 <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/pyvar?style=for-the-badge" />
 <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/dorta/pyvar?style=for-the-badge" />
-<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/dorta/pyvar?style=for-the-badge" />
 <img alt="PyPI - License" src="https://img.shields.io/pypi/l/pyvar?style=for-the-badge" />
-<p>The Variscite Python Package as known as <a class="reference external" href="https://pypi.org/project/pyvar/">pyvar</a> is a set of high-level
-abstractions that allows any user to develop its own applications regarding
-Machine Learning, multimedia, and more. This page also contains posts, tutorials,
-and quick source code examples to help in your development.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Variscite Python Package known as pyvar is a set of high-level abstractions
+that allows any beginning user to develop its own applications regarding Machine
+Learning, multimedia, and more. This package aims to provide classes that you can
+easily import and use on your project, and it also includes quick source code
+examples to help in your development. The documentation informs classes and
+methods, as well types, formats, etc., of input parameters and expected results.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/varigit/pyvar">Repository on GitHub</a>.</dt><dd><ul>
+<li><p>If you find any issue, please report it on the <a class="reference external" href="https://github.com/varigit/pyvar/issues">issues</a> section.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/pyvar/">Package on PyPi</a>.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pyvar.gettingstarted.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pyvar.gettingstarted.html#for-machine-learning-api">For Machine Learning API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="pyvar.gettingstarted.html#setting-up-the-hardware-and-the-bsp">Setting Up the Hardware and the BSP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvar.gettingstarted.html#hardware">Hardware</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyvar.gettingstarted.html#recommended-system-on-modules-soms">Recommended System on Modules (SoMs)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvar.gettingstarted.html#neural-processing-unit-npu">Neural Processing Unit (NPU)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvar.gettingstarted.html#supported-cameras">Supported Cameras</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="pyvar.gettingstarted.html#quick-python-package-installation">Quick Python Package Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvar.gettingstarted.html#software">Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyvar.gettingstarted.html#setting-up-the-bsp">Setting Up the BSP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvar.gettingstarted.html#python-package-installation">Python Package Installation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pyvar.ml.html">Machine Learning API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mlapi/pyvar.ml.engines.html">pyvar.ml.engines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.engines.html#module-pyvar.ml.engines.tflite">pyvar.ml.engines.tflite</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="mlapi/pyvar.ml.multimedia.html">pyvar.ml.multimedia</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.multimedia.html#module-pyvar.ml.multimedia.helper">pyvar.ml.multimedia.helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.engines.html#pyvar-ml-engines-tflite">pyvar.ml.engines.tflite</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mlapi/pyvar.ml.utils.html">pyvar.ml.utils</a><ul>
@@ -175,6 +210,16 @@ and quick source code examples to help in your development.</p>
 <li class="toctree-l3"><a class="reference internal" href="mlapi/pyvar.ml.utils.html#module-pyvar.ml.utils.timer">pyvar.ml.utils.timer</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyvar.multimedia.html">Multimedia API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="multimediaapi/pyvar.multimedia.html">pyvar.multimedia</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="multimediaapi/pyvar.multimedia.html#pyvar-multimedia-helper">pyvar.multimedia.helper</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyvar.quickexamples.html">Quick Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="mlapi/examples/pyvar.ml.classification.examples.html">Classification Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="mlapi/examples/pyvar.ml.classification.examples.html#image-classification">Image Classification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mlapi/examples/pyvar.ml.classification.examples.html#video-classification">Video Classification</a></li>
@@ -208,6 +253,7 @@ and quick source code examples to help in your development.</p>
 </li>
 </ul>
 </div>
+</section>
 </section>
 
 

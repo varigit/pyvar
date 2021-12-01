@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+      <title>pyvar.multimedia</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Quick Examples" href="../pyvar.quickexamples.html" />
+  <link rel="prev" title="Multimedia API" href="../pyvar.multimedia.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <img class="logo" src="../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#overview">Table of Contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.ml.html" class="reference internal ">Machine Learning API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.multimedia.html" class="reference internal ">Multimedia API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.quickexamples.html" class="reference internal ">Quick Examples</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.license.html" class="reference internal ">LICENSE</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.contribute.html" class="reference internal ">Contribute</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../pyvar.multimedia.html">Multimedia API</a> &raquo;</li>
+    
+    <li>pyvar.multimedia</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../pyvar.multimedia.html"
+       title="previous chapter">← Multimedia API</a>
+  </li>
+  <li class="next">
+    <a href="../pyvar.quickexamples.html"
+       title="next chapter">Quick Examples →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <section id="pyvar-multimedia">
+<h1>pyvar.multimedia<a class="headerlink" href="#pyvar-multimedia" title="Permalink to this headline">¶</a></h1>
+<section id="pyvar-multimedia-helper">
+<h2>pyvar.multimedia.helper<a class="headerlink" href="#pyvar-multimedia-helper" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/gstreamer_logo.png"><img alt="../_images/gstreamer_logo.png" src="../_images/gstreamer_logo.png" style="width: 45%;" /></a>
+<span class="target" id="module-pyvar.multimedia.helper"></span><dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Python Multimedia Classes</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Caps">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.multimedia.helper.</span></span><span class="sig-name descname"><span class="pre">Caps</span></span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Caps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Caps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to handle the Video device caps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – storages the video name;</p></li>
+<li><p><strong>format</strong> – storages the caps resolution;</p></li>
+<li><p><strong>width</strong> – storages the default caps resolution;</p></li>
+<li><p><strong>height</strong> – storages the full hd caps resolution;</p></li>
+<li><p><strong>framerate</strong> – storages the hd caps resolution.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Devices">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.multimedia.helper.</span></span><span class="sig-name descname"><span class="pre">Devices</span></span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Devices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to handle the devices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>devices</strong> – storages devices from device monitor.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Devices.get_device_caps">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_device_caps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dev_caps</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Devices.get_device_caps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Devices.get_device_caps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Devices.get_std_caps">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_std_caps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dev_caps</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Devices.get_std_caps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Devices.get_std_caps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Devices.get_video_devices">
+<span class="sig-name descname"><span class="pre">get_video_devices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Devices.get_video_devices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Devices.get_video_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the available devices from device monitor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Devices.search_device">
+<span class="sig-name descname"><span class="pre">search_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dev_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Devices.search_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Devices.search_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the device is valid or not</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.multimedia.helper.</span></span><span class="sig-name descname"><span class="pre">Multimedia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to handle the Multimedia resources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>video_src</strong> – storages the video source;</p></li>
+<li><p><strong>resolution</strong> – storages the video source resolution;</p></li>
+<li><p><strong>devices</strong> – storages the video devices;</p></li>
+<li><p><strong>sink</strong> – storages the video capture.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Release and destroy the video capture from video source.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.get_caps">
+<span class="sig-name descname"><span class="pre">get_caps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.get_caps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.get_caps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the caps from device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The valid resolution.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.get_frame">
+<span class="sig-name descname"><span class="pre">get_frame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.get_frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.get_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the frame from video source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The frame.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.loop">
+<span class="sig-name descname"><span class="pre">loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.loop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the video source still have frames or not.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save any frame as an output file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.set_v4l2_config">
+<span class="sig-name descname"><span class="pre">set_v4l2_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.set_v4l2_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.set_v4l2_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the v4l2 configuration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.show"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.show" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show any frame.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.show_image">
+<span class="sig-name descname"><span class="pre">show_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.show_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.show_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show any image.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.v4l2_camera_pipeline">
+<span class="sig-name descname"><span class="pre">v4l2_camera_pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">framerate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.v4l2_camera_pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.v4l2_camera_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the v4l2 configuration for camera device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.v4l2_video_pipeline">
+<span class="sig-name descname"><span class="pre">v4l2_video_pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filesrc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.v4l2_video_pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.v4l2_video_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the v4l2 configuration for video source file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.Multimedia.validate_caps">
+<span class="sig-name descname"><span class="pre">validate_caps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">caps</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#Multimedia.validate_caps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.Multimedia.validate_caps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the resolution is valid..</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The valid resolution or default one.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.multimedia.helper.VideoDevice">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.multimedia.helper.</span></span><span class="sig-name descname"><span class="pre">VideoDevice</span></span><a class="reference internal" href="../_modules/pyvar/multimedia/helper.html#VideoDevice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.multimedia.helper.VideoDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to handle the Video device features and resolutions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – storages the video name;</p></li>
+<li><p><strong>caps</strong> – storages the caps resolution;</p></li>
+<li><p><strong>default_caps</strong> – storages the default caps resolution;</p></li>
+<li><p><strong>full_hd_caps</strong> – storages the full hd caps resolution;</p></li>
+<li><p><strong>hd_caps</strong> – storages the hd caps resolution;</p></li>
+<li><p><strong>vga_caps</strong> – storages the vga caps resolution.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../pyvar.multimedia.html"
+       title="previous chapter">← Multimedia API</a>
+  </li>
+  <li class="next">
+    <a href="../pyvar.quickexamples.html"
+       title="next chapter">Quick Examples →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021 Variscite LTD.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

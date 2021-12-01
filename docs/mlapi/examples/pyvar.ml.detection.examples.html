@@ -70,7 +70,7 @@
   
     <div class="sidebar-group">
       <p class="caption">
-        <span class="caption-text"><a href="../../index.html#variscite-python-package">Table of Contents</a></span>
+        <span class="caption-text"><a href="../../index.html#overview">Table of Contents</a></span>
       </p>
       <ul class="">
         
@@ -86,6 +86,24 @@
           <li class="toctree-l1 ">
             
               <a href="../../pyvar.ml.html" class="reference internal ">Machine Learning API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../pyvar.multimedia.html" class="reference internal ">Multimedia API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../pyvar.quickexamples.html" class="reference internal ">Quick Examples</a>
             
 
             
@@ -122,7 +140,7 @@
   <ul class="breadcrumbs">
     <li><a href="../../index.html">Docs</a> &raquo;</li>
     
-      <li><a href="../../pyvar.ml.html">Machine Learning API</a> &raquo;</li>
+      <li><a href="../../pyvar.quickexamples.html">Quick Examples</a> &raquo;</li>
     
     <li>Detection Examples</li>
   </ul>
@@ -184,11 +202,11 @@
 <span class="linenos"> 2</span><span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pyvar.ml.engines.tflite</span> <span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
-<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pyvar.ml.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
-<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
-<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
-<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever</span> <span class="kn">import</span> <span class="n">FTP</span>
-<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever</span> <span class="kn">import</span> <span class="n">FTP</span>
+<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
+<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pyvar.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
 <span class="linenos">10</span>
 <span class="linenos">11</span><span class="n">ftp</span> <span class="o">=</span> <span class="n">FTP</span><span class="p">()</span>
 <span class="linenos">12</span>
@@ -271,12 +289,12 @@
 <span class="linenos"> 2</span><span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pyvar.ml.engines.tflite</span> <span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
-<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pyvar.ml.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
-<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.framerate</span> <span class="kn">import</span> <span class="n">Framerate</span>
-<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
-<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
-<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever</span> <span class="kn">import</span> <span class="n">FTP</span>
-<span class="linenos">10</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.framerate</span> <span class="kn">import</span> <span class="n">Framerate</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
+<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever</span> <span class="kn">import</span> <span class="n">FTP</span>
+<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
+<span class="linenos">10</span><span class="kn">from</span> <span class="nn">pyvar.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
 <span class="linenos">11</span>
 <span class="linenos">12</span><span class="n">ftp</span> <span class="o">=</span> <span class="n">FTP</span><span class="p">()</span>
 <span class="linenos">13</span>
@@ -346,12 +364,12 @@
 <span class="linenos"> 2</span><span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">pyvar.ml.engines.tflite</span> <span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
-<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pyvar.ml.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
-<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.framerate</span> <span class="kn">import</span> <span class="n">Framerate</span>
-<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
-<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
-<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever</span> <span class="kn">import</span> <span class="n">FTP</span>
-<span class="linenos">10</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
+<span class="linenos"> 5</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.framerate</span> <span class="kn">import</span> <span class="n">Framerate</span>
+<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
+<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
+<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever</span> <span class="kn">import</span> <span class="n">FTP</span>
+<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
+<span class="linenos">10</span><span class="kn">from</span> <span class="nn">pyvar.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
 <span class="linenos">11</span>
 <span class="linenos">12</span><span class="n">ftp</span> <span class="o">=</span> <span class="n">FTP</span><span class="p">()</span>
 <span class="linenos">13</span>
