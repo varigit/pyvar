@@ -1,13 +1,20 @@
 Getting Started
 ===============
 
-For Machine Learning API
-------------------------
+Before getting started with pyvar package and learning more about its core and
+examples, it is important to mention that one of the main focus of this package
+is to allow the users to explore multiple Machine Learning (*ML*) applications use
+cases by using displays, cameras, and user interfaces capabilities.
 
-Setting Up the Hardware and the BSP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Hardware
+--------
 
-1. To use the Machine Learning API make sure to have one of the following supported SoMs:
+Recommended System on Modules (SoMs)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To achieve the best possible performance on the ML applications, it is
+recommended to use the System on Modules powered by the i.MX8M Plus processor
+from NXP. Check the SoMs below:
 
 +-----------------------+-----------------------+
 | `VAR-SOM-MX8M-PLUS`_  | `DART-MX8M-PLUS`_     |
@@ -25,39 +32,57 @@ Setting Up the Hardware and the BSP
 .. |dart-mplus| image:: images/dart-mx8m-plus.png
    :width: 60%
 
-2. Follow the quick instructions below to build the latest Yocto Release. 
+Neural Processing Unit (NPU)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* For more information on how to build BSP from source code go to the Variscite `Wiki`_ page.
-* The API supports `VCAM-5640S-DUO`_ and `VCAM-AR0821N`_. To use the Basler one, please see this `tutorial`_.
+The above SoMs have a dedicated unit to deal with ML inference process called
+Neural Processing Unit provided by Verisilicon. This compute engine delivers
+up to 2.3 Tera Operations Per Second (*TOPS*) and handles 8-bit fixed-point operations
+models, allowing the user to achieve the highest performance during the inference process.
 
-.. _Wiki: https://variwiki.com/
+* For more information about the NPU, please check this `page`_.
 
-.. _tutorial: https://variwiki.com/index.php?title=MX8_Basler_Camera_NXP
+.. _page: https://www.nxp.com/products/processors-and-microcontrollers/arm-processors/i-mx-applications-processors/i-mx-8-processors/i-mx-8m-plus-arm-cortex-a53-machine-learning-vision-multimedia-and-industrial-iot:IMX8MPLUS
+
+The pyvar package is not tied to the NPU only, you can use any other SoM from the
+i.MX8 family with the ML API, what changes is that the inference process runs
+on the GPU/CPU instead of the NPU itself. Check the other SoMs below:
+
+* `Other Systems on Modules`_
+
+.. _Other Systems on Modules: https://www.variscite.com/products/system-on-module-som/?cpu_name=NXP%20iMX8
+
+Supported Cameras
+~~~~~~~~~~~~~~~~~
+
+The pyvar package supports on its multimedia API the following cameras:
+
+* `VCAM-5640S-DUO`_
+* `VCAM-AR0821N`_
+    * To use the Basler one, please see this `tutorial`_.
 
 .. _VCAM-5640S-DUO: https://www.variscite.com/product/accessories/vcam-5640s-duo/
 
 .. _VCAM-AR0821N: https://www.variscite.com/product/accessories/vcam-ar0821b-camera-board/
 
-2.1 Retrieve the latest revision:
+.. _tutorial: https://variwiki.com/index.php?title=MX8_Basler_Camera_NXP
 
-.. code-block:: console
 
-    $ repo init -u https://github.com/varigit/variscite-bsp-platform.git \
-                -b fsl-hardknott -m imx-5.10.35-2.0.0-var01.xml
-    $ repo sync -j$(nproc)
+Software
+--------
 
-2.2 Build XWayland GUI demo image, and launch the bitbake to build the image:
+Setting Up the BSP
+~~~~~~~~~~~~~~~~~~
 
-.. code-block:: console
+1. Build the latest `Yocto Release`_ with **Wayland** + **X11** features using **fsl-image-qt5 image**.
 
-    $ MACHINE=imx8mp-var-dart DISTRO=fsl-imx-xwayland . var-setup-release.sh \
-                              -b build_xwayland
-    $ bitbake fsl-image-qt5
+.. _Yocto Release: https://variwiki.com/
 
-3. Flash the image into the SD Card, boot the board, then go to next section.
+2. Flash the built image into the SD Card, boot the board, then go to next section.
 
-Quick Python Package Installation
----------------------------------
+
+Python Package Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Install the pyvar package using pip3 via Pypi:
 

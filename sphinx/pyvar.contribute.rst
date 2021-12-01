@@ -1,7 +1,8 @@
 Contribute
 ==========
 
-**Contributions are welcome!** Please see below our contributing guide for more details.
+This project is still under development and we encourage you to contribute
+to the project. Please see below our contributing guide for more details:
 
 Coding Convention and Requirements
 ----------------------------------
