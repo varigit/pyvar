@@ -257,7 +257,11 @@ class Devices:
         full_hd_caps.width = 1920
         full_hd_caps.height = 1080
         full_hd_caps.framerate = "60/1"
-        hd_caps = None
+        hd_caps = Caps()
+        hd_caps.name = "video/x-raw"
+        hd_caps.width = 1280
+        hd_caps.height = 720
+        hd_caps.framerate = "60/1"
         vga_caps = Caps()
         vga_caps.name = "video/x-raw"
         vga_caps.width = 640
