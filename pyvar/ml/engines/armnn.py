@@ -21,9 +21,10 @@ from pyvar.ml.config import DETECTION
 from pyvar.ml.utils.timer import Timer
 
 class ArmNNInterpreter:
-    def __init__(self, model_file_path=None, accelerated=True):
+    def __init__(self, model_file_path=None, accelerated=True, category=None):
         self.model_file_path = model_file_path
         self.accelerated = accelerated
+        self.category = category
         self.interpreter = None
         self.input_details = None
         self.output_details = None
@@ -59,8 +60,15 @@ class ArmNNInterpreter:
             output_names = parser.GetSubgraphOutputTensorNames(graph_id)
             
             self.output_binding_info = parser.GetNetworkOutputBindingInfo(0, output_names[0])
-            self.output_tensors = ann.make_output_tensors([self.output_binding_info])
-                   
+            if self.category is not None:
+                if self.category is CLASSIFICATION:
+                    self.output_tensors = ann.make_output_tensors([self.output_binding_info])
+                elif self.category is DETECTION:
+                     output_list = []
+                     for out in output_names:
+                         output_list.append(parser.GetNetworkOutputBindingInfo(graph_id, out))
+                         self.output_tensors = ann.make_output_tensors(output_list)
+
     def set_input(self, image):
         self.input_tensors = ann.make_input_tensors([self.input_binding_info], [image])
 
@@ -71,12 +79,15 @@ class ArmNNInterpreter:
         return ann.workload_tensors_to_ndarray(self.output_tensors)[0][0]
 
     def get_result(self, category=None, labels=None): # change this function, remove labels, and use overlay
-        if category is not None:
-            if category is CLASSIFICATION:
+        if self.category is not None:
+            if self.category is CLASSIFICATION:
                 output = self.get_output()
                 results = np.argsort(output)[::-1]
                 for i in range(min(len(results), 5)):
                     print(f"[{i}] Object name = {labels[results[i]]}")
+            elif self.category is DETECTION: # need to fix this
+                output = self.get_output()
+                print(output)
 
     def run_inference(self):
         timer = Timer()
