@@ -88,3 +88,13 @@ class Resizer:
                 self.image_resized = img.resize((self.model_width, self.model_height))
                 if expand_dims:
                     self.image_resized = np.expand_dims(self.image_resized, axis = 0)
+
+    def resize_armnn(self, image_path: str, width: int, height: int):
+        image = Image.open(image_path)
+        image_resized = image.resize((width, height), Image.BILINEAR)
+        image_resized = image_resized.convert('RGB')
+        image_resized = np.array(image_resized)
+        image_resized = np.reshape(image_resized, (-1, 3))
+        image_resized = ((image_resized / 1.) - [0., 0., 0.]) / [1., 1., 1.]
+        image_resized = image_resized.flatten().astype(np.uint8)
+        self.image_resized = image_resized
