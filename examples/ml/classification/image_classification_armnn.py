@@ -17,7 +17,7 @@ if ftp.retrieve_package(category="classification"):
 labels = Label(label_file_path)
 labels.read_labels("classification")
 
-engine = ArmNNInterpreter(model_file_path)
+engine = ArmNNInterpreter(model_file_path, accelerated=True, category="classification")
 
 resizer = Resizer()
 
