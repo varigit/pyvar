@@ -3,11 +3,12 @@
 
 """
 :platform: Unix/Yocto
-:synopsis: Python Label Class
+:synopsis: Class to handle labels file from Machine Learning models.
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
 """
 
+import os
 import re
 
 from pyvar.ml.config import CLASSIFICATION
@@ -15,32 +16,32 @@ from pyvar.ml.config import DETECTION
 
 class Label:
     """
-    Python Class to read the labels file from Machine Learning models.
-
-    :ivar labels_file: storages the path of the labels model file.
-    :ivar list: storages the read labels from the model file.
+    :ivar labels_file: path to the labels file.
+    :ivar list: list with the labels from the label file.
     """
     def __init__(self, labels_file_path=None):
+        """
+        Constructor method for the Label class.
+        """
+        if not os.path.isfile(labels_file_path):
+            raise ValueError("Must pass a labels file")
+        if not labels_file_path.endswith(".txt"):
+            raise TypeError(f"Expects {labels_file_path} to be a text file")
         self.labels_file = labels_file_path
         self.list = []
 
     def read_labels(self, category=None):
         """
-        Method to read the labels file and save the result in list attribute.
+        Reads Machine Learning labels file and save the result as a list.
 
         Args:
-            category (str): storages the model category.
-
-        Note:
-             **category**: choose between classification or detection.
+            category (str): model category (classification or detection).
 
         Returns:
-            If **success** returns **True**, if **not** returns **False**.
+            True if the labels file was read successfully.
         """
-        if self.labels_file is None:
-            return False
         if category is None:
-            return False
+            raise TypeError("Must specify the category")
         else:
             with open(self.labels_file, 'r', encoding='utf-8') as f:
                 if category is CLASSIFICATION:
