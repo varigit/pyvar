@@ -3,7 +3,7 @@
 
 """
 :platform: Unix/Yocto
-:synopsis: Python Label Class
+:synopsis: Class to handle overlay on single images and frames.
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
 """
@@ -14,21 +14,21 @@ import random
 import cv2
 import numpy as np
 
+from pyvar.ml.config import CLASSIFICATION
+from pyvar.ml.config import DETECTION
 from pyvar.ml.utils.config import FONT, INF_TIME_MSG, FPS_MSG
-
-CLASSIFICATION = "classification"
-DETECTION = "detection"
 
 class Overlay:
     """
-    Python Class to overlay images and frames.
-
     :ivar inference_time_info: shows the inference time on image/frame;
     :ivar scores_info: shows the scores information on image/frame;
     :ivar extra_info: shows extra info on image/frame;
     :ivar framerate_info: shows framerate on image/frame.
     """
     def __init__(self):
+        """
+        Constructor method for the Label class.
+        """
         self.inference_time_info = True
         self.scores_info = True
         self.extra_info = True
@@ -52,12 +52,12 @@ class Overlay:
         return colors
 
 
-    def info(self, category=None, image=None, top_result=None,
-                   labels=None, inference_time=None, model_name=None,
-                   source_file=None, fps=None):
+    def info(
+        self, category=None, image=None, top_result=None, labels=None,
+        inference_time=None, model_name=None, source_file=None, fps=None):
         """
-        Include information on image/frame: inference time, scores, model name,
-        and source file.
+        Draw information on single images and frames such as inference time,
+        scores, model name, and source file.
 
         Args:
             image (numpy array): original image to overlay the information.
@@ -69,7 +69,7 @@ class Overlay:
             fps (float): fpsit from Framerate class.
 
         Returns:
-            The image (numpy array) with the overlayed information.
+            The :obj:`numpy.array` image format with the overlayed information.
         """
         inference_position = (3, 20)
         if self.scores_info:
