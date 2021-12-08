@@ -6,7 +6,6 @@
 :synopsis: Python Class to calculate time.
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
-    .. note:: 10/15/2021 [diego.d] First Version Released
 """
 
 from contextlib import contextmanager
@@ -15,12 +14,15 @@ from time import monotonic
 
 class Timer:
     def __init__(self):
+        """
+        Constructor method for the Timer class.
+        """
         self.time = 0
 
     @contextmanager
     def timeit(self):
         """
-        The time is storage in the **time** attribute.
+        Calculates the time and save it in the **time** attribute.
         """
         begin = monotonic()
         try:
