@@ -3,16 +3,15 @@
 
 """
 :platform: Unix/Yocto
-:synopsis: Python Engine Class
+:synopsis: Class to handle TensorFlow Lite inference engine.
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
 """
 
+import os
 import sys
 
-import cv2
 import numpy as np
-from PIL import Image
 
 try:
     from tflite_runtime.interpreter import Interpreter
@@ -25,18 +24,23 @@ from pyvar.ml.utils.timer import Timer
 
 class TFLiteInterpreter:
     """
-    Class to handle TensorFlow Lite inference engine.
-
-    :ivar interpreter: storages the TensorFlow Lite interpreter;
-    :ivar input_details: storages the input details from model;
-    :ivar output_details: storages the output details from inference;
-    :ivar result: storages the results from inference;
-    :ivar inference_time: storages the inference time;
-    :ivar model_file_path: storages the model file path;
+    :ivar interpreter: TensorFlow Lite interpreter;
+    :ivar input_details: input details from model;
+    :ivar output_details: output details from inference;
+    :ivar result: results from inference;
+    :ivar inference_time: inference time;
+    :ivar model_file_path: path to the machine learning model;
     :ivar k: number of top results;
     :ivar confidence: confidence score, default is 0.5.
     """
     def __init__(self, model_file_path=None):
+        """
+        Constructor method for the TensorFlow Lite class.
+        """
+        if not os.path.isfile(model_file_path):
+            raise ValueError("Must pass a labels file")
+        if not model_file_path.endswith(".tflite"):
+            raise TypeError(f"Expects {model_file_path} to be a text file")
         self.model_file_path = model_file_path
         self.interpreter = Interpreter(model_path=self.model_file_path)
         self.interpreter.allocate_tensors()
@@ -89,10 +93,7 @@ class TFLiteInterpreter:
 
     def set_input(self, image):
         """
-        Set the input tensor to be inferenced.
-
-        Returns:
-            None.
+        Set the image/frame into the input tensor to be inferenced.
         """
         tensor_index = self.input_details[0]['index']
         self.interpreter.set_tensor(tensor_index, image)
@@ -102,8 +103,8 @@ class TFLiteInterpreter:
         Get the result after running the inference.
 
         Args:
-            index: index of the result
-            squeeze: if the result is squeezed or not.
+            index (int): index of the result
+            squeeze (bool): result is squeezed or not.
 
         Returns:
             if **squeeze**, return **squeezed**
@@ -121,7 +122,7 @@ class TFLiteInterpreter:
         Get the result from the output details.
 
         Args:
-            category (str): type of machine learning model.
+            category (str): model category (classification or detection);
 
         Returns:
             if **success**, return **True**
@@ -152,10 +153,7 @@ class TFLiteInterpreter:
 
     def run_inference(self):
         """
-        Run inference on the image/frame set in the set_input() method.
-        
-        Returns:
-            None. The inference time is storage in the inference_time attribute.
+        Runs inference on the image/frame set in the set_input() method.
         """
         self.interpreter.invoke() # ignores the warm-up time.
         timer = Timer()
