@@ -3,10 +3,9 @@
 
 """
 :platform: Unix/Yocto
-:synopsis: Python Class to retrieve packages from FTP server.
+:synopsis: Class to retrieve packages from Variscite FTP server.
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
-    .. note:: 10/15/2021 [diego.d] First Version Released
 """
 
 import ftplib
@@ -26,12 +25,12 @@ from pyvar.ml.config import SEGMENTATION
 
 class FTP:
     """
-    **Constructor**
-    
-    Specify the **host**, **user**, and **password** from the FTP. If **none**
-    is specified, then the default is from Variscite.
+    This class can be used as reference but not easy as production-ready.
     """
     def __init__(self, host=None, user=None, passwd=None):
+        """
+        Constructor method for the FTP class.
+        """
         self.host = FTP_HOST if host is None else host
         self.user = FTP_USER if user is None else user
         self.passwd = FTP_PASS if passwd is None else passwd
@@ -50,19 +49,18 @@ class FTP:
         except ftplib.all_errors as error:
             sys.exit(error)
             
-    def retrieve_package(self, package_dir=None, package_filename=None,
-                               category=None):
+    def retrieve_package(
+        self, package_dir=None, package_filename=None, category=None):
         """
         Retrieve package from the FTP server.
         
         Args:
             package_dir (str): package directory;
             package_filename (str): model package file name;
-            category (str): type of machine learning model.
+            category (str): model category (classification or detection).
         
         Returns:
-            if **success**, return **True**
-            if **not**, return **False**  
+            True if the package file was downloaded successfully. False if not.
         """
         if category is not None:
             if category is CLASSIFICATION:
@@ -99,7 +97,7 @@ class FTP:
                 return False
         self.disconnect()
         return True
-        
+
     def disconnect(self):
         """
         Send a quit command to the server and close the connection.        
