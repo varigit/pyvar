@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>pyvar.ml.engines.armnn</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <img class="logo" src="../../../../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#overview">Table of Contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.ml.html" class="reference internal ">Machine Learning API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.multimedia.html" class="reference internal ">Multimedia API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.quickexamples.html" class="reference internal ">Quick Examples</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.license.html" class="reference internal ">LICENSE</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.contribute.html" class="reference internal ">Contribute</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">Module code</a> &raquo;</li>
+    
+    <li>pyvar.ml.engines.armnn</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <h1>Source code for pyvar.ml.engines.armnn</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2021 Variscite LTD</span>
+<span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:platform: Unix/Yocto</span>
+<span class="sd">:synopsis: Class to handle Arm NN inference engine.</span>
+
+<span class="sd">.. moduleauthor:: Diego Dorta &lt;diego.d@variscite.com&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">pyarmnn</span> <span class="k">as</span> <span class="nn">ann</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;No ArmNN Runtime module found!&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">DETECTION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.utils.timer</span> <span class="kn">import</span> <span class="n">Timer</span>
+
+<div class="viewcode-block" id="ArmNNInterpreter"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.armnn.ArmNNInterpreter">[docs]</a><span class="k">class</span> <span class="nc">ArmNNInterpreter</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :ivar interpreter: Arm NN interpreter;</span>
+<span class="sd">    :ivar input_details: input details from model;</span>
+<span class="sd">    :ivar output_details: output details from inference;</span>
+<span class="sd">    :ivar result: results from inference;</span>
+<span class="sd">    :ivar inference_time: inference time;</span>
+<span class="sd">    :ivar model_file_path: path to the machine learning model;</span>
+<span class="sd">    :ivar input_width: size of model input width;</span>
+<span class="sd">    :ivar input_height: size of model input height;</span>
+<span class="sd">    :ivar category: model category (classification or detection);</span>
+<span class="sd">    :ivar accelerated: runs inference on NPU or CPU.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">accelerated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor method for the Arm NN class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">model_file_path</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must pass a labels file&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">model_file_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.tflite&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expects </span><span class="si">{</span><span class="n">model_file_path</span><span class="si">}</span><span class="s2"> to be a text file&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_file_path</span> <span class="o">=</span> <span class="n">model_file_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accelerated</span> <span class="o">=</span> <span class="n">accelerated</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="n">category</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_details</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_details</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inference_time</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_width</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_height</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">parser</span> <span class="o">=</span> <span class="n">ann</span><span class="o">.</span><span class="n">ITfLiteParser</span><span class="p">()</span>
+        <span class="n">network</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">CreateNetworkFromBinaryFile</span><span class="p">(</span><span class="n">model_file_path</span><span class="p">)</span>
+
+        <span class="n">graph_id</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">GetSubgraphCount</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="n">input_names</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">GetSubgraphInputTensorNames</span><span class="p">(</span><span class="n">graph_id</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_binding_info</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">GetNetworkInputBindingInfo</span><span class="p">(</span>
+                                                   <span class="n">graph_id</span><span class="p">,</span> <span class="n">input_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_binding_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">GetShape</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_binding_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">GetShape</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">options</span> <span class="o">=</span> <span class="n">ann</span><span class="o">.</span><span class="n">CreationOptions</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span> <span class="o">=</span> <span class="n">ann</span><span class="o">.</span><span class="n">IRuntime</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+
+        <span class="n">preferredBackends</span> <span class="o">=</span> <span class="p">[</span><span class="n">ann</span><span class="o">.</span><span class="n">BackendId</span><span class="p">(</span><span class="s1">&#39;CpuAcc&#39;</span><span class="p">),</span>
+                             <span class="n">ann</span><span class="o">.</span><span class="n">BackendId</span><span class="p">(</span><span class="s1">&#39;CpuRef&#39;</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="n">accelerated</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">preferredBackends</span> <span class="o">=</span> <span class="p">[</span><span class="n">ann</span><span class="o">.</span><span class="n">BackendId</span><span class="p">(</span><span class="s1">&#39;VsiNpu&#39;</span><span class="p">),</span>
+                                 <span class="n">ann</span><span class="o">.</span><span class="n">BackendId</span><span class="p">(</span><span class="s1">&#39;CpuAcc&#39;</span><span class="p">),</span>
+                                 <span class="n">ann</span><span class="o">.</span><span class="n">BackendId</span><span class="p">(</span><span class="s1">&#39;CpuRef&#39;</span><span class="p">)]</span>
+
+        <span class="n">opt_network</span><span class="p">,</span> <span class="n">messages</span> <span class="o">=</span> <span class="n">ann</span><span class="o">.</span><span class="n">Optimize</span><span class="p">(</span>
+            <span class="n">network</span><span class="p">,</span> <span class="n">preferredBackends</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">GetDeviceSpec</span><span class="p">(),</span> <span class="n">ann</span><span class="o">.</span><span class="n">OptimizerOptions</span><span class="p">())</span>
+
+        <span class="n">net_id</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">LoadNetwork</span><span class="p">(</span><span class="n">opt_network</span><span class="p">)</span>
+
+        <span class="n">output_names</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">GetSubgraphOutputTensorNames</span><span class="p">(</span><span class="n">graph_id</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_binding_info</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">GetNetworkOutputBindingInfo</span><span class="p">(</span>
+                                                    <span class="mi">0</span><span class="p">,</span> <span class="n">output_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="ow">is</span> <span class="n">CLASSIFICATION</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">output_tensors</span> <span class="o">=</span> <span class="n">ann</span><span class="o">.</span><span class="n">make_output_tensors</span><span class="p">(</span>
+                                               <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">output_binding_info</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="ow">is</span> <span class="n">DETECTION</span><span class="p">:</span>
+                 <span class="n">output_list</span> <span class="o">=</span> <span class="p">[]</span>
+                 <span class="k">for</span> <span class="n">out</span> <span class="ow">in</span> <span class="n">output_names</span><span class="p">:</span>
+                     <span class="n">output_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                            <span class="n">parser</span><span class="o">.</span><span class="n">GetNetworkOutputBindingInfo</span><span class="p">(</span><span class="n">graph_id</span><span class="p">,</span> <span class="n">out</span><span class="p">))</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">output_tensors</span> <span class="o">=</span> <span class="n">ann</span><span class="o">.</span><span class="n">make_output_tensors</span><span class="p">(</span><span class="n">output_list</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ArmNNInterpreter.set_input"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.armnn.ArmNNInterpreter.set_input">[docs]</a>    <span class="k">def</span> <span class="nf">set_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the image/frame into the input tensor to be inferenced.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_tensors</span> <span class="o">=</span> <span class="n">ann</span><span class="o">.</span><span class="n">make_input_tensors</span><span class="p">(</span>
+                                      <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">input_binding_info</span><span class="p">],</span> <span class="p">[</span><span class="n">image</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="ArmNNInterpreter.get_output"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.armnn.ArmNNInterpreter.get_output">[docs]</a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the result after running the inference.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            index (int): index of the result</span>
+<span class="sd">            squeeze (bool): result is squeezed or not.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            if **squeeze**, return **squeezed**</span>
+<span class="sd">            if **not**, return **not squeeze**</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">squeeze</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span>
+                      <span class="n">ann</span><span class="o">.</span><span class="n">workload_tensors_to_ndarray</span><span class="p">(</span>
+                                   <span class="bp">self</span><span class="o">.</span><span class="n">output_tensors</span><span class="p">)[</span><span class="n">index</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">ann</span><span class="o">.</span><span class="n">workload_tensors_to_ndarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_tensors</span><span class="p">)[</span><span class="n">index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="ArmNNInterpreter.get_result"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.armnn.ArmNNInterpreter.get_result">[docs]</a>    <span class="k">def</span> <span class="nf">get_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the result from the output details.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            category (str): model category (classification or detection);</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            if **success**, return **True**</span>
+<span class="sd">            if **not**, return **False**</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="ow">is</span> <span class="n">CLASSIFICATION</span><span class="p">:</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">top_k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">output</span><span class="p">)[</span><span class="o">-</span><span class="mi">5</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">top_k</span><span class="p">:</span>
+                    <span class="n">score</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">score</span><span class="p">))</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="ow">is</span> <span class="n">DETECTION</span><span class="p">:</span>
+                <span class="n">positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+                <span class="n">classes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+                <span class="n">scores</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_output</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;pos&#39;</span><span class="p">:</span> <span class="n">positions</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
+                                            <span class="s1">&#39;_id&#39;</span><span class="p">:</span> <span class="n">classes</span><span class="p">[</span><span class="n">idx</span><span class="p">]})</span>
+                <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="ArmNNInterpreter.run_inference"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.armnn.ArmNNInterpreter.run_inference">[docs]</a>    <span class="k">def</span> <span class="nf">run_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Runs inference on the image/frame set in the set_input() method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">EnqueueWorkload</span><span class="p">(</span>
+            <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_tensors</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_tensors</span><span class="p">)</span> <span class="c1"># ignores the warm-up time.</span>
+        <span class="k">with</span> <span class="n">timer</span><span class="o">.</span><span class="n">timeit</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">EnqueueWorkload</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_tensors</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_tensors</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inference_time</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">time</span></div></div>
+</pre></div>
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021 Variscite LTD.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

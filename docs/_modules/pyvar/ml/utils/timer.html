@@ -159,7 +159,6 @@
 <span class="sd">:synopsis: Python Class to calculate time.</span>
 
 <span class="sd">.. moduleauthor:: Diego Dorta &lt;diego.d@variscite.com&gt;</span>
-<span class="sd">    .. note:: 10/15/2021 [diego.d] First Version Released</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
@@ -168,12 +167,15 @@
 
 <div class="viewcode-block" id="Timer"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.timer.Timer">[docs]</a><span class="k">class</span> <span class="nc">Timer</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor method for the Timer class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
 
 <div class="viewcode-block" id="Timer.timeit"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.timer.Timer.timeit">[docs]</a>    <span class="nd">@contextmanager</span>
     <span class="k">def</span> <span class="nf">timeit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The time is storage in the **time** attribute.</span>
+<span class="sd">        Calculates the time and save it in the **time** attribute.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">begin</span> <span class="o">=</span> <span class="n">monotonic</span><span class="p">()</span>
         <span class="k">try</span><span class="p">:</span>

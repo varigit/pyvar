@@ -156,10 +156,9 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">:platform: Unix/Yocto</span>
-<span class="sd">:synopsis: Python Class to retrieve packages from FTP server.</span>
+<span class="sd">:synopsis: Class to retrieve packages from Variscite FTP server.</span>
 
 <span class="sd">.. moduleauthor:: Diego Dorta &lt;diego.d@variscite.com&gt;</span>
-<span class="sd">    .. note:: 10/15/2021 [diego.d] First Version Released</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">ftplib</span>
@@ -169,22 +168,21 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">from</span> <span class="nn">pyvar.config</span> <span class="kn">import</span> <span class="n">CACHEDIR</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">DETECTION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">SEGMENTATION</span>
 <span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="kn">import</span> <span class="n">FTP_HOST</span><span class="p">,</span> <span class="n">FTP_USER</span><span class="p">,</span> <span class="n">FTP_PASS</span>
 <span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="kn">import</span> <span class="n">DEFAULT_PACKAGES</span>
 <span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="kn">import</span> <span class="n">TFLITE</span><span class="p">,</span> <span class="n">TXT</span><span class="p">,</span> <span class="n">ZIP</span><span class="p">,</span> <span class="n">JPG</span><span class="p">,</span> <span class="n">PNG</span><span class="p">,</span> <span class="n">MP4</span>
 
-<span class="n">CLASSIFICATION</span> <span class="o">=</span> <span class="s2">&quot;classification&quot;</span>
-<span class="n">DETECTION</span> <span class="o">=</span> <span class="s2">&quot;detection&quot;</span>
-<span class="n">SEGMENTATION</span> <span class="o">=</span> <span class="s2">&quot;segmentation&quot;</span>
-
 <div class="viewcode-block" id="FTP"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.retriever.FTP">[docs]</a><span class="k">class</span> <span class="nc">FTP</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    **Constructor**</span>
-<span class="sd">    </span>
-<span class="sd">    Specify the **host**, **user**, and **password** from the FTP. If **none**</span>
-<span class="sd">    is specified, then the default is from Variscite.</span>
+<span class="sd">    **This class can be used as reference only. It is not for production-ready.**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">passwd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor method for the FTP class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">FTP_HOST</span> <span class="k">if</span> <span class="n">host</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">host</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">FTP_USER</span> <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">user</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">passwd</span> <span class="o">=</span> <span class="n">FTP_PASS</span> <span class="k">if</span> <span class="n">passwd</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">passwd</span>
@@ -203,19 +201,18 @@
         <span class="k">except</span> <span class="n">ftplib</span><span class="o">.</span><span class="n">all_errors</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
             
-<div class="viewcode-block" id="FTP.retrieve_package"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.retriever.FTP.retrieve_package">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_package</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">package_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">package_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                               <span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="FTP.retrieve_package"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.retriever.FTP.retrieve_package">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_package</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">package_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">package_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieve package from the FTP server.</span>
 <span class="sd">        </span>
 <span class="sd">        Args:</span>
 <span class="sd">            package_dir (str): package directory;</span>
 <span class="sd">            package_filename (str): model package file name;</span>
-<span class="sd">            category (str): type of machine learning model.</span>
+<span class="sd">            category (str): model category (classification or detection).</span>
 <span class="sd">        </span>
 <span class="sd">        Returns:</span>
-<span class="sd">            if **success**, return **True**</span>
-<span class="sd">            if **not**, return **False**  </span>
+<span class="sd">            True if the package file was downloaded successfully. False if not.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">category</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">category</span> <span class="ow">is</span> <span class="n">CLASSIFICATION</span><span class="p">:</span>
@@ -252,7 +249,7 @@
                 <span class="k">return</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
         <span class="k">return</span> <span class="kc">True</span></div>
-        
+
 <div class="viewcode-block" id="FTP.disconnect"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.retriever.FTP.disconnect">[docs]</a>    <span class="k">def</span> <span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Send a quit command to the server and close the connection.        </span>

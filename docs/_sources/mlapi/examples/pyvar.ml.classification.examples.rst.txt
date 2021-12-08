@@ -15,11 +15,11 @@ Run the Image Classification Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/classification/image_classification.py
+    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/classification/image_classification_tflite.py
 
 .. code-block:: bash
 
-    python3 image_classification.py
+    python3 image_classification_tflite.py
 
 2. The output should be similar as the one below:
 
@@ -35,13 +35,13 @@ Run the Image Classification Example
 .. |car-converted| image:: ../../examples/ml/classification/media/car_classified.jpg
    :width: 100%
 
-.. literalinclude:: ../../../examples/ml/classification/image_classification.py
+.. literalinclude:: ../../../examples/ml/classification/image_classification_tflite.py
    :language: python
    :linenos:
-   :caption: **Image Classification Example Source Code**: `image_classification.py`_
+   :caption: **Image Classification Example Source Code**: `image_classification_tflite.py`_
    :name: Image Classification Example
 
-.. _image_classification.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/image_classification.py
+.. _image_classification_tflite.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/image_classification_tflite.py
 
 |
 |
@@ -57,11 +57,11 @@ Run the Video Classification Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/classification/video_classification.py
+    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/classification/video_classification_tflite.py
 
 .. code-block:: bash
 
-    python3 video_classification.py
+    python3 video_classification_tflite.py
 
 2. The output should be similar as the one below:
 
@@ -77,13 +77,13 @@ Run the Video Classification Example
 .. |street-classified| image:: ../../examples/ml/classification/media/street_classified_video.gif
    :width: 100%
 
-.. literalinclude:: ../../../examples/ml/classification/video_classification.py
+.. literalinclude:: ../../../examples/ml/classification/video_classification_tflite.py
    :language: python
    :linenos:
-   :caption: **Video Classification Example Source code**: `video_classification.py`_
+   :caption: **Video Classification Example Source code**: `video_classification_tflite.py`_
    :name: Video Classification Example
 
-.. _video_classification.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/video_classification.py
+.. _video_classification_tflite.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/video_classification_tflite.py
 
 |
 |
@@ -99,16 +99,16 @@ Run the Real Time Classification Example
 
 .. code-block:: bash
 
-    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/classification/realtime_classification.py
+    curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/classification/realtime_classification_tflite.py
 
 .. code-block:: bash
 
-    python3 realtime_classification.py
+    python3 realtime_classification_tflite.py
 
-.. literalinclude:: ../../../examples/ml/classification/realtime_classification.py
+.. literalinclude:: ../../../examples/ml/classification/realtime_classification_tflite.py
    :language: python
    :linenos:
-   :caption: **Real Time Classification Example Source code**: `realtime_classification.py`_
+   :caption: **Real Time Classification Example Source code**: `realtime_classification_tflite.py`_
    :name: Real Time Classification Example
 
-.. _realtime_classification.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/realtime_classification.py
+.. _realtime_classification_tflite.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/realtime_classification_tflite.py

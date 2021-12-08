@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-      <title>pyvar.ml.engines</title>
+      <title>Engines: pyvar.ml.engines</title>
     
           <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
           <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
@@ -22,7 +22,7 @@
     
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Search" href="../search.html" />
-  <link rel="next" title="pyvar.ml.utils" href="pyvar.ml.utils.html" />
+  <link rel="next" title="Utils: pyvar.ml.utils" href="pyvar.ml.utils.html" />
   <link rel="prev" title="Machine Learning API" href="../pyvar.ml.html" /> 
   </head>
 
@@ -142,7 +142,7 @@
     
       <li><a href="../pyvar.ml.html">Machine Learning API</a> &raquo;</li>
     
-    <li>pyvar.ml.engines</li>
+    <li>Engines: pyvar.ml.engines</li>
   </ul>
   
 
@@ -153,7 +153,7 @@
   </li>
   <li class="next">
     <a href="pyvar.ml.utils.html"
-       title="next chapter">pyvar.ml.utils →</a>
+       title="next chapter">Utils: pyvar.ml.utils →</a>
   </li>
 </ul>
   
@@ -161,32 +161,33 @@
 <hr>
           <div class="content" role="main" v-pre>
             
-  <section id="pyvar-ml-engines">
-<h1>pyvar.ml.engines<a class="headerlink" href="#pyvar-ml-engines" title="Permalink to this headline">¶</a></h1>
-<section id="pyvar-ml-engines-tflite">
-<h2>pyvar.ml.engines.tflite<a class="headerlink" href="#pyvar-ml-engines-tflite" title="Permalink to this headline">¶</a></h2>
+  <section id="engines-pyvar-ml-engines">
+<h1>Engines: pyvar.ml.engines<a class="headerlink" href="#engines-pyvar-ml-engines" title="Permalink to this headline">¶</a></h1>
+<section id="tensorflow-lite-inference-engine">
+<h2>TensorFlow Lite Inference Engine<a class="headerlink" href="#tensorflow-lite-inference-engine" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="../_images/tensorflow_lite.png"><img alt="../_images/tensorflow_lite.png" src="../_images/tensorflow_lite.png" style="width: 45%;" /></a>
-<span class="target" id="module-pyvar.ml.engines.tflite"></span><dl class="field-list simple">
+<section id="module-pyvar.ml.engines.tflite">
+<span id="pyvar-ml-engines-tflite"></span><h3>pyvar.ml.engines.tflite<a class="headerlink" href="#module-pyvar.ml.engines.tflite" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
 <dt class="field-odd">platform</dt>
 <dd class="field-odd"><p>Unix/Yocto</p>
 </dd>
 <dt class="field-even">synopsis</dt>
-<dd class="field-even"><p>Python Engine Class</p>
+<dd class="field-even"><p>Class to handle TensorFlow Lite inference engine.</p>
 </dd>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.engines.tflite.</span></span><span class="sig-name descname"><span class="pre">TFLiteInterpreter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class to handle TensorFlow Lite inference engine.</p>
-<dl class="field-list simple">
+<dd><dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>interpreter</strong> – storages the TensorFlow Lite interpreter;</p></li>
-<li><p><strong>input_details</strong> – storages the input details from model;</p></li>
-<li><p><strong>output_details</strong> – storages the output details from inference;</p></li>
-<li><p><strong>result</strong> – storages the results from inference;</p></li>
-<li><p><strong>inference_time</strong> – storages the inference time;</p></li>
-<li><p><strong>model_file_path</strong> – storages the model file path;</p></li>
+<li><p><strong>interpreter</strong> – TensorFlow Lite interpreter;</p></li>
+<li><p><strong>input_details</strong> – input details from model;</p></li>
+<li><p><strong>output_details</strong> – output details from inference;</p></li>
+<li><p><strong>result</strong> – results from inference;</p></li>
+<li><p><strong>inference_time</strong> – inference time;</p></li>
+<li><p><strong>model_file_path</strong> – path to the machine learning model;</p></li>
 <li><p><strong>k</strong> – number of top results;</p></li>
 <li><p><strong>confidence</strong> – confidence score, default is 0.5.</p></li>
 </ul>
@@ -221,8 +222,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – index of the result</p></li>
-<li><p><strong>squeeze</strong> – if the result is squeezed or not.</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – index of the result</p></li>
+<li><p><strong>squeeze</strong> (<em>bool</em>) – result is squeezed or not.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -238,7 +239,7 @@ if <strong>not</strong>, return <strong>not squeeze</strong></p>
 <dd><p>Get the result from the output details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>category</strong> (<em>str</em>) – type of machine learning model.</p>
+<dd class="field-odd"><p><strong>category</strong> (<em>str</em>) – model category (classification or detection);</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>if <strong>success</strong>, return <strong>True</strong>
@@ -261,12 +262,7 @@ if <strong>not</strong>, return <strong>False</strong></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.run_inference">
 <span class="sig-name descname"><span class="pre">run_inference</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.run_inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.run_inference" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run inference on the image/frame set in the set_input() method.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>None. The inference time is storage in the inference_time attribute.</p>
-</dd>
-</dl>
+<dd><p>Runs inference on the image/frame set in the set_input() method.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -278,12 +274,7 @@ if <strong>not</strong>, return <strong>False</strong></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.set_input">
 <span class="sig-name descname"><span class="pre">set_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.set_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.set_input" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the input tensor to be inferenced.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>None.</p>
-</dd>
-</dl>
+<dd><p>Set the image/frame into the input tensor to be inferenced.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -294,6 +285,88 @@ if <strong>not</strong>, return <strong>False</strong></p>
 
 </dd></dl>
 
+</section>
+</section>
+<section id="arm-nn-inference-engine">
+<h2>Arm NN Inference Engine<a class="headerlink" href="#arm-nn-inference-engine" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/armnn.png"><img alt="../_images/armnn.png" src="../_images/armnn.png" style="width: 30%;" /></a>
+<section id="module-pyvar.ml.engines.armnn">
+<span id="pyvar-ml-engines-armnn"></span><h3>pyvar.ml.engines.armnn<a class="headerlink" href="#module-pyvar.ml.engines.armnn" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Class to handle Arm NN inference engine.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.ml.engines.armnn.ArmNNInterpreter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.engines.armnn.</span></span><span class="sig-name descname"><span class="pre">ArmNNInterpreter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accelerated</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/armnn.html#ArmNNInterpreter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.armnn.ArmNNInterpreter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>interpreter</strong> – Arm NN interpreter;</p></li>
+<li><p><strong>input_details</strong> – input details from model;</p></li>
+<li><p><strong>output_details</strong> – output details from inference;</p></li>
+<li><p><strong>result</strong> – results from inference;</p></li>
+<li><p><strong>inference_time</strong> – inference time;</p></li>
+<li><p><strong>model_file_path</strong> – path to the machine learning model;</p></li>
+<li><p><strong>input_width</strong> – size of model input width;</p></li>
+<li><p><strong>input_height</strong> – size of model input height;</p></li>
+<li><p><strong>category</strong> – model category (classification or detection);</p></li>
+<li><p><strong>accelerated</strong> – runs inference on NPU or CPU.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.armnn.ArmNNInterpreter.get_output">
+<span class="sig-name descname"><span class="pre">get_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">squeeze</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/armnn.html#ArmNNInterpreter.get_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.armnn.ArmNNInterpreter.get_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the result after running the inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<em>int</em>) – index of the result</p></li>
+<li><p><strong>squeeze</strong> (<em>bool</em>) – result is squeezed or not.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if <strong>squeeze</strong>, return <strong>squeezed</strong>
+if <strong>not</strong>, return <strong>not squeeze</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.armnn.ArmNNInterpreter.get_result">
+<span class="sig-name descname"><span class="pre">get_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/armnn.html#ArmNNInterpreter.get_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.armnn.ArmNNInterpreter.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the result from the output details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>category</strong> (<em>str</em>) – model category (classification or detection);</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if <strong>success</strong>, return <strong>True</strong>
+if <strong>not</strong>, return <strong>False</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.armnn.ArmNNInterpreter.run_inference">
+<span class="sig-name descname"><span class="pre">run_inference</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/armnn.html#ArmNNInterpreter.run_inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.armnn.ArmNNInterpreter.run_inference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs inference on the image/frame set in the set_input() method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.armnn.ArmNNInterpreter.set_input">
+<span class="sig-name descname"><span class="pre">set_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/armnn.html#ArmNNInterpreter.set_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.armnn.ArmNNInterpreter.set_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the image/frame into the input tensor to be inferenced.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 </section>
 </section>
 
@@ -307,7 +380,7 @@ if <strong>not</strong>, return <strong>False</strong></p>
   </li>
   <li class="next">
     <a href="pyvar.ml.utils.html"
-       title="next chapter">pyvar.ml.utils →</a>
+       title="next chapter">Utils: pyvar.ml.utils →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021 Variscite LTD.

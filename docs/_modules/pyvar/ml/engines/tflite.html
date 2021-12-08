@@ -156,16 +156,15 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">:platform: Unix/Yocto</span>
-<span class="sd">:synopsis: Python Engine Class</span>
+<span class="sd">:synopsis: Class to handle TensorFlow Lite inference engine.</span>
 
 <span class="sd">.. moduleauthor:: Diego Dorta &lt;diego.d@variscite.com&gt;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="kn">import</span> <span class="nn">cv2</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">tflite_runtime.interpreter</span> <span class="kn">import</span> <span class="n">Interpreter</span>
@@ -178,18 +177,23 @@
 
 <div class="viewcode-block" id="TFLiteInterpreter"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.tflite.TFLiteInterpreter">[docs]</a><span class="k">class</span> <span class="nc">TFLiteInterpreter</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Class to handle TensorFlow Lite inference engine.</span>
-
-<span class="sd">    :ivar interpreter: storages the TensorFlow Lite interpreter;</span>
-<span class="sd">    :ivar input_details: storages the input details from model;</span>
-<span class="sd">    :ivar output_details: storages the output details from inference;</span>
-<span class="sd">    :ivar result: storages the results from inference;</span>
-<span class="sd">    :ivar inference_time: storages the inference time;</span>
-<span class="sd">    :ivar model_file_path: storages the model file path;</span>
+<span class="sd">    :ivar interpreter: TensorFlow Lite interpreter;</span>
+<span class="sd">    :ivar input_details: input details from model;</span>
+<span class="sd">    :ivar output_details: output details from inference;</span>
+<span class="sd">    :ivar result: results from inference;</span>
+<span class="sd">    :ivar inference_time: inference time;</span>
+<span class="sd">    :ivar model_file_path: path to the machine learning model;</span>
 <span class="sd">    :ivar k: number of top results;</span>
 <span class="sd">    :ivar confidence: confidence score, default is 0.5.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor method for the TensorFlow Lite class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">model_file_path</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must pass a labels file&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">model_file_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.tflite&quot;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expects </span><span class="si">{</span><span class="n">model_file_path</span><span class="si">}</span><span class="s2"> to be a text file&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model_file_path</span> <span class="o">=</span> <span class="n">model_file_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span> <span class="o">=</span> <span class="n">Interpreter</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model_file_path</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">allocate_tensors</span><span class="p">()</span>
@@ -242,10 +246,7 @@
 
 <div class="viewcode-block" id="TFLiteInterpreter.set_input"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.tflite.TFLiteInterpreter.set_input">[docs]</a>    <span class="k">def</span> <span class="nf">set_input</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Set the input tensor to be inferenced.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            None.</span>
+<span class="sd">        Set the image/frame into the input tensor to be inferenced.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">tensor_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_details</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;index&#39;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">set_tensor</span><span class="p">(</span><span class="n">tensor_index</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span></div>
@@ -255,8 +256,8 @@
 <span class="sd">        Get the result after running the inference.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            index: index of the result</span>
-<span class="sd">            squeeze: if the result is squeezed or not.</span>
+<span class="sd">            index (int): index of the result</span>
+<span class="sd">            squeeze (bool): result is squeezed or not.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            if **squeeze**, return **squeezed**</span>
@@ -274,7 +275,7 @@
 <span class="sd">        Get the result from the output details.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            category (str): type of machine learning model.</span>
+<span class="sd">            category (str): model category (classification or detection);</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            if **success**, return **True**</span>
@@ -305,10 +306,7 @@
 
 <div class="viewcode-block" id="TFLiteInterpreter.run_inference"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.tflite.TFLiteInterpreter.run_inference">[docs]</a>    <span class="k">def</span> <span class="nf">run_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Run inference on the image/frame set in the set_input() method.</span>
-<span class="sd">        </span>
-<span class="sd">        Returns:</span>
-<span class="sd">            None. The inference time is storage in the inference_time attribute.</span>
+<span class="sd">        Runs inference on the image/frame set in the set_input() method.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span> <span class="c1"># ignores the warm-up time.</span>
         <span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">()</span>

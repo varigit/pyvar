@@ -156,7 +156,7 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">:platform: Unix/Yocto</span>
-<span class="sd">:synopsis: Python Class to get framerate from videos and real time cameras.</span>
+<span class="sd">:synopsis: Class to calculate framerate from videos and real time cameras devices.</span>
 
 <span class="sd">.. moduleauthor:: Diego Dorta &lt;diego.d@variscite.com&gt;</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -167,13 +167,16 @@
 
 <div class="viewcode-block" id="Framerate"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.framerate.Framerate">[docs]</a><span class="k">class</span> <span class="nc">Framerate</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor method for the Framerate class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fps</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Framerate.fpsit"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.framerate.Framerate.fpsit">[docs]</a>    <span class="nd">@contextmanager</span>
     <span class="k">def</span> <span class="nf">fpsit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The framerate is storage in the **fps** attribute.</span>
+<span class="sd">        Calculates the frames per second and save it in the **fps** attribute.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">begin</span> <span class="o">=</span> <span class="n">monotonic</span><span class="p">()</span>
         <span class="k">try</span><span class="p">:</span>
