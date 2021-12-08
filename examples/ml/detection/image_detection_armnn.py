@@ -29,6 +29,16 @@ engine.set_input(resizer.image_resized)
 
 engine.run_inference()
 
-engine.get_result("detection", labels.list)
+engine.get_result("detection")
 
-print(f"Inference time: {engine.inference_time}")
+draw = Overlay()
+
+output_image = draw.info(category="detection",
+                         image=resizer.image,
+                         top_result=engine.result,
+                         labels=labels.list,
+                         inference_time=engine.inference_time,
+                         model_name=model_file_path,
+                         source_file=resizer.image_path)
+
+image.show_image("Image Detection Example", output_image)

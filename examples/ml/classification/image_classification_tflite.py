@@ -40,4 +40,4 @@ output_image = draw.info(category="classification",
                          model_name=model_file_path,
                          source_file=resizer.image_path)
 
-image.show_image("Image Classification Example", output_image)
+image.show_image("TFLite: Image Classification", output_image)

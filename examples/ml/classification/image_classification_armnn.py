@@ -3,6 +3,7 @@
 
 from pyvar.ml.engines.armnn import ArmNNInterpreter
 from pyvar.ml.utils.label import Label
+from pyvar.ml.utils.overlay import Overlay
 from pyvar.ml.utils.retriever import FTP
 from pyvar.ml.utils.resizer import Resizer
 from pyvar.multimedia.helper import Multimedia
@@ -22,12 +23,22 @@ engine = ArmNNInterpreter(model_file_path, accelerated=True, category="classific
 resizer = Resizer()
 
 image = Multimedia(image_file_path)
-resizer.resize_armnn(image.video_src, engine.input_width, engine.input_height)
+resizer.resize_image(image.video_src, engine.input_width, engine.input_height)
 
 engine.set_input(resizer.image_resized)
 
 engine.run_inference()
 
-engine.get_result("classification", labels.list)
+engine.get_result("classification")
 
-print(f"Inference time: {engine.inference_time}")
+draw = Overlay()
+
+output_image = draw.info(category="classification",
+                         image=resizer.image,
+                         top_result=engine.result,
+                         labels=labels.list,
+                         inference_time=engine.inference_time,
+                         model_name=model_file_path,
+                         source_file=resizer.image_path)
+
+image.show_image("ArmNN: Image Classification", output_image)

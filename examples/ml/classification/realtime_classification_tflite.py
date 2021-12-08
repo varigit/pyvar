@@ -49,6 +49,6 @@ while camera.loop:
                                  source_file=camera.dev.name,
                                  fps=framerate.fps)
 
-        camera.show("Real Time Classification Example", output_frame)
+        camera.show("TFLite: Real Time Classification", output_frame)
 
 camera.destroy()

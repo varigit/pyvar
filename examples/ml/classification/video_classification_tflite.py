@@ -45,6 +45,6 @@ while video.loop:
                              model_name=model_file_path,
                              source_file=video.video_src)
 
-    video.show("Video Classification Example", output_frame)
+    video.show("TFLite: Video Classification", output_frame)
 
 video.destroy()
