@@ -25,7 +25,7 @@ from pyvar.ml.config import SEGMENTATION
 
 class FTP:
     """
-    This class can be used as reference but not easy as production-ready.
+    This class can be used as reference only. It is not for production-ready.
     """
     def __init__(self, host=None, user=None, passwd=None):
         """
