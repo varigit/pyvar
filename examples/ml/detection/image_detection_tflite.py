@@ -40,4 +40,4 @@ output_image = draw.info(category="detection",
                          model_name=model_file_path,
                          source_file=resizer.image_path)
 
-image.show_image("Image Detection Example", output_image)
+image.show_image("TFLite: Image Detection", output_image)

@@ -45,6 +45,6 @@ while video.loop:
                              model_name=model_file_path,
                              source_file=video.video_src)
 
-    video.show("Video Detection", output_frame)
+    video.show("TFLite: Video Detection", output_frame)
 
 video.destroy()

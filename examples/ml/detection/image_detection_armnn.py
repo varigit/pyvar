@@ -23,7 +23,7 @@ engine = ArmNNInterpreter(model_file_path, accelerated=True, category="detection
 resizer = Resizer()
 
 image = Multimedia(image_file_path)
-resizer.resize_armnn(image.video_src, engine.input_width, engine.input_height)
+resizer.resize_image(image.video_src, engine.input_width, engine.input_height)
 
 engine.set_input(resizer.image_resized)
 
@@ -41,4 +41,4 @@ output_image = draw.info(category="detection",
                          model_name=model_file_path,
                          source_file=resizer.image_path)
 
-image.show_image("Image Detection Example", output_image)
+image.show_image("ArmNN: Image Detection", output_image)

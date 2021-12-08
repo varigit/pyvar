@@ -49,6 +49,6 @@ while camera.loop:
                                  source_file=camera.dev.name,
                                  fps=framerate.fps)
 
-        camera.show("Video Detection", output_frame)
+        camera.show("TFLite: Real Time Detection", output_frame)
 
 camera.destroy()
