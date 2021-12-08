@@ -10,8 +10,8 @@
 
 import re
 
-CLASSIFICATION = "classification"
-DETECTION = "detection"
+from pyvar.ml.config import CLASSIFICATION
+from pyvar.ml.config import DETECTION
 
 class Label:
     """

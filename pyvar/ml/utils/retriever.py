@@ -20,9 +20,9 @@ from pyvar.ml.utils.config import FTP_HOST, FTP_USER, FTP_PASS
 from pyvar.ml.utils.config import DEFAULT_PACKAGES
 from pyvar.ml.utils.config import TFLITE, TXT, ZIP, JPG, PNG, MP4
 
-CLASSIFICATION = "classification"
-DETECTION = "detection"
-SEGMENTATION = "segmentation"
+from pyvar.ml.config import CLASSIFICATION
+from pyvar.ml.config import DETECTION
+from pyvar.ml.config import SEGMENTATION
 
 class FTP:
     """
