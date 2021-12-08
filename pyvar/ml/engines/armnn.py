@@ -31,6 +31,7 @@ class ArmNNInterpreter:
         self.inference_time = None
         self.input_width = None
         self.input_height = None
+        self.result = None
 
         if model_file_path is not None:
             parser = ann.ITfLiteParser()
@@ -72,22 +73,31 @@ class ArmNNInterpreter:
     def set_input(self, image):
         self.input_tensors = ann.make_input_tensors([self.input_binding_info], [image])
 
-    def get_output(self, squeeze=False):
+    def get_output(self, index, squeeze=False):
         if squeeze:
-            return np.squeeze(ann.workload_tensors_to_ndarray(self.output_tensors))
+            return np.squeeze(ann.workload_tensors_to_ndarray(self.output_tensors)[index][0])
+        return ann.workload_tensors_to_ndarray(self.output_tensors)[index][0]
 
-        return ann.workload_tensors_to_ndarray(self.output_tensors)[0][0]
-
-    def get_result(self, category=None, labels=None): # change this function, remove labels, and use overlay
+    def get_result(self, category=None):
         if self.category is not None:
             if self.category is CLASSIFICATION:
-                output = self.get_output()
-                results = np.argsort(output)[::-1]
-                for i in range(min(len(results), 5)):
-                    print(f"[{i}] Object name = {labels[results[i]]}")
-            elif self.category is DETECTION: # need to fix this
-                output = self.get_output()
-                print(output)
+                output = self.get_output(0)
+                top_k = np.argsort(output)[-5:][::-1]
+                self.result = []
+                for i in top_k:
+                    score = float(output[i] / 255.0)
+                    self.result.append((i, score))
+                return True
+            elif self.category is DETECTION:
+                positions = self.get_output(0, True)
+                classes = self.get_output(1, True)
+                scores = self.get_output(2, True)
+                self.result = []
+                for idx, score in enumerate(scores):
+                    if score > 0.5:
+                        self.result.append({'pos': positions[idx],
+                                            '_id': classes[idx]})
+                return True
 
     def run_inference(self):
         timer = Timer()
