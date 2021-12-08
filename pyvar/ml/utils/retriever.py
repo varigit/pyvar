@@ -15,17 +15,16 @@ import shutil
 import sys
 
 from pyvar.config import CACHEDIR
+from pyvar.ml.config import CLASSIFICATION
+from pyvar.ml.config import DETECTION
+from pyvar.ml.config import SEGMENTATION
 from pyvar.ml.utils.config import FTP_HOST, FTP_USER, FTP_PASS
 from pyvar.ml.utils.config import DEFAULT_PACKAGES
 from pyvar.ml.utils.config import TFLITE, TXT, ZIP, JPG, PNG, MP4
 
-from pyvar.ml.config import CLASSIFICATION
-from pyvar.ml.config import DETECTION
-from pyvar.ml.config import SEGMENTATION
-
 class FTP:
     """
-    This class can be used as reference only. It is not for production-ready.
+    **This class can be used as reference only. It is not for production-ready.**
     """
     def __init__(self, host=None, user=None, passwd=None):
         """
