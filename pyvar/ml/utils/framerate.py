@@ -3,7 +3,7 @@
 
 """
 :platform: Unix/Yocto
-:synopsis: Python Class to get framerate from videos and real time cameras.
+:synopsis: Class to calculate framerate from videos and real time cameras devices.
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
 """
@@ -14,13 +14,16 @@ from time import monotonic
 
 class Framerate:
     def __init__(self):
+        """
+        Constructor method for the Framerate class.
+        """
         self.fps = 0
         self.window = collections.deque(maxlen=30)
 
     @contextmanager
     def fpsit(self):
         """
-        The framerate is storage in the **fps** attribute.
+        Calculates the frames per second and save it in the **fps** attribute.
         """
         begin = monotonic()
         try:
