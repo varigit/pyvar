@@ -254,7 +254,7 @@ if <strong>not</strong>, return <strong>False</strong></p>
 <dd><p>Get the model width.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The model witdh.</p>
+<dd class="field-odd"><p>The model width.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -274,7 +274,7 @@ if <strong>not</strong>, return <strong>False</strong></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.engines.tflite.TFLiteInterpreter.set_input">
 <span class="sig-name descname"><span class="pre">set_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/tflite.html#TFLiteInterpreter.set_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.tflite.TFLiteInterpreter.set_input" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the image/frame into the input tensor to be inferenced.</p>
+<dd><p>Set the image/frame into the input tensor to be inferred.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -302,7 +302,7 @@ if <strong>not</strong>, return <strong>False</strong></p>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvar.ml.engines.armnn.ArmNNInterpreter">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.engines.armnn.</span></span><span class="sig-name descname"><span class="pre">ArmNNInterpreter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accelerated</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/armnn.html#ArmNNInterpreter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.armnn.ArmNNInterpreter" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.engines.armnn.</span></span><span class="sig-name descname"><span class="pre">ArmNNInterpreter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accelerated</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/armnn.html#ArmNNInterpreter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.armnn.ArmNNInterpreter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
@@ -314,29 +314,10 @@ if <strong>not</strong>, return <strong>False</strong></p>
 <li><p><strong>model_file_path</strong> – path to the machine learning model;</p></li>
 <li><p><strong>input_width</strong> – size of model input width;</p></li>
 <li><p><strong>input_height</strong> – size of model input height;</p></li>
-<li><p><strong>category</strong> – model category (classification or detection);</p></li>
 <li><p><strong>accelerated</strong> – runs inference on NPU or CPU.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="pyvar.ml.engines.armnn.ArmNNInterpreter.get_output">
-<span class="sig-name descname"><span class="pre">get_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">squeeze</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/armnn.html#ArmNNInterpreter.get_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.armnn.ArmNNInterpreter.get_output" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the result after running the inference.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> (<em>int</em>) – index of the result</p></li>
-<li><p><strong>squeeze</strong> (<em>bool</em>) – result is squeezed or not.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>if <strong>squeeze</strong>, return <strong>squeezed</strong>
-if <strong>not</strong>, return <strong>not squeeze</strong></p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.engines.armnn.ArmNNInterpreter.get_result">
 <span class="sig-name descname"><span class="pre">get_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/armnn.html#ArmNNInterpreter.get_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.armnn.ArmNNInterpreter.get_result" title="Permalink to this definition">¶</a></dt>
@@ -361,7 +342,7 @@ if <strong>not</strong>, return <strong>False</strong></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.engines.armnn.ArmNNInterpreter.set_input">
 <span class="sig-name descname"><span class="pre">set_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/armnn.html#ArmNNInterpreter.set_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.armnn.ArmNNInterpreter.set_input" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the image/frame into the input tensor to be inferenced.</p>
+<dd><p>Set the image/frame into the input tensor to be inferred.</p>
 </dd></dl>
 
 </dd></dl>

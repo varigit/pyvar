@@ -167,6 +167,7 @@
 <span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION</span>
 <span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">DETECTION</span>
 
+
 <div class="viewcode-block" id="Label"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.label.Label">[docs]</a><span class="k">class</span> <span class="nc">Label</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :ivar labels_file: path to the labels file.</span>
@@ -202,7 +203,7 @@
                 <span class="k">elif</span> <span class="n">category</span> <span class="ow">is</span> <span class="n">DETECTION</span><span class="p">:</span>
                     <span class="n">p</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s*(\d+)(.+)&#39;</span><span class="p">)</span>
                     <span class="n">lines</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">())</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span>  <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">):</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">}</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">):</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">}</span>
                 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
         <span class="k">return</span> <span class="kc">True</span></div></div>
 </pre></div>

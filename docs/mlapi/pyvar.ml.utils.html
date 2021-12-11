@@ -223,7 +223,7 @@
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>inference_time_info</strong> – shows the inference time on image/frame;</p></li>
-<li><p><strong>scores_info</strong> – shows the scores information on image/frame;</p></li>
+<li><p><strong>scores_info</strong> – shows the scores on image/frame;</p></li>
 <li><p><strong>extra_info</strong> – shows extra info on image/frame;</p></li>
 <li><p><strong>framerate_info</strong> – shows framerate on image/frame.</p></li>
 </ul>
@@ -242,6 +242,7 @@ scores, model name, and source file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>category</strong> (<em>str</em>) – model category (classification or detection);</p></li>
 <li><p><strong>image</strong> (<em>numpy array</em>) – original image to overlay the information.</p></li>
 <li><p><strong>top_result</strong> (<em>list</em>) – top results from the inference.</p></li>
 <li><p><strong>labels</strong> (<em>list</em>) – list of the read labels.</p></li>
@@ -252,7 +253,7 @@ scores, model name, and source file.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.array</span></code> image format with the overlayed information.</p>
+<dd class="field-even"><p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.array</span></code> image format with the overlaid information.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -303,18 +304,6 @@ scores, model name, and source file.</p>
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.retriever.</span></span><span class="sig-name descname"><span class="pre">FTP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/retriever.html#FTP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.retriever.FTP" title="Permalink to this definition">¶</a></dt>
 <dd><p><strong>This class can be used as reference only. It is not for production-ready.</strong></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyvar.ml.utils.retriever.FTP.disconnect">
-<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/retriever.html#FTP.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.retriever.FTP.disconnect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Send a quit command to the server and close the connection.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pyvar.ml.utils.retriever.FTP.get_package_names">
-<span class="sig-name descname"><span class="pre">get_package_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package_name_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/retriever.html#FTP.get_package_names"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.retriever.FTP.get_package_names" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the model and label names from the downloaded package.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.retriever.FTP.retrieve_package">
 <span class="sig-name descname"><span class="pre">retrieve_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/retriever.html#FTP.retrieve_package"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.retriever.FTP.retrieve_package" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve package from the FTP server.</p>
@@ -352,12 +341,6 @@ scores, model name, and source file.</p>
 <dt class="sig sig-object py" id="pyvar.ml.utils.timer.Timer">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.timer.</span></span><span class="sig-name descname"><span class="pre">Timer</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/timer.html#Timer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.timer.Timer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
-<dt class="sig sig-object py" id="pyvar.ml.utils.timer.Timer.convert">
-<span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elapsed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/timer.html#Timer.convert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.timer.Timer.convert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert time from monotonic to seconds.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.timer.Timer.timeit">
 <span class="sig-name descname"><span class="pre">timeit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/timer.html#Timer.timeit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.timer.Timer.timeit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the time and save it in the <strong>time</strong> attribute.</p>
