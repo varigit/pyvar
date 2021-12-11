@@ -5,7 +5,7 @@ abstractions that helps any beginning user to learn and develop its own
 applications regarding Machine Learning (ML), multimedia, and more.
 
 To install the prebuilt PyVar library, see the instructions at
-[pyvar.dev/software/](https://pyvar.dev/pyvar.gettingstarted.html).
+[pyvar.dev/software/](https://pyvar.dev/pyvar.gettingstarted.html#software).
 
 ## Documentation and Examples
 
