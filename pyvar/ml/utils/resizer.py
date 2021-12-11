@@ -10,7 +10,9 @@
 
 import cv2
 import numpy as np
+
 from PIL import Image
+
 
 class Resizer:
     """
@@ -51,7 +53,7 @@ class Resizer:
             expand_dims (bool): if expand dimensions or not
 
         Returns:
-            The image (numpy array) resized is storaged at the frame_resized attribute.
+            The image (numpy array) resized is stored at the frame_resized attribute.
         """
         if frame is not None:
             self.frame = frame
@@ -74,7 +76,7 @@ class Resizer:
             expand_dims (bool): if expand dimensions or not
 
         Returns:
-            The image (numpy array) resized is storaged at the image_resized attribute.
+            The image (numpy array) resized is stored at the image_resized attribute.
         """
         if image_path is not None:
             self.image_path = image_path
@@ -87,4 +89,4 @@ class Resizer:
                 self.image = self.image[:, :, ::-1].copy()
                 self.image_resized = img.resize((self.model_width, self.model_height))
                 if expand_dims:
-                    self.image_resized = np.expand_dims(self.image_resized, axis = 0)
+                    self.image_resized = np.expand_dims(self.image_resized, axis=0)
