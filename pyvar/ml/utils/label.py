@@ -14,6 +14,7 @@ import re
 from pyvar.ml.config import CLASSIFICATION
 from pyvar.ml.config import DETECTION
 
+
 class Label:
     """
     :ivar labels_file: path to the labels file.
@@ -49,6 +50,6 @@ class Label:
                 elif category is DETECTION:
                     p = re.compile(r'\s*(\d+)(.+)')
                     lines = (p.match(line).groups() for line in f.readlines())
-                    self.list =  {int(num): text.strip() for num, text in lines}
+                    self.list = {int(num): text.strip() for num, text in lines}
                 f.close()
         return True
