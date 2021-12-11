@@ -18,9 +18,10 @@ from pyvar.config import CACHEDIR
 from pyvar.ml.config import CLASSIFICATION
 from pyvar.ml.config import DETECTION
 from pyvar.ml.config import SEGMENTATION
-from pyvar.ml.utils.config import FTP_HOST, FTP_USER, FTP_PASS
 from pyvar.ml.utils.config import DEFAULT_PACKAGES
-from pyvar.ml.utils.config import TFLITE, TXT, ZIP, JPG, PNG, MP4
+from pyvar.ml.utils.config import FTP_HOST, FTP_PASS, FTP_USER
+from pyvar.ml.utils.config import JPG, MP4, PNG, TFLITE, TXT, ZIP
+
 
 class FTP:
     """
@@ -43,13 +44,14 @@ class FTP:
             self.ftp = ftplib.FTP(self.host, self.user, self.passwd)
             try:
                 os.mkdir(self.cachedir)
-            except:
-                pass
+            except Exception as ex:
+                print(f"Exc: {ex}")
         except ftplib.all_errors as error:
-            sys.exit(error)
-            
-    def retrieve_package(
-        self, package_dir=None, package_filename=None, category=None):
+            sys.exit(f"Error: {error}")
+
+    def retrieve_package(self, package_dir=None,
+                         package_filename=None,
+                         category=None):
         """
         Retrieve package from the FTP server.
         
@@ -83,27 +85,29 @@ class FTP:
                 else:
                     self.retrieved_package = package_file
                     self.ftp.cwd("/")
-        except:
+        except Exception as ex:
+            print(f"Exc: {ex}")
             return False
 
         if self.retrieved_package.endswith(ZIP):
             package_name_path = self.retrieved_package[:-4]
             try:
                 shutil.unpack_archive(self.retrieved_package, self.cachedir)
-                self.get_package_names(package_name_path, category)
+                self.__get_package_names(package_name_path, category)
                 os.remove(self.retrieved_package)
-            except:
+            except Exception as ex:
+                print(f"Exc: {ex}")
                 return False
-        self.disconnect()
+        self.__disconnect()
         return True
 
-    def disconnect(self):
+    def __disconnect(self):
         """
         Send a quit command to the server and close the connection.        
         """
         self.ftp.quit()
 
-    def get_package_names(self, package_name_path, category):
+    def __get_package_names(self, package_name_path, category):
         """
         Get the model and label names from the downloaded package.        
         """
