@@ -1,9 +1,9 @@
 # Copyright 2021 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
-import threading
 import cv2
 import numpy as np
+import threading
 
 import gi
 gi.require_versions({'GdkPixbuf': "2.0", 'Gtk': "3.0"})
@@ -14,8 +14,8 @@ from pyvar.ml.engines.tflite import TFLiteInterpreter
 from pyvar.ml.utils.framerate import Framerate
 from pyvar.ml.utils.label import Label
 from pyvar.ml.utils.overlay import Overlay
-from pyvar.ml.utils.retriever import FTP
 from pyvar.ml.utils.resizer import Resizer
+from pyvar.ml.utils.retriever import FTP
 from pyvar.multimedia.helper import Multimedia
 
 SSD_LABELS_LIST = [
@@ -32,6 +32,7 @@ SSD_LABELS_LIST = [
     "keyboard", "cell phone", "microwave", "oven", "toaster", "sink",
     "refrigerator", "book", "clock", "vase", "scissors", "teddy bear",
     "hair drier", "toothbrush"]
+
 
 class ObjectSelection(Gtk.Frame):
     def __init__(self, parent, exclude_list):
@@ -60,7 +61,7 @@ class ObjectSelection(Gtk.Frame):
         scrolled_window.add(vertical_box)
 
         for label in labels_list:
-            horizontal_box =  Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+            horizontal_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
             switch_button = Gtk.Switch()
             switch_button.set_active(False)
             switch_button.connect('notify::active',
@@ -84,6 +85,7 @@ class ObjectSelection(Gtk.Frame):
             if obj not in self.exclude_list:
                 self.exclude_list.append(obj)
 
+
 class RealTimeDetection(Gtk.Frame):
     def __init__(self, parent, exclude_list):
         super().__init__()
@@ -102,7 +104,8 @@ class RealTimeDetection(Gtk.Frame):
         labels.read_labels("detection")
  
         self.labels = labels.list
-        
+
+        self.engine = None
         self.interpreter = None
         self.input_details = None
         self.output_details = None
@@ -134,7 +137,7 @@ class RealTimeDetection(Gtk.Frame):
         inference_time_box.pack_start(inference_label, False, True, 10)
         inference_time_box.pack_start(self.inference_value_label, False, False, 10)
 
-        fps_box =  Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        fps_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         fps_label = Gtk.Label()
         fps_label.set_markup('FPS:')
         self.fps_value_label = Gtk.Label.new(None)
@@ -215,10 +218,11 @@ class RealTimeDetection(Gtk.Frame):
                                          fps=None)
 
             GLib.idle_add(self.inference_value_label.set_text,
-                          (f"{self.engine.inference_time}"))
+                          f"{self.engine.inference_time}")
             GLib.idle_add(self.fps_value_label.set_text,
-                          (f"{int(framerate.fps)}"))
-            GLib.idle_add(self.set_displayed_image, (output_frame))
+                          f"{int(framerate.fps)}")
+            GLib.idle_add(self.set_displayed_image, output_frame)
+
 
 class UserInterfaceDetectionExample(Gtk.Window):
     def __init__(self):
@@ -235,6 +239,7 @@ class UserInterfaceDetectionExample(Gtk.Window):
 
         label_selection_page = ObjectSelection(container, exclude_list)
         container.append_page(label_selection_page)
+
 
 if __name__ == "__main__":
     app = UserInterfaceDetectionExample()
