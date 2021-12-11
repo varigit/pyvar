@@ -133,7 +133,7 @@ class ArmNNInterpreter:
         if category is not None:
             if category is CLASSIFICATION:
                 output = self.__get_output(0)
-                top_k = np.argsort(output)[-5:][::-1]
+                top_k = np.argsort(output)[-3:][::-1]
                 self.result = []
                 for i in top_k:
                     score = float(output[i] / 255.0)
