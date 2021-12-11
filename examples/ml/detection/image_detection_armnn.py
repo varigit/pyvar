@@ -4,8 +4,8 @@
 from pyvar.ml.engines.armnn import ArmNNInterpreter
 from pyvar.ml.utils.label import Label
 from pyvar.ml.utils.overlay import Overlay
-from pyvar.ml.utils.retriever import FTP
 from pyvar.ml.utils.resizer import Resizer
+from pyvar.ml.utils.retriever import FTP
 from pyvar.multimedia.helper import Multimedia
 
 ftp = FTP()
@@ -18,7 +18,7 @@ if ftp.retrieve_package(category="detection"):
 labels = Label(label_file_path)
 labels.read_labels("detection")
 
-engine = ArmNNInterpreter(model_file_path, accelerated=True, category="detection")
+engine = ArmNNInterpreter(model_file_path, accelerated=True)
 
 resizer = Resizer()
 
