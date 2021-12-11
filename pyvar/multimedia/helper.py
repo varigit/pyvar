@@ -11,16 +11,17 @@
 import os
 import sys
 
+import cv2
 import gi
+
 gi.require_version('Gst', '1.0')
 from gi.repository import Gst
-
-import cv2
 
 from pyvar.multimedia.config import FULL_HD_RESOLUTION
 from pyvar.multimedia.config import HD_RESOLUTION
 from pyvar.multimedia.config import VGA_RESOLUTION
 from pyvar.multimedia.config import LEAKY
+
 
 class Multimedia:
     """
@@ -31,6 +32,7 @@ class Multimedia:
     :ivar devices: video devices;
     :ivar sink: video capture.
     """
+
     def __init__(self, source=None, resolution=None):
         self.video_src = source
         self.resolution = resolution
@@ -55,8 +57,8 @@ class Multimedia:
             return self.validate_caps(self.dev.vga_caps)
         else:
             if self.resolution != HD_RESOLUTION:
-                print(f"Invalid resolution: {self.resolution}. " \
-                        "Trying to use HD resolution instead.")
+                print(f"Invalid resolution: {self.resolution}. "
+                      f"Trying to use HD resolution instead.")
             return self.validate_caps(self.dev.hd_caps)
 
     def validate_caps(self, caps):
@@ -69,8 +71,8 @@ class Multimedia:
         if caps:
             return caps
         else:
-            print(f"Resolution not supported. Using " \
-                  f"{self.dev.default_caps.width}x" \
+            print(f"Resolution not supported. Using "
+                  f"{self.dev.default_caps.width}x"
                   f"{self.dev.default_caps.height} instead.")
             return self.dev.default_caps
 
@@ -82,26 +84,28 @@ class Multimedia:
             pipeline = self.v4l2_video_pipeline(self.video_src)
         else:
             pipeline = self.v4l2_camera_pipeline(
-                            width=self.dev_caps.width,
-                            height=self.dev_caps.height,
-                            device=self.dev.name,
-                            framerate=self.dev_caps.framerate)
+                width=self.dev_caps.width,
+                height=self.dev_caps.height,
+                device=self.dev.name,
+                framerate=self.dev_caps.framerate)
         self.sink = cv2.VideoCapture(pipeline)
 
-    def v4l2_video_pipeline(self, filesrc):
+    @staticmethod
+    def v4l2_video_pipeline(filesrc):
         """
         Set the v4l2 configuration for video source file.
         """
-        return (f"filesrc location={filesrc} ! qtdemux name=d d.video_0 ! " \
-                f"decodebin ! queue {LEAKY} ! queue ! imxvideoconvert_g2d ! " \
-                f"videoconvert ! appsink")        
-        
-    def v4l2_camera_pipeline(self, width, height, device, framerate):
+        return (f"filesrc location={filesrc} ! qtdemux name=d d.video_0 ! "
+                f"decodebin ! queue {LEAKY} ! queue ! imxvideoconvert_g2d ! "
+                f"videoconvert ! appsink")
+
+    @staticmethod
+    def v4l2_camera_pipeline(width, height, device, framerate):
         """
         Set the v4l2 configuration for camera device.
         """
-        return (f"v4l2src device={device} ! video/x-raw,width={width}," \
-                f"height={height},framerate={framerate} ! queue {LEAKY} ! " \
+        return (f"v4l2src device={device} ! video/x-raw,width={width},"
+                f"height={height},framerate={framerate} ! queue {LEAKY} ! "
                 f"videoconvert ! appsink")
 
     def get_frame(self):
@@ -125,7 +129,8 @@ class Multimedia:
             sys.exit("Your video device could not be initialized. Exiting...")
         return self.sink.isOpened()
 
-    def save(self, name=None, output_frame=None):
+    @staticmethod
+    def save(name=None, output_frame=None):
         """
         Save any frame as an output file.
         """
@@ -139,7 +144,8 @@ class Multimedia:
         if (cv2.waitKey(1) & 0xFF) == ord('q'):
             self.destroy()
 
-    def show_image(self, title=None, image=None):
+    @staticmethod
+    def show_image(title=None, image=None):
         """
         Show any image.
         """
@@ -152,7 +158,8 @@ class Multimedia:
         Release and destroy the video capture from video source.
         """
         self.sink.release()
-        cv2.destroyAllWindows()  
+        cv2.destroyAllWindows()
+
 
 class VideoDevice:
     """
@@ -165,6 +172,7 @@ class VideoDevice:
     :ivar hd_caps: hd caps resolution;
     :ivar vga_caps: vga caps resolution.
     """
+
     def __init__(self):
         self.name = None
         self.caps = None
@@ -172,6 +180,7 @@ class VideoDevice:
         self.full_hd_caps = None
         self.hd_caps = None
         self.vga_caps = None
+
 
 class Caps:
     """
@@ -183,6 +192,7 @@ class Caps:
     :ivar height: caps height;
     :ivar framerate: caps framerate.
     """
+
     def __init__(self):
         self.name = None
         self.format = None
@@ -190,12 +200,14 @@ class Caps:
         self.height = None
         self.framerate = None
 
+
 class Devices:
     """
     Class to handle the devices.
 
     :ivar devices: devices from device monitor.
     """
+
     def __init__(self):
         self.devices = []
 
@@ -244,7 +256,7 @@ class Devices:
             caps.width = caps_struct.get_int("width")[1]
             caps.height = caps_struct.get_int("height")[1]
             framerate = ("{}/{}".format(*caps_struct.get_fraction(
-                                        "framerate")[1:]))
+                "framerate")[1:]))
             caps.framerate = framerate
             caps_list.append(caps)
 
@@ -269,7 +281,7 @@ class Devices:
         vga_caps.framerate = "60/1"
 
         for caps in dev_caps:
-            if  (caps.width == 1920) and (caps.height == 1080):
+            if (caps.width == 1920) and (caps.height == 1080):
                 full_hd_caps = caps
             elif (caps.width == 1280) and (caps.height == 720):
                 hd_caps = caps
@@ -288,7 +300,7 @@ class Devices:
                 if device.name == dev_name:
                     dev = device
                 if not dev:
-                    print("The specified video_src was not found. " \
+                    print("The specified video_src was not found. "
                           "Searching for default video device...")
         if not dev and self.devices:
             dev = self.devices[0]
