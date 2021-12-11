@@ -3,7 +3,7 @@
 
 """
 :platform: Unix/Yocto
-:synopsis: Python Multimedia Classes
+:synopsis: Classes to handle Multimedia capabilities.
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
 """
@@ -26,10 +26,10 @@ class Multimedia:
     """
     Class to handle the Multimedia resources.
 
-    :ivar video_src: storages the video source;
-    :ivar resolution: storages the video source resolution;
-    :ivar devices: storages the video devices;
-    :ivar sink: storages the video capture.
+    :ivar video_src: video source;
+    :ivar resolution: video source resolution;
+    :ivar devices: video devices;
+    :ivar sink: video capture.
     """
     def __init__(self, source=None, resolution=None):
         self.video_src = source
@@ -61,7 +61,7 @@ class Multimedia:
 
     def validate_caps(self, caps):
         """
-        Check if the resolution is valid..
+        Check if the resolution is valid.
 
         Returns:
             The valid resolution or default one.
@@ -70,8 +70,8 @@ class Multimedia:
             return caps
         else:
             print(f"Resolution not supported. Using " \
-                   "{self.dev.default_caps.width}x" \
-                   "{self.dev.default_caps.height} instead.")
+                  f"{self.dev.default_caps.width}x" \
+                  f"{self.dev.default_caps.height} instead.")
             return self.dev.default_caps
 
     def set_v4l2_config(self):
@@ -109,7 +109,7 @@ class Multimedia:
         Get the frame from video source.
 
         Returns:
-            The frame.
+            The current frame.
         """
         check, frame = self.sink.read()
         if check is not True:
@@ -158,12 +158,12 @@ class VideoDevice:
     """
     Class to handle the Video device features and resolutions.
 
-    :ivar name: storages the video name;
-    :ivar caps: storages the caps resolution;
-    :ivar default_caps: storages the default caps resolution;
-    :ivar full_hd_caps: storages the full hd caps resolution;
-    :ivar hd_caps: storages the hd caps resolution;
-    :ivar vga_caps: storages the vga caps resolution.
+    :ivar name: video name;
+    :ivar caps: caps resolution;
+    :ivar default_caps: default caps resolution;
+    :ivar full_hd_caps: full hd caps resolution;
+    :ivar hd_caps: hd caps resolution;
+    :ivar vga_caps: vga caps resolution.
     """
     def __init__(self):
         self.name = None
@@ -175,13 +175,13 @@ class VideoDevice:
 
 class Caps:
     """
-    Class to handle the Video device caps.
+    Class to handle the video caps device.
 
-    :ivar name: storages the video name;
-    :ivar format: storages the caps resolution;
-    :ivar width: storages the default caps resolution;
-    :ivar height: storages the full hd caps resolution;
-    :ivar framerate: storages the hd caps resolution.
+    :ivar name: video name;
+    :ivar format: caps format;
+    :ivar width: caps width;
+    :ivar height: caps height;
+    :ivar framerate: caps framerate.
     """
     def __init__(self):
         self.name = None
@@ -194,7 +194,7 @@ class Devices:
     """
     Class to handle the devices.
 
-    :ivar devices: storages devices from device monitor.
+    :ivar devices: devices from device monitor.
     """
     def __init__(self):
         self.devices = []
@@ -280,7 +280,7 @@ class Devices:
 
     def search_device(self, dev_name):
         """
-        Check if the device is valid or not
+        Check if the device is valid or not.
         """
         dev = None
         if dev_name.startswith("/dev/video"):
