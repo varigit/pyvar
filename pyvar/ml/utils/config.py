@@ -37,4 +37,4 @@ DEFAULT_PACKAGES = {'classification': ["pyvarml/classification/",
                     'detection': ["pyvarml/detection/",
                                   "ssd_mobilenet_v1_1_default_1.zip"],
                     'segmentation': ["pyvarml/segmentation/",
-                                  "deeplabv3_mnv2_pascal_quant.zip"]}
+                                     "deeplabv3_mnv2_pascal_quant.zip"]}
