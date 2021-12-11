@@ -2,11 +2,10 @@
 # SPDX-License-Identifier: BSD-3-Clause
 
 from pyvar.ml.engines.tflite import TFLiteInterpreter
-from pyvar.ml.utils.framerate import Framerate
 from pyvar.ml.utils.label import Label
 from pyvar.ml.utils.overlay import Overlay
-from pyvar.ml.utils.retriever import FTP
 from pyvar.ml.utils.resizer import Resizer
+from pyvar.ml.utils.retriever import FTP
 from pyvar.multimedia.helper import Multimedia
 
 ftp = FTP()
