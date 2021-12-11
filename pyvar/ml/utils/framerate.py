@@ -10,7 +10,8 @@
 
 import collections
 from contextlib import contextmanager
-from time import monotonic
+from time import perf_counter
+
 
 class Framerate:
     def __init__(self):
@@ -25,10 +26,10 @@ class Framerate:
         """
         Calculates the frames per second and save it in the **fps** attribute.
         """
-        begin = monotonic()
+        begin = perf_counter()
         try:
             yield
         finally:
-            end = monotonic()
+            end = perf_counter()
             self.window.append(end - begin)
             self.fps = len(self.window) / sum(self.window)
