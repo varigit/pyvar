@@ -22,6 +22,7 @@ from pyvar.ml.config import CLASSIFICATION
 from pyvar.ml.config import DETECTION
 from pyvar.ml.utils.timer import Timer
 
+
 class TFLiteInterpreter:
     """
     :ivar interpreter: TensorFlow Lite interpreter;
@@ -87,13 +88,13 @@ class TFLiteInterpreter:
         Get the model width.
 
         Returns:
-            The model witdh.
+            The model width.
         """
         return self.input_details[0]['shape'][2]
 
     def set_input(self, image):
         """
-        Set the image/frame into the input tensor to be inferenced.
+        Set the image/frame into the input tensor to be inferred.
         """
         tensor_index = self.input_details[0]['index']
         self.interpreter.set_tensor(tensor_index, image)
@@ -155,7 +156,7 @@ class TFLiteInterpreter:
         """
         Runs inference on the image/frame set in the set_input() method.
         """
-        self.interpreter.invoke() # ignores the warm-up time.
+        self.interpreter.invoke()  # ignores the warm-up time.
         timer = Timer()
         with timer.timeit():
             self.interpreter.invoke()
