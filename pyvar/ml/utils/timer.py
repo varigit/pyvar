@@ -10,7 +10,8 @@
 
 from contextlib import contextmanager
 from datetime import timedelta
-from time import monotonic
+from time import perf_counter
+
 
 class Timer:
     def __init__(self):
@@ -24,14 +25,14 @@ class Timer:
         """
         Calculates the time and save it in the **time** attribute.
         """
-        begin = monotonic()
+        begin = perf_counter()
         try:
             yield
         finally:
-            end = monotonic()
-            self.convert(end - begin)
+            end = perf_counter()
+            self.__convert(end - begin)
 
-    def convert(self, elapsed):
+    def __convert(self, elapsed):
         """
         Convert time from monotonic to seconds.
         """
