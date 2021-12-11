@@ -1,5 +1,5 @@
-Variscite Python Package
-========================
+Variscite Python API
+====================
 
 .. image:: https://img.shields.io/pypi/v/pyvar?style=for-the-badge
     :alt: PyPI
@@ -16,15 +16,39 @@ Variscite Python Package
 Overview
 --------
 
-The Variscite Python Package known as pyvar is a set of high-level abstractions
-that allows any beginning user to develop its own applications regarding Machine
-Learning, multimedia, and more. This package aims to provide classes that you can
-easily import and use on your project, and it also includes quick source code
-examples to help in your development. The documentation informs classes and
-methods, as well types, formats, etc., of input parameters and expected results.
+The **Variscite Python API** known as **pyvar** is a set of high-level abstractions that
+allows any beginning user to develop its own applications regarding Machine Learning,
+multimedia, and more. This package aims to provide classes that you can easily import
+and use on your project, and it also includes quick source code examples to help
+in your development.
 
-* `Repository on GitHub`_.
-    * If you find any issue, please report it on the `issues`_ section.
+Getting Started
+~~~~~~~~~~~~~~~
+
+To install the prebuilt pyvar library, see the instructions at `pyvar.dev/software`_ section.
+
+.. _pyvar.dev/software: https://pyvar.dev/pyvar.gettingstarted.html#software
+
++----------------+-------------------+----------------+---------------+--------------+
+| API Release    | BSP Release       | TFLite         | ArmNN         | Date         |
++================+===================+================+===============+==============+
+| 1.0.0          | `5.10.52_2.1.0`_  | 2.5.0          | 24.0.0        | 12/11/2021   |
++----------------+-------------------+----------------+---------------+--------------+
+
+.. _5.10.52_2.1.0: https://variwiki.com/index.php?title=DART-MX8M-PLUS_Yocto&release=RELEASE_HARDKNOTT_V2.1_DART-MX8M-PLUS
+
+Quick Examples
+~~~~~~~~~~~~~~
+
+To learn more about how to use the pyvar API, see our guide on how to run `quick examples`_.
+
+.. _quick examples: https://pyvar.dev/pyvar.quickexamples.html
+
+Useful Links
+~~~~~~~~~~~~
+
+
+* `Repository on GitHub`_. If you find any issue, please report it on the `issues`_ section.
 
 .. _Repository on GitHub: https://github.com/varigit/pyvar
 
@@ -44,3 +68,13 @@ methods, as well types, formats, etc., of input parameters and expected results.
    pyvar.quickexamples.rst
    pyvar.license.rst
    pyvar.contribute.rst
+
+
+License
+-------
+
+This project is licensed under the BSD-3-Clause terms, which means that it is
+free for use and you can modify as much as you want as long you retain the
+copyright notice. You can see a copy of the license below at `pyvar.dev/license`_.
+
+.. _pyvar.dev/license: https://pyvar.dev/pyvar.license.html

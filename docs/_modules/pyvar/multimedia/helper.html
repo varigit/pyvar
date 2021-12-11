@@ -67,7 +67,7 @@
   
     <div class="sidebar-group">
       <p class="caption">
-        <span class="caption-text"><a href="../../../index.html#overview">Table of Contents</a></span>
+        <span class="caption-text"><a href="../../../index.html#useful-links">Table of Contents</a></span>
       </p>
       <ul class="">
         
@@ -156,7 +156,7 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">:platform: Unix/Yocto</span>
-<span class="sd">:synopsis: Python Multimedia Classes</span>
+<span class="sd">:synopsis: Classes to handle Multimedia capabilities.</span>
 
 <span class="sd">.. moduleauthor:: Diego Dorta &lt;diego.d@variscite.com&gt;</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -179,10 +179,10 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class to handle the Multimedia resources.</span>
 
-<span class="sd">    :ivar video_src: storages the video source;</span>
-<span class="sd">    :ivar resolution: storages the video source resolution;</span>
-<span class="sd">    :ivar devices: storages the video devices;</span>
-<span class="sd">    :ivar sink: storages the video capture.</span>
+<span class="sd">    :ivar video_src: video source;</span>
+<span class="sd">    :ivar resolution: video source resolution;</span>
+<span class="sd">    :ivar devices: video devices;</span>
+<span class="sd">    :ivar sink: video capture.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">video_src</span> <span class="o">=</span> <span class="n">source</span>
@@ -214,7 +214,7 @@
 
 <div class="viewcode-block" id="Multimedia.validate_caps"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Multimedia.validate_caps">[docs]</a>    <span class="k">def</span> <span class="nf">validate_caps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">caps</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Check if the resolution is valid..</span>
+<span class="sd">        Check if the resolution is valid.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            The valid resolution or default one.</span>
@@ -223,8 +223,8 @@
             <span class="k">return</span> <span class="n">caps</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resolution not supported. Using &quot;</span> \
-                   <span class="s2">&quot;</span><span class="si">{self.dev.default_caps.width}</span><span class="s2">x&quot;</span> \
-                   <span class="s2">&quot;</span><span class="si">{self.dev.default_caps.height}</span><span class="s2"> instead.&quot;</span><span class="p">)</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">default_caps</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2">x&quot;</span> \
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">default_caps</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2"> instead.&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">default_caps</span></div>
 
 <div class="viewcode-block" id="Multimedia.set_v4l2_config"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Multimedia.set_v4l2_config">[docs]</a>    <span class="k">def</span> <span class="nf">set_v4l2_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -262,7 +262,7 @@
 <span class="sd">        Get the frame from video source.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            The frame.</span>
+<span class="sd">            The current frame.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sink</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">check</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">:</span>
@@ -311,12 +311,12 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class to handle the Video device features and resolutions.</span>
 
-<span class="sd">    :ivar name: storages the video name;</span>
-<span class="sd">    :ivar caps: storages the caps resolution;</span>
-<span class="sd">    :ivar default_caps: storages the default caps resolution;</span>
-<span class="sd">    :ivar full_hd_caps: storages the full hd caps resolution;</span>
-<span class="sd">    :ivar hd_caps: storages the hd caps resolution;</span>
-<span class="sd">    :ivar vga_caps: storages the vga caps resolution.</span>
+<span class="sd">    :ivar name: video name;</span>
+<span class="sd">    :ivar caps: caps resolution;</span>
+<span class="sd">    :ivar default_caps: default caps resolution;</span>
+<span class="sd">    :ivar full_hd_caps: full hd caps resolution;</span>
+<span class="sd">    :ivar hd_caps: hd caps resolution;</span>
+<span class="sd">    :ivar vga_caps: vga caps resolution.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
@@ -328,13 +328,13 @@
 
 <div class="viewcode-block" id="Caps"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Caps">[docs]</a><span class="k">class</span> <span class="nc">Caps</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Class to handle the Video device caps.</span>
+<span class="sd">    Class to handle the video caps device.</span>
 
-<span class="sd">    :ivar name: storages the video name;</span>
-<span class="sd">    :ivar format: storages the caps resolution;</span>
-<span class="sd">    :ivar width: storages the default caps resolution;</span>
-<span class="sd">    :ivar height: storages the full hd caps resolution;</span>
-<span class="sd">    :ivar framerate: storages the hd caps resolution.</span>
+<span class="sd">    :ivar name: video name;</span>
+<span class="sd">    :ivar format: caps format;</span>
+<span class="sd">    :ivar width: caps width;</span>
+<span class="sd">    :ivar height: caps height;</span>
+<span class="sd">    :ivar framerate: caps framerate.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
@@ -347,7 +347,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class to handle the devices.</span>
 
-<span class="sd">    :ivar devices: storages devices from device monitor.</span>
+<span class="sd">    :ivar devices: devices from device monitor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">devices</span> <span class="o">=</span> <span class="p">[]</span>
@@ -433,7 +433,7 @@
 
 <div class="viewcode-block" id="Devices.search_device"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Devices.search_device">[docs]</a>    <span class="k">def</span> <span class="nf">search_device</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dev_name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Check if the device is valid or not</span>
+<span class="sd">        Check if the device is valid or not.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">dev</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">dev_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;/dev/video&quot;</span><span class="p">):</span>

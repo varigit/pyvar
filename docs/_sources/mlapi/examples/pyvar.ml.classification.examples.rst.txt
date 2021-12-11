@@ -1,7 +1,10 @@
 Classification Examples
 =======================
 
-The classification examples use a quantized starter model from `TensorFlow Lite`_.
+The classification examples use a quantized starter model from `TensorFlow Lite`_:
+
+* **mobilenet_v1_1.0_224_quant.tgz**;
+* **mobilenet_v2_1.0_224_quant.tgz**.
 
 .. _TensorFlow Lite: https://www.tensorflow.org/lite/guide/hosted_models
 
@@ -42,6 +45,11 @@ Run the Image Classification Example
    :name: Image Classification Example
 
 .. _image_classification_tflite.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/image_classification_tflite.py
+
+.. note::
+   You can try the same example using Arm NN as inference engine `image_classification_armnn.py`_.
+
+.. _image_classification_armnn.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/image_classification_armnn.py
 
 |
 |
@@ -85,6 +93,11 @@ Run the Video Classification Example
 
 .. _video_classification_tflite.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/video_classification_tflite.py
 
+.. note::
+   You can try the same example using Arm NN as inference engine `video_classification_armnn.py`_.
+
+.. _video_classification_armnn.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/video_classification_armnn.py
+
 |
 |
 |
@@ -112,3 +125,8 @@ Run the Real Time Classification Example
    :name: Real Time Classification Example
 
 .. _realtime_classification_tflite.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/realtime_classification_tflite.py
+
+.. note::
+   You can try the same example using Arm NN as inference engine `realtime_classification_armnn.py`_.
+
+.. _realtime_classification_armnn.py: https://github.com/varigit/pyvar/blob/master/examples/ml/classification/realtime_classification_armnn.py
