@@ -1,4 +1,8 @@
 1.0.0:
-    - Support inference engine from TensorFlow Lite;
-    - Support multimedia video and camera resources from Gst;
-    - Classification and Detection examples.
+    - Support inference engine for TensorFlow Lite 2.5.0;
+    - Support inference engine for Arm NN 24.0.0;
+    - Support multimedia image, video and camera resources from Gst;
+    - Support utils classes for label, resizer, overlay, fps, ftp, and timer;
+    - Quick Classification, Detection and user interfaces examples;
+    - pyvar.dev documentation page.
+    
