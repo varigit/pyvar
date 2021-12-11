@@ -44,8 +44,8 @@ class FTP:
             self.ftp = ftplib.FTP(self.host, self.user, self.passwd)
             try:
                 os.mkdir(self.cachedir)
-            except Exception as ex:
-                print(f"Exc: {ex}")
+            except FileExistsError:
+                pass
         except ftplib.all_errors as error:
             sys.exit(f"Error: {error}")
 
