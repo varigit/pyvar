@@ -1,9 +1,9 @@
 # Copyright 2021 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
-import threading
 import cv2
 import numpy as np
+import threading
 
 import gi
 gi.require_versions({'GdkPixbuf': "2.0", 'Gtk': "3.0"})
@@ -13,8 +13,8 @@ from gi.repository import GLib, Gtk
 from pyvar.ml.engines.tflite import TFLiteInterpreter
 from pyvar.ml.utils.label import Label
 from pyvar.ml.utils.overlay import Overlay
-from pyvar.ml.utils.retriever import FTP
 from pyvar.ml.utils.resizer import Resizer
+from pyvar.ml.utils.retriever import FTP
 from pyvar.multimedia.helper import Multimedia
 
 SSD_LABELS_LIST = ["person", "backpack", "umbrella", "handbag", "tie",
@@ -22,6 +22,7 @@ SSD_LABELS_LIST = ["person", "backpack", "umbrella", "handbag", "tie",
                    "spoon", "chair", "potted plant", "laptop", "mouse",
                    "remote", "keyboard", "cell phone", "book", "banana",
                    "apple", "sandwich", "orange", "clock", "vase", "scissors"]
+
 
 class RealTimeDetection(Gtk.Window):
     def __init__(self, detection_list):
@@ -43,6 +44,7 @@ class RealTimeDetection(Gtk.Window):
 
         self.labels = labels.list
 
+        self.engine = None
         self.interpreter = None
         self.input_details = None
         self.output_details = None
@@ -134,6 +136,7 @@ class RealTimeDetection(Gtk.Window):
                                      fps=None)
 
             GLib.idle_add(self.set_displayed_image, output_frame)
+
 
 if __name__ == "__main__":
     detection_list = SSD_LABELS_LIST.copy()
