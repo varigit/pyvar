@@ -197,8 +197,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span> <span class="o">=</span> <span class="n">ftplib</span><span class="o">.</span><span class="n">FTP</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">passwd</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cachedir</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exc: </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+                <span class="k">pass</span>
         <span class="k">except</span> <span class="n">ftplib</span><span class="o">.</span><span class="n">all_errors</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 

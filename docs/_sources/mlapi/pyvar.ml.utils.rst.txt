@@ -23,8 +23,8 @@ pyvar.ml.utils.overlay
    :undoc-members:
    :inherited-members:
 
-Frames Per Second Calculator
-----------------------------
+Frames Per Second Calculator Class
+----------------------------------
 
 pyvar.ml.utils.framerate
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,8 +46,19 @@ pyvar.ml.utils.retriever
    :undoc-members:
    :inherited-members:
 
-Timer Calculator
-----------------
+Resizer Class
+-------------
+
+pyvar.ml.utils.resizer
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. automodule:: pyvar.ml.utils.resizer
+   :members:
+   :undoc-members:
+   :inherited-members:
+
+Timer Calculator Class
+----------------------
 
 pyvar.ml.utils.timer
 ~~~~~~~~~~~~~~~~~~~~

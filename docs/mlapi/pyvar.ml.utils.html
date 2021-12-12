@@ -262,8 +262,8 @@ scores, model name, and source file.</p>
 
 </section>
 </section>
-<section id="frames-per-second-calculator">
-<h2>Frames Per Second Calculator<a class="headerlink" href="#frames-per-second-calculator" title="Permalink to this headline">¶</a></h2>
+<section id="frames-per-second-calculator-class">
+<h2>Frames Per Second Calculator Class<a class="headerlink" href="#frames-per-second-calculator-class" title="Permalink to this headline">¶</a></h2>
 <section id="module-pyvar.ml.utils.framerate">
 <span id="pyvar-ml-utils-framerate"></span><h3>pyvar.ml.utils.framerate<a class="headerlink" href="#module-pyvar.ml.utils.framerate" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
@@ -325,8 +325,84 @@ scores, model name, and source file.</p>
 
 </section>
 </section>
-<section id="timer-calculator">
-<h2>Timer Calculator<a class="headerlink" href="#timer-calculator" title="Permalink to this headline">¶</a></h2>
+<section id="resizer-class">
+<h2>Resizer Class<a class="headerlink" href="#resizer-class" title="Permalink to this headline">¶</a></h2>
+<section id="module-pyvar.ml.utils.resizer">
+<span id="pyvar-ml-utils-resizer"></span><h3>pyvar.ml.utils.resizer<a class="headerlink" href="#module-pyvar.ml.utils.resizer" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Class to resize image/frame.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.ml.utils.resizer.Resizer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.resizer.</span></span><span class="sig-name descname"><span class="pre">Resizer</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame</strong> – original frame;</p></li>
+<li><p><strong>frame_resized</strong> – resized frame;</p></li>
+<li><p><strong>image</strong> – original image;</p></li>
+<li><p><strong>image_path</strong> – image path;</p></li>
+<li><p><strong>image_resized</strong> – image resized;</p></li>
+<li><p><strong>model_height</strong> – model height;</p></li>
+<li><p><strong>model_width</strong> – model width.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.resizer.Resizer.resize_frame">
+<span class="sig-name descname"><span class="pre">resize_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer.resize_frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer.resize_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize the frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame</strong> (<em>numpy array</em>) – original frame to be resized;</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – new width to resize;</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – new height to resize;</p></li>
+<li><p><strong>expand_dims</strong> (<em>bool</em>) – if expand dimensions or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.array</span></code> resized frame is stored at the frame_resized attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.resizer.Resizer.resize_image">
+<span class="sig-name descname"><span class="pre">resize_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer.resize_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer.resize_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image_path</strong> (<em>numpy array</em>) – original image to be resized;</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – new width to resize;</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – new height to resize;</p></li>
+<li><p><strong>expand_dims</strong> (<em>bool</em>) – if expand dimensions or not</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.array</span></code> resized image is stored at image_resized attribute.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.utils.resizer.Resizer.set_sizes">
+<span class="sig-name descname"><span class="pre">set_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine_input_details</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer.set_sizes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer.set_sizes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the height and width model size.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+<section id="timer-calculator-class">
+<h2>Timer Calculator Class<a class="headerlink" href="#timer-calculator-class" title="Permalink to this headline">¶</a></h2>
 <section id="module-pyvar.ml.utils.timer">
 <span id="pyvar-ml-utils-timer"></span><h3>pyvar.ml.utils.timer<a class="headerlink" href="#module-pyvar.ml.utils.timer" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
