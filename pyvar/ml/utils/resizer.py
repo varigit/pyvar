@@ -3,7 +3,7 @@
 
 """
 :platform: Unix/Yocto
-:synopsis: Python Resizer Class
+:synopsis: Class to resize image/frame.
 
 .. moduleauthor:: Diego Dorta <diego.d@variscite.com>
 """
@@ -16,17 +16,18 @@ from PIL import Image
 
 class Resizer:
     """
-    Python Class to resize images and frames.
-
-    :ivar frame: storages the original frame;
-    :ivar frame_resized: storages the resized frame;
-    :ivar image: storages the original image;
-    :ivar image_path: storages the image path;
-    :ivar image_resized: storages the image resized;
-    :ivar model_height: storages the model height;
-    :ivar model_width: storages the model width.
+    :ivar frame: original frame;
+    :ivar frame_resized: resized frame;
+    :ivar image: original image;
+    :ivar image_path: image path;
+    :ivar image_resized: image resized;
+    :ivar model_height: model height;
+    :ivar model_width: model width.
     """
     def __init__(self):
+        """
+        Constructor method for the Resizer class.
+        """
         self.frame = None
         self.frame_resized = None
         self.image = None
@@ -53,7 +54,7 @@ class Resizer:
             expand_dims (bool): if expand dimensions or not
 
         Returns:
-            The image (numpy array) resized is stored at the frame_resized attribute.
+            The :obj:`numpy.array` resized frame is stored at the frame_resized attribute.
         """
         if frame is not None:
             self.frame = frame
@@ -76,7 +77,7 @@ class Resizer:
             expand_dims (bool): if expand dimensions or not
 
         Returns:
-            The image (numpy array) resized is stored at the image_resized attribute.
+            The :obj:`numpy.array` resized image is stored at image_resized attribute.
         """
         if image_path is not None:
             self.image_path = image_path
