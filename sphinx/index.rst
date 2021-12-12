@@ -32,8 +32,10 @@ To install the prebuilt pyvar library, see the instructions at `pyvar.dev/softwa
 +----------------+-------------------+----------------+---------------+--------------+
 | API Release    | BSP Release       | TFLite         | ArmNN         | Date         |
 +================+===================+================+===============+==============+
-| 1.0.0          | `5.10.52_2.1.0`_  | 2.5.0          | 24.0.0        | 12/11/2021   |
+| `v1.0.0`_      | `5.10.52_2.1.0`_  | 2.5.0          | 24.0.0        | 12/11/2021   |
 +----------------+-------------------+----------------+---------------+--------------+
+
+.. _v1.0.0: https://github.com/varigit/pyvar/releases/tag/v1.0.0
 
 .. _5.10.52_2.1.0: https://variwiki.com/index.php?title=DART-MX8M-PLUS_Yocto&release=RELEASE_HARDKNOTT_V2.1_DART-MX8M-PLUS
 
