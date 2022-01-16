@@ -18,6 +18,8 @@ try:
 except ImportError:
     sys.exit("No TensorFlow Lite Runtime module found!")
 
+from multiprocessing import cpu_count
+
 from pyvar.ml.config import CLASSIFICATION
 from pyvar.ml.config import DETECTION
 from pyvar.ml.utils.timer import Timer
@@ -34,16 +36,25 @@ class TFLiteInterpreter:
     :ivar k: number of top results;
     :ivar confidence: confidence score, default is 0.5.
     """
-    def __init__(self, model_file_path=None):
+    def __init__(self, model_file_path=None, num_threads=1):
         """
         Constructor method for the TensorFlow Lite class.
         """
+        max_threads = cpu_count()
+
         if not os.path.isfile(model_file_path):
             raise ValueError("Must pass a labels file")
         if not model_file_path.endswith(".tflite"):
             raise TypeError(f"Expects {model_file_path} to be a text file")
+        if not num_threads:
+            num_threads = 1
+        elif num_threads > max_threads:
+            raise ValueError(f"num_threads can't be greater than"
+                             f" {max_threads}.")
+
         self.model_file_path = model_file_path
-        self.interpreter = Interpreter(model_path=self.model_file_path)
+        self.interpreter = Interpreter(model_path=self.model_file_path,
+                                       num_threads=num_threads)
         self.interpreter.allocate_tensors()
         self.input_details = self.interpreter.get_input_details()
         self.output_details = self.interpreter.get_output_details()

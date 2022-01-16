@@ -1,6 +1,8 @@
 # Copyright 2021 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
+from argparse import ArgumentParser
+
 from pyvar.ml.engines.tflite import TFLiteInterpreter
 from pyvar.ml.utils.label import Label
 from pyvar.ml.utils.overlay import Overlay
@@ -9,6 +11,9 @@ from pyvar.ml.utils.retriever import FTP
 from pyvar.multimedia.helper import Multimedia
 
 ftp = FTP()
+parser = ArgumentParser()
+parser.add_argument('--num_threads', type=int)
+args = parser.parse_args()
 
 if ftp.retrieve_package(category="detection"):
     model_file_path = ftp.model
@@ -18,7 +23,8 @@ if ftp.retrieve_package(category="detection"):
 labels = Label(label_file_path)
 labels.read_labels("detection")
 
-engine = TFLiteInterpreter(model_file_path)
+engine = TFLiteInterpreter(model_file_path=model_file_path,
+                           num_threads=args.num_threads)
 
 resizer = Resizer()
 resizer.set_sizes(engine_input_details=engine.input_details)
