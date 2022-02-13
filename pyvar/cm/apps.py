@@ -8,6 +8,7 @@
 .. moduleauthor:: Alifer Moraes <alifer.m@variscite.com>
 """
 
+import subprocess
 import sys
 
 import serial
@@ -20,6 +21,9 @@ class CortexM:
         self.module = get_module()
         self._validate_cm()
         self._validate_apps()
+
+    def __del__(self):
+        self._stop()
 
     @property
     def state(self):
@@ -57,9 +61,6 @@ class CortexM:
             self._start()
         else:
             print(f"{app} is not a valid Cortex-M app.")
-
-    def stop(self):
-        self._stop()
 
     @staticmethod
     def write(message):
@@ -100,11 +101,11 @@ class CortexM:
 
     def _start(self):
         self.state = CM_START
-        os.system('modprobe imx_rpmsg_tty')
+        subprocess.run(['modprobe', 'imx_rpmsg_tty'])
 
     def _load(self, app):
         self.firmware = app
 
     def _stop(self):
-        os.system('modprobe imx_rpmsg_tty -r')
         self.state = CM_STOP
+        subprocess.run(['modprobe', 'imx_rpmsg_tty', '-r'])
