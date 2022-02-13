@@ -101,7 +101,7 @@ class ArmNNInterpreter:
         self.input_tensors = ann.make_input_tensors(
             [self.input_binding_info], [image])
 
-    def __get_output(self, index, squeeze=False):
+    def _get_output(self, index, squeeze=False):
         """
         Get the result after running the inference.
 
@@ -132,7 +132,7 @@ class ArmNNInterpreter:
         """
         if category is not None:
             if category is CLASSIFICATION:
-                output = self.__get_output(0)
+                output = self._get_output(0)
                 top_k = np.argsort(output)[-3:][::-1]
                 self.result = []
                 for i in top_k:
@@ -140,9 +140,9 @@ class ArmNNInterpreter:
                     self.result.append((i, score))
                 return True
             elif category is DETECTION:
-                positions = self.__get_output(0, True)
-                classes = self.__get_output(1, True)
-                scores = self.__get_output(2, True)
+                positions = self._get_output(0, True)
+                classes = self._get_output(1, True)
+                scores = self._get_output(2, True)
                 self.result = []
                 for idx, score in enumerate(scores):
                     if score > 0.5:

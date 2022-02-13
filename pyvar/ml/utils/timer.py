@@ -30,9 +30,9 @@ class Timer:
             yield
         finally:
             end = perf_counter()
-            self.__convert(end - begin)
+            self._convert(end - begin)
 
-    def __convert(self, elapsed):
+    def _convert(self, elapsed):
         """
         Convert time from monotonic to seconds.
         """

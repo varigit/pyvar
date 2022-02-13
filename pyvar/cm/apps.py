@@ -20,19 +20,19 @@ class CortexM:
         self.module = get_module()
         self.state = STATE
         self.firmware = FIRMWARE
-        self.__validate_cm()
-        self.__validate_apps()
+        self._validate_cm()
+        self._validate_apps()
 
     def run(self, app):
         if app in self.apps:
-            self.__stop()
-            self.__load(app)
-            self.__start()
+            self._stop()
+            self._load(app)
+            self._start()
         else:
             print(f"{app} is not a valid Cortex-M app.")
 
     def stop(self):
-        self.__stop()
+        self._stop()
 
     @staticmethod
     def write(message):
@@ -53,8 +53,7 @@ class CortexM:
         else:
             print(f"Device not found: {TTY}.")
 
-
-    def __validate_cm(self):
+    def _validate_cm(self):
         if not is_cm_enabled():
             sys.exit(f"Error: {REMOTEPROC_DIR} not found.\n"
                      f"Please enable remoteproc driver.\n"
@@ -63,7 +62,7 @@ class CortexM:
                      f"fw_setenv fdt_file {get_cm_dtb(self.module)}"
                      f" && reboot")
 
-    def __validate_apps(self):
+    def _validate_apps(self):
         self.apps = []
         apps_list = list_apps()
 
@@ -72,7 +71,7 @@ class CortexM:
                 if self.module in app.lower():
                     self.apps.append(app)
 
-    def __start(self):
+    def _start(self):
         if os.path.isfile(self.state):
             with open(self.state, 'r+') as f:
                 if "offline" in f.read():
@@ -81,12 +80,12 @@ class CortexM:
 
             os.system('modprobe imx_rpmsg_tty')
 
-    def __load(self, app):
+    def _load(self, app):
         if os.path.isfile(self.firmware):
             with open(self.firmware, 'w') as f:
                 f.write(app)
 
-    def __stop(self):
+    def _stop(self):
         if os.path.isfile(self.state):
             os.system('modprobe imx_rpmsg_tty -r')
 

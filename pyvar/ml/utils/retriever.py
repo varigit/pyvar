@@ -93,21 +93,21 @@ class FTP:
             package_name_path = self.retrieved_package[:-4]
             try:
                 shutil.unpack_archive(self.retrieved_package, self.cachedir)
-                self.__get_package_names(package_name_path, category)
+                self._get_package_names(package_name_path, category)
                 os.remove(self.retrieved_package)
             except Exception as ex:
                 print(f"Exc: {ex}")
                 return False
-        self.__disconnect()
+        self._disconnect()
         return True
 
-    def __disconnect(self):
+    def _disconnect(self):
         """
         Send a quit command to the server and close the connection.        
         """
         self.ftp.quit()
 
-    def __get_package_names(self, package_name_path, category):
+    def _get_package_names(self, package_name_path, category):
         """
         Get the model and label names from the downloaded package.        
         """
