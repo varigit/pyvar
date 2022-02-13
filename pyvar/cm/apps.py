@@ -18,8 +18,8 @@ from .utils.helper import *
 class CortexM:
     def __init__(self):
         self.module = get_module()
-        self.state = STATE
-        self.firmware = FIRMWARE
+        self.state = CM_STATE
+        self.firmware = CM_FIRMWARE
         self._validate_cm()
         self._validate_apps()
 
@@ -36,26 +36,26 @@ class CortexM:
 
     @staticmethod
     def write(message):
-        if os.path.exists(TTY):
-            with serial.Serial(TTY) as ser:
+        if os.path.exists(CM_TTY):
+            with serial.Serial(CM_TTY) as ser:
                 len = ser.write(f"{message}\n".encode())
                 msg = ser.readline(len).decode().strip()
                 print(f"Message read from Cortex-M: {msg}")
         else:
-            print(f"Device not found: {TTY}.")
+            print(f"Device not found: {CM_TTY}.")
 
     @staticmethod
     def read():
-        if os.path.exists(TTY):
-            with serial.Serial(TTY, timeout=10) as ser:
+        if os.path.exists(CM_TTY):
+            with serial.Serial(CM_TTY, timeout=10) as ser:
                 msg = ser.readline().decode().strip()
                 print(f"Message read from Cortex-M: {msg}")
         else:
-            print(f"Device not found: {TTY}.")
+            print(f"Device not found: {CM_TTY}.")
 
     def _validate_cm(self):
         if not is_cm_enabled():
-            sys.exit(f"Error: {REMOTEPROC_DIR} not found.\n"
+            sys.exit(f"Error: {CM_REMOTEPROC_DIR} not found.\n"
                      f"Please enable remoteproc driver.\n"
                      f"Most likely you need to use the correct"
                      f" device tree, try to run:\n"

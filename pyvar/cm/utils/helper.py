@@ -14,7 +14,7 @@ from .config import *
 
 
 def is_cm_enabled():
-    return True if os.listdir(REMOTEPROC_DIR) else False
+    return True if os.listdir(CM_REMOTEPROC_DIR) else False
 
 
 def get_module():
@@ -35,10 +35,10 @@ def get_module():
 
 
 def get_cm_dtb(module):
-    if not module or not os.path.isfile(CM_CONF):
+    if not module or not os.path.isfile(CM_CONF_FILE):
         return None
 
-    with open(CM_CONF, 'r') as f:
+    with open(CM_CONF_FILE, 'r') as f:
         for line in f.readlines():
             if f'cm_dtb_{get_module()}' in line.lower():
                 start = line.find('\"') + 1
@@ -50,8 +50,8 @@ def get_cm_dtb(module):
 def list_apps():
     apps_list = []
 
-    if os.path.isdir(CMFIRMWARE_DIR):
-        for file in os.listdir(CMFIRMWARE_DIR):
+    if os.path.isdir(CM_FIRMWARE_DIR):
+        for file in os.listdir(CM_FIRMWARE_DIR):
             if ".elf" not in file.lower():
                 continue
 
