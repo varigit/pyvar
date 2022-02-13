@@ -20,7 +20,7 @@ class CortexM:
     def __init__(self, core_n=0):
         self.module = get_module()
         self._validate_cm()
-        self._validate_apps()
+        self._validate_firmwares()
         self._num_cores = get_cm_cores(self.module)
         self.core = core_n
         self._firmware_path = CM_FIRMWARE.format(self.core)
@@ -72,13 +72,13 @@ class CortexM:
             with open(self._firmware_path, 'w') as f:
                 f.write(new_firmware)
 
-    def run(self, app):
-        if app in self.apps:
+    def run(self, firmware):
+        if firmware in self.firmwares:
             self._stop()
-            self._load(app)
+            self._load(firmware)
             self._start()
         else:
-            print(f"{app} is not a valid Cortex-M app.")
+            print(f"{firmware} is not a valid Cortex-M app.")
 
     @staticmethod
     def write(message):
@@ -108,21 +108,21 @@ class CortexM:
                      f"fw_setenv fdt_file {get_cm_dtb(self.module)}"
                      f" && reboot")
 
-    def _validate_apps(self):
-        self.apps = []
-        apps_list = list_apps()
+    def _validate_firmwares(self):
+        self.firmwares = []
+        firmwares_list = list_firmwares()
 
         if self.module == 'dart' or self.module == 'som':
-            for app in apps_list:
-                if self.module in app.lower():
-                    self.apps.append(app)
+            for firmware in firmwares_list:
+                if self.module in firmware.lower():
+                    self.firmwares.append(firmware)
 
     def _start(self):
         self.state = CM_START
         subprocess.run(['modprobe', 'imx_rpmsg_tty'])
 
-    def _load(self, app):
-        self.firmware = app
+    def _load(self, firmware):
+        self.firmware = firmware
 
     def _stop(self):
         self.state = CM_STOP

@@ -54,14 +54,14 @@ def _parse_cm_info(module, field):
                 return val.replace('\"', '')
 
 
-def list_apps():
-    apps_list = []
+def list_firmwares():
+    firmwares_list = []
 
     if os.path.isdir(CM_FIRMWARE_DIR):
         for file in os.listdir(CM_FIRMWARE_DIR):
             if ".elf" not in file.lower():
                 continue
 
-            apps_list.append(file)
+            firmwares_list.append(file)
 
-    return apps_list
+    return firmwares_list
