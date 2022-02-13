@@ -34,17 +34,24 @@ def get_module():
         return "unknown"
 
 
+def get_cm_cores(module):
+    return int(_parse_cm_info(module, 'cm_cores'))
+
+
 def get_cm_dtb(module):
+    return _parse_cm_info(module, f'cm_dtb_{get_module()}')
+
+
+def _parse_cm_info(module, field):
     if not module or not os.path.isfile(CM_CONF_FILE):
         return None
 
     with open(CM_CONF_FILE, 'r') as f:
         for line in f.readlines():
-            if f'cm_dtb_{get_module()}' in line.lower():
-                start = line.find('\"') + 1
-                end = line.find('\"', start)
+            if field in line.lower():
+                val = line.strip().split('=').pop()
 
-                return line[start:end]
+                return val.replace('\"', '')
 
 
 def list_apps():
