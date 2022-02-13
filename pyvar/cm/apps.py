@@ -18,7 +18,6 @@ from .utils.helper import *
 class CortexM:
     def __init__(self):
         self.module = get_module()
-        self.firmware = CM_FIRMWARE
         self._validate_cm()
         self._validate_apps()
 
@@ -36,6 +35,20 @@ class CortexM:
            or (self.state == "running" and new_state == CM_STOP):
             with open(CM_STATE, 'w') as f:
                 f.write(new_state)
+
+    @property
+    def firmware(self):
+        if os.path.isfile(CM_FIRMWARE):
+            with open(CM_FIRMWARE, 'r') as f:
+                return f.read().strip()
+
+        return "unavailable"
+
+    @firmware.setter
+    def firmware(self, new_firmware):
+        if os.path.isfile(CM_FIRMWARE):
+            with open(CM_FIRMWARE, 'w') as f:
+                f.write(new_firmware)
 
     def run(self, app):
         if app in self.apps:
@@ -90,9 +103,7 @@ class CortexM:
         os.system('modprobe imx_rpmsg_tty')
 
     def _load(self, app):
-        if os.path.isfile(self.firmware):
-            with open(self.firmware, 'w') as f:
-                f.write(app)
+        self.firmware = app
 
     def _stop(self):
         os.system('modprobe imx_rpmsg_tty -r')
