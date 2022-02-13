@@ -9,4 +9,7 @@ CM_TTY = "/dev/ttyRPMSG30"
 CM_FIRMWARE = "/sys/class/remoteproc/remoteproc0/firmware"
 CM_STATE = "/sys/class/remoteproc/remoteproc0/state"
 
+CM_START = "start"
+CM_STOP = "stop"
+
 MACHINE = "/sys/devices/soc0/machine"

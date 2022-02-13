@@ -18,10 +18,24 @@ from .utils.helper import *
 class CortexM:
     def __init__(self):
         self.module = get_module()
-        self.state = CM_STATE
         self.firmware = CM_FIRMWARE
         self._validate_cm()
         self._validate_apps()
+
+    @property
+    def state(self):
+        if os.path.isfile(CM_STATE):
+            with open(CM_STATE, 'r') as f:
+                return f.read().strip()
+
+        return "unavailable"
+
+    @state.setter
+    def state(self, new_state):
+        if (self.state == "offline" and new_state == CM_START) \
+           or (self.state == "running" and new_state == CM_STOP):
+            with open(CM_STATE, 'w') as f:
+                f.write(new_state)
 
     def run(self, app):
         if app in self.apps:
@@ -72,13 +86,8 @@ class CortexM:
                     self.apps.append(app)
 
     def _start(self):
-        if os.path.isfile(self.state):
-            with open(self.state, 'r+') as f:
-                if "offline" in f.read():
-                    f.write("start")
-                    f.truncate()
-
-            os.system('modprobe imx_rpmsg_tty')
+        self.state = CM_START
+        os.system('modprobe imx_rpmsg_tty')
 
     def _load(self, app):
         if os.path.isfile(self.firmware):
@@ -86,10 +95,5 @@ class CortexM:
                 f.write(app)
 
     def _stop(self):
-        if os.path.isfile(self.state):
-            os.system('modprobe imx_rpmsg_tty -r')
-
-            with open(self.state, 'r+') as f:
-                if "running" in f.read():
-                    f.write("stop")
-                    f.truncate()
+        os.system('modprobe imx_rpmsg_tty -r')
+        self.state = CM_STOP
