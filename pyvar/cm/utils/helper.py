@@ -9,6 +9,7 @@
 """
 
 import os
+import subprocess
 
 from .config import *
 
@@ -54,14 +55,19 @@ def _parse_cm_info(module, field):
                 return val.replace('\"', '')
 
 
+def _firmware_check(file):
+    out = subprocess.run(['file', '-b', file], capture_output=True)
+    out = out.stdout.decode().strip().lower()
+
+    return "arm, eabi" in out
+
+
 def list_firmwares():
     firmwares_list = []
 
     if os.path.isdir(CM_FIRMWARE_DIR):
         for file in os.listdir(CM_FIRMWARE_DIR):
-            if ".elf" not in file.lower():
-                continue
-
-            firmwares_list.append(file)
+            if _firmware_check(os.path.join(CM_FIRMWARE_DIR, file)):
+                firmwares_list.append(file)
 
     return firmwares_list
