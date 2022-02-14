@@ -1,22 +1,18 @@
 # Copyright 2022 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
-from time import sleep
-
-from pyvar.cm.apps import CortexM
+from pyvar.cm.core import CortexM
 
 cortex = CortexM()
 
 print("Available Cortex-M apps:")
+for firmware in cortex.firmwares:
+    print(firmware)
 
-for app in cortex.apps:
-    print(app)
-
-print("Running cm_rpmsg_lite_str_echo...")
-
-for app in cortex.apps:
-    if "cm_rpmsg_lite_str_echo" in app:
-        cortex.run(app)
+for firmware in cortex.firmwares:
+    if "cm_rpmsg_lite_str_echo" in firmware:
+        print("Running cm_rpmsg_lite_str_echo...")
+        cortex.run(firmware)
         break
 
 while True:
@@ -25,5 +21,3 @@ while True:
 
     if msg == "quit":
         break
-
-cortex.stop()
