@@ -65,6 +65,7 @@ Useful Links
    :maxdepth: 3
 
    pyvar.gettingstarted.rst
+   pyvar.cm.rst
    pyvar.ml.rst
    pyvar.multimedia.rst
    pyvar.quickexamples.rst
