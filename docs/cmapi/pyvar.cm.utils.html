@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Utils: pyvar.cm.utils</title>
+    
+          <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../_static/theme-vendors.js"></script> -->
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Machine Learning API" href="../pyvar.ml.html" />
+  <link rel="prev" title="Utils: pyvar.cm.core" href="pyvar.cm.core.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <img class="logo" src="../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#useful-links">Table of Contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.cm.html" class="reference internal ">Cortex-M API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.ml.html" class="reference internal ">Machine Learning API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.multimedia.html" class="reference internal ">Multimedia API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.quickexamples.html" class="reference internal ">Quick Examples</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.license.html" class="reference internal ">LICENSE</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../pyvar.contribute.html" class="reference internal ">Contribute</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../pyvar.cm.html">Cortex-M API</a> &raquo;</li>
+    
+    <li>Utils: pyvar.cm.utils</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="pyvar.cm.core.html"
+       title="previous chapter">← Utils: pyvar.cm.core</a>
+  </li>
+  <li class="next">
+    <a href="../pyvar.ml.html"
+       title="next chapter">Machine Learning API →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <div class="section" id="utils-pyvar-cm-utils">
+<h1>Utils: pyvar.cm.utils<a class="headerlink" href="#utils-pyvar-cm-utils" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cortex-m-helper-module">
+<h2>Cortex-M Helper Module<a class="headerlink" href="#cortex-m-helper-module" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/arm_cortex_m.png"><img alt="../_images/arm_cortex_m.png" src="../_images/arm_cortex_m.png" style="width: 45%;" /></a>
+<div class="section" id="module-pyvar.cm.utils.helper">
+<span id="pyvar-cm-utils-helper"></span><h3>pyvar.cm.utils.helper<a class="headerlink" href="#module-pyvar.cm.utils.helper" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Module with miscellaneous functions for Cortex-M.</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyvar.cm.utils.helper.get_cm_cores">
+<span class="sig-prename descclassname"><span class="pre">pyvar.cm.utils.helper.</span></span><span class="sig-name descname"><span class="pre">get_cm_cores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/cm/utils/helper.html#get_cm_cores"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.cm.utils.helper.get_cm_cores" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of Cortex-M cores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An integer number of cores.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyvar.cm.utils.helper.get_cm_dtb">
+<span class="sig-prename descclassname"><span class="pre">pyvar.cm.utils.helper.</span></span><span class="sig-name descname"><span class="pre">get_cm_dtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/cm/utils/helper.html#get_cm_dtb"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.cm.utils.helper.get_cm_dtb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the DTB file that enables the Cortex-M.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string with the name of the DTB file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyvar.cm.utils.helper.get_module">
+<span class="sig-prename descclassname"><span class="pre">pyvar.cm.utils.helper.</span></span><span class="sig-name descname"><span class="pre">get_module</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/cm/utils/helper.html#get_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.cm.utils.helper.get_module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the SoM type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string containing the SoM’s type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyvar.cm.utils.helper.is_cm_enabled">
+<span class="sig-prename descclassname"><span class="pre">pyvar.cm.utils.helper.</span></span><span class="sig-name descname"><span class="pre">is_cm_enabled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/cm/utils/helper.html#is_cm_enabled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.cm.utils.helper.is_cm_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the Cortex-M is enabled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>if <strong>enabled</strong>, return <strong>True</strong>
+if <strong>not</strong>, return <strong>not False</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyvar.cm.utils.helper.list_firmwares">
+<span class="sig-prename descclassname"><span class="pre">pyvar.cm.utils.helper.</span></span><span class="sig-name descname"><span class="pre">list_firmwares</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/cm/utils/helper.html#list_firmwares"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.cm.utils.helper.list_firmwares" title="Permalink to this definition">¶</a></dt>
+<dd><p>List all the valid Cortex-M firmwares under the firmware directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A list containing the valid firmwares</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="pyvar.cm.core.html"
+       title="previous chapter">← Utils: pyvar.cm.core</a>
+  </li>
+  <li class="next">
+    <a href="../pyvar.ml.html"
+       title="next chapter">Machine Learning API →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021 Variscite LTD.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

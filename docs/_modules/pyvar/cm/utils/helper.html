@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>pyvar.cm.utils.helper</title>
+    
+          <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+          <link rel="stylesheet" href="../../../../_static/theme.css " type="text/css" />
+      
+      <!-- sphinx script_files -->
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+
+      
+      <!-- bundled in js (rollup iife) -->
+      <!-- <script src="../../../../_static/theme-vendors.js"></script> -->
+      <script src="../../../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../../../genindex.html" />
+  <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+
+  <body>
+    <div id="app">
+    <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../../../index.html" class="home-link">
+    
+      <img class="logo" src="../../../../_static/logo.png" alt="logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../../../index.html#useful-links">Table of Contents</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.gettingstarted.html" class="reference internal ">Getting Started</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.cm.html" class="reference internal ">Cortex-M API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.ml.html" class="reference internal ">Machine Learning API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.multimedia.html" class="reference internal ">Multimedia API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.quickexamples.html" class="reference internal ">Quick Examples</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.license.html" class="reference internal ">LICENSE</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
+              <a href="../../../../pyvar.contribute.html" class="reference internal ">Contribute</a>
+            
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../../index.html">Module code</a> &raquo;</li>
+    
+    <li>pyvar.cm.utils.helper</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main" v-pre>
+            
+  <h1>Source code for pyvar.cm.utils.helper</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2022 Variscite LTD</span>
+<span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:platform: Unix/Yocto</span>
+<span class="sd">:synopsis: Module with miscellaneous functions for Cortex-M.</span>
+
+<span class="sd">.. moduleauthor:: Alifer Moraes &lt;alifer.m@variscite.com&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="kn">from</span> <span class="nn">.config</span> <span class="k">import</span> <span class="o">*</span>
+
+
+<div class="viewcode-block" id="is_cm_enabled"><a class="viewcode-back" href="../../../../cmapi/pyvar.cm.utils.html#pyvar.cm.utils.helper.is_cm_enabled">[docs]</a><span class="k">def</span> <span class="nf">is_cm_enabled</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if the Cortex-M is enabled.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        if **enabled**, return **True**</span>
+<span class="sd">        if **not**, return **not False**</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">CM_REMOTEPROC_DIR</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="get_module"><a class="viewcode-back" href="../../../../cmapi/pyvar.cm.utils.html#pyvar.cm.utils.helper.get_module">[docs]</a><span class="k">def</span> <span class="nf">get_module</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the SoM type.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A string containing the SoM&#39;s type.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">MACHINE</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">MACHINE</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">machine</span><span class="p">:</span>
+        <span class="n">module</span> <span class="o">=</span> <span class="n">machine</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="s2">&quot;var-som&quot;</span> <span class="ow">in</span> <span class="n">module</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;som&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;dart-mx8&quot;</span> <span class="ow">in</span> <span class="n">module</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;dart&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;spear-mx8&quot;</span> <span class="ow">in</span> <span class="n">module</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;spear&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;unknown&quot;</span></div>
+
+
+<div class="viewcode-block" id="get_cm_cores"><a class="viewcode-back" href="../../../../cmapi/pyvar.cm.utils.html#pyvar.cm.utils.helper.get_cm_cores">[docs]</a><span class="k">def</span> <span class="nf">get_cm_cores</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the number of Cortex-M cores.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An integer number of cores.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">_parse_cm_info</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s1">&#39;cm_cores&#39;</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="get_cm_dtb"><a class="viewcode-back" href="../../../../cmapi/pyvar.cm.utils.html#pyvar.cm.utils.helper.get_cm_dtb">[docs]</a><span class="k">def</span> <span class="nf">get_cm_dtb</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the DTB file that enables the Cortex-M.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A string with the name of the DTB file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_parse_cm_info</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">f</span><span class="s1">&#39;cm_dtb_{get_module()}&#39;</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_parse_cm_info</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get information about the Cortex-M from the variscite-rproc.conf file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        module (str): the SoM type;</span>
+<span class="sd">        field (str): a field of the variscite-rproc.conf file;</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A string with the required field value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">module</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">CM_CONF_FILE</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">CM_CONF_FILE</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                <span class="n">val</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+                <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_firmware_check</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if a file is a valid Cortex-M firmware.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file (str): path to the file;</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        if **is valid**, return **True**</span>
+<span class="sd">        if **not**, return **not False**</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;-b&#39;</span><span class="p">,</span> <span class="n">file</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="s2">&quot;arm, eabi&quot;</span> <span class="ow">in</span> <span class="n">out</span>
+
+
+<div class="viewcode-block" id="list_firmwares"><a class="viewcode-back" href="../../../../cmapi/pyvar.cm.utils.html#pyvar.cm.utils.helper.list_firmwares">[docs]</a><span class="k">def</span> <span class="nf">list_firmwares</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    List all the valid Cortex-M firmwares under the firmware directory.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A list containing the valid firmwares</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">firmwares_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">CM_FIRMWARE_DIR</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">CM_FIRMWARE_DIR</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">_firmware_check</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">CM_FIRMWARE_DIR</span><span class="p">,</span> <span class="n">file</span><span class="p">)):</span>
+                <span class="n">firmwares_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">firmwares_list</span></div>
+</pre></div>
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2021 Variscite LTD.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+</div>
+            </div>
+          </div>
+      </page>
+    </div></div>
+    
+    
+  </body>
+</html>

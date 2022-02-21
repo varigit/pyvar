@@ -82,6 +82,15 @@
         
           <li class="toctree-l1 ">
             
+              <a href="../../../../pyvar.cm.html" class="reference internal ">Cortex-M API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
               <a href="../../../../pyvar.ml.html" class="reference internal ">Machine Learning API</a>
             
 
@@ -167,20 +176,20 @@
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="kn">from</span> <span class="nn">pyvar.config</span> <span class="kn">import</span> <span class="n">CACHEDIR</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">DETECTION</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">SEGMENTATION</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="kn">import</span> <span class="n">DEFAULT_PACKAGES</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="kn">import</span> <span class="n">FTP_HOST</span><span class="p">,</span> <span class="n">FTP_PASS</span><span class="p">,</span> <span class="n">FTP_USER</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="kn">import</span> <span class="n">JPG</span><span class="p">,</span> <span class="n">MP4</span><span class="p">,</span> <span class="n">PNG</span><span class="p">,</span> <span class="n">TFLITE</span><span class="p">,</span> <span class="n">TXT</span><span class="p">,</span> <span class="n">ZIP</span>
+<span class="kn">from</span> <span class="nn">pyvar.config</span> <span class="k">import</span> <span class="n">CACHEDIR</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="k">import</span> <span class="n">CLASSIFICATION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="k">import</span> <span class="n">DETECTION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="k">import</span> <span class="n">SEGMENTATION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="k">import</span> <span class="n">DEFAULT_PACKAGES</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="k">import</span> <span class="n">FTP_HOST</span><span class="p">,</span> <span class="n">FTP_PASS</span><span class="p">,</span> <span class="n">FTP_USER</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="k">import</span> <span class="n">JPG</span><span class="p">,</span> <span class="n">MP4</span><span class="p">,</span> <span class="n">PNG</span><span class="p">,</span> <span class="n">TFLITE</span><span class="p">,</span> <span class="n">TXT</span><span class="p">,</span> <span class="n">ZIP</span>
 
 
 <div class="viewcode-block" id="FTP"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.retriever.FTP">[docs]</a><span class="k">class</span> <span class="nc">FTP</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    **This class can be used as reference only. It is not for production-ready.**</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">passwd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">passwd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor method for the FTP class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -200,7 +209,7 @@
             <span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
                 <span class="k">pass</span>
         <span class="k">except</span> <span class="n">ftplib</span><span class="o">.</span><span class="n">all_errors</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Error: </span><span class="si">{error}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="FTP.retrieve_package"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.retriever.FTP.retrieve_package">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_package</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">package_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                          <span class="n">package_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -231,7 +240,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span><span class="o">.</span><span class="n">cwd</span><span class="p">(</span><span class="n">package_dir</span><span class="p">)</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">package_file</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span><span class="o">.</span><span class="n">retrbinary</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RETR </span><span class="si">{</span><span class="n">package_filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span><span class="o">.</span><span class="n">retrbinary</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;RETR </span><span class="si">{package_filename}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">)</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">r</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;226 Transfer complete&quot;</span><span class="p">):</span>
                     <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">package_file</span><span class="p">)</span>
                     <span class="k">return</span> <span class="kc">False</span>
@@ -239,28 +248,28 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">retrieved_package</span> <span class="o">=</span> <span class="n">package_file</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span><span class="o">.</span><span class="n">cwd</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exc: </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Exc: </span><span class="si">{ex}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieved_package</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">ZIP</span><span class="p">):</span>
             <span class="n">package_name_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieved_package</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">shutil</span><span class="o">.</span><span class="n">unpack_archive</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">retrieved_package</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cachedir</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__get_package_names</span><span class="p">(</span><span class="n">package_name_path</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_get_package_names</span><span class="p">(</span><span class="n">package_name_path</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
                 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">retrieved_package</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exc: </span><span class="si">{</span><span class="n">ex</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Exc: </span><span class="si">{ex}</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="k">return</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__disconnect</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_disconnect</span><span class="p">()</span>
         <span class="k">return</span> <span class="kc">True</span></div>
 
-    <span class="k">def</span> <span class="nf">__disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Send a quit command to the server and close the connection.        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ftp</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">__get_package_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">package_name_path</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_get_package_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">package_name_path</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the model and label names from the downloaded package.        </span>
 <span class="sd">        &quot;&quot;&quot;</span>

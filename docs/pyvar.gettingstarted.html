@@ -2,8 +2,7 @@
 <html >
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width,initial-scale=1">
       <title>Getting Started</title>
     
           <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -22,7 +21,7 @@
     
   <link rel="index" title="Index" href="genindex.html" />
   <link rel="search" title="Search" href="search.html" />
-  <link rel="next" title="Machine Learning API" href="pyvar.ml.html" />
+  <link rel="next" title="Cortex-M API" href="pyvar.cm.html" />
   <link rel="prev" title="Variscite Python API" href="index.html" /> 
   </head>
 
@@ -95,6 +94,15 @@
         
           <li class="toctree-l1 ">
             
+              <a href="pyvar.cm.html" class="reference internal ">Cortex-M API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
               <a href="pyvar.ml.html" class="reference internal ">Machine Learning API</a>
             
 
@@ -160,8 +168,8 @@
        title="previous chapter">← Variscite Python API</a>
   </li>
   <li class="next">
-    <a href="pyvar.ml.html"
-       title="next chapter">Machine Learning API →</a>
+    <a href="pyvar.cm.html"
+       title="next chapter">Cortex-M API →</a>
   </li>
 </ul>
   
@@ -169,9 +177,9 @@
 <hr>
           <div class="content" role="main" v-pre>
             
-  <section id="getting-started">
+  <div class="section" id="getting-started">
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<section id="introduction">
+<div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Before getting started with pyvar package and learning more about its core and
 examples, it is important to mention that one of the main focus of this package
@@ -182,10 +190,10 @@ model training, and model quantization even though those are long subjects.</p>
 <p>The comprehension of the above topics might help you to understand how does ML work on
 embedded systems, and it will probably allow you to get the best possible
 inference performance on your ML applications.</p>
-</section>
-<section id="hardware">
+</div>
+<div class="section" id="hardware">
 <h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
-<section id="recommended-system-on-modules-soms">
+<div class="section" id="recommended-system-on-modules-soms">
 <h3>Recommended System on Modules (SoMs)<a class="headerlink" href="#recommended-system-on-modules-soms" title="Permalink to this headline">¶</a></h3>
 <p>To achieve the best possible performance on the ML applications, it is
 recommended to use the System on Modules powered by the i.MX8M Plus processor
@@ -206,8 +214,8 @@ from NXP. Check the SoMs below:</p>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="neural-processing-unit-npu-overview">
+</div>
+<div class="section" id="neural-processing-unit-npu-overview">
 <h3>Neural Processing Unit (NPU) Overview<a class="headerlink" href="#neural-processing-unit-npu-overview" title="Permalink to this headline">¶</a></h3>
 <p>The above SoMs have a dedicated unit to deal with ML inference process called
 Neural Processing Unit provided by Verisilicon. This compute engine delivers up
@@ -232,8 +240,8 @@ for more source code samples, and simple post-training example.</p>
 <ul class="simple">
 <li><p>For more information about the NPU, please check this <a class="reference external" href="https://www.nxp.com/products/processors-and-microcontrollers/arm-processors/i-mx-applications-processors/i-mx-8-processors/i-mx-8m-plus-arm-cortex-a53-machine-learning-vision-multimedia-and-industrial-iot:IMX8MPLUS">page</a>.</p></li>
 </ul>
-</section>
-<section id="supported-cameras">
+</div>
+<div class="section" id="supported-cameras">
 <h3>Supported Cameras<a class="headerlink" href="#supported-cameras" title="Permalink to this headline">¶</a></h3>
 <p>The pyvar package supports on its <a class="reference external" href="https://pyvar.dev/multimediaapi/pyvar.multimedia.html">Multimedia API</a> the following cameras:</p>
 <ul class="simple">
@@ -265,11 +273,11 @@ for more source code samples, and simple post-training example.</p>
 </pre></div>
 </div>
 </div></blockquote>
-</section>
-</section>
-<section id="software">
+</div>
+</div>
+<div class="section" id="software">
 <h2>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h2>
-<section id="setting-up-the-bsp">
+<div class="section" id="setting-up-the-bsp">
 <h3>Setting Up the BSP<a class="headerlink" href="#setting-up-the-bsp" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p>Build the latest <a class="reference external" href="https://variwiki.com/">Yocto Release</a> with <strong>Wayland</strong> + <strong>X11</strong> features using <strong>fsl-image-qt5</strong> image;</p>
@@ -293,33 +301,33 @@ for more source code samples, and simple post-training example.</p>
 <ol class="arabic simple" start="2">
 <li><p>Flash the built image into the SD Card, boot the board, then go to next section.</p></li>
 </ol>
-</section>
-<section id="python-api-package-installation">
+</div>
+<div class="section" id="python-api-package-installation">
 <h3>Python API Package Installation<a class="headerlink" href="#python-api-package-installation" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p>To install the pyvar API Python package use the pip3 tool to retrieve via Pypi:</p>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~# </span>pip3 install pyvar
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~#</span> pip3 install pyvar
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>To make sure that pyvar is installed, run the following command to check:</p>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~# </span>python3
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~#</span> python3
 <span class="go">Python 3.9.5 (default, May  3 2021, 15:11:33)</span>
 <span class="go">[GCC 10.2.0] on linux</span>
 <span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
-<span class="go">&gt;&gt;&gt; import pyvar</span>
-<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;</span>&gt;&gt; import pyvar
+<span class="gp">&gt;</span>&gt;&gt;
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 </ol>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
           </div>
@@ -330,8 +338,8 @@ for more source code samples, and simple post-training example.</p>
        title="previous chapter">← Variscite Python API</a>
   </li>
   <li class="next">
-    <a href="pyvar.ml.html"
-       title="next chapter">Machine Learning API →</a>
+    <a href="pyvar.cm.html"
+       title="next chapter">Cortex-M API →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021 Variscite LTD.

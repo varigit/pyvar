@@ -82,6 +82,15 @@
         
           <li class="toctree-l1 ">
             
+              <a href="../../../../pyvar.cm.html" class="reference internal ">Cortex-M API</a>
+            
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 ">
+            
               <a href="../../../../pyvar.ml.html" class="reference internal ">Machine Learning API</a>
             
 
@@ -167,13 +176,15 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">tflite_runtime.interpreter</span> <span class="kn">import</span> <span class="n">Interpreter</span>
+    <span class="kn">from</span> <span class="nn">tflite_runtime.interpreter</span> <span class="k">import</span> <span class="n">Interpreter</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;No TensorFlow Lite Runtime module found!&quot;</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">DETECTION</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.utils.timer</span> <span class="kn">import</span> <span class="n">Timer</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="k">import</span> <span class="n">cpu_count</span>
+
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="k">import</span> <span class="n">CLASSIFICATION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="k">import</span> <span class="n">DETECTION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.utils.timer</span> <span class="k">import</span> <span class="n">Timer</span>
 
 
 <div class="viewcode-block" id="TFLiteInterpreter"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.tflite.TFLiteInterpreter">[docs]</a><span class="k">class</span> <span class="nc">TFLiteInterpreter</span><span class="p">:</span>
@@ -187,16 +198,25 @@
 <span class="sd">    :ivar k: number of top results;</span>
 <span class="sd">    :ivar confidence: confidence score, default is 0.5.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">num_threads</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor method for the TensorFlow Lite class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">max_threads</span> <span class="o">=</span> <span class="n">cpu_count</span><span class="p">()</span>
+
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">model_file_path</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must pass a labels file&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">model_file_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.tflite&quot;</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expects </span><span class="si">{</span><span class="n">model_file_path</span><span class="si">}</span><span class="s2"> to be a text file&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Expects </span><span class="si">{model_file_path}</span><span class="s2"> to be a text file&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">num_threads</span><span class="p">:</span>
+            <span class="n">num_threads</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">num_threads</span> <span class="o">&gt;</span> <span class="n">max_threads</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;num_threads can&#39;t be greater than&quot;</span>
+                             <span class="n">f</span><span class="s2">&quot; </span><span class="si">{max_threads}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">model_file_path</span> <span class="o">=</span> <span class="n">model_file_path</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span> <span class="o">=</span> <span class="n">Interpreter</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model_file_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span> <span class="o">=</span> <span class="n">Interpreter</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model_file_path</span><span class="p">,</span>
+                                       <span class="n">num_threads</span><span class="o">=</span><span class="n">num_threads</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">allocate_tensors</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_details</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">get_input_details</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">output_details</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">get_output_details</span><span class="p">()</span>
