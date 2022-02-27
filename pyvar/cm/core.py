@@ -19,10 +19,12 @@ from .utils.helper import *
 class CortexM:
     """
     :ivar module: SoM type;
-    :ivar core: Cortex-M core in use;
+    :ivar core: Cortex-M core being used;
+    :ivar tty_rpmsg: virtual port to communicate with rpmsg applications;
+    :ivar firmwares: list all the available Cortex-M firmwares;
     """
 
-    def __init__(self, core_n=0):
+    def __init__(self, core_n=0, tty_offset=3):
         """
         Constructor method for the Cortex-M class.
         """
@@ -31,6 +33,7 @@ class CortexM:
         self._validate_firmwares()
         self._num_cores = get_cm_cores(self.module)
         self.core = core_n
+        self.tty_rpmsg = CM_TTY.format(tty_offset, self.core)
         self._firmware_path = CM_FIRMWARE.format(self.core)
         self._state_path = CM_STATE.format(self.core)
 
@@ -135,33 +138,31 @@ class CortexM:
         else:
             print(f"{firmware} is not a valid Cortex-M app.")
 
-    @staticmethod
-    def write(message):
+    def write(self, message):
         """
         Send a message to a Cortex-M application via virtual serial port.
 
         Args:
             message (str): message the is going to be sent.
         """
-        if os.path.exists(CM_TTY):
-            with serial.Serial(CM_TTY) as ser:
-                len = ser.write(f"{message}\n".encode())
-                msg = ser.readline(len).decode().strip()
+        if os.path.exists(self.tty_rpmsg):
+            with serial.Serial(self.tty_rpmsg) as ser:
+                msg_len = ser.write(f"{message}\n".encode())
+                msg = ser.readline(msg_len).decode().strip()
                 print(f"Message read from Cortex-M: {msg}")
         else:
-            print(f"Device not found: {CM_TTY}.")
+            print(f"Device not found: {self.tty_rpmsg}.")
 
-    @staticmethod
-    def read():
+    def read(self):
         """
         Reads a message from a Cortex-M application via virtual serial port.
         """
-        if os.path.exists(CM_TTY):
-            with serial.Serial(CM_TTY, timeout=10) as ser:
+        if os.path.exists(self.tty_rpmsg):
+            with serial.Serial(self.tty_rpmsg, timeout=10) as ser:
                 msg = ser.readline().decode().strip()
                 print(f"Message read from Cortex-M: {msg}")
         else:
-            print(f"Device not found: {CM_TTY}.")
+            print(f"Device not found: {self.tty_rpmsg}.")
 
     def _validate_cm(self):
         """
