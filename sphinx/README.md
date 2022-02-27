@@ -3,10 +3,10 @@
 The API documentation can be generated using [sphinx][sphinx_page]. Please
 follow the below steps to build the documentation:
 
-1. Clone the `pyvarml` repository:
+1. Clone the `pyvar` repository:
 
 ```bash
-$ git clone https://github.com/varjig/pyvarml.git
+$ git clone https://github.com/varigit/pyvar.git
 ```
 
 2. Install the required packages:
