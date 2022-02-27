@@ -181,10 +181,12 @@
 <div class="viewcode-block" id="CortexM"><a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM">[docs]</a><span class="k">class</span> <span class="nc">CortexM</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :ivar module: SoM type;</span>
-<span class="sd">    :ivar core: Cortex-M core in use;</span>
+<span class="sd">    :ivar core: Cortex-M core being used;</span>
+<span class="sd">    :ivar tty_rpmsg: virtual port to communicate with rpmsg applications;</span>
+<span class="sd">    :ivar firmwares: list all the available Cortex-M firmwares;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_n</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tty_offset</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor method for the Cortex-M class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -193,6 +195,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_firmwares</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_num_cores</span> <span class="o">=</span> <span class="n">get_cm_cores</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">module</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="o">=</span> <span class="n">core_n</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span> <span class="o">=</span> <span class="n">CM_TTY</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tty_offset</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_firmware_path</span> <span class="o">=</span> <span class="n">CM_FIRMWARE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_state_path</span> <span class="o">=</span> <span class="n">CM_STATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="p">)</span>
 
@@ -297,33 +300,31 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{firmware}</span><span class="s2"> is not a valid Cortex-M app.&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="CortexM.write"><a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM.write">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+<div class="viewcode-block" id="CortexM.write"><a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Send a message to a Cortex-M application via virtual serial port.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            message (str): message the is going to be sent.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">CM_TTY</span><span class="p">):</span>
-            <span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">CM_TTY</span><span class="p">)</span> <span class="k">as</span> <span class="n">ser</span><span class="p">:</span>
-                <span class="nb">len</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{message}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-                <span class="n">msg</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="p">)</span> <span class="k">as</span> <span class="n">ser</span><span class="p">:</span>
+                <span class="n">msg_len</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{message}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">msg_len</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Message read from Cortex-M: </span><span class="si">{msg}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Device not found: </span><span class="si">{CM_TTY}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Device not found: </span><span class="si">{self.tty_rpmsg}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="CortexM.read"><a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM.read">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">():</span>
+<div class="viewcode-block" id="CortexM.read"><a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads a message from a Cortex-M application via virtual serial port.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">CM_TTY</span><span class="p">):</span>
-            <span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="n">CM_TTY</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="n">ser</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="n">ser</span><span class="p">:</span>
                 <span class="n">msg</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Message read from Cortex-M: </span><span class="si">{msg}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Device not found: </span><span class="si">{CM_TTY}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Device not found: </span><span class="si">{self.tty_rpmsg}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_validate_cm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
