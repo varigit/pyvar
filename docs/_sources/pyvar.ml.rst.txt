@@ -10,5 +10,6 @@ Machine Learning API
    :caption: Table of Contents
    :maxdepth: 2
 
+   mlapi/pyvar.ml.gettingstarted.rst
    mlapi/pyvar.ml.engines.rst
    mlapi/pyvar.ml.utils.rst
