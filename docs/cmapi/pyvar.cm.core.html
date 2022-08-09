@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html  lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,6 +12,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
 
       
@@ -19,6 +20,7 @@
       <!-- <script src="../_static/theme-vendors.js"></script> -->
       <script src="../_static/theme.js" defer></script>
     
+      <link rel="shortcut icon" href="../_static/favicon.png"/>
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Search" href="../search.html" />
   <link rel="next" title="Utils: pyvar.cm.utils" href="pyvar.cm.utils.html" />
@@ -170,12 +172,12 @@
           <div class="content" role="main" v-pre>
             
   <div class="section" id="utils-pyvar-cm-core">
-<h1>Utils: pyvar.cm.core<a class="headerlink" href="#utils-pyvar-cm-core" title="Permalink to this headline">¶</a></h1>
+<h1>Utils: pyvar.cm.core<a class="headerlink" href="#utils-pyvar-cm-core" title="Permalink to this heading">¶</a></h1>
 <div class="section" id="cortex-m-class">
-<h2>Cortex-M Class<a class="headerlink" href="#cortex-m-class" title="Permalink to this headline">¶</a></h2>
+<h2>Cortex-M Class<a class="headerlink" href="#cortex-m-class" title="Permalink to this heading">¶</a></h2>
 <a class="reference internal image-reference" href="../_images/arm_cortex_m.png"><img alt="../_images/arm_cortex_m.png" src="../_images/arm_cortex_m.png" style="width: 45%;" /></a>
 <div class="section" id="module-pyvar.cm.core">
-<span id="pyvar-cm-core"></span><h3>pyvar.cm.core<a class="headerlink" href="#module-pyvar.cm.core" title="Permalink to this headline">¶</a></h3>
+<span id="pyvar-cm-core"></span><h3>pyvar.cm.core<a class="headerlink" href="#module-pyvar.cm.core" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">platform</dt>
 <dd class="field-odd"><p>Unix/Yocto</p>
@@ -186,7 +188,7 @@
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvar.cm.core.CortexM">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pyvar.cm.core.</span></span><span class="sig-name descname"><span class="pre">CortexM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">core_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tty_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/cm/core.html#CortexM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.cm.core.CortexM" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.cm.core.</span></span><span class="sig-name descname"><span class="pre">CortexM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">core_n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tty_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/cm/core.html#CortexM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.cm.core.CortexM" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Variables</dt>
 <dd class="field-odd"><ul class="simple">
@@ -199,7 +201,7 @@
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvar.cm.core.CortexM.core">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">core</span></span><a class="headerlink" href="#pyvar.cm.core.CortexM.core" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">core</span></span><a class="headerlink" href="#pyvar.cm.core.CortexM.core" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get which Cortex-M core is being used.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -210,7 +212,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvar.cm.core.CortexM.firmware">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">firmware</span></span><a class="headerlink" href="#pyvar.cm.core.CortexM.firmware" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">firmware</span></span><a class="headerlink" href="#pyvar.cm.core.CortexM.firmware" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current Cortex-M firmware.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -241,7 +243,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvar.cm.core.CortexM.state">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#pyvar.cm.core.CortexM.state" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#pyvar.cm.core.CortexM.state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the current Cortex-M state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -282,7 +284,7 @@
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2021 Variscite LTD.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
 </div>
             </div>
           </div>

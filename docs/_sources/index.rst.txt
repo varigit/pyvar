@@ -7,7 +7,7 @@ Variscite Python API
 .. image:: https://img.shields.io/pypi/dm/pyvar?style=for-the-badge
     :alt: PyPI - Downloads
 
-.. image:: https://img.shields.io/tokei/lines/github/dorta/pyvar?style=for-the-badge
+.. image:: https://img.shields.io/tokei/lines/github/varigit/pyvar?style=for-the-badge
     :alt: Lines of code
 
 .. image:: https://img.shields.io/pypi/l/pyvar?style=for-the-badge
@@ -25,9 +25,9 @@ in your development.
 Getting Started
 ~~~~~~~~~~~~~~~
 
-To install the prebuilt pyvar library, see the instructions at `pyvar.dev/software`_ section.
+To install the prebuilt pyvar library, see the instructions at `python.variscite.com/software`_ section.
 
-.. _pyvar.dev/software: https://pyvar.dev/pyvar.gettingstarted.html#software
+.. _python.variscite.com/software: https://python.variscite.com/pyvar.gettingstarted.html#software
 
 +----------------+-------------------+----------------+---------------+--------------+
 | API Release    | BSP Release       | TFLite         | ArmNN         | Date         |
@@ -44,7 +44,7 @@ Quick Examples
 
 To learn more about how to use the pyvar API, see our guide on how to run `quick examples`_.
 
-.. _quick examples: https://pyvar.dev/pyvar.quickexamples.html
+.. _quick examples: https://python.variscite.com/pyvar.quickexamples.html
 
 Useful Links
 ~~~~~~~~~~~~
@@ -78,6 +78,6 @@ License
 
 This project is licensed under the BSD-3-Clause terms, which means that it is
 free for use and you can modify as much as you want as long you retain the
-copyright notice. You can see a copy of the license below at `pyvar.dev/license`_.
+copyright notice. You can see a copy of the license below at `python.variscite.com/license`_.
 
-.. _pyvar.dev/license: https://pyvar.dev/pyvar.license.html
+.. _python.variscite.com/license: https://python.variscite.com/pyvar.license.html
