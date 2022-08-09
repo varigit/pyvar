@@ -7,7 +7,7 @@ Variscite Python API
 .. image:: https://img.shields.io/pypi/dm/pyvar?style=for-the-badge
     :alt: PyPI - Downloads
 
-.. image:: https://img.shields.io/tokei/lines/github/dorta/pyvar?style=for-the-badge
+.. image:: https://img.shields.io/tokei/lines/github/varigit/pyvar?style=for-the-badge
     :alt: Lines of code
 
 .. image:: https://img.shields.io/pypi/l/pyvar?style=for-the-badge
