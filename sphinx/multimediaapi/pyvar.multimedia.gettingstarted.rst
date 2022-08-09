@@ -25,7 +25,7 @@ The pyvar package supports on its `Multimedia API`_ the following cameras:
 
 .. _tutorial: https://variwiki.com/index.php?title=MX8_Basler_Camera_NXP
 
-.. _Multimedia API: https://pyvar.dev/multimediaapi/pyvar.multimedia.html
+.. _Multimedia API: https://python.variscite.com/multimediaapi/pyvar.multimedia.html
 
 See this quick example to open a camera using the multimedia API:
 
