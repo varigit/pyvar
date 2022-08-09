@@ -34,3 +34,5 @@ html_static_path = []
 html_show_sourcelink = True
 
 html_logo = 'images/logo.png'
+
+html_favicon = 'images/favicon.png'
