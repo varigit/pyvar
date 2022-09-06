@@ -182,9 +182,9 @@
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;No ArmNN Runtime module found!&quot;</span><span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="k">import</span> <span class="n">CLASSIFICATION</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="k">import</span> <span class="n">DETECTION</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.utils.timer</span> <span class="k">import</span> <span class="n">Timer</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">DETECTION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.utils.timer</span> <span class="kn">import</span> <span class="n">Timer</span>
 
 
 <div class="viewcode-block" id="ArmNNInterpreter"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.engines.html#pyvar.ml.engines.armnn.ArmNNInterpreter">[docs]</a><span class="k">class</span> <span class="nc">ArmNNInterpreter</span><span class="p">:</span>
@@ -200,14 +200,14 @@
 <span class="sd">    :ivar accelerated: runs inference on NPU or CPU.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">accelerated</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">accelerated</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor method for the Arm NN class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">model_file_path</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must pass a labels file&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">model_file_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.tflite&quot;</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Expects </span><span class="si">{model_file_path}</span><span class="s2"> to be a text file&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expects </span><span class="si">{</span><span class="n">model_file_path</span><span class="si">}</span><span class="s2"> to be a text file&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model_file_path</span> <span class="o">=</span> <span class="n">model_file_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">accelerated</span> <span class="o">=</span> <span class="n">accelerated</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span> <span class="o">=</span> <span class="kc">None</span>
@@ -330,9 +330,7 @@
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2021 Variscite LTD.
-    <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+      &#169; Copyright 2021-2022 Variscite LTD.
 </div>
             </div>
           </div>

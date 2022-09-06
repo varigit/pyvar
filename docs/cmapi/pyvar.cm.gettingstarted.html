@@ -2,7 +2,8 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
       <title>Cortex-M API: Getting Started</title>
     
           <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -171,16 +172,16 @@
 <hr>
           <div class="content" role="main" v-pre>
             
-  <div class="section" id="cortex-m-api-getting-started">
+  <section id="cortex-m-api-getting-started">
 <h1>Cortex-M API: Getting Started<a class="headerlink" href="#cortex-m-api-getting-started" title="Permalink to this heading">¶</a></h1>
-<div class="section" id="introduction">
+<section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
 <p>The Cortex-M API provides a set of functions and methods to help run and communicate
 with Cortex-M applications from the Cortex-A side.</p>
-</div>
-<div class="section" id="software">
+</section>
+<section id="software">
 <h2>Software<a class="headerlink" href="#software" title="Permalink to this heading">¶</a></h2>
-<div class="section" id="setting-up-the-bsp">
+<section id="setting-up-the-bsp">
 <h3>Setting Up the BSP<a class="headerlink" href="#setting-up-the-bsp" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>Build the latest <a class="reference external" href="https://variwiki.com/">Yocto Release</a>, make sure to add the following lines at your <strong>local.conf</strong> file:</p>
@@ -196,32 +197,32 @@ with Cortex-M applications from the Cortex-A side.</p>
 <ol class="arabic simple">
 <li><p>Flash the built image into the SD Card, boot the board, then go to next section.</p></li>
 </ol>
-</div>
-<div class="section" id="python-api-package-installation">
+</section>
+<section id="python-api-package-installation">
 <h3>Python API Package Installation<a class="headerlink" href="#python-api-package-installation" title="Permalink to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>To install the pyvar API Python package use the pip3 tool to retrieve via Pypi:</p>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~#</span> pip3 install pyvar
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~# </span>pip3 install pyvar
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>To make sure that pyvar is installed, run the following command to check:</p>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~#</span> python3
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~# </span>python3
 <span class="go">Python 3.9.5 (default, May  3 2021, 15:11:33)</span>
 <span class="go">[GCC 10.2.0] on linux</span>
 <span class="go">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</span>
-<span class="gp">&gt;</span>&gt;&gt; from pyvar import cm
-<span class="gp">&gt;</span>&gt;&gt;
+<span class="go">&gt;&gt;&gt; from pyvar import cm</span>
+<span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 </ol>
-</div>
-<div class="section" id="quick-example">
+</section>
+<section id="quick-example">
 <h3>Quick Example<a class="headerlink" href="#quick-example" title="Permalink to this heading">¶</a></h3>
 <p>See this quick example to run a Cortex-M application using the Cortex-M API:</p>
 <blockquote>
@@ -242,9 +243,9 @@ with Cortex-M applications from the Cortex-A side.</p>
 </pre></div>
 </div>
 </div></blockquote>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
           </div>
@@ -259,9 +260,7 @@ with Cortex-M applications from the Cortex-A side.</p>
        title="next chapter">Utils: pyvar.cm.core →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2021 Variscite LTD.
-    <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+      &#169; Copyright 2021-2022 Variscite LTD.
 </div>
             </div>
           </div>

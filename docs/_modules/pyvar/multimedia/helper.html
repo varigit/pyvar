@@ -179,12 +179,12 @@
 <span class="kn">import</span> <span class="nn">gi</span>
 
 <span class="n">gi</span><span class="o">.</span><span class="n">require_version</span><span class="p">(</span><span class="s1">&#39;Gst&#39;</span><span class="p">,</span> <span class="s1">&#39;1.0&#39;</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="k">import</span> <span class="n">Gst</span>
+<span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">Gst</span>
 
-<span class="kn">from</span> <span class="nn">pyvar.multimedia.config</span> <span class="k">import</span> <span class="n">FULL_HD_RESOLUTION</span>
-<span class="kn">from</span> <span class="nn">pyvar.multimedia.config</span> <span class="k">import</span> <span class="n">HD_RESOLUTION</span>
-<span class="kn">from</span> <span class="nn">pyvar.multimedia.config</span> <span class="k">import</span> <span class="n">VGA_RESOLUTION</span>
-<span class="kn">from</span> <span class="nn">pyvar.multimedia.config</span> <span class="k">import</span> <span class="n">LEAKY</span>
+<span class="kn">from</span> <span class="nn">pyvar.multimedia.config</span> <span class="kn">import</span> <span class="n">FULL_HD_RESOLUTION</span>
+<span class="kn">from</span> <span class="nn">pyvar.multimedia.config</span> <span class="kn">import</span> <span class="n">HD_RESOLUTION</span>
+<span class="kn">from</span> <span class="nn">pyvar.multimedia.config</span> <span class="kn">import</span> <span class="n">VGA_RESOLUTION</span>
+<span class="kn">from</span> <span class="nn">pyvar.multimedia.config</span> <span class="kn">import</span> <span class="n">LEAKY</span>
 
 
 <div class="viewcode-block" id="Multimedia"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Multimedia">[docs]</a><span class="k">class</span> <span class="nc">Multimedia</span><span class="p">:</span>
@@ -197,7 +197,7 @@
 <span class="sd">    :ivar sink: video capture.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">video_src</span> <span class="o">=</span> <span class="n">source</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="n">resolution</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">devices</span> <span class="o">=</span> <span class="n">Devices</span><span class="p">()</span>
@@ -221,8 +221,8 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_caps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">vga_caps</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span> <span class="o">!=</span> <span class="n">HD_RESOLUTION</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Invalid resolution: </span><span class="si">{self.resolution}</span><span class="s2">. &quot;</span>
-                      <span class="n">f</span><span class="s2">&quot;Trying to use HD resolution instead.&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid resolution: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">resolution</span><span class="si">}</span><span class="s2">. &quot;</span>
+                      <span class="sa">f</span><span class="s2">&quot;Trying to use HD resolution instead.&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_caps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">hd_caps</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Multimedia.validate_caps"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Multimedia.validate_caps">[docs]</a>    <span class="k">def</span> <span class="nf">validate_caps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">caps</span><span class="p">):</span>
@@ -235,9 +235,9 @@
         <span class="k">if</span> <span class="n">caps</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">caps</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Resolution not supported. Using &quot;</span>
-                  <span class="n">f</span><span class="s2">&quot;</span><span class="si">{self.dev.default_caps.width}</span><span class="s2">x&quot;</span>
-                  <span class="n">f</span><span class="s2">&quot;</span><span class="si">{self.dev.default_caps.height}</span><span class="s2"> instead.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resolution not supported. Using &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">default_caps</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2">x&quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">default_caps</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2"> instead.&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">default_caps</span></div>
 
 <div class="viewcode-block" id="Multimedia.set_v4l2_config"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Multimedia.set_v4l2_config">[docs]</a>    <span class="k">def</span> <span class="nf">set_v4l2_config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -259,18 +259,18 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the v4l2 configuration for video source file.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;filesrc location=</span><span class="si">{filesrc}</span><span class="s2"> ! qtdemux name=d d.video_0 ! &quot;</span>
-                <span class="n">f</span><span class="s2">&quot;decodebin ! queue </span><span class="si">{LEAKY}</span><span class="s2"> ! queue ! imxvideoconvert_g2d ! &quot;</span>
-                <span class="n">f</span><span class="s2">&quot;videoconvert ! appsink&quot;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;filesrc location=</span><span class="si">{</span><span class="n">filesrc</span><span class="si">}</span><span class="s2"> ! qtdemux name=d d.video_0 ! &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;decodebin ! queue </span><span class="si">{</span><span class="n">LEAKY</span><span class="si">}</span><span class="s2"> ! queue ! imxvideoconvert_g2d ! &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;videoconvert ! appsink&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Multimedia.v4l2_camera_pipeline"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Multimedia.v4l2_camera_pipeline">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">v4l2_camera_pipeline</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">framerate</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the v4l2 configuration for camera device.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;v4l2src device=</span><span class="si">{device}</span><span class="s2"> ! video/x-raw,width=</span><span class="si">{width}</span><span class="s2">,&quot;</span>
-                <span class="n">f</span><span class="s2">&quot;height=</span><span class="si">{height}</span><span class="s2">,framerate=</span><span class="si">{framerate}</span><span class="s2"> ! queue </span><span class="si">{LEAKY}</span><span class="s2"> ! &quot;</span>
-                <span class="n">f</span><span class="s2">&quot;videoconvert ! appsink&quot;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;v4l2src device=</span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2"> ! video/x-raw,width=</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">,&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;height=</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2">,framerate=</span><span class="si">{</span><span class="n">framerate</span><span class="si">}</span><span class="s2"> ! queue </span><span class="si">{</span><span class="n">LEAKY</span><span class="si">}</span><span class="s2"> ! &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;videoconvert ! appsink&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Multimedia.get_frame"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Multimedia.get_frame">[docs]</a>    <span class="k">def</span> <span class="nf">get_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -337,7 +337,7 @@
 <span class="sd">    :ivar vga_caps: vga caps resolution.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">caps</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">default_caps</span> <span class="o">=</span> <span class="kc">None</span>
@@ -357,7 +357,7 @@
 <span class="sd">    :ivar framerate: caps framerate.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="kc">None</span>
@@ -372,7 +372,7 @@
 <span class="sd">    :ivar devices: devices from device monitor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">devices</span> <span class="o">=</span> <span class="p">[]</span>
 
 <div class="viewcode-block" id="Devices.get_video_devices"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Devices.get_video_devices">[docs]</a>    <span class="k">def</span> <span class="nf">get_video_devices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -470,7 +470,7 @@
             <span class="n">dev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">elif</span> <span class="ow">not</span> <span class="n">dev</span><span class="p">:</span>
             <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;No video device found. Exiting...&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Using </span><span class="si">{dev.name}</span><span class="s2"> as video device&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using </span><span class="si">{</span><span class="n">dev</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> as video device&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">dev</span></div></div>
 </pre></div>
 
@@ -478,9 +478,7 @@
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2021 Variscite LTD.
-    <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+      &#169; Copyright 2021-2022 Variscite LTD.
 </div>
             </div>
           </div>

@@ -177,7 +177,7 @@
 
 <span class="kn">import</span> <span class="nn">serial</span>
 
-<span class="kn">from</span> <span class="nn">.utils.helper</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.utils.helper</span> <span class="kn">import</span> <span class="o">*</span>
 
 
 <div class="viewcode-block" id="CortexM"><a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM">[docs]</a><span class="k">class</span> <span class="nc">CortexM</span><span class="p">:</span>
@@ -188,7 +188,7 @@
 <span class="sd">    :ivar firmwares: list all the available Cortex-M firmwares;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tty_offset</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tty_offset</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor method for the Cortex-M class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -201,7 +201,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_firmware_path</span> <span class="o">=</span> <span class="n">CM_FIRMWARE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_state_path</span> <span class="o">=</span> <span class="n">CM_STATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Destructor method for the Cortex-M class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -300,7 +300,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_load</span><span class="p">(</span><span class="n">firmware</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_start</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{firmware}</span><span class="s2"> is not a valid Cortex-M app.&quot;</span><span class="p">)</span></div>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">firmware</span><span class="si">}</span><span class="s2"> is not a valid Cortex-M app.&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="CortexM.write"><a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM.write">[docs]</a>    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -311,11 +311,11 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="p">):</span>
             <span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="p">)</span> <span class="k">as</span> <span class="n">ser</span><span class="p">:</span>
-                <span class="n">msg_len</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{message}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+                <span class="n">msg_len</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
                 <span class="n">msg</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">msg_len</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Message read from Cortex-M: </span><span class="si">{msg}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Message read from Cortex-M: </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Device not found: </span><span class="si">{self.tty_rpmsg}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device not found: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="CortexM.read"><a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM.read">[docs]</a>    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -324,21 +324,21 @@
         <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="p">):</span>
             <span class="k">with</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="k">as</span> <span class="n">ser</span><span class="p">:</span>
                 <span class="n">msg</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Message read from Cortex-M: </span><span class="si">{msg}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Message read from Cortex-M: </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Device not found: </span><span class="si">{self.tty_rpmsg}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device not found: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_validate_cm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if Cortex-M is available.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">is_cm_enabled</span><span class="p">():</span>
-            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Error: </span><span class="si">{CM_REMOTEPROC_DIR}</span><span class="s2"> not found.</span><span class="se">\n</span><span class="s2">&quot;</span>
-                     <span class="n">f</span><span class="s2">&quot;Please enable remoteproc driver.</span><span class="se">\n</span><span class="s2">&quot;</span>
-                     <span class="n">f</span><span class="s2">&quot;Most likely you need to use the correct&quot;</span>
-                     <span class="n">f</span><span class="s2">&quot; device tree, try to run:</span><span class="se">\n</span><span class="s2">&quot;</span>
-                     <span class="n">f</span><span class="s2">&quot;fw_setenv fdt_file {get_cm_dtb(self.module)}&quot;</span>
-                     <span class="n">f</span><span class="s2">&quot; &amp;&amp; reboot&quot;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">CM_REMOTEPROC_DIR</span><span class="si">}</span><span class="s2"> not found.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="sa">f</span><span class="s2">&quot;Please enable remoteproc driver.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="sa">f</span><span class="s2">&quot;Most likely you need to use the correct&quot;</span>
+                     <span class="sa">f</span><span class="s2">&quot; device tree, try to run:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                     <span class="sa">f</span><span class="s2">&quot;fw_setenv fdt_file </span><span class="si">{</span><span class="n">get_cm_dtb</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">module</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                     <span class="sa">f</span><span class="s2">&quot; &amp;&amp; reboot&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_validate_firmwares</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -384,9 +384,7 @@
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2021 Variscite LTD.
-    <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+      &#169; Copyright 2021-2022 Variscite LTD.
 </div>
             </div>
           </div>

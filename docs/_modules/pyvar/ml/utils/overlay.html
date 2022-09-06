@@ -178,9 +178,9 @@
 <span class="kn">import</span> <span class="nn">cv2</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="k">import</span> <span class="n">CLASSIFICATION</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="k">import</span> <span class="n">DETECTION</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="k">import</span> <span class="n">FONT</span><span class="p">,</span> <span class="n">FPS_MSG</span><span class="p">,</span> <span class="n">INF_TIME_MSG</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">DETECTION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="kn">import</span> <span class="n">FONT</span><span class="p">,</span> <span class="n">FPS_MSG</span><span class="p">,</span> <span class="n">INF_TIME_MSG</span>
 
 
 <div class="viewcode-block" id="Overlay"><a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.overlay.Overlay">[docs]</a><span class="k">class</span> <span class="nc">Overlay</span><span class="p">:</span>
@@ -190,7 +190,7 @@
 <span class="sd">    :ivar extra_info: shows extra info on image/frame;</span>
 <span class="sd">    :ivar framerate_info: shows framerate on image/frame.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor method for the Label class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -238,7 +238,7 @@
                     <span class="n">label_position</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">35</span> <span class="o">*</span> <span class="n">idx</span> <span class="o">+</span> <span class="mi">60</span><span class="p">)</span>
                     <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
                         <span class="n">image</span><span class="p">,</span>
-                        <span class="n">f</span><span class="s2">&quot;</span><span class="si">{labels[i]}</span><span class="s2"> - </span><span class="si">{score:0.4f}</span><span class="s2">&quot;</span><span class="p">,</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
                         <span class="n">label_position</span><span class="p">,</span>
                         <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
                         <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">],</span>
@@ -246,7 +246,7 @@
                         <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;thickness&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
                     <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
                         <span class="n">image</span><span class="p">,</span>
-                        <span class="n">f</span><span class="s2">&quot;</span><span class="si">{labels[i]}</span><span class="s2"> - </span><span class="si">{score:0.4f}</span><span class="s2">&quot;</span><span class="p">,</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
                         <span class="n">label_position</span><span class="p">,</span>
                         <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
                         <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">],</span>
@@ -292,10 +292,10 @@
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference_time_info</span><span class="p">:</span>
             <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
-                <span class="n">image</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{INF_TIME_MSG}</span><span class="s2">: </span><span class="si">{inference_time}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inference_position</span><span class="p">,</span>
+                <span class="n">image</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">INF_TIME_MSG</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">inference_time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inference_position</span><span class="p">,</span>
                 <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">][</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">)</span>
             <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
-                <span class="n">image</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{INF_TIME_MSG}</span><span class="s2">: </span><span class="si">{inference_time}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inference_position</span><span class="p">,</span>
+                <span class="n">image</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">INF_TIME_MSG</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">inference_time</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">inference_position</span><span class="p">,</span>
                 <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">][</span><span class="s1">&#39;white&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_info</span><span class="p">:</span>
@@ -303,22 +303,22 @@
                                             <span class="n">source_file</span><span class="p">,</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
                                             <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
-                <span class="n">image</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;source: </span><span class="si">{source_file}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">),</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
+                <span class="n">image</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;source: </span><span class="si">{</span><span class="n">source_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">),</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
                 <span class="mf">0.5</span><span class="p">,</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">][</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">)</span>
             <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
-                <span class="n">image</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;source: </span><span class="si">{source_file}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">),</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
+                <span class="n">image</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;source: </span><span class="si">{</span><span class="n">source_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">),</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
                 <span class="mf">0.5</span><span class="p">,</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">][</span><span class="s1">&#39;white&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">)</span>
             <span class="n">y_offset</span> <span class="o">-=</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span>
                              <span class="n">model_name</span><span class="p">,</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
             <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
-                <span class="n">image</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;model: </span><span class="si">{model_name}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">),</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
+                <span class="n">image</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">),</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
                 <span class="mf">0.5</span><span class="p">,</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">][</span><span class="s1">&#39;black&#39;</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">)</span>
             <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
-                <span class="n">image</span><span class="p">,</span> <span class="n">f</span><span class="s2">&quot;model: </span><span class="si">{model_name}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">),</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
+                <span class="n">image</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;model: </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">),</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
                 <span class="mf">0.5</span><span class="p">,</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">][</span><span class="s1">&#39;white&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">framerate_info</span><span class="p">:</span>
-            <span class="n">fps_msg</span> <span class="o">=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{FPS_MSG}</span><span class="s2">: {int(fps)}&quot;</span>
+            <span class="n">fps_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">FPS_MSG</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="n">x_offset</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span>
                                              <span class="n">fps_msg</span><span class="p">,</span> <span class="n">FONT</span><span class="p">[</span><span class="s1">&#39;hershey&#39;</span><span class="p">],</span>
                                              <span class="mf">0.8</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">10</span><span class="p">)</span>
@@ -335,9 +335,7 @@
           <div class="page-nav">
             <div class="inner"><ul class="page-nav">
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2021 Variscite LTD.
-    <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a> 0.8.0.
+      &#169; Copyright 2021-2022 Variscite LTD.
 </div>
             </div>
           </div>
