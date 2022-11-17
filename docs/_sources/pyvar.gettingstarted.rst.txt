@@ -14,21 +14,6 @@ model training, and model quantization even though those are long subjects.
 Software
 --------
 
-Setting Up the BSP
-~~~~~~~~~~~~~~~~~~
-
-#. Build the latest `Yocto Release`_, make sure to add the following lines at your **local.conf** file:
-
-    .. code-block:: bash
-
-        IMAGE_INSTALL_append = " \
-            python3-pip \
-        "
-
-.. _Yocto Release: https://variwiki.com/
-
-1. Flash the built image into the SD Card, boot the board, then go to next section.
-
 Python API Package Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

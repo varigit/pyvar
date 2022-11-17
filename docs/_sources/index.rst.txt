@@ -17,7 +17,7 @@ Overview
 --------
 
 The **Variscite Python API** known as **pyvar** is a set of high-level abstractions that
-allows any beginning user to develop its own applications regarding Machine Learning,
+allows any beginning user to develop their own applications regarding Machine Learning,
 multimedia, and more. This package aims to provide classes that you can easily import
 and use on your project, and it also includes quick source code examples to help
 in your development.
@@ -34,10 +34,16 @@ To install the prebuilt pyvar library, see the instructions at `python.variscite
 +================+===================+================+===============+==============+
 | `v1.0.0`_      | `5.10.52_2.1.0`_  | 2.5.0          | 24.0.0        | 12/11/2021   |
 +----------------+-------------------+----------------+---------------+--------------+
+| `v1.1.0`_      | `5.15-2.0.x`_     | 2.8.0          |               | 16/11/2022   |
++----------------+-------------------+----------------+---------------+--------------+
 
 .. _v1.0.0: https://github.com/varigit/pyvar/releases/tag/v1.0.0
 
 .. _5.10.52_2.1.0: https://variwiki.com/index.php?title=DART-MX8M-PLUS_Yocto&release=RELEASE_HARDKNOTT_V2.1_DART-MX8M-PLUS
+
+.. _v1.1.0: https://github.com/varigit/pyvar/releases/tag/v1.1.0
+
+.. _5.15-2.0.x: https://variwiki.com/index.php?title=DART-MX8M-PLUS_Yocto&release=mx8mp-yocto-kirkstone-5.15-2.0.x-v1.0
 
 Quick Examples
 ~~~~~~~~~~~~~~

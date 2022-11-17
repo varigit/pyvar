@@ -179,6 +179,7 @@
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">tflite_runtime.interpreter</span> <span class="kn">import</span> <span class="n">Interpreter</span>
+    <span class="kn">from</span> <span class="nn">tflite_runtime.interpreter</span> <span class="kn">import</span> <span class="n">load_delegate</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;No TensorFlow Lite Runtime module found!&quot;</span><span class="p">)</span>
 
@@ -200,11 +201,17 @@
 <span class="sd">    :ivar k: number of top results;</span>
 <span class="sd">    :ivar confidence: confidence score, default is 0.5.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">num_threads</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">num_threads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ext_delegate</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor method for the TensorFlow Lite class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">max_threads</span> <span class="o">=</span> <span class="n">cpu_count</span><span class="p">()</span>
+
+        <span class="n">ext_delegate_options</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">ext_delegate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ext_delegate_path</span> <span class="o">=</span> <span class="s2">&quot;/usr/lib/libvx_delegate.so&quot;</span>
+            <span class="n">ext_delegate</span> <span class="o">=</span> <span class="p">[</span><span class="n">load_delegate</span><span class="p">(</span>
+                                        <span class="n">ext_delegate_path</span><span class="p">,</span> <span class="n">ext_delegate_options</span><span class="p">)]</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">model_file_path</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Must pass a labels file&quot;</span><span class="p">)</span>
@@ -218,6 +225,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">model_file_path</span> <span class="o">=</span> <span class="n">model_file_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span> <span class="o">=</span> <span class="n">Interpreter</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model_file_path</span><span class="p">,</span>
+                                       <span class="n">experimental_delegates</span><span class="o">=</span><span class="n">ext_delegate</span><span class="p">,</span>
                                        <span class="n">num_threads</span><span class="o">=</span><span class="n">num_threads</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">allocate_tensors</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">input_details</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">get_input_details</span><span class="p">()</span>
