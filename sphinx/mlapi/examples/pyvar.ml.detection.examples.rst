@@ -45,11 +45,6 @@ Run the Image Detection Example
 
 .. _image_detection_tflite.py: https://github.com/varigit/pyvar/blob/master/examples/ml/detection/image_detection_tflite.py
 
-.. note::
-   You can try the same example using Arm NN as inference engine `image_detection_armnn.py`_.
-
-.. _image_detection_armnn.py: https://github.com/varigit/pyvar/blob/master/examples/ml/detection/image_detection_armnn.py
-
 |
 |
 |
@@ -92,11 +87,6 @@ Run the Video Detection Example
 
 .. _video_detection_tflite.py: https://github.com/varigit/pyvar/blob/master/examples/ml/detection/video_detection_tflite.py
 
-.. note::
-   You can try the same example using Arm NN as inference engine `video_detection_armnn.py`_.
-
-.. _video_detection_armnn.py: https://github.com/varigit/pyvar/blob/master/examples/ml/detection/video_detection_armnn.py
-
 |
 |
 |
@@ -124,8 +114,3 @@ Run the Real Time Detection Example
    :name: Real Time Detection Example
 
 .. _realtime_detection_tflite.py: https://github.com/varigit/pyvar/blob/master/examples/ml/detection/realtime_detection_tflite.py
-
-.. note::
-   You can try the same example using Arm NN as inference engine `realtime_detection_armnn.py`_.
-
-.. _realtime_detection_armnn.py: https://github.com/varigit/pyvar/blob/master/examples/ml/detection/realtime_detection_armnn.py
