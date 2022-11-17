@@ -1,3 +1,11 @@
+1.1.0:
+    - Update TensorFlow Lite to 2.8.0 version;
+    - Add support for VX delegate to run inference on NPU;
+    - Add support for num_threads to tflite engine;
+    - Add support for Cortex-M;
+    - ArmNN is no longer supported;
+    - Change domain from pyvar.dev to python.variscite.com;
+    - Documentation page updated.
 1.0.0:
     - Support inference engine for TensorFlow Lite 2.5.0;
     - Support inference engine for Arm NN 24.0.0;
@@ -5,4 +13,3 @@
     - Support utils classes for label, resizer, overlay, fps, ftp, and timer;
     - Quick Classification, Detection and user interfaces examples;
     - pyvar.dev documentation page.
-    
