@@ -15,6 +15,7 @@ import numpy as np
 
 try:
     from tflite_runtime.interpreter import Interpreter
+    from tflite_runtime.interpreter import load_delegate
 except ImportError:
     sys.exit("No TensorFlow Lite Runtime module found!")
 
@@ -36,11 +37,17 @@ class TFLiteInterpreter:
     :ivar k: number of top results;
     :ivar confidence: confidence score, default is 0.5.
     """
-    def __init__(self, model_file_path=None, num_threads=1):
+    def __init__(self, model_file_path=None, num_threads=1, ext_delegate=None):
         """
         Constructor method for the TensorFlow Lite class.
         """
         max_threads = cpu_count()
+
+        ext_delegate_options = {}
+        if ext_delegate is None:
+            ext_delegate_path = "/usr/lib/libvx_delegate.so"
+            ext_delegate = [load_delegate(
+                                        ext_delegate_path, ext_delegate_options)]
 
         if not os.path.isfile(model_file_path):
             raise ValueError("Must pass a labels file")
@@ -54,6 +61,7 @@ class TFLiteInterpreter:
 
         self.model_file_path = model_file_path
         self.interpreter = Interpreter(model_path=self.model_file_path,
+                                       experimental_delegates=ext_delegate,
                                        num_threads=num_threads)
         self.interpreter.allocate_tensors()
         self.input_details = self.interpreter.get_input_details()
