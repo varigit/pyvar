@@ -17,7 +17,7 @@ Overview
 --------
 
 The **Variscite Python API** known as **pyvar** is a set of high-level abstractions that
-allows any beginning user to develop their own applications regarding Machine Learning,
+allows beginning users to develop their own applications regarding Machine Learning,
 multimedia, and more. This package aims to provide classes that you can easily import
 and use on your project, and it also includes quick source code examples to help
 in your development.
