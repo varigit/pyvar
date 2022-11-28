@@ -23,7 +23,7 @@ Setting Up the BSP
 
 .. _Yocto Release: https://variwiki.com/
 
-1. Flash the built image into the SD Card, boot the board, then go to next section.
+1. Flash the built image into the SD Card, boot the board, then go to the next section.
 
 
 Python API Package Installation
