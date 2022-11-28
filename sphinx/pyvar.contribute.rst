@@ -22,11 +22,11 @@ Coding Convention and Requirements
 
 *  Avoid as much as you can adding dependencies that are not currently supported by Variscite BSP.
 
-   *  You must handle this as optional feature using accert or try methods to verify if it is installed or not.
+   *  You must handle this as an optional feature using assert or try methods to verify if it is installed or not.
 
-*  Before sending the pull request or patch follow the above recommendations:
+*  Before sending the pull request or patch, follow the recommendations below:
 
-   *  You must keep your code clean and neat, which means that must be readable;
+   *  You must keep your code clean and neat, which means that it must be readable;
    *  You must not apply general rules of git commits and common senses;
    *  You must not write a lengthy commit - only one single topic per commit;
    *  You must provide enough background information and references.
@@ -72,9 +72,9 @@ Code Reviews, Pull Requests and Patches
 Merge Criteria
 ~~~~~~~~~~~~~~
 
-A pull request must be according to the following statements to be accepted:
+A pull request must be according with the following statements to be accepted:
 
-*  Passed all the tests executed for the any other code reviewer.
+*  Passed all the tests executed by any other code reviewer.
 
    *  This includes unit tests and integration tests;
    *  If the pull requests affects sensitive codes or may affect wide ranges of components, reviewers will wait for other reviewers to back them up;
@@ -83,4 +83,4 @@ A pull request must be according to the following statements to be accepted:
 *  There is no rejections from any official reviewers.
 *  There is no pending negative feed-backs (unresolved issues) from reviewers.
 
-After these above requirements, then a committer with merging privilege will be able to merge the given pull request or patch.
+After these above requirements are fulfilled, then a committer with merging privilege will be able to merge the given pull request or patch.

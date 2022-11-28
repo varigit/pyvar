@@ -4,7 +4,7 @@ Multimedia API: Getting Started
 Introduction
 ------------
 
-The Multimedia API provides a set o classes and functions to provide an easy way
+The Multimedia API provides a set of classes and functions providing an easy way to
 write multimedia applications for the Variscite's SoMs, such as capturing and
 displaying images using cameras, playing videos, and so on.
 
@@ -14,7 +14,7 @@ Hardware
 Supported Cameras
 ~~~~~~~~~~~~~~~~~
 
-The pyvar package supports on its `Multimedia API`_ the following cameras:
+The pyvar package's `Multimedia API`_ supports the following cameras:
 
 * `VCAM-5640S-DUO`_;
 * `VCAM-AR0821N`_. To use the Basler one, please see this `tutorial`_.
@@ -55,7 +55,7 @@ See this quick example to open a camera using the multimedia API:
 Software
 --------
 
-Setting Up the BSP
+Setting up the BSP
 ~~~~~~~~~~~~~~~~~~
 
 #. Build the latest `Yocto Release`_ with **Wayland** + **X11** features using **fsl-image-qt5** image;
@@ -74,12 +74,12 @@ Setting Up the BSP
 
 .. _Yocto Release: https://variwiki.com/
 
-1. Flash the built image into the SD Card, boot the board, then go to next section.
+1. Flash the built image into the SD Card, boot the board, then go to the next section.
 
 Python API Package Installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. To install the pyvar API Python package use the pip3 tool to retrieve via Pypi:
+1. To install the pyvar API Python package use the pip3 tool to retrieve it via Pypi:
 
     .. code-block:: console
 
