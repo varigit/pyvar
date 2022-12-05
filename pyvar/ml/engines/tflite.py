@@ -66,6 +66,7 @@ class TFLiteInterpreter:
         self.interpreter.allocate_tensors()
         self.input_details = self.interpreter.get_input_details()
         self.output_details = self.interpreter.get_output_details()
+        self.interpreter.invoke()
         self.result = None
         self.inference_time = None
         self.k = 3
@@ -175,7 +176,6 @@ class TFLiteInterpreter:
         """
         Runs inference on the image/frame set in the set_input() method.
         """
-        self.interpreter.invoke()  # ignores the warm-up time.
         timer = Timer()
         with timer.timeit():
             self.interpreter.invoke()
