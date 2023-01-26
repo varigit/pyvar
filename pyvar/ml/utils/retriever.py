@@ -66,6 +66,7 @@ class FTP:
             True if the package file was downloaded successfully. False if not.
         """
         host_name = socket.gethostname()
+        host_93 = False
         if host_name.startswith("imx93"):
             host_93 = True
 
