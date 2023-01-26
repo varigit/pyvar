@@ -12,10 +12,12 @@ import ftplib
 import glob
 import os
 import shutil
+import socket
 import sys
 
 from pyvar.config import CACHEDIR
 from pyvar.ml.config import CLASSIFICATION
+from pyvar.ml.config import CLASSIFICATION_93
 from pyvar.ml.config import DETECTION
 from pyvar.ml.config import SEGMENTATION
 from pyvar.ml.utils.config import DEFAULT_PACKAGES
@@ -63,10 +65,16 @@ class FTP:
         Returns:
             True if the package file was downloaded successfully. False if not.
         """
+        host_name = socket.gethostname()
+        if host_name.startswith("imx93"):
+            host_93 = True
+
         if category is not None:
             if category is CLASSIFICATION:
                 package_dir = DEFAULT_PACKAGES[CLASSIFICATION][0]
                 package_filename = DEFAULT_PACKAGES[CLASSIFICATION][1]
+                if host_93 is True:
+                    package_filename = DEFAULT_PACKAGES[CLASSIFICATION_93][1]
             elif category is DETECTION:
                 package_dir = DEFAULT_PACKAGES[DETECTION][0]
                 package_filename = DEFAULT_PACKAGES[DETECTION][1]

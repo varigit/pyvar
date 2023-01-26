@@ -32,9 +32,7 @@ PNG = "*.png"
 MP4 = "*.mp4"
 
 # Default Packages from FTP
-DEFAULT_PACKAGES = {'classification': ["pyvarml/classification/",
-                                       "mobilenet_v1_1.0_224_quant.zip"],
-                    'detection': ["pyvarml/detection/",
-                                  "ssd_mobilenet_v1_1_default_1.zip"],
-                    'segmentation': ["pyvarml/segmentation/",
-                                     "deeplabv3_mnv2_pascal_quant.zip"]}
+DEFAULT_PACKAGES = {'classification'      : ["machine_learning_data/classification/", "mobilenet_v1_1.0_224_quant.zip"],
+                    'classification_93'   : ["machine_learning_data/classification/", "mobilenet_v1_1.0_224_quant_vela.zip"],
+                    'detection'           : ["machine_learning_data/detection/",      "ssd_mobilenet_v1_1_default_1.zip"],
+                    'segmentation'        : ["machine_learning_data/segmentation/",   "deeplabv3_mnv2_pascal_quant.zip"]}
