@@ -96,12 +96,12 @@ class Multimedia:
 
     @staticmethod
     def v4l2_video_pipeline_imx83(filesrc):
-    """
-    Set the v4l2 configuration for i.MX 93.
-    """
-    return (f"filesrc location={filesrc} ! qtdemux name=d d.video_0 ! " \
-            f"h264parse ! queue leaky=downstream max-size-buffers=1 ! " \
-            f"queue ! videoconvert ! appsink")
+        """
+        Set the v4l2 configuration for i.MX 93.
+        """
+        return (f"filesrc location={filesrc} ! qtdemux name=d d.video_0 ! " \
+                f"h264parse ! queue leaky=downstream max-size-buffers=1 ! " \
+                f"queue ! videoconvert ! appsink")
 
     @staticmethod
     def v4l2_video_pipeline(filesrc):
