@@ -9,6 +9,7 @@
 """
 
 import os
+import socket
 import sys
 
 import cv2
@@ -82,6 +83,9 @@ class Multimedia:
         """
         if self.video_src and os.path.isfile(self.video_src):
             pipeline = self.v4l2_video_pipeline(self.video_src)
+            host_name = socket.gethostname()
+            if host_name.startswith("imx93"):
+                pipeline = self.v4l2_video_pipeline_imx93(self.video_src)
         else:
             pipeline = self.v4l2_camera_pipeline(
                 width=self.dev_caps.width,
@@ -89,6 +93,15 @@ class Multimedia:
                 device=self.dev.name,
                 framerate=self.dev_caps.framerate)
         self.sink = cv2.VideoCapture(pipeline)
+
+    @staticmethod
+    def v4l2_video_pipeline_imx83(filesrc):
+    """
+    Set the v4l2 configuration for i.MX 93.
+    """
+    return (f"filesrc location={filesrc} ! qtdemux name=d d.video_0 ! " \
+            f"h264parse ! queue leaky=downstream max-size-buffers=1 ! " \
+            f"queue ! videoconvert ! appsink")
 
     @staticmethod
     def v4l2_video_pipeline(filesrc):
