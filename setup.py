@@ -9,7 +9,7 @@ with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(name="pyvar",
-      version="1.1.0",
+      version="1.2.0",
       description="Variscite Python Package",
       long_description=long_description,
       long_description_content_type='text/markdown',
