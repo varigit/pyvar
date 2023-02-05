@@ -23,19 +23,24 @@ and use on your project, and it also includes quick source code examples to help
 in your development.
 
 Getting Started
-~~~~~~~~~~~~~~~
+---------------
 
 To install the prebuilt pyvar library, see the instructions at `python.variscite.com/software`_ section.
 
 .. _python.variscite.com/software: https://python.variscite.com/pyvar.gettingstarted.html#software
 
-+----------------+-------------------+----------------+---------------+--------------+
-| API Release    | BSP Release       | TFLite         | ArmNN         | Date         |
-+================+===================+================+===============+==============+
-| `v1.0.0`_      | `5.10.52_2.1.0`_  | 2.5.0          | 24.0.0        | 12/11/2021   |
-+----------------+-------------------+----------------+---------------+--------------+
-| `v1.1.0`_      | `5.15-2.0.x`_     | 2.8.0          |               | 16/11/2022   |
-+----------------+-------------------+----------------+---------------+--------------+
+Release History
+~~~~~~~~~~~~~~~
+
++----------------+--------------------------+------------------------+----------------+---------------+--------------+--------------+
+| API Release    | BSP Release i.MX 8M Plus | BSP Release i.MX 93    | TFLite         | ArmNN         | Ethosu       | Date         |
++================+==========================+========================+================+===============+==============+==============+
+| `v1.2.0`_      | `5.15-2.0.x`_            | `5.15.71`_             | 2.8.0          | N/A           | 3.5.0        | 05/02/2023   |
++----------------+--------------------------+------------------------+----------------+---------------+--------------+--------------+
+| `v1.1.0`_      | `5.15-2.0.x`_            | `5.15-2.0.x`_          | 2.8.0          | N/A           | N/A          | 16/11/2022   |
++----------------+--------------------------+------------------------+----------------+---------------+--------------+--------------+
+| `v1.0.0`_      | `5.10.52_2.1.0`_         | `5.10.52_2.1.0`_       | 2.5.0          | 24.0.0        | N/A          | 12/11/2021   |
++----------------+--------------------------+------------------------+----------------+---------------+--------------+--------------+
 
 .. _v1.0.0: https://github.com/varigit/pyvar/releases/tag/v1.0.0
 
@@ -44,6 +49,10 @@ To install the prebuilt pyvar library, see the instructions at `python.variscite
 .. _v1.1.0: https://github.com/varigit/pyvar/releases/tag/v1.1.0
 
 .. _5.15-2.0.x: https://variwiki.com/index.php?title=DART-MX8M-PLUS_Yocto&release=mx8mp-yocto-kirkstone-5.15-2.0.x-v1.0
+
+.. _5.15.71: https://variwiki.com/index.php?title=VAR-SOM-MX93
+
+.. _v1.2.0: https://github.com/varigit/pyvar/releases/tag/v1.2.0
 
 Quick Examples
 ~~~~~~~~~~~~~~

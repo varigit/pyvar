@@ -173,6 +173,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">socket</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">import</span> <span class="nn">cv2</span>
@@ -246,6 +247,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">video_src</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">video_src</span><span class="p">):</span>
             <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v4l2_video_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">video_src</span><span class="p">)</span>
+            <span class="n">host_name</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">host_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;imx93&quot;</span><span class="p">):</span>
+                <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v4l2_video_pipeline_imx93</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">video_src</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">pipeline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v4l2_camera_pipeline</span><span class="p">(</span>
                 <span class="n">width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dev_caps</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
@@ -253,6 +257,14 @@
                 <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                 <span class="n">framerate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dev_caps</span><span class="o">.</span><span class="n">framerate</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sink</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Multimedia.v4l2_video_pipeline_imx93"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Multimedia.v4l2_video_pipeline_imx93">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">v4l2_video_pipeline_imx93</span><span class="p">(</span><span class="n">filesrc</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the v4l2 configuration for i.MX 93.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;filesrc location=</span><span class="si">{</span><span class="n">filesrc</span><span class="si">}</span><span class="s2"> ! qtdemux name=d d.video_0 ! &quot;</span> \
+                <span class="sa">f</span><span class="s2">&quot;avdec_h264 ! queue ! videoconvert ! appsink&quot;</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Multimedia.v4l2_video_pipeline"><a class="viewcode-back" href="../../../multimediaapi/pyvar.multimedia.html#pyvar.multimedia.helper.Multimedia.v4l2_video_pipeline">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">v4l2_video_pipeline</span><span class="p">(</span><span class="n">filesrc</span><span class="p">):</span>

@@ -298,6 +298,130 @@ if <strong>not</strong>, return <strong>False</strong></p>
 
 </section>
 </section>
+<section id="ethosu-tensorflow-lite-inference-engine">
+<h2>Ethosu (TensorFlow Lite) Inference Engine<a class="headerlink" href="#ethosu-tensorflow-lite-inference-engine" title="Permalink to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/tensorflow_lite.png"><img alt="../_images/tensorflow_lite.png" src="../_images/tensorflow_lite.png" style="width: 45%;" /></a>
+<section id="module-pyvar.ml.engines.ethosu">
+<span id="pyvar-ml-engines-ethosu"></span><h3>pyvar.ml.engines.ethosu<a class="headerlink" href="#module-pyvar.ml.engines.ethosu" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">platform</dt>
+<dd class="field-odd"><p>Unix/Yocto</p>
+</dd>
+<dt class="field-even">synopsis</dt>
+<dd class="field-even"><p>Class to handle Ethosu inference engine.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvar.ml.engines.ethosu.EthosuInterpreter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.engines.ethosu.</span></span><span class="sig-name descname"><span class="pre">EthosuInterpreter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/ethosu.html#EthosuInterpreter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.ethosu.EthosuInterpreter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>interpreter</strong> – TensorFlow Lite interpreter;</p></li>
+<li><p><strong>input_details</strong> – input details from model;</p></li>
+<li><p><strong>output_details</strong> – output details from inference;</p></li>
+<li><p><strong>result</strong> – results from inference;</p></li>
+<li><p><strong>inference_time</strong> – inference time;</p></li>
+<li><p><strong>model_file_path</strong> – path to the machine learning model;</p></li>
+<li><p><strong>k</strong> – number of top results;</p></li>
+<li><p><strong>confidence</strong> – confidence score, default is 0.5.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.ethosu.EthosuInterpreter.get_dtype">
+<span class="sig-name descname"><span class="pre">get_dtype</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/ethosu.html#EthosuInterpreter.get_dtype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.ethosu.EthosuInterpreter.get_dtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The model type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.ethosu.EthosuInterpreter.get_height">
+<span class="sig-name descname"><span class="pre">get_height</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/ethosu.html#EthosuInterpreter.get_height"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.ethosu.EthosuInterpreter.get_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model height.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The model height.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.ethosu.EthosuInterpreter.get_output">
+<span class="sig-name descname"><span class="pre">get_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">squeeze</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/ethosu.html#EthosuInterpreter.get_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.ethosu.EthosuInterpreter.get_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the result after running the inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<em>int</em>) – index of the result</p></li>
+<li><p><strong>squeeze</strong> (<em>bool</em>) – result is squeezed or not.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if <strong>squeeze</strong>, return <strong>squeezed</strong>
+if <strong>not</strong>, return <strong>not squeeze</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.ethosu.EthosuInterpreter.get_result">
+<span class="sig-name descname"><span class="pre">get_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/ethosu.html#EthosuInterpreter.get_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.ethosu.EthosuInterpreter.get_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the result from the output details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>category</strong> (<em>str</em>) – model category (classification);</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if <strong>success</strong>, return <strong>True</strong>
+if <strong>not</strong>, return <strong>False</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.ethosu.EthosuInterpreter.get_width">
+<span class="sig-name descname"><span class="pre">get_width</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/ethosu.html#EthosuInterpreter.get_width"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.ethosu.EthosuInterpreter.get_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model width.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The model width.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.ethosu.EthosuInterpreter.run_inference">
+<span class="sig-name descname"><span class="pre">run_inference</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/ethosu.html#EthosuInterpreter.run_inference"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.ethosu.EthosuInterpreter.run_inference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs inference on the image/frame set in the set_input() method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.ethosu.EthosuInterpreter.set_confidence">
+<span class="sig-name descname"><span class="pre">set_confidence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">confidence</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/ethosu.html#EthosuInterpreter.set_confidence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.ethosu.EthosuInterpreter.set_confidence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the confidence results attribute.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.ethosu.EthosuInterpreter.set_input">
+<span class="sig-name descname"><span class="pre">set_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/ethosu.html#EthosuInterpreter.set_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.ethosu.EthosuInterpreter.set_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the image/frame into the input tensor to be inferred.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvar.ml.engines.ethosu.EthosuInterpreter.set_k">
+<span class="sig-name descname"><span class="pre">set_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/engines/ethosu.html#EthosuInterpreter.set_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.engines.ethosu.EthosuInterpreter.set_k" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the k results attribute.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
 <section id="arm-nn-inference-engine">
 <h2>Arm NN Inference Engine<a class="headerlink" href="#arm-nn-inference-engine" title="Permalink to this heading">¶</a></h2>
 <a class="reference internal image-reference" href="../_images/armnn.png"><img alt="../_images/armnn.png" src="../_images/armnn.png" style="width: 30%;" /></a>

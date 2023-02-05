@@ -21,15 +21,4 @@ Python API Package Installation
 
     .. code-block:: console
 
-        root@imx8mp-var-dart:~# pip3 install pyvar
-
-2. To make sure that pyvar is installed, run the following command to check:
-
-    .. code-block:: console
-
-        root@imx8mp-var-dart:~# python3
-        Python 3.9.5 (default, May  3 2021, 15:11:33)
-        [GCC 10.2.0] on linux
-        Type "help", "copyright", "credits" or "license" for more information.
-        >>> import pyvar
-        >>>
+        pip3 install pyvar

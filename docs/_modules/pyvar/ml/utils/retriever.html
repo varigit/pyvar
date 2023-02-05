@@ -176,10 +176,12 @@
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">socket</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">from</span> <span class="nn">pyvar.config</span> <span class="kn">import</span> <span class="n">CACHEDIR</span>
 <span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION</span>
+<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION_93</span>
 <span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">DETECTION</span>
 <span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">SEGMENTATION</span>
 <span class="kn">from</span> <span class="nn">pyvar.ml.utils.config</span> <span class="kn">import</span> <span class="n">DEFAULT_PACKAGES</span>
@@ -227,10 +229,17 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            True if the package file was downloaded successfully. False if not.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">host_name</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span>
+        <span class="n">host_93</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">host_name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;imx93&quot;</span><span class="p">):</span>
+            <span class="n">host_93</span> <span class="o">=</span> <span class="kc">True</span>
+
         <span class="k">if</span> <span class="n">category</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">category</span> <span class="ow">is</span> <span class="n">CLASSIFICATION</span><span class="p">:</span>
                 <span class="n">package_dir</span> <span class="o">=</span> <span class="n">DEFAULT_PACKAGES</span><span class="p">[</span><span class="n">CLASSIFICATION</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">package_filename</span> <span class="o">=</span> <span class="n">DEFAULT_PACKAGES</span><span class="p">[</span><span class="n">CLASSIFICATION</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">host_93</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                    <span class="n">package_filename</span> <span class="o">=</span> <span class="n">DEFAULT_PACKAGES</span><span class="p">[</span><span class="n">CLASSIFICATION_93</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
             <span class="k">elif</span> <span class="n">category</span> <span class="ow">is</span> <span class="n">DETECTION</span><span class="p">:</span>
                 <span class="n">package_dir</span> <span class="o">=</span> <span class="n">DEFAULT_PACKAGES</span><span class="p">[</span><span class="n">DETECTION</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
                 <span class="n">package_filename</span> <span class="o">=</span> <span class="n">DEFAULT_PACKAGES</span><span class="p">[</span><span class="n">DETECTION</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
