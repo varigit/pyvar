@@ -1,3 +1,7 @@
+1.2.0:
+    - Add support for Ethosu library for the newest VAR-SOM-93 module;
+    - Add classification examples for the VAR-SOM-93 module;
+    - Documentation page updated.
 1.1.0:
     - Update TensorFlow Lite to 2.8.0 version;
     - Add support for VX delegate to run inference on NPU;
