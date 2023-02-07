@@ -21,4 +21,4 @@ Python API Package Installation
 
     .. code-block:: console
 
-        pip3 install pyvar
+        # pip3 install pyvar
