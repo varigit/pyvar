@@ -1,6 +1,37 @@
 # Copyright 2021 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
+"""
+This script performs real-time object detection using the TFLiteInterpreter
+engine and displays the results using a GTK GUI.
+
+It performs the following steps:
+
+1. Retrieves the detection package using a FTP retriever instance.
+2. Creates a GTK GUI window to display the detected objects.
+3. Loads the labels from the label file.
+4. Creates a TFLiteInterpreter engine instance, a Resizer instance, and an
+   Overlay instance.
+5. Resizes each frame of the input video to the engine's input size.
+6. Runs inference and gets the output for each frame.
+7. Creates a list of detected objects based on the output of the inference and
+   the user-selected objects to be detected.
+8. Draws the output image with the detected objects and other information using
+   the Overlay instance.
+9. Displays the output video in the GTK GUI window.
+
+Example:
+
+To run this script:
+    $ python3 ui_detection.py
+
+Args:
+None.
+
+Returns:
+None.
+"""
+
 import cv2
 import numpy as np
 import threading
