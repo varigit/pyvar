@@ -1,6 +1,37 @@
 # Copyright 2021 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
+"""
+This script performs real-time video classification using the TFLiteInterpreter
+engine.
+
+It performs the following steps:
+
+1. Retrieves the classification package using a FTP retriever instance.
+2. Loads the labels from the label file.
+3. Creates a Multimedia instance with the video device path and resolution, and
+   sets the video for Linux (V4L2) configuration.
+4. Creates a Framerate instance to calculate the frames per second (FPS) of the
+   camera stream.
+5. Creates an TFLiteInterpreter engine instance and a resizer instance.
+6. Resizes each frame of the input video to the engine's input size.
+7. Runs inference and gets the result for each frame.
+8. Creates an overlay instance and draws the output image with the
+   classification result and other information for each frame.
+9. Shows the output video using the Multimedia helper.
+
+Example:
+
+To run this script:
+    $ python3 video_classification_tflite.py
+
+Args:
+None.
+
+Returns:
+None.
+"""
+
 from argparse import ArgumentParser
 
 from pyvar.ml.engines.tflite import TFLiteInterpreter
