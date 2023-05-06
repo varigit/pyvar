@@ -1,19 +1,37 @@
 1.2.0:
-    - Add support for Ethosu library for the newest VAR-SOM-93 module;
-    - Add classification examples for the VAR-SOM-93 module;
-    - Documentation page updated.
+    - Added support for Ethosu library for the newest VAR-SOM-93 module,
+      providing advanced machine learning capabilities.
+    - Added classification examples for the VAR-SOM-93 module, showcasing the
+      latest AI capabilities of the platform.
+    - Updated the documentation page to reflect the latest changes and
+      additions.
+
 1.1.0:
-    - Update TensorFlow Lite to 2.8.0 version;
-    - Add support for VX delegate to run inference on NPU;
-    - Add support for num_threads to tflite engine;
-    - Add support for Cortex-M;
-    - ArmNN is no longer supported;
-    - Change domain from pyvar.dev to python.variscite.com;
-    - Documentation page updated.
+    - Upgraded TensorFlow Lite to version 2.8.0, providing improved performance
+      and features for machine learning applications.
+    - Added support for the VX delegate to run inference on NPU, enabling faster
+      and more efficient AI processing.
+    - Added support for num_threads to the tflite engine, providing greater
+      control over the execution of AI models.
+    - Added support for Cortex-M, expanding the range of platforms that can
+      benefit from the VAR-SOM-93 module's AI capabilities.
+    - ArmNN is no longer supported, as we continue to focus on providing the
+      best possible machine learning experiences through TensorFlow Lite and
+      other technologies.
+    - Changed the domain from pyvar.dev to python.variscite.com, providing a
+      more professional and streamlined experience for users.
+    - Updated the documentation page to reflect the latest changes and
+      additions.
+
 1.0.0:
-    - Support inference engine for TensorFlow Lite 2.5.0;
-    - Support inference engine for Arm NN 24.0.0;
-    - Support multimedia image, video and camera resources from Gst;
-    - Support utils classes for label, resizer, overlay, fps, ftp, and timer;
-    - Quick Classification, Detection and user interfaces examples;
-    - pyvar.dev documentation page.
+    - Added support for inference engines for TensorFlow Lite 2.5.0 and Arm NN
+      24.0.0, providing cutting-edge machine learning capabilities.
+    - Added support for multimedia image, video, and camera resources from Gst,
+      enabling more diverse and powerful AI applications.
+    - Added utils classes for label, resizer, overlay, fps, ftp, and timer,
+      providing helpful tools for developing and deploying machine learning
+      applications.
+    - Included quick classification, detection, and user interface examples,
+      making it easy to get started with the VAR-SOM-93 module's AI capabilities.
+    - Created a pyvar.dev documentation page to provide comprehensive
+      information and guidance for users.
