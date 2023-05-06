@@ -1,7 +1,31 @@
-# Copyright 2023 Variscite LTD
+# Copyright 2021-2023 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
-from argparse import ArgumentParser
+"""
+This script performs image classification using the EthosuInterpreter engine.
+
+It performs the following steps:
+
+1. Retrieves the classification package using a FTP retriever instance.
+2. Loads the labels from the label file.
+3. Creates an EthosuInterpreter engine instance and a resizer instance.
+4. Resizes the input image to the engine's input size.
+5. Runs inference and gets the result.
+6. Creates an overlay instance and draws the output image with the
+   classification result and other information.
+7. Shows the output image using the Multimedia helper.
+
+Example:
+
+To run this script:
+    $ python3 image_classification_ethosu.py
+
+Args:
+None.
+
+Returns:
+None.
+"""
 
 from pyvar.ml.engines.ethosu import EthosuInterpreter
 from pyvar.ml.utils.label import Label
@@ -11,8 +35,6 @@ from pyvar.ml.utils.retriever import FTP
 from pyvar.multimedia.helper import Multimedia
 
 ftp = FTP()
-parser = ArgumentParser()
-args = parser.parse_args()
 
 if ftp.retrieve_package(category="classification"):
     model_file_path = ftp.model
