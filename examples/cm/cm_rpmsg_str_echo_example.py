@@ -1,5 +1,15 @@
-# Copyright 2022 Variscite LTD
+# Copyright 2022-2023 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
+
+"""
+The following code is a Python script that interacts with a Cortex-M
+microcontroller using the PyVar library. The script searches for a firmware
+called "cm_rpmsg_lite_str_echo" and runs it on the Cortex-M. It then prompts
+the user to input a message that will be sent to the Cortex-M and displayed
+on its terminal. The program will continue to prompt for input until the user
+types "quit".
+"""
+
 import sys
 
 from pyvar.cm.core import CortexM
