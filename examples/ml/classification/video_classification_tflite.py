@@ -1,6 +1,32 @@
 # Copyright 2021 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
+"""
+This script performs video classification using the TFLiteInterpreter engine.
+
+It performs the following steps:
+
+1. Retrieves the classification package using a FTP retriever instance.
+2. Loads the labels from the label file.
+3. Creates an TFLiteInterpreter engine instance and a resizer instance.
+4. Resizes each frame of the input video to the engine's input size.
+5. Runs inference and gets the result for each frame.
+6. Creates an overlay instance and draws the output image with the
+   classification result and other information for each frame.
+7. Shows the output video using the Multimedia helper.
+
+Example:
+
+To run this script:
+    $ python3 video_classification_tflite.py
+
+Args:
+None.
+
+Returns:
+None.
+"""
+
 from argparse import ArgumentParser
 
 from pyvar.ml.engines.tflite import TFLiteInterpreter
