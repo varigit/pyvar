@@ -1,15 +1,37 @@
-# Copyright 2021 Variscite LTD
+# Copyright 2021-2023 Variscite LTD
 # SPDX-License-Identifier: BSD-3-Clause
 
 """
-:platform: Unix/Yocto
-:synopsis: Class to handle TensorFlow Lite inference engine.
+Module: TFLiteInterpreter
+Platform: Unix/Yocto
+Synopsis: This module provides a class, TFLiteInterpreter, to manage and
+facilitate the usage of TensorFlow Lite inference engine. It encompasses
+functions for model loading, data preparation, inference running, and result
+interpretation. Additionally, it also handles various model types and offers
+multi-threading support for better performance.
 
-.. moduleauthor:: Diego Dorta <diego.d@variscite.com>
+Usage:
+from pyvar.ml.engines.tflite import TFLiteInterpreter
+
+# Initialize interpreter with model and other settings
+interpreter = TFLiteInterpreter(model_path, num_threads, ext_delegate)
+
+# Setup input and run inference
+interpreter.set_input(input_image)
+interpreter.run_inference()
+
+# Retrieve results
+results = interpreter.get_result(category)
+
+Author: Diego Dorta <diego.d@variscite.com>
+Copyright: 2021-2023 Variscite LTD
+License: BSD-3-Clause
 """
 
 import os
 import sys
+from multiprocessing import cpu_count
+from typing import Optional, List
 
 import numpy as np
 
@@ -19,45 +41,44 @@ try:
 except ImportError:
     sys.exit("No TensorFlow Lite Runtime module found!")
 
-from multiprocessing import cpu_count
-
 from pyvar.ml.config import CLASSIFICATION
 from pyvar.ml.config import DETECTION
 from pyvar.ml.utils.timer import Timer
 
+# Constants
+EXT_DELEGATE_PATH = "/usr/lib/libvx_delegate.so"
+DEFAULT_CONFIDENCE = 0.5
+DEFAULT_K = 3
+
 
 class TFLiteInterpreter:
     """
-    :ivar interpreter: TensorFlow Lite interpreter;
-    :ivar input_details: input details from model;
-    :ivar output_details: output details from inference;
-    :ivar result: results from inference;
-    :ivar inference_time: inference time;
-    :ivar model_file_path: path to the machine learning model;
-    :ivar k: number of top results;
-    :ivar confidence: confidence score, default is 0.5.
+    Class to handle TensorFlow Lite inference engine.
+
+    :param model_file_path: Path to the machine learning model.
+    :param num_threads: Number of threads.
+    :param ext_delegate: External delegate.
     """
-    def __init__(self, model_file_path=None, num_threads=1, ext_delegate=None):
-        """
-        Constructor method for the TensorFlow Lite class.
-        """
-        max_threads = cpu_count()
+    def __init__(self, model_file_path: Optional[str] = None,
+                 num_threads: int = 1,
+                 ext_delegate: Optional[List] = None,
+                 ext_delegate_path: str = EXT_DELEGATE_PATH):
+
+        if not os.path.isfile(model_file_path):
+            raise ValueError("Must pass a valid model file path.")
+
+        if not model_file_path.endswith(".tflite"):
+            raise TypeError(f"Expects {model_file_path} to be a '.tflite' file.")
+
+        if not isinstance(num_threads, int) or num_threads < 1:
+            raise ValueError("num_threads must be an integer greater than 0.")
+
+        if num_threads > cpu_count():
+            raise ValueError(f"num_threads can't be greater than {cpu_count()}.")
 
         ext_delegate_options = {}
         if ext_delegate is None:
-            ext_delegate_path = "/usr/lib/libvx_delegate.so"
-            ext_delegate = [load_delegate(
-                                        ext_delegate_path, ext_delegate_options)]
-
-        if not os.path.isfile(model_file_path):
-            raise ValueError("Must pass a labels file")
-        if not model_file_path.endswith(".tflite"):
-            raise TypeError(f"Expects {model_file_path} to be a text file")
-        if not num_threads:
-            num_threads = 1
-        elif num_threads > max_threads:
-            raise ValueError(f"num_threads can't be greater than"
-                             f" {max_threads}.")
+            ext_delegate = [load_delegate(ext_delegate_path, ext_delegate_options)]
 
         self.model_file_path = model_file_path
         self.interpreter = Interpreter(model_path=self.model_file_path,
@@ -69,114 +90,139 @@ class TFLiteInterpreter:
         self.interpreter.invoke()
         self.result = None
         self.inference_time = None
-        self.k = 3
-        self.confidence = 0.5
+        self.k = DEFAULT_K
+        self.confidence = DEFAULT_CONFIDENCE
         self.output_image = None
 
-    def set_k(self, k):
+    def set_k(self, k: int) -> None:
         """
-        Set the k results attribute.
+        Set the number of top results to be obtained.
+
+        :param k: Number of top results.
+        :raises ValueError: If k is less than 1.
         """
+        if k < 1:
+            raise ValueError("k must be at least 1.")
         self.k = k
 
-    def set_confidence(self, confidence):
+    def set_confidence(self, confidence: float) -> None:
         """
-        Set the confidence results attribute.
+        Set the confidence threshold for results.
+
+        :param confidence: Confidence threshold.
+        :raises ValueError: If confidence is not between 0 and 1.
         """
+        if not 0 <= confidence <= 1:
+            raise ValueError("Confidence must be between 0 and 1.")
         self.confidence = confidence
 
-    def get_dtype(self):
+    def get_dtype(self) -> np.dtype:
         """
-        Get the model type.
+        Get the data type of the model input.
 
-        Returns:
-            The model type.
+        :return: Data type of the model input.
         """
         return self.input_details[0]['dtype']
 
-    def get_height(self):
+    def get_height(self) -> int:
         """
-        Get the model height.
+        Get the height of the model input.
 
-        Returns:
-            The model height.
+        :return: Height of the model input.
+        :raises IndexError: If input shape does not have at least two dimensions.
         """
+        if len(self.input_details[0]['shape']) < 2:
+            raise IndexError("Input shape does not have at least two dimensions.")
         return self.input_details[0]['shape'][1]
 
-    def get_width(self):
+    def get_width(self) -> int:
         """
-        Get the model width.
+        Get the width of the model input.
 
-        Returns:
-            The model width.
+        :return: Width of the model input.
+        :raises IndexError: If input shape does not have at least three dimensions.
         """
+        if len(self.input_details[0]['shape']) < 3:
+            raise IndexError("Input shape does not have at least three dimensions.")
         return self.input_details[0]['shape'][2]
 
-    def set_input(self, image):
+    def set_input(self, image: np.ndarray) -> None:
         """
         Set the image/frame into the input tensor to be inferred.
+
+        :param image: Image to be inferred.
+        :raises TypeError: If image is not an ndarray.
         """
+        if not isinstance(image, np.ndarray):
+            raise TypeError("Image must be a numpy ndarray.")
         tensor_index = self.input_details[0]['index']
         self.interpreter.set_tensor(tensor_index, image)
 
-    def get_output(self, index, squeeze=False):
+    def get_output(self, index: int, squeeze: bool = False) -> np.ndarray:
         """
         Get the result after running the inference.
 
-        Args:
-            index (int): index of the result
-            squeeze (bool): result is squeezed or not.
-
-        Returns:
-            if **squeeze**, return **squeezed**
-            if **not**, return **not squeeze**
+        :param index: Index of the result.
+        :param squeeze: Determines if the result should be squeezed or not.
+        :return: Result tensor. If 'squeeze' is True, dimensions of size 1 are removed.
+        :raises IndexError: If the provided index is out of range.
         """
-        if squeeze:
-            return np.squeeze(
-                      self.interpreter.get_tensor(
-                                       self.output_details[index]['index']))
-        return self.interpreter.get_tensor(
-                                self.output_details[index]['index'])
+        if index >= len(self.output_details):
+            raise IndexError("Index out of range in output_details")
 
-    def get_result(self, category=None):
+        tensor = self.interpreter.get_tensor(self.output_details[index]['index'])
+
+        if squeeze:
+            return np.squeeze(tensor)
+        return tensor
+
+    def _get_classification_result(self):
+        """
+        Classifies the results based on the model output.
+        Updates the result attribute with tuples of class indices and their corresponding scores.
+        """
+        output = self.get_output(0, squeeze=True)
+        top_k = output.argsort()[-self.k:][::-1]
+        self.result = [(i, float(output[i] / 255.0)) for i in top_k]
+
+    def _get_detection_result(self):
+        """
+        Detects the classes based on the model output.
+        Updates the result attribute with dictionaries containing class indices and their positions.
+        """
+        positions = self.get_output(0, squeeze=True)
+        classes = self.get_output(1, squeeze=True)
+        scores = self.get_output(2, squeeze=True)
+        self.result = [{'pos': positions[idx], '_id': classes[idx]} for idx, score in enumerate(scores) if score > self.confidence]
+
+    def get_result(self, category: Optional[str] = None) -> None:
         """
         Get the result from the output details.
 
-        Args:
-            category (str): model category (classification or detection);
-
-        Returns:
-            if **success**, return **True**
-            if **not**, return **False**
+        :param category: Model category (classification or detection).
+        :raises ValueError: If category is None or unsupported.
         """
-        if category is not None:
-            if category is CLASSIFICATION:
-                output = self.get_output(0, squeeze=True)
-                top_k = output.argsort()[-self.k:][::-1]
-                self.result = []
-                for i in top_k:
-                    score = float(output[i] / 255.0)
-                    self.result.append((i, score))
-                return True
-            elif category is DETECTION:
-                positions = self.get_output(0, squeeze=True)
-                classes = self.get_output(1, squeeze=True)
-                scores = self.get_output(2, squeeze=True)
-                self.result = []
-                for idx, score in enumerate(scores):
-                    if score > self.confidence:
-                        self.result.append(
-                                    {'pos': positions[idx],
-                                     '_id': classes[idx]})
-                return True
+        if category is None:
+            raise ValueError("Category must not be None.")
+
+        if category == CLASSIFICATION:
+            self._get_classification_result()
+        elif category == DETECTION:
+            self._get_detection_result()
         else:
-            return False
+            raise ValueError(f"Unsupported category: {category}")
 
-    def run_inference(self):
+    def run_inference(self) -> None:
         """
-        Runs inference on the image/frame set in the set_input() method.
+        Runs inference on the image/frame set in the set_input() method and sets the inference time.
+
+        :raises RuntimeError: If no input has been set before invoking this method.
         """
+        if not self.interpreter.get_input_details():
+            raise RuntimeError("No input set. Please call set_input() before run_inference().")
+
         timer = Timer()
         with timer.timeit():
             self.interpreter.invoke()
+
         self.inference_time = timer.time
