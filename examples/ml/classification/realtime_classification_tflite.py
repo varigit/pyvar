@@ -46,6 +46,7 @@ ftp = FTP()
 parser = ArgumentParser()
 parser.add_argument('--num_threads', type=int)
 args = parser.parse_args()
+args.num_threads = 2
 
 if ftp.retrieve_package(category="classification"):
     model_file_path = ftp.model
