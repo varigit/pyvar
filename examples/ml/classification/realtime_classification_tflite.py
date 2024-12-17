@@ -7,7 +7,7 @@ engine.
 
 It performs the following steps:
 
-1. Retrieves the classification package using a FTP retriever instance.
+1. Retrieves the classification package using a HTTPS retriever instance.
 2. Loads the labels from the label file.
 3. Creates a Multimedia instance with the video device path and resolution, and
    sets the video for Linux (V4L2) configuration.
@@ -39,18 +39,18 @@ from pyvar.ml.utils.framerate import Framerate
 from pyvar.ml.utils.label import Label
 from pyvar.ml.utils.overlay import Overlay
 from pyvar.ml.utils.resizer import Resizer
-from pyvar.ml.utils.retriever import FTP
+from pyvar.ml.utils.retriever_https import HTTPS
 from pyvar.multimedia.helper import Multimedia
 
-ftp = FTP()
+https = HTTPS()
 parser = ArgumentParser()
 parser.add_argument('--num_threads', type=int)
 args = parser.parse_args()
 args.num_threads = 2
 
-if ftp.retrieve_package(category="classification"):
-    model_file_path = ftp.model
-    label_file_path = ftp.label
+if https.retrieve_package(category="classification"):
+    model_file_path = https.model
+    label_file_path = https.label
 
 labels = Label(label_file_path)
 labels.read_labels("classification")

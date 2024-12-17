@@ -6,7 +6,7 @@ This script performs video classification using the EthosuInterpreter engine.
 
 It performs the following steps:
 
-1. Retrieves the classification package using a FTP retriever instance.
+1. Retrieves the classification package using a HTTPS retriever instance.
 2. Loads the labels from the label file.
 3. Creates an EthosuInterpreter engine instance and a resizer instance.
 4. Resizes each frame of the input video to the engine's input size.
@@ -31,15 +31,15 @@ from pyvar.ml.engines.ethosu import EthosuInterpreter
 from pyvar.ml.utils.label import Label
 from pyvar.ml.utils.overlay import Overlay
 from pyvar.ml.utils.resizer import Resizer
-from pyvar.ml.utils.retriever import FTP
+from pyvar.ml.utils.retriever_https import HTTPS
 from pyvar.multimedia.helper import Multimedia
 
-ftp = FTP()
+https = HTTPS()
 
-if ftp.retrieve_package(category="classification"):
-    model_file_path = ftp.model
-    label_file_path = ftp.label
-    video_file_path = ftp.video
+if https.retrieve_package(category="classification"):
+    model_file_path = https.model
+    label_file_path = https.label
+    video_file_path = https.video
 
 labels = Label(label_file_path)
 labels.read_labels("classification")

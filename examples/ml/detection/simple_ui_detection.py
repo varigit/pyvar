@@ -7,7 +7,7 @@ engine and displays the results using a GTK GUI.
 
 It performs the following steps:
 
-1. Retrieves the detection package using a FTP retriever instance.
+1. Retrieves the detection package using a HTTPS retriever instance.
 2. Creates a GTK GUI window to display the detected objects.
 3. Loads the labels from the label file.
 4. Creates a TFLiteInterpreter engine instance, a Resizer instance, and an
@@ -45,7 +45,7 @@ from pyvar.ml.engines.tflite import TFLiteInterpreter
 from pyvar.ml.utils.label import Label
 from pyvar.ml.utils.overlay import Overlay
 from pyvar.ml.utils.resizer import Resizer
-from pyvar.ml.utils.retriever import FTP
+from pyvar.ml.utils.retriever_https import HTTPS
 from pyvar.multimedia.helper import Multimedia
 
 SSD_LABELS_LIST = ["person", "backpack", "umbrella", "handbag", "tie",
@@ -64,11 +64,11 @@ class RealTimeDetection(Gtk.Window):
         self.model_file_path = None
         self.label_file_path = None
 
-        ftp = FTP()
+        https = HTTPS()
 
-        if ftp.retrieve_package(category="detection"):
-            self.model_file_path = ftp.model
-            self.label_file_path = ftp.label
+        if https.retrieve_package(category="detection"):
+            self.model_file_path = https.model
+            self.label_file_path = https.label
 
         labels = Label(self.label_file_path)
         labels.read_labels("detection")

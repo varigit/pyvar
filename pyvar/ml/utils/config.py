@@ -18,10 +18,8 @@ FONT = {'hershey': cv2.FONT_HERSHEY_SIMPLEX,
         'thickness': 2}
 
 
-# FTP Credentials
-FTP_HOST = "ftp.variscite.com"
-FTP_USER = "customerv"
-FTP_PASS = "Variscite1"
+# HTTPS Credentials
+HTTPS_HOST = "https://variscite-public.nyc3.cdn.digitaloceanspaces.com"
 
 # Extensions
 TFLITE = "*.tflite"
@@ -31,8 +29,8 @@ JPG = "*.jpg"
 PNG = "*.png"
 MP4 = "*.mp4"
 
-# Default Packages from FTP
-DEFAULT_PACKAGES = {'classification'      : ["machine_learning_data/classification/", "mobilenet_v1_1.0_224_quant.zip"],
-                    'classification_93'   : ["machine_learning_data/classification/", "mobilenet_v1_1.0_224_quant_vela.zip"],
-                    'detection'           : ["machine_learning_data/detection/",      "ssd_mobilenet_v1_1_default_1.zip"],
-                    'segmentation'        : ["machine_learning_data/segmentation/",   "deeplabv3_mnv2_pascal_quant.zip"]}
+# Default Packages from HTTPS server
+DEFAULT_PACKAGES = {'classification'      : ["machine_learning_data/classification", "mobilenet_v1_1.0_224_quant.zip"],
+                    'classification_93'   : ["machine_learning_data/classification", "mobilenet_v1_1.0_224_quant_vela.zip"],
+                    'detection'           : ["machine_learning_data/detection",      "ssd_mobilenet_v1_1_default_1.zip"],
+                    'segmentation'        : ["machine_learning_data/segmentation",   "deeplabv3_mnv2_pascal_quant.zip"]}

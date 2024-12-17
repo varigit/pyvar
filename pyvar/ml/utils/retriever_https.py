@@ -3,17 +3,17 @@
 
 """
 :platform: Unix/Yocto
-:synopsis: Class to retrieve packages from Variscite FTP server.
+:synopsis: Class to retrieve packages from Variscite HTTPS server.
 
-.. moduleauthor:: Diego Dorta <diego.d@variscite.com>
+.. moduleauthor:: Bruno Bonaldi Teixeira <bruno.t@variscite.com>
 """
 
-import ftplib
 import glob
 import os
 import shutil
 import socket
 import sys
+import requests
 
 from pyvar.config import CACHEDIR
 from pyvar.ml.config import CLASSIFICATION
@@ -21,21 +21,19 @@ from pyvar.ml.config import CLASSIFICATION_93
 from pyvar.ml.config import DETECTION
 from pyvar.ml.config import SEGMENTATION
 from pyvar.ml.utils.config import DEFAULT_PACKAGES
-from pyvar.ml.utils.config import FTP_HOST, FTP_PASS, FTP_USER
+from pyvar.ml.utils.config import HTTPS_HOST
 from pyvar.ml.utils.config import JPG, MP4, PNG, TFLITE, TXT, ZIP
 
 
-class FTP:
+class HTTPS:
     """
     **This class can be used as reference only. It is not for production-ready.**
     """
     def __init__(self, host=None, user=None, passwd=None):
         """
-        Constructor method for the FTP class.
+        Constructor method for the HTTPS class.
         """
-        self.host = FTP_HOST if host is None else host
-        self.user = FTP_USER if user is None else user
-        self.passwd = FTP_PASS if passwd is None else passwd
+        self.host = HTTPS_HOST if host is None else host
         self.cachedir = CACHEDIR
         self.retrieved_package = None
         self.model = None
@@ -43,19 +41,15 @@ class FTP:
         self.image = None
         self.video = None
         try:
-            self.ftp = ftplib.FTP(self.host, self.user, self.passwd)
-            try:
-                os.mkdir(self.cachedir)
-            except FileExistsError:
-                pass
-        except ftplib.all_errors as error:
-            sys.exit(f"Error: {error}")
+            os.mkdir(self.cachedir)
+        except FileExistsError:
+            pass
 
     def retrieve_package(self, package_dir=None,
                          package_filename=None,
                          category=None):
         """
-        Retrieve package from the FTP server.
+        Retrieve package from the HTTPS server.
         
         Args:
             package_dir (str): package directory;
@@ -82,18 +76,19 @@ class FTP:
             elif category is SEGMENTATION:
                 package_dir = DEFAULT_PACKAGES[SEGMENTATION][0]
                 package_filename = DEFAULT_PACKAGES[SEGMENTATION][1]
-
+        
+        package_url = f"{self.host}/{package_dir}/{package_filename}"
         package_file = os.path.join(self.cachedir, package_filename)
+
         try:
-            self.ftp.cwd(package_dir)
+            r = requests.get(package_url)
+            if r.status_code != 200:
+                return False
             with open(package_file, "wb") as f:
-                r = self.ftp.retrbinary(f"RETR {package_filename}", f.write)
-                if not r.startswith("226 Transfer complete"):
-                    os.remove(package_file)
-                    return False
-                else:
-                    self.retrieved_package = package_file
-                    self.ftp.cwd("/")
+                for chunk in r.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+            self.retrieved_package = package_file
         except Exception as ex:
             print(f"Exc: {ex}")
             return False
@@ -107,14 +102,8 @@ class FTP:
             except Exception as ex:
                 print(f"Exc: {ex}")
                 return False
-        self._disconnect()
-        return True
 
-    def _disconnect(self):
-        """
-        Send a quit command to the server and close the connection.        
-        """
-        self.ftp.quit()
+        return True
 
     def _get_package_names(self, package_name_path, category):
         """
