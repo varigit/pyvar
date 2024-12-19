@@ -1,3 +1,7 @@
+1.2.1:
+    - Removed support to i.MX93.
+    - Migrate retriever files function from FTP server to HTTPS server. 
+
 1.2.0:
     - Added support for Ethosu library for the newest VAR-SOM-93 module,
       providing advanced machine learning capabilities.
