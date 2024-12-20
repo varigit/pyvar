@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>Multimedia API: Getting Started</title>
     
@@ -10,18 +10,16 @@
           <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
       
       <!-- sphinx script_files -->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
       <!-- bundled in js (rollup iife) -->
       <!-- <script src="../_static/theme-vendors.js"></script> -->
       <script src="../_static/theme.js" defer></script>
     
-      <link rel="shortcut icon" href="../_static/favicon.png"/>
+      <link rel="shortcut icon" href="../../_static/favicon.png"/>
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Search" href="../search.html" />
   <link rel="next" title="pyvar.multimedia" href="pyvar.multimedia.html" />
@@ -33,7 +31,7 @@
     <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
     
-      <img class="logo" src="../_static/logo.png" alt="logo"/>
+      <img class="logo" src="../../_static/logo.png" alt="logo"/>
     
   </router-link>
 
@@ -173,17 +171,17 @@
           <div class="content" role="main" v-pre>
             
   <section id="multimedia-api-getting-started">
-<h1>Multimedia API: Getting Started<a class="headerlink" href="#multimedia-api-getting-started" title="Permalink to this heading">¶</a></h1>
+<h1>Multimedia API: Getting Started<a class="headerlink" href="#multimedia-api-getting-started" title="Link to this heading">¶</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>The Multimedia API provides a set of classes and functions providing an easy way to
 write multimedia applications for the Variscite’s SoMs, such as capturing and
 displaying images using cameras, playing videos, and so on.</p>
 </section>
 <section id="hardware">
-<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this heading">¶</a></h2>
+<h2>Hardware<a class="headerlink" href="#hardware" title="Link to this heading">¶</a></h2>
 <section id="supported-cameras">
-<h3>Supported Cameras<a class="headerlink" href="#supported-cameras" title="Permalink to this heading">¶</a></h3>
+<h3>Supported Cameras<a class="headerlink" href="#supported-cameras" title="Link to this heading">¶</a></h3>
 <p>The pyvar package’s <a class="reference external" href="https://python.variscite.com/multimediaapi/pyvar.multimedia.html">Multimedia API</a> supports the following cameras:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.variscite.com/product/accessories/vcam-5640s-duo/">VCAM-5640S-DUO</a>;</p></li>
@@ -217,18 +215,18 @@ displaying images using cameras, playing videos, and so on.</p>
 </section>
 </section>
 <section id="software">
-<h2>Software<a class="headerlink" href="#software" title="Permalink to this heading">¶</a></h2>
+<h2>Software<a class="headerlink" href="#software" title="Link to this heading">¶</a></h2>
 <section id="setting-up-the-bsp">
-<h3>Setting up the BSP<a class="headerlink" href="#setting-up-the-bsp" title="Permalink to this heading">¶</a></h3>
+<h3>Setting up the BSP<a class="headerlink" href="#setting-up-the-bsp" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>Build the latest <a class="reference external" href="https://variwiki.com/">Yocto Release</a> with <strong>Wayland</strong> + <strong>X11</strong> features using <strong>fsl-image-qt5</strong> image;</p>
 <blockquote>
 <div><p><strong>NOTE</strong>: To use the <strong>fsl-image-gui</strong> image, make sure to add the following lines at your <strong>local.conf</strong> file:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">OPENCV_PKGS_imxgpu</span> <span class="o">=</span> <span class="s2">&quot; \</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">OPENCV_PKGS_imxgpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
 <span class="s2">   python3-opencv \</span>
 <span class="s2">&quot;</span>
 
-<span class="nv">IMAGE_INSTALL_append_mx8</span> <span class="o">=</span> <span class="s2">&quot; \</span>
+<span class="nv">IMAGE_INSTALL_append_mx8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
 <span class="s2">    </span><span class="si">${</span><span class="nv">OPENCV_PKGS</span><span class="si">}</span><span class="s2"> \</span>
 <span class="s2">&quot;</span>
 </pre></div>
@@ -241,11 +239,11 @@ displaying images using cameras, playing videos, and so on.</p>
 </ol>
 </section>
 <section id="python-api-package-installation">
-<h3>Python API Package Installation<a class="headerlink" href="#python-api-package-installation" title="Permalink to this heading">¶</a></h3>
+<h3>Python API Package Installation<a class="headerlink" href="#python-api-package-installation" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>To install the pyvar API Python package use the pip3 tool to retrieve it via Pypi:</p>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~# </span>pip3 install pyvar
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~# </span>pip3<span class="w"> </span>install<span class="w"> </span>pyvar
 </pre></div>
 </div>
 </div></blockquote>

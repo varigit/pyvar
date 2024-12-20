@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>Utils: pyvar.ml.utils</title>
     
@@ -10,18 +10,16 @@
           <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
       
       <!-- sphinx script_files -->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
       <!-- bundled in js (rollup iife) -->
       <!-- <script src="../_static/theme-vendors.js"></script> -->
       <script src="../_static/theme.js" defer></script>
     
-      <link rel="shortcut icon" href="../_static/favicon.png"/>
+      <link rel="shortcut icon" href="../../_static/favicon.png"/>
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Search" href="../search.html" />
   <link rel="next" title="Multimedia API" href="../pyvar.multimedia.html" />
@@ -33,7 +31,7 @@
     <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
     
-      <img class="logo" src="../_static/logo.png" alt="logo"/>
+      <img class="logo" src="../../_static/logo.png" alt="logo"/>
     
   </router-link>
 
@@ -173,24 +171,24 @@
           <div class="content" role="main" v-pre>
             
   <section id="utils-pyvar-ml-utils">
-<h1>Utils: pyvar.ml.utils<a class="headerlink" href="#utils-pyvar-ml-utils" title="Permalink to this heading">¶</a></h1>
+<h1>Utils: pyvar.ml.utils<a class="headerlink" href="#utils-pyvar-ml-utils" title="Link to this heading">¶</a></h1>
 <section id="label-reader-class">
-<h2>Label Reader Class<a class="headerlink" href="#label-reader-class" title="Permalink to this heading">¶</a></h2>
+<h2>Label Reader Class<a class="headerlink" href="#label-reader-class" title="Link to this heading">¶</a></h2>
 <section id="module-pyvar.ml.utils.label">
-<span id="pyvar-ml-utils-label"></span><h3>pyvar.ml.utils.label<a class="headerlink" href="#module-pyvar.ml.utils.label" title="Permalink to this heading">¶</a></h3>
+<span id="pyvar-ml-utils-label"></span><h3>pyvar.ml.utils.label<a class="headerlink" href="#module-pyvar.ml.utils.label" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">platform</dt>
+<dt class="field-odd">platform<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Unix/Yocto</p>
 </dd>
-<dt class="field-even">synopsis</dt>
+<dt class="field-even">synopsis<span class="colon">:</span></dt>
 <dd class="field-even"><p>Class to handle labels file from Machine Learning models.</p>
 </dd>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvar.ml.utils.label.Label">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.label.</span></span><span class="sig-name descname"><span class="pre">Label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/label.html#Label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.label.Label" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.label.</span></span><span class="sig-name descname"><span class="pre">Label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels_file_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/label.html#Label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.label.Label" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>labels_file</strong> – path to the labels file.</p></li>
 <li><p><strong>list</strong> – list with the labels from the label file.</p></li>
@@ -199,13 +197,13 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.label.Label.read_labels">
-<span class="sig-name descname"><span class="pre">read_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/label.html#Label.read_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.label.Label.read_labels" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">read_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/label.html#Label.read_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.label.Label.read_labels" title="Link to this definition">¶</a></dt>
 <dd><p>Reads Machine Learning labels file and save the result as a list.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>category</strong> (<em>str</em>) – model category (classification or detection).</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True if the labels file was read successfully.</p>
 </dd>
 </dl>
@@ -216,22 +214,22 @@
 </section>
 </section>
 <section id="overlay-class">
-<h2>Overlay Class<a class="headerlink" href="#overlay-class" title="Permalink to this heading">¶</a></h2>
+<h2>Overlay Class<a class="headerlink" href="#overlay-class" title="Link to this heading">¶</a></h2>
 <section id="module-pyvar.ml.utils.overlay">
-<span id="pyvar-ml-utils-overlay"></span><h3>pyvar.ml.utils.overlay<a class="headerlink" href="#module-pyvar.ml.utils.overlay" title="Permalink to this heading">¶</a></h3>
+<span id="pyvar-ml-utils-overlay"></span><h3>pyvar.ml.utils.overlay<a class="headerlink" href="#module-pyvar.ml.utils.overlay" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">platform</dt>
+<dt class="field-odd">platform<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Unix/Yocto</p>
 </dd>
-<dt class="field-even">synopsis</dt>
+<dt class="field-even">synopsis<span class="colon">:</span></dt>
 <dd class="field-even"><p>Class to handle overlay on single images and frames.</p>
 </dd>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.overlay.</span></span><span class="sig-name descname"><span class="pre">Overlay</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.overlay.</span></span><span class="sig-name descname"><span class="pre">Overlay</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>inference_time_info</strong> – shows the inference time on image/frame;</p></li>
 <li><p><strong>scores_info</strong> – shows the scores on image/frame;</p></li>
@@ -242,16 +240,16 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay.generate_colors">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay.generate_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay.generate_colors" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay.generate_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay.generate_colors" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay.info">
-<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inference_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay.info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay.info" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inference_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay.info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay.info" title="Link to this definition">¶</a></dt>
 <dd><p>Draw information on single images and frames such as inference time,
 scores, model name, and source file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>category</strong> (<em>str</em>) – model category (classification or detection);</p></li>
 <li><p><strong>image</strong> (<em>numpy array</em>) – original image to overlay the information.</p></li>
@@ -263,7 +261,7 @@ scores, model name, and source file.</p>
 <li><p><strong>fps</strong> (<em>float</em>) – fpsit from Framerate class.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.array</span></code> image format with the overlaid information.</p>
 </dd>
 </dl>
@@ -274,23 +272,23 @@ scores, model name, and source file.</p>
 </section>
 </section>
 <section id="frames-per-second-calculator-class">
-<h2>Frames Per Second Calculator Class<a class="headerlink" href="#frames-per-second-calculator-class" title="Permalink to this heading">¶</a></h2>
+<h2>Frames Per Second Calculator Class<a class="headerlink" href="#frames-per-second-calculator-class" title="Link to this heading">¶</a></h2>
 <section id="module-pyvar.ml.utils.framerate">
-<span id="pyvar-ml-utils-framerate"></span><h3>pyvar.ml.utils.framerate<a class="headerlink" href="#module-pyvar.ml.utils.framerate" title="Permalink to this heading">¶</a></h3>
+<span id="pyvar-ml-utils-framerate"></span><h3>pyvar.ml.utils.framerate<a class="headerlink" href="#module-pyvar.ml.utils.framerate" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">platform</dt>
+<dt class="field-odd">platform<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Unix/Yocto</p>
 </dd>
-<dt class="field-even">synopsis</dt>
+<dt class="field-even">synopsis<span class="colon">:</span></dt>
 <dd class="field-even"><p>Class to calculate framerate from videos and real time cameras devices.</p>
 </dd>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvar.ml.utils.framerate.Framerate">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.framerate.</span></span><span class="sig-name descname"><span class="pre">Framerate</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/framerate.html#Framerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.framerate.Framerate" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.framerate.</span></span><span class="sig-name descname"><span class="pre">Framerate</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/framerate.html#Framerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.framerate.Framerate" title="Link to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.framerate.Framerate.fpsit">
-<span class="sig-name descname"><span class="pre">fpsit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/framerate.html#Framerate.fpsit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.framerate.Framerate.fpsit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fpsit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/framerate.html#Framerate.fpsit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.framerate.Framerate.fpsit" title="Link to this definition">¶</a></dt>
 <dd><p>Calculates the frames per second and save it in the <strong>fps</strong> attribute.</p>
 </dd></dl>
 
@@ -299,60 +297,28 @@ scores, model name, and source file.</p>
 </section>
 </section>
 <section id="file-transfer-protocol-class">
-<h2>File Transfer Protocol Class<a class="headerlink" href="#file-transfer-protocol-class" title="Permalink to this heading">¶</a></h2>
-<section id="module-pyvar.ml.utils.retriever">
-<span id="pyvar-ml-utils-retriever"></span><h3>pyvar.ml.utils.retriever<a class="headerlink" href="#module-pyvar.ml.utils.retriever" title="Permalink to this heading">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">platform</dt>
-<dd class="field-odd"><p>Unix/Yocto</p>
-</dd>
-<dt class="field-even">synopsis</dt>
-<dd class="field-even"><p>Class to retrieve packages from Variscite FTP server.</p>
-</dd>
-</dl>
-<dl class="py class">
-<dt class="sig sig-object py" id="pyvar.ml.utils.retriever.FTP">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.retriever.</span></span><span class="sig-name descname"><span class="pre">FTP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">passwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/retriever.html#FTP"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.retriever.FTP" title="Permalink to this definition">¶</a></dt>
-<dd><p><strong>This class can be used as reference only. It is not for production-ready.</strong></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="pyvar.ml.utils.retriever.FTP.retrieve_package">
-<span class="sig-name descname"><span class="pre">retrieve_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">package_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">package_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/retriever.html#FTP.retrieve_package"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.retriever.FTP.retrieve_package" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieve package from the FTP server.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>package_dir</strong> (<em>str</em>) – package directory;</p></li>
-<li><p><strong>package_filename</strong> (<em>str</em>) – model package file name;</p></li>
-<li><p><strong>category</strong> (<em>str</em>) – model category (classification or detection).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>True if the package file was downloaded successfully. False if not.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<h2>File Transfer Protocol Class<a class="headerlink" href="#file-transfer-protocol-class" title="Link to this heading">¶</a></h2>
+<section id="pyvar-ml-utils-retriever">
+<h3>pyvar.ml.utils.retriever<a class="headerlink" href="#pyvar-ml-utils-retriever" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="resizer-class">
-<h2>Resizer Class<a class="headerlink" href="#resizer-class" title="Permalink to this heading">¶</a></h2>
+<h2>Resizer Class<a class="headerlink" href="#resizer-class" title="Link to this heading">¶</a></h2>
 <section id="module-pyvar.ml.utils.resizer">
-<span id="pyvar-ml-utils-resizer"></span><h3>pyvar.ml.utils.resizer<a class="headerlink" href="#module-pyvar.ml.utils.resizer" title="Permalink to this heading">¶</a></h3>
+<span id="pyvar-ml-utils-resizer"></span><h3>pyvar.ml.utils.resizer<a class="headerlink" href="#module-pyvar.ml.utils.resizer" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">platform</dt>
+<dt class="field-odd">platform<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Unix/Yocto</p>
 </dd>
-<dt class="field-even">synopsis</dt>
+<dt class="field-even">synopsis<span class="colon">:</span></dt>
 <dd class="field-even"><p>Class to resize image/frame.</p>
 </dd>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvar.ml.utils.resizer.Resizer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.resizer.</span></span><span class="sig-name descname"><span class="pre">Resizer</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.resizer.</span></span><span class="sig-name descname"><span class="pre">Resizer</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Variables</dt>
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>frame</strong> – original frame;</p></li>
 <li><p><strong>frame_resized</strong> – resized frame;</p></li>
@@ -366,10 +332,10 @@ scores, model name, and source file.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.resizer.Resizer.resize_frame">
-<span class="sig-name descname"><span class="pre">resize_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer.resize_frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer.resize_frame" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resize_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer.resize_frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer.resize_frame" title="Link to this definition">¶</a></dt>
 <dd><p>Resize the frame.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>frame</strong> (<em>numpy array</em>) – original frame to be resized;</p></li>
 <li><p><strong>width</strong> (<em>int</em>) – new width to resize;</p></li>
@@ -377,7 +343,7 @@ scores, model name, and source file.</p>
 <li><p><strong>expand_dims</strong> (<em>bool</em>) – if expand dimensions or not</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.array</span></code> resized frame is stored at the frame_resized attribute.</p>
 </dd>
 </dl>
@@ -385,10 +351,10 @@ scores, model name, and source file.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.resizer.Resizer.resize_image">
-<span class="sig-name descname"><span class="pre">resize_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer.resize_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer.resize_image" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resize_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expand_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer.resize_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer.resize_image" title="Link to this definition">¶</a></dt>
 <dd><p>Resize the image.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>image_path</strong> (<em>numpy array</em>) – original image to be resized;</p></li>
 <li><p><strong>width</strong> (<em>int</em>) – new width to resize;</p></li>
@@ -396,7 +362,7 @@ scores, model name, and source file.</p>
 <li><p><strong>expand_dims</strong> (<em>bool</em>) – if expand dimensions or not</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.array</span></code> resized image is stored at image_resized attribute.</p>
 </dd>
 </dl>
@@ -404,7 +370,7 @@ scores, model name, and source file.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.resizer.Resizer.set_sizes">
-<span class="sig-name descname"><span class="pre">set_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine_input_details</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer.set_sizes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer.set_sizes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_sizes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">engine_input_details</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/resizer.html#Resizer.set_sizes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.resizer.Resizer.set_sizes" title="Link to this definition">¶</a></dt>
 <dd><p>Set the height and width model size.</p>
 </dd></dl>
 
@@ -413,23 +379,23 @@ scores, model name, and source file.</p>
 </section>
 </section>
 <section id="timer-calculator-class">
-<h2>Timer Calculator Class<a class="headerlink" href="#timer-calculator-class" title="Permalink to this heading">¶</a></h2>
+<h2>Timer Calculator Class<a class="headerlink" href="#timer-calculator-class" title="Link to this heading">¶</a></h2>
 <section id="module-pyvar.ml.utils.timer">
-<span id="pyvar-ml-utils-timer"></span><h3>pyvar.ml.utils.timer<a class="headerlink" href="#module-pyvar.ml.utils.timer" title="Permalink to this heading">¶</a></h3>
+<span id="pyvar-ml-utils-timer"></span><h3>pyvar.ml.utils.timer<a class="headerlink" href="#module-pyvar.ml.utils.timer" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">platform</dt>
+<dt class="field-odd">platform<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Unix/Yocto</p>
 </dd>
-<dt class="field-even">synopsis</dt>
+<dt class="field-even">synopsis<span class="colon">:</span></dt>
 <dd class="field-even"><p>Python Class to calculate time.</p>
 </dd>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvar.ml.utils.timer.Timer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.timer.</span></span><span class="sig-name descname"><span class="pre">Timer</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/timer.html#Timer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.timer.Timer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.timer.</span></span><span class="sig-name descname"><span class="pre">Timer</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/timer.html#Timer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.timer.Timer" title="Link to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="pyvar.ml.utils.timer.Timer.timeit">
-<span class="sig-name descname"><span class="pre">timeit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/timer.html#Timer.timeit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.timer.Timer.timeit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">timeit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/timer.html#Timer.timeit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.timer.Timer.timeit" title="Link to this definition">¶</a></dt>
 <dd><p>Calculates the time and save it in the <strong>time</strong> attribute.</p>
 </dd></dl>
 

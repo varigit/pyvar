@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>Detection Examples</title>
     
@@ -10,18 +10,16 @@
           <link rel="stylesheet" href="../../_static/theme.css " type="text/css" />
       
       <!-- sphinx script_files -->
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
       <!-- bundled in js (rollup iife) -->
       <!-- <script src="../../_static/theme-vendors.js"></script> -->
       <script src="../../_static/theme.js" defer></script>
     
-      <link rel="shortcut icon" href="../../_static/favicon.png"/>
+      <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
   <link rel="index" title="Index" href="../../genindex.html" />
   <link rel="search" title="Search" href="../../search.html" />
   <link rel="next" title="User Interface Examples" href="pyvar.ml.ui.examples.html" />
@@ -33,7 +31,7 @@
     <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../../index.html" class="home-link">
     
-      <img class="logo" src="../../_static/logo.png" alt="logo"/>
+      <img class="logo" src="../../../../_static/logo.png" alt="logo"/>
     
   </router-link>
 
@@ -173,32 +171,28 @@
           <div class="content" role="main" v-pre>
             
   <section id="detection-examples">
-<h1>Detection Examples<a class="headerlink" href="#detection-examples" title="Permalink to this heading">¶</a></h1>
+<h1>Detection Examples<a class="headerlink" href="#detection-examples" title="Link to this heading">¶</a></h1>
 <p>The detection examples use a quantized starter model from <a class="reference external" href="https://www.tensorflow.org/lite/examples/object_detection/overview">TensorFlow Lite</a>:</p>
 <ul class="simple">
 <li><p><strong>ssd_mobilenet_v1_1_default_1.zip</strong>.</p></li>
 </ul>
 <section id="image-detection-example">
-<h2>Image Detection Example<a class="headerlink" href="#image-detection-example" title="Permalink to this heading">¶</a></h2>
+<h2>Image Detection Example<a class="headerlink" href="#image-detection-example" title="Link to this heading">¶</a></h2>
 <section id="run-the-image-detection-example">
-<h3>Run the Image Detection Example<a class="headerlink" href="#run-the-image-detection-example" title="Permalink to this heading">¶</a></h3>
+<h3>Run the Image Detection Example<a class="headerlink" href="#run-the-image-detection-example" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Retrieve the example, and execute it on the SoM:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/detection/image_detection_tflite.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-LJO<span class="w"> </span>https://github.com/varigit/pyvar/raw/master/examples/ml/detection/image_detection_tflite.py
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 image_detection_tflite.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>image_detection_tflite.py
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>The output should be similar as the one below:</p></li>
 </ol>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Image Example</strong></p></th>
 <th class="head"><p><strong>Image Example Detected</strong></p></th>
@@ -211,56 +205,83 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text"><strong>Image Detection Example Source code</strong>: <a class="reference external" href="https://github.com/varigit/pyvar/blob/master/examples/ml/detection/image_detection_tflite.py">image_detection_tflite.py</a></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><strong>Image Detection Example Source code</strong>: <a class="reference external" href="https://github.com/varigit/pyvar/blob/master/examples/ml/detection/image_detection_tflite.py">image_detection_tflite.py</a></span><a class="headerlink" href="#id1" title="Link to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Copyright 2021 Variscite LTD</span>
 <span class="linenos"> 2</span><span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
 <span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
-<span class="linenos"> 5</span>
-<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pyvar.ml.engines.tflite</span> <span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
-<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
-<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
-<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
-<span class="linenos">10</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever</span> <span class="kn">import</span> <span class="n">FTP</span>
-<span class="linenos">11</span><span class="kn">from</span> <span class="nn">pyvar.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
-<span class="linenos">12</span>
-<span class="linenos">13</span><span class="n">ftp</span> <span class="o">=</span> <span class="n">FTP</span><span class="p">()</span>
-<span class="linenos">14</span><span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
-<span class="linenos">15</span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num_threads&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-<span class="linenos">16</span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 5</span><span class="sd">This script performs object detection using the TFLiteInterpreter engine.</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="sd">It performs the following steps:</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="sd">1. Retrieves the detection package using a HTTPS retriever instance.</span>
+<span class="linenos">10</span><span class="sd">2. Loads the labels from the label file.</span>
+<span class="linenos">11</span><span class="sd">3. Creates an TFLiteInterpreter engine instance and a resizer instance.</span>
+<span class="linenos">12</span><span class="sd">4. Resizes the input image to the engine&#39;s input size.</span>
+<span class="linenos">13</span><span class="sd">5. Runs inference and gets the detection result.</span>
+<span class="linenos">14</span><span class="sd">6. Creates an overlay instance and draws the output image with the</span>
+<span class="linenos">15</span><span class="sd">   detection result and other information.</span>
+<span class="linenos">16</span><span class="sd">7. Shows the output image using the Multimedia helper.</span>
 <span class="linenos">17</span>
-<span class="linenos">18</span><span class="k">if</span> <span class="n">ftp</span><span class="o">.</span><span class="n">retrieve_package</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">):</span>
-<span class="linenos">19</span>    <span class="n">model_file_path</span> <span class="o">=</span> <span class="n">ftp</span><span class="o">.</span><span class="n">model</span>
-<span class="linenos">20</span>    <span class="n">label_file_path</span> <span class="o">=</span> <span class="n">ftp</span><span class="o">.</span><span class="n">label</span>
-<span class="linenos">21</span>    <span class="n">image_file_path</span> <span class="o">=</span> <span class="n">ftp</span><span class="o">.</span><span class="n">image</span>
+<span class="linenos">18</span><span class="sd">Example:</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="sd">To run this script:</span>
+<span class="linenos">21</span><span class="sd">    $ python3 object_detection_tflite.py</span>
 <span class="linenos">22</span>
-<span class="linenos">23</span><span class="n">labels</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">label_file_path</span><span class="p">)</span>
-<span class="linenos">24</span><span class="n">labels</span><span class="o">.</span><span class="n">read_labels</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
+<span class="linenos">23</span><span class="sd">Args:</span>
+<span class="linenos">24</span><span class="sd">None.</span>
 <span class="linenos">25</span>
-<span class="linenos">26</span><span class="n">engine</span> <span class="o">=</span> <span class="n">TFLiteInterpreter</span><span class="p">(</span><span class="n">model_file_path</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
-<span class="linenos">27</span>                           <span class="n">num_threads</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">num_threads</span><span class="p">)</span>
-<span class="linenos">28</span>
-<span class="linenos">29</span><span class="n">resizer</span> <span class="o">=</span> <span class="n">Resizer</span><span class="p">()</span>
-<span class="linenos">30</span><span class="n">resizer</span><span class="o">.</span><span class="n">set_sizes</span><span class="p">(</span><span class="n">engine_input_details</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">input_details</span><span class="p">)</span>
+<span class="linenos">26</span><span class="sd">Returns:</span>
+<span class="linenos">27</span><span class="sd">None.</span>
+<span class="linenos">28</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
 <span class="linenos">31</span>
-<span class="linenos">32</span><span class="n">image</span> <span class="o">=</span> <span class="n">Multimedia</span><span class="p">(</span><span class="n">image_file_path</span><span class="p">)</span>
-<span class="linenos">33</span><span class="n">resizer</span><span class="o">.</span><span class="n">resize_image</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">video_src</span><span class="p">)</span>
-<span class="linenos">34</span>
-<span class="linenos">35</span><span class="n">engine</span><span class="o">.</span><span class="n">set_input</span><span class="p">(</span><span class="n">resizer</span><span class="o">.</span><span class="n">image_resized</span><span class="p">)</span>
-<span class="linenos">36</span><span class="n">engine</span><span class="o">.</span><span class="n">run_inference</span><span class="p">()</span>
-<span class="linenos">37</span><span class="n">engine</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
+<span class="linenos">32</span><span class="kn">from</span> <span class="nn">pyvar.ml.engines.tflite</span> <span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
+<span class="linenos">33</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
+<span class="linenos">34</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
+<span class="linenos">35</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
+<span class="linenos">36</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever_https</span> <span class="kn">import</span> <span class="n">HTTPS</span>
+<span class="linenos">37</span><span class="kn">from</span> <span class="nn">pyvar.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
 <span class="linenos">38</span>
-<span class="linenos">39</span><span class="n">draw</span> <span class="o">=</span> <span class="n">Overlay</span><span class="p">()</span>
-<span class="linenos">40</span>
-<span class="linenos">41</span><span class="n">output_image</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">,</span>
-<span class="linenos">42</span>                         <span class="n">image</span><span class="o">=</span><span class="n">resizer</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
-<span class="linenos">43</span>                         <span class="n">top_result</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">result</span><span class="p">,</span>
-<span class="linenos">44</span>                         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="o">.</span><span class="n">list</span><span class="p">,</span>
-<span class="linenos">45</span>                         <span class="n">inference_time</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">inference_time</span><span class="p">,</span>
-<span class="linenos">46</span>                         <span class="n">model_name</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
-<span class="linenos">47</span>                         <span class="n">source_file</span><span class="o">=</span><span class="n">resizer</span><span class="o">.</span><span class="n">image_path</span><span class="p">)</span>
-<span class="linenos">48</span>
-<span class="linenos">49</span><span class="n">image</span><span class="o">.</span><span class="n">show_image</span><span class="p">(</span><span class="s2">&quot;TFLite: Image Detection&quot;</span><span class="p">,</span> <span class="n">output_image</span><span class="p">)</span>
+<span class="linenos">39</span><span class="n">https</span> <span class="o">=</span> <span class="n">HTTPS</span><span class="p">()</span>
+<span class="linenos">40</span><span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="linenos">41</span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num_threads&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="linenos">42</span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">43</span><span class="n">args</span><span class="o">.</span><span class="n">num_threads</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="k">if</span> <span class="n">https</span><span class="o">.</span><span class="n">retrieve_package</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">):</span>
+<span class="linenos">46</span>    <span class="n">model_file_path</span> <span class="o">=</span> <span class="n">https</span><span class="o">.</span><span class="n">model</span>
+<span class="linenos">47</span>    <span class="n">label_file_path</span> <span class="o">=</span> <span class="n">https</span><span class="o">.</span><span class="n">label</span>
+<span class="linenos">48</span>    <span class="n">image_file_path</span> <span class="o">=</span> <span class="n">https</span><span class="o">.</span><span class="n">image</span>
+<span class="linenos">49</span>
+<span class="linenos">50</span><span class="n">labels</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">label_file_path</span><span class="p">)</span>
+<span class="linenos">51</span><span class="n">labels</span><span class="o">.</span><span class="n">read_labels</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
+<span class="linenos">52</span>
+<span class="linenos">53</span><span class="n">engine</span> <span class="o">=</span> <span class="n">TFLiteInterpreter</span><span class="p">(</span><span class="n">model_file_path</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
+<span class="linenos">54</span>                           <span class="n">num_threads</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">num_threads</span><span class="p">)</span>
+<span class="linenos">55</span>
+<span class="linenos">56</span><span class="n">resizer</span> <span class="o">=</span> <span class="n">Resizer</span><span class="p">()</span>
+<span class="linenos">57</span><span class="n">resizer</span><span class="o">.</span><span class="n">set_sizes</span><span class="p">(</span><span class="n">engine_input_details</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">input_details</span><span class="p">)</span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="n">image</span> <span class="o">=</span> <span class="n">Multimedia</span><span class="p">(</span><span class="n">image_file_path</span><span class="p">)</span>
+<span class="linenos">60</span><span class="n">resizer</span><span class="o">.</span><span class="n">resize_image</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">video_src</span><span class="p">)</span>
+<span class="linenos">61</span>
+<span class="linenos">62</span><span class="n">engine</span><span class="o">.</span><span class="n">set_input</span><span class="p">(</span><span class="n">resizer</span><span class="o">.</span><span class="n">image_resized</span><span class="p">)</span>
+<span class="linenos">63</span><span class="n">engine</span><span class="o">.</span><span class="n">run_inference</span><span class="p">()</span>
+<span class="linenos">64</span><span class="n">engine</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
+<span class="linenos">65</span>
+<span class="linenos">66</span><span class="n">draw</span> <span class="o">=</span> <span class="n">Overlay</span><span class="p">()</span>
+<span class="linenos">67</span>
+<span class="linenos">68</span><span class="n">output_image</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">,</span>
+<span class="linenos">69</span>                         <span class="n">image</span><span class="o">=</span><span class="n">resizer</span><span class="o">.</span><span class="n">image</span><span class="p">,</span>
+<span class="linenos">70</span>                         <span class="n">top_result</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">result</span><span class="p">,</span>
+<span class="linenos">71</span>                         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="o">.</span><span class="n">list</span><span class="p">,</span>
+<span class="linenos">72</span>                         <span class="n">inference_time</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">inference_time</span><span class="p">,</span>
+<span class="linenos">73</span>                         <span class="n">model_name</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
+<span class="linenos">74</span>                         <span class="n">source_file</span><span class="o">=</span><span class="n">resizer</span><span class="o">.</span><span class="n">image_path</span><span class="p">)</span>
+<span class="linenos">75</span>
+<span class="linenos">76</span><span class="n">image</span><span class="o">.</span><span class="n">show_image</span><span class="p">(</span><span class="s2">&quot;TFLite: Image Detection&quot;</span><span class="p">,</span> <span class="n">output_image</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -272,26 +293,22 @@
 </section>
 </section>
 <section id="video-detection">
-<h2>Video Detection<a class="headerlink" href="#video-detection" title="Permalink to this heading">¶</a></h2>
+<h2>Video Detection<a class="headerlink" href="#video-detection" title="Link to this heading">¶</a></h2>
 <section id="run-the-video-detection-example">
-<h3>Run the Video Detection Example<a class="headerlink" href="#run-the-video-detection-example" title="Permalink to this heading">¶</a></h3>
+<h3>Run the Video Detection Example<a class="headerlink" href="#run-the-video-detection-example" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Retrieve the example, and execute it on the SoM:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/detection/video_detection_tflite.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-LJO<span class="w"> </span>https://github.com/varigit/pyvar/raw/master/examples/ml/detection/video_detection_tflite.py
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 video_detection_tflite.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>video_detection_tflite.py
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>The output should be similar as the one below:</p></li>
 </ol>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Video Example</strong></p></th>
 <th class="head"><p><strong>Video Example Detected</strong></p></th>
@@ -304,62 +321,90 @@
 </tbody>
 </table>
 <div class="literal-block-wrapper docutils container" id="video-detection-example">
-<div class="code-block-caption"><span class="caption-text"><strong>Video Detection Example Source code</strong>: <a class="reference external" href="https://github.com/varigit/pyvar/blob/master/examples/ml/detection/video_detection_tflite.py">video_detection_tflite.py</a></span><a class="headerlink" href="#video-detection-example" title="Permalink to this code">¶</a></div>
+<div class="code-block-caption"><span class="caption-text"><strong>Video Detection Example Source code</strong>: <a class="reference external" href="https://github.com/varigit/pyvar/blob/master/examples/ml/detection/video_detection_tflite.py">video_detection_tflite.py</a></span><a class="headerlink" href="#video-detection-example" title="Link to this code">¶</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Copyright 2021 Variscite LTD</span>
 <span class="linenos"> 2</span><span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
 <span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
-<span class="linenos"> 5</span>
-<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pyvar.ml.engines.tflite</span> <span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
-<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
-<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
-<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
-<span class="linenos">10</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever</span> <span class="kn">import</span> <span class="n">FTP</span>
-<span class="linenos">11</span><span class="kn">from</span> <span class="nn">pyvar.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
-<span class="linenos">12</span>
-<span class="linenos">13</span><span class="n">ftp</span> <span class="o">=</span> <span class="n">FTP</span><span class="p">()</span>
-<span class="linenos">14</span><span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
-<span class="linenos">15</span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num_threads&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-<span class="linenos">16</span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<span class="linenos">17</span>
-<span class="linenos">18</span><span class="k">if</span> <span class="n">ftp</span><span class="o">.</span><span class="n">retrieve_package</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">):</span>
-<span class="linenos">19</span>    <span class="n">model_file_path</span> <span class="o">=</span> <span class="n">ftp</span><span class="o">.</span><span class="n">model</span>
-<span class="linenos">20</span>    <span class="n">label_file_path</span> <span class="o">=</span> <span class="n">ftp</span><span class="o">.</span><span class="n">label</span>
-<span class="linenos">21</span>    <span class="n">video_file_path</span> <span class="o">=</span> <span class="n">ftp</span><span class="o">.</span><span class="n">video</span>
-<span class="linenos">22</span>
-<span class="linenos">23</span><span class="n">labels</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">label_file_path</span><span class="p">)</span>
-<span class="linenos">24</span><span class="n">labels</span><span class="o">.</span><span class="n">read_labels</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
-<span class="linenos">25</span>
-<span class="linenos">26</span><span class="n">engine</span> <span class="o">=</span> <span class="n">TFLiteInterpreter</span><span class="p">(</span><span class="n">model_file_path</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
-<span class="linenos">27</span>                           <span class="n">num_threads</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">num_threads</span><span class="p">)</span>
-<span class="linenos">28</span>
-<span class="linenos">29</span><span class="n">resizer</span> <span class="o">=</span> <span class="n">Resizer</span><span class="p">()</span>
-<span class="linenos">30</span><span class="n">resizer</span><span class="o">.</span><span class="n">set_sizes</span><span class="p">(</span><span class="n">engine_input_details</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">input_details</span><span class="p">)</span>
-<span class="linenos">31</span>
-<span class="linenos">32</span><span class="n">video</span> <span class="o">=</span> <span class="n">Multimedia</span><span class="p">(</span><span class="n">video_file_path</span><span class="p">)</span>
-<span class="linenos">33</span><span class="n">video</span><span class="o">.</span><span class="n">set_v4l2_config</span><span class="p">()</span>
-<span class="linenos">34</span>
-<span class="linenos">35</span><span class="n">draw</span> <span class="o">=</span> <span class="n">Overlay</span><span class="p">()</span>
-<span class="linenos">36</span>
-<span class="linenos">37</span><span class="k">while</span> <span class="n">video</span><span class="o">.</span><span class="n">loop</span><span class="p">:</span>
-<span class="linenos">38</span>    <span class="n">frame</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
-<span class="linenos">39</span>    <span class="n">resizer</span><span class="o">.</span><span class="n">resize_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<span class="linenos">40</span>
-<span class="linenos">41</span>    <span class="n">engine</span><span class="o">.</span><span class="n">set_input</span><span class="p">(</span><span class="n">resizer</span><span class="o">.</span><span class="n">frame_resized</span><span class="p">)</span>
-<span class="linenos">42</span>    <span class="n">engine</span><span class="o">.</span><span class="n">run_inference</span><span class="p">()</span>
-<span class="linenos">43</span>    <span class="n">engine</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
-<span class="linenos">44</span>
-<span class="linenos">45</span>    <span class="n">output_frame</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">,</span>
-<span class="linenos">46</span>                             <span class="n">image</span><span class="o">=</span><span class="n">resizer</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span>
-<span class="linenos">47</span>                             <span class="n">top_result</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">result</span><span class="p">,</span>
-<span class="linenos">48</span>                             <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="o">.</span><span class="n">list</span><span class="p">,</span>
-<span class="linenos">49</span>                             <span class="n">inference_time</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">inference_time</span><span class="p">,</span>
-<span class="linenos">50</span>                             <span class="n">model_name</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
-<span class="linenos">51</span>                             <span class="n">source_file</span><span class="o">=</span><span class="n">video</span><span class="o">.</span><span class="n">video_src</span><span class="p">)</span>
-<span class="linenos">52</span>
-<span class="linenos">53</span>    <span class="n">video</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;TFLite: Video Detection&quot;</span><span class="p">,</span> <span class="n">output_frame</span><span class="p">)</span>
-<span class="linenos">54</span>
-<span class="linenos">55</span><span class="n">video</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 5</span><span class="sd">This script performs object detection on a video stream using the</span>
+<span class="linenos"> 6</span><span class="sd">TFLiteInterpreter engine.</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="sd">It performs the following steps:</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="sd">1. Retrieves the detection package using a HTTPS retriever instance.</span>
+<span class="linenos">11</span><span class="sd">2. Loads the labels from the label file.</span>
+<span class="linenos">12</span><span class="sd">3. Creates an TFLiteInterpreter engine instance and a resizer instance.</span>
+<span class="linenos">13</span><span class="sd">4. Resizes each frame of the input video to the engine&#39;s input size.</span>
+<span class="linenos">14</span><span class="sd">5. Runs inference and gets the result for each frame.</span>
+<span class="linenos">15</span><span class="sd">6. Creates an overlay instance and draws the output image with the detection</span>
+<span class="linenos">16</span><span class="sd">   result and other information for each frame.</span>
+<span class="linenos">17</span><span class="sd">7. Shows the output video using the Multimedia helper.</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="sd">Example:</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="sd">To run this script:</span>
+<span class="linenos">22</span><span class="sd">    $ python3 video_detection_tflite.py</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="sd">Args:</span>
+<span class="linenos">25</span><span class="sd">None.</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="sd">Returns:</span>
+<span class="linenos">28</span><span class="sd">None.</span>
+<span class="linenos">29</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="kn">from</span> <span class="nn">pyvar.ml.engines.tflite</span> <span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
+<span class="linenos">34</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
+<span class="linenos">35</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
+<span class="linenos">36</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
+<span class="linenos">37</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever_https</span> <span class="kn">import</span> <span class="n">HTTPS</span>
+<span class="linenos">38</span><span class="kn">from</span> <span class="nn">pyvar.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="n">https</span> <span class="o">=</span> <span class="n">HTTPS</span><span class="p">()</span>
+<span class="linenos">41</span><span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="linenos">42</span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num_threads&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="linenos">43</span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">44</span><span class="n">args</span><span class="o">.</span><span class="n">num_threads</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="k">if</span> <span class="n">https</span><span class="o">.</span><span class="n">retrieve_package</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">):</span>
+<span class="linenos">47</span>    <span class="n">model_file_path</span> <span class="o">=</span> <span class="n">https</span><span class="o">.</span><span class="n">model</span>
+<span class="linenos">48</span>    <span class="n">label_file_path</span> <span class="o">=</span> <span class="n">https</span><span class="o">.</span><span class="n">label</span>
+<span class="linenos">49</span>    <span class="n">video_file_path</span> <span class="o">=</span> <span class="n">https</span><span class="o">.</span><span class="n">video</span>
+<span class="linenos">50</span>
+<span class="linenos">51</span><span class="n">labels</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">label_file_path</span><span class="p">)</span>
+<span class="linenos">52</span><span class="n">labels</span><span class="o">.</span><span class="n">read_labels</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
+<span class="linenos">53</span>
+<span class="linenos">54</span><span class="n">engine</span> <span class="o">=</span> <span class="n">TFLiteInterpreter</span><span class="p">(</span><span class="n">model_file_path</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
+<span class="linenos">55</span>                           <span class="n">num_threads</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">num_threads</span><span class="p">)</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span><span class="n">resizer</span> <span class="o">=</span> <span class="n">Resizer</span><span class="p">()</span>
+<span class="linenos">58</span><span class="n">resizer</span><span class="o">.</span><span class="n">set_sizes</span><span class="p">(</span><span class="n">engine_input_details</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">input_details</span><span class="p">)</span>
+<span class="linenos">59</span>
+<span class="linenos">60</span><span class="n">video</span> <span class="o">=</span> <span class="n">Multimedia</span><span class="p">(</span><span class="n">video_file_path</span><span class="p">)</span>
+<span class="linenos">61</span><span class="n">video</span><span class="o">.</span><span class="n">set_v4l2_config</span><span class="p">()</span>
+<span class="linenos">62</span>
+<span class="linenos">63</span><span class="n">draw</span> <span class="o">=</span> <span class="n">Overlay</span><span class="p">()</span>
+<span class="linenos">64</span>
+<span class="linenos">65</span><span class="k">while</span> <span class="n">video</span><span class="o">.</span><span class="n">loop</span><span class="p">:</span>
+<span class="linenos">66</span>    <span class="n">frame</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+<span class="linenos">67</span>    <span class="n">resizer</span><span class="o">.</span><span class="n">resize_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="linenos">68</span>
+<span class="linenos">69</span>    <span class="n">engine</span><span class="o">.</span><span class="n">set_input</span><span class="p">(</span><span class="n">resizer</span><span class="o">.</span><span class="n">frame_resized</span><span class="p">)</span>
+<span class="linenos">70</span>    <span class="n">engine</span><span class="o">.</span><span class="n">run_inference</span><span class="p">()</span>
+<span class="linenos">71</span>    <span class="n">engine</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
+<span class="linenos">72</span>
+<span class="linenos">73</span>    <span class="n">output_frame</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">,</span>
+<span class="linenos">74</span>                             <span class="n">image</span><span class="o">=</span><span class="n">resizer</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span>
+<span class="linenos">75</span>                             <span class="n">top_result</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">result</span><span class="p">,</span>
+<span class="linenos">76</span>                             <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="o">.</span><span class="n">list</span><span class="p">,</span>
+<span class="linenos">77</span>                             <span class="n">inference_time</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">inference_time</span><span class="p">,</span>
+<span class="linenos">78</span>                             <span class="n">model_name</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
+<span class="linenos">79</span>                             <span class="n">source_file</span><span class="o">=</span><span class="n">video</span><span class="o">.</span><span class="n">video_src</span><span class="p">)</span>
+<span class="linenos">80</span>
+<span class="linenos">81</span>    <span class="n">video</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;TFLite: Video Detection&quot;</span><span class="p">,</span> <span class="n">output_frame</span><span class="p">)</span>
+<span class="linenos">82</span>
+<span class="linenos">83</span><span class="n">video</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -371,80 +416,108 @@
 </section>
 </section>
 <section id="real-time-detection">
-<h2>Real Time Detection<a class="headerlink" href="#real-time-detection" title="Permalink to this heading">¶</a></h2>
+<h2>Real Time Detection<a class="headerlink" href="#real-time-detection" title="Link to this heading">¶</a></h2>
 <section id="run-the-real-time-detection-example">
-<h3>Run the Real Time Detection Example<a class="headerlink" href="#run-the-real-time-detection-example" title="Permalink to this heading">¶</a></h3>
+<h3>Run the Real Time Detection Example<a class="headerlink" href="#run-the-real-time-detection-example" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>Retrieve the example, and execute it on the SoM:</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -LJO https://github.com/varigit/pyvar/raw/master/examples/ml/detection/realtime_detection_tflite.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-LJO<span class="w"> </span>https://github.com/varigit/pyvar/raw/master/examples/ml/detection/realtime_detection_tflite.py
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 realtime_detection_tflite.py
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>realtime_detection_tflite.py
 </pre></div>
 </div>
 <div class="literal-block-wrapper docutils container" id="real-time-detection-example">
-<div class="code-block-caption"><span class="caption-text"><strong>Real Time Detection Example Source code</strong>: <a class="reference external" href="https://github.com/varigit/pyvar/blob/master/examples/ml/detection/realtime_detection_tflite.py">realtime_detection_tflite.py</a></span><a class="headerlink" href="#real-time-detection-example" title="Permalink to this code">¶</a></div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Copyright 2021 Variscite LTD</span>
+<div class="code-block-caption"><span class="caption-text"><strong>Real Time Detection Example Source code</strong>: <a class="reference external" href="https://github.com/varigit/pyvar/blob/master/examples/ml/detection/realtime_detection_tflite.py">realtime_detection_tflite.py</a></span><a class="headerlink" href="#real-time-detection-example" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># Copyright 2021-2023 Variscite LTD</span>
 <span class="linenos"> 2</span><span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
 <span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
-<span class="linenos"> 5</span>
-<span class="linenos"> 6</span><span class="kn">from</span> <span class="nn">pyvar.ml.engines.tflite</span> <span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
-<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.framerate</span> <span class="kn">import</span> <span class="n">Framerate</span>
-<span class="linenos"> 8</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
-<span class="linenos"> 9</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
-<span class="linenos">10</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
-<span class="linenos">11</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever</span> <span class="kn">import</span> <span class="n">FTP</span>
-<span class="linenos">12</span><span class="kn">from</span> <span class="nn">pyvar.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
-<span class="linenos">13</span>
-<span class="linenos">14</span><span class="n">ftp</span> <span class="o">=</span> <span class="n">FTP</span><span class="p">()</span>
-<span class="linenos">15</span><span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
-<span class="linenos">16</span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num_threads&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-<span class="linenos">17</span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos"> 4</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 5</span><span class="sd">This script performs real-time object detection using the TFLiteInterpreter</span>
+<span class="linenos"> 6</span><span class="sd">engine.</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="sd">It performs the following steps:</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="sd">1. Retrieves the detection package using a HTTPS retriever instance.</span>
+<span class="linenos">11</span><span class="sd">2. Loads the labels from the label file.</span>
+<span class="linenos">12</span><span class="sd">3. Creates an TFLiteInterpreter engine instance and a resizer instance.</span>
+<span class="linenos">13</span><span class="sd">4. Resizes each frame of the input video from a camera to the engine&#39;s input size.</span>
+<span class="linenos">14</span><span class="sd">5. Runs inference and gets the result for each frame.</span>
+<span class="linenos">15</span><span class="sd">6. Creates an overlay instance and draws the output image with the</span>
+<span class="linenos">16</span><span class="sd">   detection result and other information for each frame.</span>
+<span class="linenos">17</span><span class="sd">7. Shows the output video with the detection results using the Multimedia helper.</span>
 <span class="linenos">18</span>
-<span class="linenos">19</span><span class="k">if</span> <span class="n">ftp</span><span class="o">.</span><span class="n">retrieve_package</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">):</span>
-<span class="linenos">20</span>    <span class="n">model_file_path</span> <span class="o">=</span> <span class="n">ftp</span><span class="o">.</span><span class="n">model</span>
-<span class="linenos">21</span>    <span class="n">label_file_path</span> <span class="o">=</span> <span class="n">ftp</span><span class="o">.</span><span class="n">label</span>
-<span class="linenos">22</span>
-<span class="linenos">23</span><span class="n">labels</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">label_file_path</span><span class="p">)</span>
-<span class="linenos">24</span><span class="n">labels</span><span class="o">.</span><span class="n">read_labels</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
-<span class="linenos">25</span>
-<span class="linenos">26</span><span class="n">engine</span> <span class="o">=</span> <span class="n">TFLiteInterpreter</span><span class="p">(</span><span class="n">model_file_path</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
-<span class="linenos">27</span>                           <span class="n">num_threads</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">num_threads</span><span class="p">)</span>
-<span class="linenos">28</span>
-<span class="linenos">29</span><span class="n">resizer</span> <span class="o">=</span> <span class="n">Resizer</span><span class="p">()</span>
-<span class="linenos">30</span><span class="n">resizer</span><span class="o">.</span><span class="n">set_sizes</span><span class="p">(</span><span class="n">engine_input_details</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">input_details</span><span class="p">)</span>
-<span class="linenos">31</span>
-<span class="linenos">32</span><span class="n">camera</span> <span class="o">=</span> <span class="n">Multimedia</span><span class="p">(</span><span class="s2">&quot;/dev/video1&quot;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s2">&quot;vga&quot;</span><span class="p">)</span>
-<span class="linenos">33</span><span class="n">camera</span><span class="o">.</span><span class="n">set_v4l2_config</span><span class="p">()</span>
-<span class="linenos">34</span>
-<span class="linenos">35</span><span class="n">framerate</span> <span class="o">=</span> <span class="n">Framerate</span><span class="p">()</span>
-<span class="linenos">36</span>
-<span class="linenos">37</span><span class="n">draw</span> <span class="o">=</span> <span class="n">Overlay</span><span class="p">()</span>
-<span class="linenos">38</span><span class="n">draw</span><span class="o">.</span><span class="n">framerate_info</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="linenos">39</span>
-<span class="linenos">40</span><span class="k">while</span> <span class="n">camera</span><span class="o">.</span><span class="n">loop</span><span class="p">:</span>
-<span class="linenos">41</span>    <span class="k">with</span> <span class="n">framerate</span><span class="o">.</span><span class="n">fpsit</span><span class="p">():</span>
-<span class="linenos">42</span>        <span class="n">frame</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
-<span class="linenos">43</span>        <span class="n">resizer</span><span class="o">.</span><span class="n">resize_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<span class="linenos">44</span>
-<span class="linenos">45</span>        <span class="n">engine</span><span class="o">.</span><span class="n">set_input</span><span class="p">(</span><span class="n">resizer</span><span class="o">.</span><span class="n">frame_resized</span><span class="p">)</span>
-<span class="linenos">46</span>        <span class="n">engine</span><span class="o">.</span><span class="n">run_inference</span><span class="p">()</span>
-<span class="linenos">47</span>        <span class="n">engine</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
-<span class="linenos">48</span>
-<span class="linenos">49</span>        <span class="n">output_frame</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">,</span>
-<span class="linenos">50</span>                                 <span class="n">image</span><span class="o">=</span><span class="n">resizer</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span>
-<span class="linenos">51</span>                                 <span class="n">top_result</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">result</span><span class="p">,</span>
-<span class="linenos">52</span>                                 <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="o">.</span><span class="n">list</span><span class="p">,</span>
-<span class="linenos">53</span>                                 <span class="n">inference_time</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">inference_time</span><span class="p">,</span>
-<span class="linenos">54</span>                                 <span class="n">model_name</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
-<span class="linenos">55</span>                                 <span class="n">source_file</span><span class="o">=</span><span class="n">camera</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-<span class="linenos">56</span>                                 <span class="n">fps</span><span class="o">=</span><span class="n">framerate</span><span class="o">.</span><span class="n">fps</span><span class="p">)</span>
-<span class="linenos">57</span>
-<span class="linenos">58</span>        <span class="n">camera</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;TFLite: Real Time Detection&quot;</span><span class="p">,</span> <span class="n">output_frame</span><span class="p">)</span>
+<span class="linenos">19</span><span class="sd">Example:</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="sd">To run this script:</span>
+<span class="linenos">22</span><span class="sd">    $ python3 realtime_detection_tflite.py</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="sd">Args:</span>
+<span class="linenos">25</span><span class="sd">None.</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="sd">Returns:</span>
+<span class="linenos">28</span><span class="sd">None.</span>
+<span class="linenos">29</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+<span class="linenos">32</span>
+<span class="linenos">33</span><span class="kn">from</span> <span class="nn">pyvar.ml.engines.tflite</span> <span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
+<span class="linenos">34</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.framerate</span> <span class="kn">import</span> <span class="n">Framerate</span>
+<span class="linenos">35</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
+<span class="linenos">36</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
+<span class="linenos">37</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
+<span class="linenos">38</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever_https</span> <span class="kn">import</span> <span class="n">HTTPS</span>
+<span class="linenos">39</span><span class="kn">from</span> <span class="nn">pyvar.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
+<span class="linenos">40</span>
+<span class="linenos">41</span><span class="n">https</span> <span class="o">=</span> <span class="n">HTTPS</span><span class="p">()</span>
+<span class="linenos">42</span><span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="linenos">43</span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--num_threads&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="linenos">44</span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="linenos">45</span><span class="n">args</span><span class="o">.</span><span class="n">num_threads</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="k">if</span> <span class="n">https</span><span class="o">.</span><span class="n">retrieve_package</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">):</span>
+<span class="linenos">48</span>    <span class="n">model_file_path</span> <span class="o">=</span> <span class="n">https</span><span class="o">.</span><span class="n">model</span>
+<span class="linenos">49</span>    <span class="n">label_file_path</span> <span class="o">=</span> <span class="n">https</span><span class="o">.</span><span class="n">label</span>
+<span class="linenos">50</span>
+<span class="linenos">51</span><span class="n">labels</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">label_file_path</span><span class="p">)</span>
+<span class="linenos">52</span><span class="n">labels</span><span class="o">.</span><span class="n">read_labels</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
+<span class="linenos">53</span>
+<span class="linenos">54</span><span class="n">engine</span> <span class="o">=</span> <span class="n">TFLiteInterpreter</span><span class="p">(</span><span class="n">model_file_path</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
+<span class="linenos">55</span>                           <span class="n">num_threads</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">num_threads</span><span class="p">)</span>
+<span class="linenos">56</span>
+<span class="linenos">57</span><span class="n">resizer</span> <span class="o">=</span> <span class="n">Resizer</span><span class="p">()</span>
+<span class="linenos">58</span><span class="n">resizer</span><span class="o">.</span><span class="n">set_sizes</span><span class="p">(</span><span class="n">engine_input_details</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">input_details</span><span class="p">)</span>
 <span class="linenos">59</span>
-<span class="linenos">60</span><span class="n">camera</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+<span class="linenos">60</span><span class="n">camera</span> <span class="o">=</span> <span class="n">Multimedia</span><span class="p">(</span><span class="s2">&quot;/dev/video1&quot;</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="s2">&quot;vga&quot;</span><span class="p">)</span>
+<span class="linenos">61</span><span class="n">camera</span><span class="o">.</span><span class="n">set_v4l2_config</span><span class="p">()</span>
+<span class="linenos">62</span>
+<span class="linenos">63</span><span class="n">framerate</span> <span class="o">=</span> <span class="n">Framerate</span><span class="p">()</span>
+<span class="linenos">64</span>
+<span class="linenos">65</span><span class="n">draw</span> <span class="o">=</span> <span class="n">Overlay</span><span class="p">()</span>
+<span class="linenos">66</span><span class="n">draw</span><span class="o">.</span><span class="n">framerate_info</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos">67</span>
+<span class="linenos">68</span><span class="k">while</span> <span class="n">camera</span><span class="o">.</span><span class="n">loop</span><span class="p">:</span>
+<span class="linenos">69</span>    <span class="k">with</span> <span class="n">framerate</span><span class="o">.</span><span class="n">fpsit</span><span class="p">():</span>
+<span class="linenos">70</span>        <span class="n">frame</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">get_frame</span><span class="p">()</span>
+<span class="linenos">71</span>        <span class="n">resizer</span><span class="o">.</span><span class="n">resize_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<span class="linenos">72</span>
+<span class="linenos">73</span>        <span class="n">engine</span><span class="o">.</span><span class="n">set_input</span><span class="p">(</span><span class="n">resizer</span><span class="o">.</span><span class="n">frame_resized</span><span class="p">)</span>
+<span class="linenos">74</span>        <span class="n">engine</span><span class="o">.</span><span class="n">run_inference</span><span class="p">()</span>
+<span class="linenos">75</span>        <span class="n">engine</span><span class="o">.</span><span class="n">get_result</span><span class="p">(</span><span class="s2">&quot;detection&quot;</span><span class="p">)</span>
+<span class="linenos">76</span>
+<span class="linenos">77</span>        <span class="n">output_frame</span> <span class="o">=</span> <span class="n">draw</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="s2">&quot;detection&quot;</span><span class="p">,</span>
+<span class="linenos">78</span>                                 <span class="n">image</span><span class="o">=</span><span class="n">resizer</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span>
+<span class="linenos">79</span>                                 <span class="n">top_result</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">result</span><span class="p">,</span>
+<span class="linenos">80</span>                                 <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="o">.</span><span class="n">list</span><span class="p">,</span>
+<span class="linenos">81</span>                                 <span class="n">inference_time</span><span class="o">=</span><span class="n">engine</span><span class="o">.</span><span class="n">inference_time</span><span class="p">,</span>
+<span class="linenos">82</span>                                 <span class="n">model_name</span><span class="o">=</span><span class="n">model_file_path</span><span class="p">,</span>
+<span class="linenos">83</span>                                 <span class="n">source_file</span><span class="o">=</span><span class="n">camera</span><span class="o">.</span><span class="n">dev</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+<span class="linenos">84</span>                                 <span class="n">fps</span><span class="o">=</span><span class="n">framerate</span><span class="o">.</span><span class="n">fps</span><span class="p">)</span>
+<span class="linenos">85</span>
+<span class="linenos">86</span>        <span class="n">camera</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;TFLite: Real Time Detection&quot;</span><span class="p">,</span> <span class="n">output_frame</span><span class="p">)</span>
+<span class="linenos">87</span>
+<span class="linenos">88</span><span class="n">camera</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

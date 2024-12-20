@@ -2,7 +2,7 @@
 <html  lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <title>Cortex-M API: Getting Started</title>
     
@@ -10,18 +10,16 @@
           <link rel="stylesheet" href="../_static/theme.css " type="text/css" />
       
       <!-- sphinx script_files -->
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
       <!-- bundled in js (rollup iife) -->
       <!-- <script src="../_static/theme-vendors.js"></script> -->
       <script src="../_static/theme.js" defer></script>
     
-      <link rel="shortcut icon" href="../_static/favicon.png"/>
+      <link rel="shortcut icon" href="../../_static/favicon.png"/>
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Search" href="../search.html" />
   <link rel="next" title="Utils: pyvar.cm.core" href="pyvar.cm.core.html" />
@@ -33,7 +31,7 @@
     <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
     
-      <img class="logo" src="../_static/logo.png" alt="logo"/>
+      <img class="logo" src="../../_static/logo.png" alt="logo"/>
     
   </router-link>
 
@@ -173,20 +171,20 @@
           <div class="content" role="main" v-pre>
             
   <section id="cortex-m-api-getting-started">
-<h1>Cortex-M API: Getting Started<a class="headerlink" href="#cortex-m-api-getting-started" title="Permalink to this heading">¶</a></h1>
+<h1>Cortex-M API: Getting Started<a class="headerlink" href="#cortex-m-api-getting-started" title="Link to this heading">¶</a></h1>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>The Cortex-M API provides a set of functions and methods to help run and communicate
 with Cortex-M applications from the Cortex-A side.</p>
 </section>
 <section id="software">
-<h2>Software<a class="headerlink" href="#software" title="Permalink to this heading">¶</a></h2>
+<h2>Software<a class="headerlink" href="#software" title="Link to this heading">¶</a></h2>
 <section id="setting-up-the-bsp">
-<h3>Setting Up the BSP<a class="headerlink" href="#setting-up-the-bsp" title="Permalink to this heading">¶</a></h3>
+<h3>Setting Up the BSP<a class="headerlink" href="#setting-up-the-bsp" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>Build the latest <a class="reference external" href="https://variwiki.com/">Yocto Release</a>, make sure to add the following lines at your <strong>local.conf</strong> file:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">IMAGE_INSTALL_append</span> <span class="o">=</span> <span class="s2">&quot; \</span>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">IMAGE_INSTALL_append</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; \</span>
 <span class="s2">    python3-pip \</span>
 <span class="s2">&quot;</span>
 </pre></div>
@@ -199,11 +197,11 @@ with Cortex-M applications from the Cortex-A side.</p>
 </ol>
 </section>
 <section id="python-api-package-installation">
-<h3>Python API Package Installation<a class="headerlink" href="#python-api-package-installation" title="Permalink to this heading">¶</a></h3>
+<h3>Python API Package Installation<a class="headerlink" href="#python-api-package-installation" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>To install the pyvar API Python package use the pip3 tool to retrieve via Pypi:</p>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~# </span>pip3 install pyvar
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@imx8mp-var-dart:~# </span>pip3<span class="w"> </span>install<span class="w"> </span>pyvar
 </pre></div>
 </div>
 </div></blockquote>
@@ -223,7 +221,7 @@ with Cortex-M applications from the Cortex-A side.</p>
 </ol>
 </section>
 <section id="quick-example">
-<h3>Quick Example<a class="headerlink" href="#quick-example" title="Permalink to this heading">¶</a></h3>
+<h3>Quick Example<a class="headerlink" href="#quick-example" title="Link to this heading">¶</a></h3>
 <p>See this quick example to run a Cortex-M application using the Cortex-M API:</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>  <span class="c1"># Import the Cortex-M class from pyvar</span>
