@@ -36,6 +36,8 @@ Release History
 | API Release    | i.MX 8M Plus |br|        | TFLite                        | Ethosu       | Date         |
 |                | BSP Release              |                               |              |              |
 +================+==========================+===============================+==============+==============+
+| `v1.2.1`_      | `6.6.23_2.0.0-v1.1`_     | 2.15.0                        | 3.11.0       | 20/12/2024   |
++----------------+--------------------------+-------------------------------+--------------+--------------+
 | `v1.2.0`_      | `5.15-2.0.x`_            | 2.8.0                         | 3.5.0        | 05/02/2023   |
 +----------------+--------------------------+-------------------------------+--------------+--------------+
 | `v1.1.0`_      | `5.15-2.0.x`_            | 2.8.0                         | \-           | 16/11/2022   |
@@ -53,6 +55,10 @@ Release History
 .. _5.15-2.0.x: https://variwiki.com/index.php?title=DART-MX8M-PLUS_Yocto&release=mx8mp-yocto-kirkstone-5.15-2.0.x-v1.0
 
 .. _v1.2.0: https://github.com/varigit/pyvar/releases/tag/v1.2.0
+
+.. _6.6.23_2.0.0-v1.1: https://variwiki.com/index.php?title=DART-MX8M-PLUS_Yocto&release=mx8mp-yocto-scarthgap-6.6.23_2.0.0-v1.1
+
+.. _v1.2.1: https://github.com/varigit/pyvar/releases/tag/v1.2.1
 
 .. |br| raw:: html
 
