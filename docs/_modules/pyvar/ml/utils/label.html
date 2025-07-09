@@ -10,7 +10,7 @@
       
       <!-- sphinx script_files -->
         <script src="../../../../_static/documentation_options.js?v=d45e8c67"></script>
-        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
@@ -170,21 +170,21 @@
 <span class="sd">.. moduleauthor:: Diego Dorta &lt;diego.d@variscite.com&gt;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">CLASSIFICATION</span>
-<span class="kn">from</span> <span class="nn">pyvar.ml.config</span> <span class="kn">import</span> <span class="n">DETECTION</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyvar.ml.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">CLASSIFICATION</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyvar.ml.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">DETECTION</span>
 
 
 <div class="viewcode-block" id="Label">
 <a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.label.Label">[docs]</a>
-<span class="k">class</span> <span class="nc">Label</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Label</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :ivar labels_file: path to the labels file.</span>
 <span class="sd">    :ivar list: list with the labels from the label file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor method for the Label class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -197,7 +197,7 @@
 
 <div class="viewcode-block" id="Label.read_labels">
 <a class="viewcode-back" href="../../../../mlapi/pyvar.ml.utils.html#pyvar.ml.utils.label.Label.read_labels">[docs]</a>
-    <span class="k">def</span> <span class="nf">read_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads Machine Learning labels file and save the result as a list.</span>
 

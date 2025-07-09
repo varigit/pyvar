@@ -11,7 +11,7 @@
       
       <!-- sphinx script_files -->
         <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
@@ -254,22 +254,22 @@
 <span class="linenos"> 32</span><span class="sd">None.</span>
 <span class="linenos"> 33</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="linenos"> 34</span>
-<span class="linenos"> 35</span><span class="kn">import</span> <span class="nn">cv2</span>
-<span class="linenos"> 36</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="linenos"> 37</span><span class="kn">import</span> <span class="nn">threading</span>
+<span class="linenos"> 35</span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="linenos"> 36</span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="linenos"> 37</span><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
 <span class="linenos"> 38</span>
-<span class="linenos"> 39</span><span class="kn">import</span> <span class="nn">gi</span>
+<span class="linenos"> 39</span><span class="kn">import</span><span class="w"> </span><span class="nn">gi</span>
 <span class="linenos"> 40</span><span class="n">gi</span><span class="o">.</span><span class="n">require_versions</span><span class="p">({</span><span class="s1">&#39;GdkPixbuf&#39;</span><span class="p">:</span> <span class="s2">&quot;2.0&quot;</span><span class="p">,</span> <span class="s1">&#39;Gtk&#39;</span><span class="p">:</span> <span class="s2">&quot;3.0&quot;</span><span class="p">})</span>
-<span class="linenos"> 41</span><span class="kn">from</span> <span class="nn">gi.repository.GdkPixbuf</span> <span class="kn">import</span> <span class="n">Colorspace</span><span class="p">,</span> <span class="n">Pixbuf</span>
-<span class="linenos"> 42</span><span class="kn">from</span> <span class="nn">gi.repository</span> <span class="kn">import</span> <span class="n">GLib</span><span class="p">,</span> <span class="n">Gtk</span>
+<span class="linenos"> 41</span><span class="kn">from</span><span class="w"> </span><span class="nn">gi.repository.GdkPixbuf</span><span class="w"> </span><span class="kn">import</span> <span class="n">Colorspace</span><span class="p">,</span> <span class="n">Pixbuf</span>
+<span class="linenos"> 42</span><span class="kn">from</span><span class="w"> </span><span class="nn">gi.repository</span><span class="w"> </span><span class="kn">import</span> <span class="n">GLib</span><span class="p">,</span> <span class="n">Gtk</span>
 <span class="linenos"> 43</span>
-<span class="linenos"> 44</span><span class="kn">from</span> <span class="nn">pyvar.ml.engines.tflite</span> <span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
-<span class="linenos"> 45</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.framerate</span> <span class="kn">import</span> <span class="n">Framerate</span>
-<span class="linenos"> 46</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.label</span> <span class="kn">import</span> <span class="n">Label</span>
-<span class="linenos"> 47</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.overlay</span> <span class="kn">import</span> <span class="n">Overlay</span>
-<span class="linenos"> 48</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.resizer</span> <span class="kn">import</span> <span class="n">Resizer</span>
-<span class="linenos"> 49</span><span class="kn">from</span> <span class="nn">pyvar.ml.utils.retriever_https</span> <span class="kn">import</span> <span class="n">HTTPS</span>
-<span class="linenos"> 50</span><span class="kn">from</span> <span class="nn">pyvar.multimedia.helper</span> <span class="kn">import</span> <span class="n">Multimedia</span>
+<span class="linenos"> 44</span><span class="kn">from</span><span class="w"> </span><span class="nn">pyvar.ml.engines.tflite</span><span class="w"> </span><span class="kn">import</span> <span class="n">TFLiteInterpreter</span>
+<span class="linenos"> 45</span><span class="kn">from</span><span class="w"> </span><span class="nn">pyvar.ml.utils.framerate</span><span class="w"> </span><span class="kn">import</span> <span class="n">Framerate</span>
+<span class="linenos"> 46</span><span class="kn">from</span><span class="w"> </span><span class="nn">pyvar.ml.utils.label</span><span class="w"> </span><span class="kn">import</span> <span class="n">Label</span>
+<span class="linenos"> 47</span><span class="kn">from</span><span class="w"> </span><span class="nn">pyvar.ml.utils.overlay</span><span class="w"> </span><span class="kn">import</span> <span class="n">Overlay</span>
+<span class="linenos"> 48</span><span class="kn">from</span><span class="w"> </span><span class="nn">pyvar.ml.utils.resizer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Resizer</span>
+<span class="linenos"> 49</span><span class="kn">from</span><span class="w"> </span><span class="nn">pyvar.ml.utils.retriever_https</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPS</span>
+<span class="linenos"> 50</span><span class="kn">from</span><span class="w"> </span><span class="nn">pyvar.multimedia.helper</span><span class="w"> </span><span class="kn">import</span> <span class="n">Multimedia</span>
 <span class="linenos"> 51</span>
 <span class="linenos"> 52</span><span class="n">SSD_LABELS_LIST</span> <span class="o">=</span> <span class="p">[</span>
 <span class="linenos"> 53</span>    <span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="s2">&quot;bicycle&quot;</span><span class="p">,</span> <span class="s2">&quot;car&quot;</span><span class="p">,</span> <span class="s2">&quot;motorcycle&quot;</span><span class="p">,</span> <span class="s2">&quot;airplane&quot;</span><span class="p">,</span> <span class="s2">&quot;bus&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span>
@@ -287,8 +287,8 @@
 <span class="linenos"> 65</span>    <span class="s2">&quot;hair drier&quot;</span><span class="p">,</span> <span class="s2">&quot;toothbrush&quot;</span><span class="p">]</span>
 <span class="linenos"> 66</span>
 <span class="linenos"> 67</span>
-<span class="linenos"> 68</span><span class="k">class</span> <span class="nc">ObjectSelection</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
-<span class="linenos"> 69</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">exclude_list</span><span class="p">):</span>
+<span class="linenos"> 68</span><span class="k">class</span><span class="w"> </span><span class="nc">ObjectSelection</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
+<span class="linenos"> 69</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">exclude_list</span><span class="p">):</span>
 <span class="linenos"> 70</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span class="linenos"> 71</span>        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
 <span class="linenos"> 72</span>        <span class="bp">self</span><span class="o">.</span><span class="n">exclude_list</span> <span class="o">=</span> <span class="n">exclude_list</span>
@@ -324,13 +324,13 @@
 <span class="linenos">102</span>            <span class="n">horizontal_box</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">switch_button</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="linenos">103</span>            <span class="n">vertical_box</span><span class="o">.</span><span class="n">pack_start</span><span class="p">(</span><span class="n">horizontal_box</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="linenos">104</span>
-<span class="linenos">105</span>    <span class="k">def</span> <span class="nf">on_quit_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+<span class="linenos">105</span>    <span class="k">def</span><span class="w"> </span><span class="nf">on_quit_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
 <span class="linenos">106</span>        <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">()</span>
 <span class="linenos">107</span>
-<span class="linenos">108</span>    <span class="k">def</span> <span class="nf">on_back_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+<span class="linenos">108</span>    <span class="k">def</span><span class="w"> </span><span class="nf">on_back_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
 <span class="linenos">109</span>        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">set_current_page</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="linenos">110</span>
-<span class="linenos">111</span>    <span class="k">def</span> <span class="nf">on_object_switch_activated</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">switch</span><span class="p">,</span> <span class="n">gparam</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+<span class="linenos">111</span>    <span class="k">def</span><span class="w"> </span><span class="nf">on_object_switch_activated</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">switch</span><span class="p">,</span> <span class="n">gparam</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
 <span class="linenos">112</span>        <span class="k">if</span> <span class="n">switch</span><span class="o">.</span><span class="n">get_active</span><span class="p">():</span>
 <span class="linenos">113</span>            <span class="k">if</span> <span class="n">obj</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">exclude_list</span><span class="p">:</span>
 <span class="linenos">114</span>                <span class="bp">self</span><span class="o">.</span><span class="n">exclude_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
@@ -339,8 +339,8 @@
 <span class="linenos">117</span>                <span class="bp">self</span><span class="o">.</span><span class="n">exclude_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 <span class="linenos">118</span>
 <span class="linenos">119</span>
-<span class="linenos">120</span><span class="k">class</span> <span class="nc">RealTimeDetection</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
-<span class="linenos">121</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">exclude_list</span><span class="p">):</span>
+<span class="linenos">120</span><span class="k">class</span><span class="w"> </span><span class="nc">RealTimeDetection</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Frame</span><span class="p">):</span>
+<span class="linenos">121</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">exclude_list</span><span class="p">):</span>
 <span class="linenos">122</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span class="linenos">123</span>        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
 <span class="linenos">124</span>        <span class="bp">self</span><span class="o">.</span><span class="n">exclude_list</span> <span class="o">=</span> <span class="n">exclude_list</span>
@@ -404,13 +404,13 @@
 <span class="linenos">182</span>        <span class="bp">self</span><span class="o">.</span><span class="n">start_interpreter</span><span class="p">()</span>
 <span class="linenos">183</span>        <span class="bp">self</span><span class="o">.</span><span class="n">run_application</span><span class="p">()</span>
 <span class="linenos">184</span>
-<span class="linenos">185</span>    <span class="k">def</span> <span class="nf">on_quit_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+<span class="linenos">185</span>    <span class="k">def</span><span class="w"> </span><span class="nf">on_quit_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
 <span class="linenos">186</span>        <span class="n">Gtk</span><span class="o">.</span><span class="n">main_quit</span><span class="p">()</span>
 <span class="linenos">187</span>
-<span class="linenos">188</span>    <span class="k">def</span> <span class="nf">on_objects_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
+<span class="linenos">188</span>    <span class="k">def</span><span class="w"> </span><span class="nf">on_objects_button_clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="p">):</span>
 <span class="linenos">189</span>        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">set_current_page</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="linenos">190</span>
-<span class="linenos">191</span>    <span class="k">def</span> <span class="nf">set_displayed_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+<span class="linenos">191</span>    <span class="k">def</span><span class="w"> </span><span class="nf">set_displayed_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
 <span class="linenos">192</span>        <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">420</span><span class="p">,</span> <span class="mi">340</span><span class="p">))</span>
 <span class="linenos">193</span>        <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2BGR</span><span class="p">)</span>
 <span class="linenos">194</span>        <span class="n">height</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
@@ -421,15 +421,15 @@
 <span class="linenos">199</span>        <span class="bp">self</span><span class="o">.</span><span class="n">displayed_image</span><span class="o">.</span><span class="n">set_from_pixbuf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pixbuf</span><span class="p">)</span>
 <span class="linenos">200</span>        <span class="bp">self</span><span class="o">.</span><span class="n">pixbuf</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="linenos">201</span>
-<span class="linenos">202</span>    <span class="k">def</span> <span class="nf">run_application</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">202</span>    <span class="k">def</span><span class="w"> </span><span class="nf">run_application</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">203</span>        <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">image_detection</span><span class="p">)</span>
 <span class="linenos">204</span>        <span class="n">thread</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="linenos">205</span>        <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="linenos">206</span>
-<span class="linenos">207</span>    <span class="k">def</span> <span class="nf">start_interpreter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">207</span>    <span class="k">def</span><span class="w"> </span><span class="nf">start_interpreter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">208</span>        <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">TFLiteInterpreter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_file_path</span><span class="p">)</span>
 <span class="linenos">209</span>
-<span class="linenos">210</span>    <span class="k">def</span> <span class="nf">image_detection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">210</span>    <span class="k">def</span><span class="w"> </span><span class="nf">image_detection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">211</span>        <span class="n">resizer</span> <span class="o">=</span> <span class="n">Resizer</span><span class="p">()</span>
 <span class="linenos">212</span>        <span class="n">resizer</span><span class="o">.</span><span class="n">set_sizes</span><span class="p">(</span><span class="n">engine_input_details</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">input_details</span><span class="p">)</span>
 <span class="linenos">213</span>
@@ -477,8 +477,8 @@
 <span class="linenos">255</span>            <span class="n">GLib</span><span class="o">.</span><span class="n">idle_add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">set_displayed_image</span><span class="p">,</span> <span class="n">output_frame</span><span class="p">)</span>
 <span class="linenos">256</span>
 <span class="linenos">257</span>
-<span class="linenos">258</span><span class="k">class</span> <span class="nc">UserInterfaceDetectionExample</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
-<span class="linenos">259</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">258</span><span class="k">class</span><span class="w"> </span><span class="nc">UserInterfaceDetectionExample</span><span class="p">(</span><span class="n">Gtk</span><span class="o">.</span><span class="n">Window</span><span class="p">):</span>
+<span class="linenos">259</span>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="linenos">260</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;User Interface Detection Example&#39;</span><span class="p">)</span>
 <span class="linenos">261</span>        <span class="bp">self</span><span class="o">.</span><span class="n">fullscreen</span><span class="p">()</span>
 <span class="linenos">262</span>        <span class="n">exclude_list</span> <span class="o">=</span> <span class="n">SSD_LABELS_LIST</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>

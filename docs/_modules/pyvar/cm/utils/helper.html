@@ -10,7 +10,7 @@
       
       <!-- sphinx script_files -->
         <script src="../../../../_static/documentation_options.js?v=d45e8c67"></script>
-        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
@@ -170,15 +170,15 @@
 <span class="sd">.. moduleauthor:: Alifer Moraes &lt;alifer.m@variscite.com&gt;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
 
-<span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.config</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 
 <div class="viewcode-block" id="is_cm_enabled">
 <a class="viewcode-back" href="../../../../cmapi/pyvar.cm.utils.html#pyvar.cm.utils.helper.is_cm_enabled">[docs]</a>
-<span class="k">def</span> <span class="nf">is_cm_enabled</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_cm_enabled</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check if the Cortex-M is enabled.</span>
 
@@ -192,7 +192,7 @@
 
 <div class="viewcode-block" id="get_module">
 <a class="viewcode-back" href="../../../../cmapi/pyvar.cm.utils.html#pyvar.cm.utils.helper.get_module">[docs]</a>
-<span class="k">def</span> <span class="nf">get_module</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_module</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the SoM type.</span>
 
@@ -218,7 +218,7 @@
 
 <div class="viewcode-block" id="get_cm_cores">
 <a class="viewcode-back" href="../../../../cmapi/pyvar.cm.utils.html#pyvar.cm.utils.helper.get_cm_cores">[docs]</a>
-<span class="k">def</span> <span class="nf">get_cm_cores</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_cm_cores</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the number of Cortex-M cores.</span>
 
@@ -231,7 +231,7 @@
 
 <div class="viewcode-block" id="get_cm_dtb">
 <a class="viewcode-back" href="../../../../cmapi/pyvar.cm.utils.html#pyvar.cm.utils.helper.get_cm_dtb">[docs]</a>
-<span class="k">def</span> <span class="nf">get_cm_dtb</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_cm_dtb</span><span class="p">(</span><span class="n">module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the DTB file that enables the Cortex-M.</span>
 
@@ -242,7 +242,7 @@
 
 
 
-<span class="k">def</span> <span class="nf">_parse_cm_info</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_parse_cm_info</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get information about the Cortex-M from the variscite-rproc.conf file.</span>
 
@@ -264,7 +264,7 @@
                 <span class="k">return</span> <span class="n">val</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">_firmware_check</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_firmware_check</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check if a file is a valid Cortex-M firmware.</span>
 
@@ -283,7 +283,7 @@
 
 <div class="viewcode-block" id="list_firmwares">
 <a class="viewcode-back" href="../../../../cmapi/pyvar.cm.utils.html#pyvar.cm.utils.helper.list_firmwares">[docs]</a>
-<span class="k">def</span> <span class="nf">list_firmwares</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_firmwares</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    List all the valid Cortex-M firmwares under the firmware directory.</span>
 

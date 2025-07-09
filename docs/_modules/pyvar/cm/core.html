@@ -10,7 +10,7 @@
       
       <!-- sphinx script_files -->
         <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
-        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/doctools.js?v=9bcbadda"></script>
         <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
 
       
@@ -170,17 +170,17 @@
 <span class="sd">.. moduleauthor:: Alifer Moraes &lt;alifer.m@variscite.com&gt;</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-<span class="kn">import</span> <span class="nn">serial</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">serial</span>
 
-<span class="kn">from</span> <span class="nn">.utils.helper</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils.helper</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
 
 
 <div class="viewcode-block" id="CortexM">
 <a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM">[docs]</a>
-<span class="k">class</span> <span class="nc">CortexM</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CortexM</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :ivar module: SoM type;</span>
 <span class="sd">    :ivar core: Cortex-M core being used;</span>
@@ -188,7 +188,7 @@
 <span class="sd">    :ivar firmwares: list all the available Cortex-M firmwares;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tty_offset</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tty_offset</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor method for the Cortex-M class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -201,7 +201,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_firmware_path</span> <span class="o">=</span> <span class="n">CM_FIRMWARE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_state_path</span> <span class="o">=</span> <span class="n">CM_STATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Destructor method for the Cortex-M class.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -211,7 +211,7 @@
             <span class="k">pass</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get which Cortex-M core is being used.</span>
 
@@ -221,7 +221,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_core</span>
 
     <span class="nd">@core</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_n</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_n</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set which Cortex-M core is going to be used.</span>
 
@@ -234,7 +234,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_core</span> <span class="o">=</span> <span class="n">core_n</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the current Cortex-M state.</span>
 
@@ -248,7 +248,7 @@
         <span class="k">return</span> <span class="s2">&quot;unavailable&quot;</span>
 
     <span class="nd">@state</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_state</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_state</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the Cortex-M state.</span>
 
@@ -261,7 +261,7 @@
                 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">new_state</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">firmware</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">firmware</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the current Cortex-M firmware.</span>
 
@@ -275,7 +275,7 @@
         <span class="k">return</span> <span class="s2">&quot;unavailable&quot;</span>
 
     <span class="nd">@firmware</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">firmware</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_firmware</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">firmware</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_firmware</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the Cortex-M firmware.</span>
 
@@ -289,7 +289,7 @@
 
 <div class="viewcode-block" id="CortexM.run">
 <a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM.run">[docs]</a>
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firmware</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firmware</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Run a given firmware into the Cortex-M.</span>
 
@@ -307,7 +307,7 @@
 
 <div class="viewcode-block" id="CortexM.write">
 <a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM.write">[docs]</a>
-    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Send a message to a Cortex-M application via virtual serial port.</span>
 
@@ -325,7 +325,7 @@
 
 <div class="viewcode-block" id="CortexM.read">
 <a class="viewcode-back" href="../../../cmapi/pyvar.cm.core.html#pyvar.cm.core.CortexM.read">[docs]</a>
-    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads a message from a Cortex-M application via virtual serial port.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -337,7 +337,7 @@
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device not found: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tty_rpmsg</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span></div>
 
 
-    <span class="k">def</span> <span class="nf">_validate_cm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_cm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks if Cortex-M is available.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -349,7 +349,7 @@
                      <span class="sa">f</span><span class="s2">&quot;fw_setenv fdt_file </span><span class="si">{</span><span class="n">get_cm_dtb</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">module</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
                      <span class="sa">f</span><span class="s2">&quot; &amp;&amp; reboot&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_validate_firmwares</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_firmwares</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Checks which files in the firmware directory</span>
 <span class="sd">        are valid Cortex-M firmwares.</span>
@@ -362,7 +362,7 @@
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">module</span> <span class="ow">in</span> <span class="n">firmware</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">firmwares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">firmware</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Start the Cortex-M application and loads</span>
 <span class="sd">        the imx_rpms_tty kernel module.</span>
@@ -370,7 +370,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">CM_START</span>
         <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s1">&#39;modprobe&#39;</span><span class="p">,</span> <span class="s1">&#39;imx_rpmsg_tty&#39;</span><span class="p">])</span>
 
-    <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firmware</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firmware</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the Cortex-M firmware.</span>
 
@@ -380,7 +380,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">firmware</span> <span class="o">=</span> <span class="n">firmware</span>
 
-    <span class="k">def</span> <span class="nf">_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stop the Cortex-M application and removes</span>
 <span class="sd">        the imx_rpms_tty kernel module.</span>
