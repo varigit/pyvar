@@ -18,7 +18,7 @@ extensions = ['sphinx.ext.autodoc',
 
 release = '0.0.1'
 project = 'Variscite LTD'
-copyright = '2021-2022 Variscite LTD'
+copyright = '2021-2025 Variscite LTD'
 author = 'Variscite LTD'
 
 templates_path = ['_templates']
@@ -29,9 +29,9 @@ html_static_path = []
 
 html_show_sourcelink = True
 
-html_logo = 'images/logo.png'
+html_logo = 'images/variscite-logo-black.png'
 
-html_favicon = 'images/favicon.png'
+html_favicon = 'images/variscite-favicon.png'
 
 html_show_sphinx = False
 
