@@ -19,7 +19,7 @@
       <!-- <script src="../_static/theme-vendors.js"></script> -->
       <script src="../_static/theme.js" defer></script>
     
-      <link rel="shortcut icon" href="../../_static/favicon.png"/>
+      <link rel="shortcut icon" href="../../_static/variscite-favicon.png"/>
   <link rel="index" title="Index" href="../genindex.html" />
   <link rel="search" title="Search" href="../search.html" />
   <link rel="next" title="Multimedia API" href="../pyvar.multimedia.html" />
@@ -31,7 +31,7 @@
     <div class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
   <router-link to="../index.html" class="home-link">
     
-      <img class="logo" src="../../_static/logo.png" alt="logo"/>
+      <img class="logo" src="../../_static/variscite-logo-black.png" alt="logo"/>
     
   </router-link>
 
@@ -215,60 +215,8 @@
 </section>
 <section id="overlay-class">
 <h2>Overlay Class<a class="headerlink" href="#overlay-class" title="Link to this heading">¶</a></h2>
-<section id="module-pyvar.ml.utils.overlay">
-<span id="pyvar-ml-utils-overlay"></span><h3>pyvar.ml.utils.overlay<a class="headerlink" href="#module-pyvar.ml.utils.overlay" title="Link to this heading">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">platform<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Unix/Yocto</p>
-</dd>
-<dt class="field-even">synopsis<span class="colon">:</span></dt>
-<dd class="field-even"><p>Class to handle overlay on single images and frames.</p>
-</dd>
-</dl>
-<dl class="py class">
-<dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyvar.ml.utils.overlay.</span></span><span class="sig-name descname"><span class="pre">Overlay</span></span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Variables<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>inference_time_info</strong> – shows the inference time on image/frame;</p></li>
-<li><p><strong>scores_info</strong> – shows the scores on image/frame;</p></li>
-<li><p><strong>extra_info</strong> – shows extra info on image/frame;</p></li>
-<li><p><strong>framerate_info</strong> – shows framerate on image/frame.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay.generate_colors">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay.generate_colors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay.generate_colors" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="pyvar.ml.utils.overlay.Overlay.info">
-<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_result</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inference_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pyvar/ml/utils/overlay.html#Overlay.info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyvar.ml.utils.overlay.Overlay.info" title="Link to this definition">¶</a></dt>
-<dd><p>Draw information on single images and frames such as inference time,
-scores, model name, and source file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>category</strong> (<em>str</em>) – model category (classification or detection);</p></li>
-<li><p><strong>image</strong> (<em>numpy array</em>) – original image to overlay the information.</p></li>
-<li><p><strong>top_result</strong> (<em>list</em>) – top results from the inference.</p></li>
-<li><p><strong>labels</strong> (<em>list</em>) – list of the read labels.</p></li>
-<li><p><strong>inference_time</strong> (<em>str</em>) – inference time from TFLiteInterpreter class.</p></li>
-<li><p><strong>model_name</strong> (<em>str</em>) – the model name.</p></li>
-<li><p><strong>source_file</strong> (<em>str</em>) – the source file name.</p></li>
-<li><p><strong>fps</strong> (<em>float</em>) – fpsit from Framerate class.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.array</span></code> image format with the overlaid information.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="pyvar-ml-utils-overlay">
+<h3>pyvar.ml.utils.overlay<a class="headerlink" href="#pyvar-ml-utils-overlay" title="Link to this heading">¶</a></h3>
 </section>
 </section>
 <section id="frames-per-second-calculator-class">
@@ -348,7 +296,7 @@ scores, model name, and source file.</p>
        title="next chapter">Multimedia API →</a>
   </li>
 </ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2021-2022 Variscite LTD.
+      &#169; Copyright 2021-2025 Variscite LTD.
 </div>
             </div>
           </div>
