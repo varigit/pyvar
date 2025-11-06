@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="https://www.variscite.com/">
-    <img src="sphinx/images/var_logo.png" alt="Logo">
+    <img src="sphinx/images/variscite-logo-black.png" alt="Logo">
   </a>
 
 <h3 align="center">Python API for Developers</h3>
